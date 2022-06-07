@@ -9,7 +9,7 @@ namespace Restaurant_booking_system
 
         private void link_registerNewUser_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form registerationForm = new RegisterationForm();
+            Form registerationForm = new Frm_registeration();
             registerationForm.Show();
         }
     }

@@ -1,6 +1,6 @@
 ﻿namespace Restaurant_booking_system
 {
-    partial class RegisterationForm
+    partial class Frm_registeration
     {
         /// <summary>
         /// Required designer variable.

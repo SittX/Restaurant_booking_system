@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Restaurant_booking_system
 {
-    public partial class RegisterationForm : Form
+    public partial class Frm_registeration : Form
     {
-        public RegisterationForm()
+        public Frm_registeration()
         {
             InitializeComponent();
         }
