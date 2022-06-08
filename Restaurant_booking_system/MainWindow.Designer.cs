@@ -30,9 +30,6 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.bookingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.coupleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.familyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.partyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bookingsHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,27 +37,19 @@
             this.panel = new System.Windows.Forms.Panel();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_history = new System.Windows.Forms.Button();
-            this.panel_accountSubMenu = new System.Windows.Forms.Panel();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this.btn_account = new System.Windows.Forms.Button();
-            this.panel_reservationsMenu = new System.Windows.Forms.Panel();
-            this.btn_eventsReservation = new System.Windows.Forms.Button();
-            this.btn_familyReservation = new System.Windows.Forms.Button();
-            this.btn_coupleReservation = new System.Windows.Forms.Button();
             this.btn_reservations = new System.Windows.Forms.Button();
             this.btn_menu = new System.Windows.Forms.Button();
             this.panel_logo = new System.Windows.Forms.Panel();
             this.panel_topMenu = new System.Windows.Forms.Panel();
-            this.btn_exit = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel_main = new System.Windows.Forms.Panel();
-            this.panel_bottom = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.panel.SuspendLayout();
-            this.panel_accountSubMenu.SuspendLayout();
-            this.panel_reservationsMenu.SuspendLayout();
             this.panel_topMenu.SuspendLayout();
+            this.panel_main.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -74,37 +63,15 @@
             this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1207, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1243, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // bookingsToolStripMenuItem
             // 
-            this.bookingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.coupleToolStripMenuItem,
-            this.familyToolStripMenuItem,
-            this.partyToolStripMenuItem});
             this.bookingsToolStripMenuItem.Name = "bookingsToolStripMenuItem";
             this.bookingsToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.bookingsToolStripMenuItem.Text = "&Bookings";
-            // 
-            // coupleToolStripMenuItem
-            // 
-            this.coupleToolStripMenuItem.Name = "coupleToolStripMenuItem";
-            this.coupleToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.coupleToolStripMenuItem.Text = "&Couple";
-            // 
-            // familyToolStripMenuItem
-            // 
-            this.familyToolStripMenuItem.Name = "familyToolStripMenuItem";
-            this.familyToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.familyToolStripMenuItem.Text = "F&amily";
-            // 
-            // partyToolStripMenuItem
-            // 
-            this.partyToolStripMenuItem.Name = "partyToolStripMenuItem";
-            this.partyToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.partyToolStripMenuItem.Text = "&Party";
             // 
             // bookingsHistoryToolStripMenuItem
             // 
@@ -123,6 +90,7 @@
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
             this.logOutToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.logOutToolStripMenuItem.Text = "&Log out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -133,12 +101,10 @@
             // 
             // panel
             // 
-            this.panel.BackColor = System.Drawing.SystemColors.Control;
+            this.panel.BackColor = System.Drawing.Color.Cornsilk;
             this.panel.Controls.Add(this.btn_logout);
             this.panel.Controls.Add(this.btn_history);
-            this.panel.Controls.Add(this.panel_accountSubMenu);
             this.panel.Controls.Add(this.btn_account);
-            this.panel.Controls.Add(this.panel_reservationsMenu);
             this.panel.Controls.Add(this.btn_reservations);
             this.panel.Controls.Add(this.btn_menu);
             this.panel.Controls.Add(this.panel_logo);
@@ -155,7 +121,7 @@
             this.btn_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_logout.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_logout.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btn_logout.Location = new System.Drawing.Point(0, 632);
+            this.btn_logout.Location = new System.Drawing.Point(0, 324);
             this.btn_logout.Name = "btn_logout";
             this.btn_logout.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_logout.Size = new System.Drawing.Size(211, 64);
@@ -171,7 +137,7 @@
             this.btn_history.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_history.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_history.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btn_history.Location = new System.Drawing.Point(0, 568);
+            this.btn_history.Location = new System.Drawing.Point(0, 260);
             this.btn_history.Name = "btn_history";
             this.btn_history.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_history.Size = new System.Drawing.Size(211, 64);
@@ -181,63 +147,6 @@
             this.btn_history.UseVisualStyleBackColor = false;
             this.btn_history.Click += new System.EventHandler(this.btn_history_Click);
             // 
-            // panel_accountSubMenu
-            // 
-            this.panel_accountSubMenu.Controls.Add(this.button9);
-            this.panel_accountSubMenu.Controls.Add(this.button8);
-            this.panel_accountSubMenu.Controls.Add(this.button7);
-            this.panel_accountSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_accountSubMenu.Location = new System.Drawing.Point(0, 410);
-            this.panel_accountSubMenu.Name = "panel_accountSubMenu";
-            this.panel_accountSubMenu.Size = new System.Drawing.Size(211, 158);
-            this.panel_accountSubMenu.TabIndex = 6;
-            this.panel_accountSubMenu.Visible = false;
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.Color.RosyBrown;
-            this.button9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(0, 104);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(211, 54);
-            this.button9.TabIndex = 2;
-            this.button9.Text = "button9";
-            this.button9.UseVisualStyleBackColor = false;
-            // 
-            // button8
-            // 
-            this.button8.BackColor = System.Drawing.Color.RosyBrown;
-            this.button8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(0, 52);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(211, 52);
-            this.button8.TabIndex = 1;
-            this.button8.Text = "button8";
-            this.button8.UseVisualStyleBackColor = false;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.Color.RosyBrown;
-            this.button7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(0, 0);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(211, 52);
-            this.button7.TabIndex = 0;
-            this.button7.Text = "button7";
-            this.button7.UseVisualStyleBackColor = false;
-            // 
             // btn_account
             // 
             this.btn_account.BackColor = System.Drawing.Color.IndianRed;
@@ -245,7 +154,7 @@
             this.btn_account.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_account.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_account.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btn_account.Location = new System.Drawing.Point(0, 357);
+            this.btn_account.Location = new System.Drawing.Point(0, 207);
             this.btn_account.Name = "btn_account";
             this.btn_account.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_account.Size = new System.Drawing.Size(211, 53);
@@ -254,66 +163,6 @@
             this.btn_account.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_account.UseVisualStyleBackColor = false;
             this.btn_account.Click += new System.EventHandler(this.btn_account_Click);
-            // 
-            // panel_reservationsMenu
-            // 
-            this.panel_reservationsMenu.Controls.Add(this.btn_eventsReservation);
-            this.panel_reservationsMenu.Controls.Add(this.btn_familyReservation);
-            this.panel_reservationsMenu.Controls.Add(this.btn_coupleReservation);
-            this.panel_reservationsMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_reservationsMenu.Location = new System.Drawing.Point(0, 207);
-            this.panel_reservationsMenu.Name = "panel_reservationsMenu";
-            this.panel_reservationsMenu.Size = new System.Drawing.Size(211, 150);
-            this.panel_reservationsMenu.TabIndex = 4;
-            this.panel_reservationsMenu.Visible = false;
-            // 
-            // btn_eventsReservation
-            // 
-            this.btn_eventsReservation.BackColor = System.Drawing.Color.RosyBrown;
-            this.btn_eventsReservation.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_eventsReservation.FlatAppearance.BorderSize = 0;
-            this.btn_eventsReservation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_eventsReservation.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_eventsReservation.ForeColor = System.Drawing.Color.White;
-            this.btn_eventsReservation.Location = new System.Drawing.Point(0, 98);
-            this.btn_eventsReservation.Name = "btn_eventsReservation";
-            this.btn_eventsReservation.Size = new System.Drawing.Size(211, 51);
-            this.btn_eventsReservation.TabIndex = 2;
-            this.btn_eventsReservation.Text = "Events";
-            this.btn_eventsReservation.UseVisualStyleBackColor = false;
-            this.btn_eventsReservation.Click += new System.EventHandler(this.btn_eventsReservation_Click);
-            // 
-            // btn_familyReservation
-            // 
-            this.btn_familyReservation.BackColor = System.Drawing.Color.RosyBrown;
-            this.btn_familyReservation.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_familyReservation.FlatAppearance.BorderSize = 0;
-            this.btn_familyReservation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_familyReservation.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_familyReservation.ForeColor = System.Drawing.Color.White;
-            this.btn_familyReservation.Location = new System.Drawing.Point(0, 49);
-            this.btn_familyReservation.Name = "btn_familyReservation";
-            this.btn_familyReservation.Size = new System.Drawing.Size(211, 49);
-            this.btn_familyReservation.TabIndex = 1;
-            this.btn_familyReservation.Text = "Family";
-            this.btn_familyReservation.UseVisualStyleBackColor = false;
-            this.btn_familyReservation.Click += new System.EventHandler(this.btn_familyReservation_Click);
-            // 
-            // btn_coupleReservation
-            // 
-            this.btn_coupleReservation.BackColor = System.Drawing.Color.RosyBrown;
-            this.btn_coupleReservation.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_coupleReservation.FlatAppearance.BorderSize = 0;
-            this.btn_coupleReservation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_coupleReservation.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_coupleReservation.ForeColor = System.Drawing.Color.White;
-            this.btn_coupleReservation.Location = new System.Drawing.Point(0, 0);
-            this.btn_coupleReservation.Name = "btn_coupleReservation";
-            this.btn_coupleReservation.Size = new System.Drawing.Size(211, 49);
-            this.btn_coupleReservation.TabIndex = 0;
-            this.btn_coupleReservation.Text = "Couple";
-            this.btn_coupleReservation.UseVisualStyleBackColor = false;
-            this.btn_coupleReservation.Click += new System.EventHandler(this.btn_coupleReservation_Click);
             // 
             // btn_reservations
             // 
@@ -347,11 +196,10 @@
             this.btn_menu.Text = "Menu";
             this.btn_menu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_menu.UseVisualStyleBackColor = false;
-            this.btn_menu.Click += new System.EventHandler(this.btn_menu_Click);
             // 
             // panel_logo
             // 
-            this.panel_logo.BackColor = System.Drawing.Color.Snow;
+            this.panel_logo.BackColor = System.Drawing.Color.Cornsilk;
             this.panel_logo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_logo.Location = new System.Drawing.Point(0, 0);
             this.panel_logo.Name = "panel_logo";
@@ -360,65 +208,66 @@
             // 
             // panel_topMenu
             // 
-            this.panel_topMenu.Controls.Add(this.btn_exit);
+            this.panel_topMenu.BackColor = System.Drawing.Color.Cornsilk;
+            this.panel_topMenu.Controls.Add(this.label1);
             this.panel_topMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_topMenu.Location = new System.Drawing.Point(211, 24);
             this.panel_topMenu.Name = "panel_topMenu";
-            this.panel_topMenu.Size = new System.Drawing.Size(996, 33);
+            this.panel_topMenu.Size = new System.Drawing.Size(1032, 45);
             this.panel_topMenu.TabIndex = 2;
             // 
-            // btn_exit
+            // label1
             // 
-            this.btn_exit.BackColor = System.Drawing.Color.Firebrick;
-            this.btn_exit.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btn_exit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_exit.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_exit.ForeColor = System.Drawing.Color.White;
-            this.btn_exit.Location = new System.Drawing.Point(960, 0);
-            this.btn_exit.Name = "btn_exit";
-            this.btn_exit.Size = new System.Drawing.Size(36, 33);
-            this.btn_exit.TabIndex = 0;
-            this.btn_exit.Text = "X";
-            this.btn_exit.UseVisualStyleBackColor = false;
-            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Constantia", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(265, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(419, 36);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Restaurant bookings application";
             // 
             // panel_main
             // 
+            this.panel_main.BackColor = System.Drawing.Color.Cornsilk;
+            this.panel_main.Controls.Add(this.pictureBox1);
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_main.Location = new System.Drawing.Point(211, 57);
+            this.panel_main.Location = new System.Drawing.Point(211, 69);
             this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(996, 743);
+            this.panel_main.Size = new System.Drawing.Size(1032, 731);
             this.panel_main.TabIndex = 3;
             // 
-            // panel_bottom
+            // pictureBox1
             // 
-            this.panel_bottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_bottom.Location = new System.Drawing.Point(211, 763);
-            this.panel_bottom.Name = "panel_bottom";
-            this.panel_bottom.Size = new System.Drawing.Size(996, 37);
-            this.panel_bottom.TabIndex = 4;
+            this.pictureBox1.Image = global::Restaurant_booking_system.Properties.Resources.FineDiner;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 35);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(993, 556);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1207, 800);
-            this.Controls.Add(this.panel_bottom);
+            this.ClientSize = new System.Drawing.Size(1243, 800);
             this.Controls.Add(this.panel_main);
             this.Controls.Add(this.panel_topMenu);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1120, 800);
             this.Name = "MainWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainWindow";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel.ResumeLayout(false);
-            this.panel_accountSubMenu.ResumeLayout(false);
-            this.panel_reservationsMenu.ResumeLayout(false);
             this.panel_topMenu.ResumeLayout(false);
+            this.panel_topMenu.PerformLayout();
+            this.panel_main.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -428,31 +277,20 @@
 
         private MenuStrip menuStrip1;
         private ToolStripMenuItem bookingsToolStripMenuItem;
-        private ToolStripMenuItem coupleToolStripMenuItem;
-        private ToolStripMenuItem familyToolStripMenuItem;
-        private ToolStripMenuItem partyToolStripMenuItem;
         private ToolStripMenuItem bookingsHistoryToolStripMenuItem;
         private ToolStripMenuItem accountToolStripMenuItem;
         private ToolStripMenuItem logOutToolStripMenuItem;
         private ToolStripMenuItem exitToolStripMenuItem;
         private Panel panel;
         private Button btn_history;
-        private Panel panel_accountSubMenu;
         private Button btn_account;
-        private Panel panel_reservationsMenu;
         private Button btn_reservations;
         private Button btn_menu;
         private Panel panel_topMenu;
         private Panel panel_main;
-        private Button btn_eventsReservation;
-        private Button btn_familyReservation;
-        private Button btn_coupleReservation;
-        private Button button9;
-        private Button button8;
-        private Button button7;
-        private Button btn_exit;
-        private Panel panel_bottom;
         private Button btn_logout;
         private Panel panel_logo;
+        private Label label1;
+        private PictureBox pictureBox1;
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Restaurant_booking_system
 {
-    public partial class userCtrl_eventsReservation : UserControl
+    public partial class userCtrl_Account : UserControl
     {
-        public userCtrl_eventsReservation()
+        public userCtrl_Account()
         {
             InitializeComponent();
         }

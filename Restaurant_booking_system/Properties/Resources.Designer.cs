@@ -63,6 +63,16 @@ namespace Restaurant_booking_system.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FineDiner {
+            get {
+                object obj = ResourceManager.GetObject("FineDiner", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LoginBG {
             get {
                 object obj = ResourceManager.GetObject("LoginBG", resourceCulture);
@@ -76,6 +86,26 @@ namespace Restaurant_booking_system.Properties {
         internal static System.Drawing.Bitmap LoginBG__2_ {
             get {
                 object obj = ResourceManager.GetObject("LoginBG (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap reservationIcon {
+            get {
+                object obj = ResourceManager.GetObject("reservationIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap users {
+            get {
+                object obj = ResourceManager.GetObject("users", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -12,5 +12,17 @@ namespace Restaurant_booking_system
             Form registerationForm = new Frm_registeration();
             registerationForm.Show();
         }
+
+        // Authentication and authorization code should goes here
+        private void btn_login_Click(object sender, EventArgs e)
+        {
+
+            Form HomeWindow = new MainWindow();
+            HomeWindow.Show();
+
+
+            //this.Close();
+
+        }
     }
 }
