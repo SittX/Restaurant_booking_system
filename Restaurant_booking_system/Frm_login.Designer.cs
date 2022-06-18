@@ -1,6 +1,6 @@
 ﻿namespace Restaurant_booking_system
 {
-    partial class LoginForm
+    partial class Frm_login
     {
         /// <summary>
         ///  Required designer variable.

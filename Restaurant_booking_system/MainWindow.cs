@@ -28,7 +28,7 @@ namespace Restaurant_booking_system
         {
             if(MessageBox.Show("Are you sure to exit?","Exit",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                Form loginForm = new LoginForm();
+                Form loginForm = new Frm_login();
                 loginForm.Show();
 
                 this.Close();
