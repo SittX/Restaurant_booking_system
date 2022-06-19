@@ -21,12 +21,11 @@ namespace Restaurant_booking_system
         /// User password should also be hashed for data security
         /// We should also check the phone number of the user
         /// </summary>
-        private User _newUser;
-        private RestaurantDataSet.customersTableAdapter customerTableAdapter = new RestaurantDataSet.customersTableAdapter();
+        private RestaurantDataSetTableAdapters.customersTableAdapter customerTableAdapter;
         public RegisterationForm()
         {
             InitializeComponent();
-
+            customerTableAdapter = new RestaurantDataSetTableAdapters.customersTableAdapter();
 
         }
 
@@ -36,7 +35,7 @@ namespace Restaurant_booking_system
             {
                 if (ValidateInputs())
                 {
-                    _newUser = new User()
+                    User _newUser = new User()
                     {
                         Firstname = txtbox_fname.Text,
                         Lastname = txtbox_lname.Text,

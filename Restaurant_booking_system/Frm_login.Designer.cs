@@ -39,6 +39,7 @@
             this.txtBox_loginUsername = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btn_cancel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -51,7 +52,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(584, 65);
+            this.panel1.Size = new System.Drawing.Size(693, 65);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -72,9 +73,9 @@
             this.panel2.Controls.Add(this.link_registerNewUser);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 359);
+            this.panel2.Location = new System.Drawing.Point(0, 481);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(584, 37);
+            this.panel2.Size = new System.Drawing.Size(693, 37);
             this.panel2.TabIndex = 1;
             // 
             // link_registerNewUser
@@ -82,7 +83,7 @@
             this.link_registerNewUser.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.link_registerNewUser.AutoSize = true;
             this.link_registerNewUser.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.link_registerNewUser.Location = new System.Drawing.Point(252, 10);
+            this.link_registerNewUser.Location = new System.Drawing.Point(306, 10);
             this.link_registerNewUser.Name = "link_registerNewUser";
             this.link_registerNewUser.Size = new System.Drawing.Size(67, 18);
             this.link_registerNewUser.TabIndex = 1;
@@ -96,7 +97,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(156, 11);
+            this.label4.Location = new System.Drawing.Point(210, 11);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 19);
             this.label4.TabIndex = 0;
@@ -107,6 +108,7 @@
             // 
             this.panel3.BackgroundImage = global::Restaurant_booking_system.Properties.Resources.LoginBG__2_;
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel3.Controls.Add(this.btn_cancel);
             this.panel3.Controls.Add(this.btn_login);
             this.panel3.Controls.Add(this.mskTxtBox_password);
             this.panel3.Controls.Add(this.txtBox_loginUsername);
@@ -115,24 +117,26 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 65);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(584, 294);
+            this.panel3.Size = new System.Drawing.Size(693, 416);
             this.panel3.TabIndex = 2;
             // 
             // btn_login
             // 
+            this.btn_login.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_login.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_login.Location = new System.Drawing.Point(320, 216);
+            this.btn_login.Location = new System.Drawing.Point(279, 267);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(94, 35);
             this.btn_login.TabIndex = 5;
             this.btn_login.Text = "Login";
-            this.btn_login.UseVisualStyleBackColor = true;
+            this.btn_login.UseVisualStyleBackColor = false;
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
             // mskTxtBox_password
             // 
             this.mskTxtBox_password.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.mskTxtBox_password.Location = new System.Drawing.Point(152, 159);
+            this.mskTxtBox_password.Location = new System.Drawing.Point(213, 212);
             this.mskTxtBox_password.Name = "mskTxtBox_password";
             this.mskTxtBox_password.PasswordChar = '*';
             this.mskTxtBox_password.Size = new System.Drawing.Size(262, 26);
@@ -141,7 +145,7 @@
             // txtBox_loginUsername
             // 
             this.txtBox_loginUsername.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtBox_loginUsername.Location = new System.Drawing.Point(149, 68);
+            this.txtBox_loginUsername.Location = new System.Drawing.Point(210, 121);
             this.txtBox_loginUsername.Name = "txtBox_loginUsername";
             this.txtBox_loginUsername.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txtBox_loginUsername.Size = new System.Drawing.Size(265, 26);
@@ -153,7 +157,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Snow;
-            this.label3.Location = new System.Drawing.Point(152, 134);
+            this.label3.Location = new System.Drawing.Point(213, 187);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 22);
             this.label3.TabIndex = 1;
@@ -165,17 +169,30 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(149, 43);
+            this.label2.Location = new System.Drawing.Point(210, 96);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 22);
             this.label2.TabIndex = 0;
             this.label2.Text = "Username";
             // 
-            // LoginForm
+            // btn_cancel
+            // 
+            this.btn_cancel.BackColor = System.Drawing.Color.IndianRed;
+            this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cancel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_cancel.Location = new System.Drawing.Point(381, 267);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(94, 35);
+            this.btn_cancel.TabIndex = 6;
+            this.btn_cancel.Text = "Cancel";
+            this.btn_cancel.UseVisualStyleBackColor = false;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
+            // 
+            // Frm_login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 396);
+            this.ClientSize = new System.Drawing.Size(693, 518);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -183,7 +200,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(600, 400);
-            this.Name = "LoginForm";
+            this.Name = "Frm_login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.panel1.ResumeLayout(false);
@@ -209,5 +226,6 @@
         private LinkLabel link_registerNewUser;
         private Label label4;
         private Button btn_login;
+        private Button btn_cancel;
     }
 }

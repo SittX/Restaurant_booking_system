@@ -30,6 +30,12 @@ namespace Restaurant_booking_system.InputValidations
             return true;
         }
 
+
+        public static bool ValidatePhoneNumber(TextBox textbox)
+        {
+            return false;
+        }
+
         // This method checks whether the textbox values is null or empty
         public static bool ValidateNullOrEmpty(TextBox textbox)
         {
@@ -44,6 +50,9 @@ namespace Restaurant_booking_system.InputValidations
             }
             return true;
         }
+
+
+
 
     }
 }
