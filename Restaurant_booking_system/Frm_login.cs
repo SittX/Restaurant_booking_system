@@ -1,3 +1,4 @@
+using Restaurant_booking_system.Admin;
 using System.Data;
 using static Restaurant_booking_system.RestaurantDataSet;
 
@@ -56,8 +57,8 @@ namespace Restaurant_booking_system
                 {
                     var name = adminDt[0][1].ToString();
                     MessageBox.Show($"Welcome! {name}");
-                    Form HomeWindow = new MainWindow();
-                    HomeWindow.Show();
+                    Form adminDashboard = new Frm_AdminDashboard();
+                    adminDashboard.Show();
                     return true;
                 }
                 else

@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel_main = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel_topMenu = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel = new System.Windows.Forms.Panel();
@@ -45,33 +43,13 @@
             this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel_main.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel_mainBackground = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel_topMenu.SuspendLayout();
             this.panel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.panel_mainBackground.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel_main
-            // 
-            this.panel_main.BackColor = System.Drawing.Color.Cornsilk;
-            this.panel_main.Controls.Add(this.pictureBox1);
-            this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_main.Location = new System.Drawing.Point(211, 75);
-            this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(1044, 676);
-            this.panel_main.TabIndex = 7;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::Restaurant_booking_system.Properties.Resources.FineDiner;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1044, 676);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // panel_topMenu
             // 
@@ -80,7 +58,7 @@
             this.panel_topMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_topMenu.Location = new System.Drawing.Point(211, 24);
             this.panel_topMenu.Name = "panel_topMenu";
-            this.panel_topMenu.Size = new System.Drawing.Size(1044, 51);
+            this.panel_topMenu.Size = new System.Drawing.Size(1173, 51);
             this.panel_topMenu.TabIndex = 6;
             // 
             // label1
@@ -105,7 +83,7 @@
             this.panel.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel.Location = new System.Drawing.Point(0, 24);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(211, 727);
+            this.panel.Size = new System.Drawing.Size(211, 787);
             this.panel.TabIndex = 5;
             // 
             // btn_logout
@@ -123,6 +101,7 @@
             this.btn_logout.Text = "Log Out";
             this.btn_logout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_logout.UseVisualStyleBackColor = false;
+            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
             // 
             // btn_services
             // 
@@ -139,6 +118,7 @@
             this.btn_services.Text = "Services";
             this.btn_services.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_services.UseVisualStyleBackColor = false;
+            this.btn_services.Click += new System.EventHandler(this.btn_services_Click);
             // 
             // btn_account
             // 
@@ -155,6 +135,7 @@
             this.btn_account.Text = "Account";
             this.btn_account.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_account.UseVisualStyleBackColor = false;
+            this.btn_account.Click += new System.EventHandler(this.btn_account_Click);
             // 
             // btn_reservations
             // 
@@ -171,6 +152,7 @@
             this.btn_reservations.Text = "Reservations";
             this.btn_reservations.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_reservations.UseVisualStyleBackColor = false;
+            this.btn_reservations.Click += new System.EventHandler(this.btn_reservations_Click);
             // 
             // btn_menu
             // 
@@ -208,7 +190,7 @@
             this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1255, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1384, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -242,33 +224,49 @@
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.exitToolStripMenuItem.Text = "E&xit";
             // 
+            // panel_mainBackground
+            // 
+            this.panel_mainBackground.Controls.Add(this.label2);
+            this.panel_mainBackground.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_mainBackground.Location = new System.Drawing.Point(211, 75);
+            this.panel_mainBackground.Name = "panel_mainBackground";
+            this.panel_mainBackground.Size = new System.Drawing.Size(1173, 736);
+            this.panel_mainBackground.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(332, 206);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(66, 15);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Main panel";
+            // 
             // Frm_AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1255, 751);
-            this.Controls.Add(this.panel_main);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(1384, 811);
+            this.Controls.Add(this.panel_mainBackground);
             this.Controls.Add(this.panel_topMenu);
             this.Controls.Add(this.panel);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Frm_AdminDashboard";
             this.Text = "Frm_AdminDashboard";
-            this.panel_main.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel_topMenu.ResumeLayout(false);
             this.panel_topMenu.PerformLayout();
             this.panel.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel_mainBackground.ResumeLayout(false);
+            this.panel_mainBackground.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private Panel panel_main;
-        private PictureBox pictureBox1;
         private Panel panel_topMenu;
         private Label label1;
         private Panel panel;
@@ -284,5 +282,7 @@
         private ToolStripMenuItem accountToolStripMenuItem;
         private ToolStripMenuItem logOutToolStripMenuItem;
         private ToolStripMenuItem exitToolStripMenuItem;
+        private Panel panel_mainBackground;
+        private Label label2;
     }
 }

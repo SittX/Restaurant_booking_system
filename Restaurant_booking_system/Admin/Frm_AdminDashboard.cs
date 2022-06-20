@@ -16,5 +16,32 @@ namespace Restaurant_booking_system.Admin
         {
             InitializeComponent();
         }
+
+        private void SwitchUserControl(UserControl userCtrl)
+        {
+            userCtrl.Dock = DockStyle.Fill;
+            userCtrl.Show();
+            panel_mainBackground.Controls.Clear();
+            panel_mainBackground.Controls.Add(userCtrl);
+        }
+        private void btn_account_Click(object sender, EventArgs e)
+        {
+            SwitchUserControl(new userCtrl_AdminAccount());
+        }
+
+        private void btn_reservations_Click(object sender, EventArgs e)
+        {
+            SwitchUserControl(new userCtrl_adminReservations());
+        }
+
+        private void btn_services_Click(object sender, EventArgs e)
+        {
+            SwitchUserControl(new userCtrl_adminServices());
+        }
+
+        private void btn_logout_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
