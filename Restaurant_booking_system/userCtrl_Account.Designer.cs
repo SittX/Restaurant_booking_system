@@ -72,7 +72,7 @@
             // btn_updatePassword
             // 
             this.btn_updatePassword.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_updatePassword.Location = new System.Drawing.Point(33, 430);
+            this.btn_updatePassword.Location = new System.Drawing.Point(230, 416);
             this.btn_updatePassword.Name = "btn_updatePassword";
             this.btn_updatePassword.Size = new System.Drawing.Size(156, 37);
             this.btn_updatePassword.TabIndex = 12;
@@ -217,6 +217,7 @@
             this.Controls.Add(this.panel_top);
             this.Name = "userCtrl_Account";
             this.Size = new System.Drawing.Size(774, 726);
+            this.Load += new System.EventHandler(this.userCtrl_Account_Load);
             this.panel_top.ResumeLayout(false);
             this.panel_top.PerformLayout();
             this.panel_bottom.ResumeLayout(false);

@@ -38,17 +38,16 @@
             this.btn_menu = new System.Windows.Forms.Button();
             this.panel_logo = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.bookingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bookingsHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.accountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip_menu = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip_reservations = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip_account = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip_services = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip_logout = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip_exit = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_mainBackground = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel_topMenu.SuspendLayout();
             this.panel.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.panel_mainBackground.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_topMenu
@@ -58,7 +57,7 @@
             this.panel_topMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_topMenu.Location = new System.Drawing.Point(211, 24);
             this.panel_topMenu.Name = "panel_topMenu";
-            this.panel_topMenu.Size = new System.Drawing.Size(1173, 51);
+            this.panel_topMenu.Size = new System.Drawing.Size(1004, 51);
             this.panel_topMenu.TabIndex = 6;
             // 
             // label1
@@ -83,7 +82,7 @@
             this.panel.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel.Location = new System.Drawing.Point(0, 24);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(211, 787);
+            this.panel.Size = new System.Drawing.Size(211, 693);
             this.panel.TabIndex = 5;
             // 
             // btn_logout
@@ -169,6 +168,7 @@
             this.btn_menu.Text = "Menu";
             this.btn_menu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_menu.UseVisualStyleBackColor = false;
+            this.btn_menu.Click += new System.EventHandler(this.btn_menu_Click);
             // 
             // panel_logo
             // 
@@ -183,71 +183,74 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.RosyBrown;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.bookingsToolStripMenuItem,
-            this.bookingsHistoryToolStripMenuItem,
-            this.accountToolStripMenuItem,
-            this.logOutToolStripMenuItem,
-            this.exitToolStripMenuItem});
+            this.menuStrip_menu,
+            this.menuStrip_reservations,
+            this.menuStrip_account,
+            this.menuStrip_services,
+            this.menuStrip_logout,
+            this.menuStrip_exit});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1384, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1215, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // bookingsToolStripMenuItem
+            // menuStrip_menu
             // 
-            this.bookingsToolStripMenuItem.Name = "bookingsToolStripMenuItem";
-            this.bookingsToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
-            this.bookingsToolStripMenuItem.Text = "&Bookings";
+            this.menuStrip_menu.Name = "menuStrip_menu";
+            this.menuStrip_menu.Size = new System.Drawing.Size(50, 20);
+            this.menuStrip_menu.Text = "&Menu";
+            this.menuStrip_menu.Click += new System.EventHandler(this.menuStrip_menu_Click);
             // 
-            // bookingsHistoryToolStripMenuItem
+            // menuStrip_reservations
             // 
-            this.bookingsHistoryToolStripMenuItem.Name = "bookingsHistoryToolStripMenuItem";
-            this.bookingsHistoryToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
-            this.bookingsHistoryToolStripMenuItem.Text = "Bookings &History";
+            this.menuStrip_reservations.Name = "menuStrip_reservations";
+            this.menuStrip_reservations.Size = new System.Drawing.Size(85, 20);
+            this.menuStrip_reservations.Text = "&Reservations";
+            this.menuStrip_reservations.Click += new System.EventHandler(this.menuStrip_reservations_Click);
             // 
-            // accountToolStripMenuItem
+            // menuStrip_account
             // 
-            this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.accountToolStripMenuItem.Text = "&Account";
+            this.menuStrip_account.Name = "menuStrip_account";
+            this.menuStrip_account.Size = new System.Drawing.Size(64, 20);
+            this.menuStrip_account.Text = "&Account";
+            this.menuStrip_account.Click += new System.EventHandler(this.menuStrip_account_Click);
             // 
-            // logOutToolStripMenuItem
+            // menuStrip_services
             // 
-            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.logOutToolStripMenuItem.Text = "&Log out";
+            this.menuStrip_services.Name = "menuStrip_services";
+            this.menuStrip_services.Size = new System.Drawing.Size(61, 20);
+            this.menuStrip_services.Text = "&Services";
+            this.menuStrip_services.Click += new System.EventHandler(this.menuStrip_services_Click);
             // 
-            // exitToolStripMenuItem
+            // menuStrip_logout
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
-            this.exitToolStripMenuItem.Text = "E&xit";
+            this.menuStrip_logout.Name = "menuStrip_logout";
+            this.menuStrip_logout.Size = new System.Drawing.Size(60, 20);
+            this.menuStrip_logout.Text = "&Log out";
+            this.menuStrip_logout.Click += new System.EventHandler(this.menuStrip_logout_Click);
+            // 
+            // menuStrip_exit
+            // 
+            this.menuStrip_exit.Name = "menuStrip_exit";
+            this.menuStrip_exit.Size = new System.Drawing.Size(38, 20);
+            this.menuStrip_exit.Text = "E&xit";
+            this.menuStrip_exit.Click += new System.EventHandler(this.menuStrip_exit_Click);
             // 
             // panel_mainBackground
             // 
-            this.panel_mainBackground.Controls.Add(this.label2);
             this.panel_mainBackground.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_mainBackground.Location = new System.Drawing.Point(211, 75);
             this.panel_mainBackground.Name = "panel_mainBackground";
-            this.panel_mainBackground.Size = new System.Drawing.Size(1173, 736);
+            this.panel_mainBackground.Size = new System.Drawing.Size(1004, 642);
             this.panel_mainBackground.TabIndex = 7;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(332, 206);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(66, 15);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Main panel";
             // 
             // Frm_AdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1384, 811);
+            this.ClientSize = new System.Drawing.Size(1215, 717);
             this.Controls.Add(this.panel_mainBackground);
             this.Controls.Add(this.panel_topMenu);
             this.Controls.Add(this.panel);
@@ -259,8 +262,6 @@
             this.panel.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.panel_mainBackground.ResumeLayout(false);
-            this.panel_mainBackground.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,12 +278,12 @@
         private Button btn_menu;
         private Panel panel_logo;
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem bookingsToolStripMenuItem;
-        private ToolStripMenuItem bookingsHistoryToolStripMenuItem;
-        private ToolStripMenuItem accountToolStripMenuItem;
-        private ToolStripMenuItem logOutToolStripMenuItem;
-        private ToolStripMenuItem exitToolStripMenuItem;
+        private ToolStripMenuItem menuStrip_menu;
+        private ToolStripMenuItem menuStrip_reservations;
+        private ToolStripMenuItem menuStrip_account;
+        private ToolStripMenuItem menuStrip_logout;
+        private ToolStripMenuItem menuStrip_exit;
         private Panel panel_mainBackground;
-        private Label label2;
+        private ToolStripMenuItem menuStrip_services;
     }
 }

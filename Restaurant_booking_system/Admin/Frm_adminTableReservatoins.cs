@@ -10,17 +10,16 @@ using System.Windows.Forms;
 
 namespace Restaurant_booking_system.Admin
 {
-    public partial class userCtrl_adminReservations : UserControl
+    public partial class Frm_adminTableReservatoins : Form
     {
-        public userCtrl_adminReservations()
+        public Frm_adminTableReservatoins()
         {
             InitializeComponent();
         }
 
-        private void btn_makeReservation_Click(object sender, EventArgs e)
+        private void btn_cancelReservation_Click(object sender, EventArgs e)
         {
-            Form reservationFrm = new Frm_adminTableReservatoins();
-            reservationFrm.Show();
+            this.Close();
         }
     }
 }

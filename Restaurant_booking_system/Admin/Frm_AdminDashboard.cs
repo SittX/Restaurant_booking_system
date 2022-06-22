@@ -15,8 +15,10 @@ namespace Restaurant_booking_system.Admin
         public Frm_AdminDashboard()
         {
             InitializeComponent();
+            SwitchUserControl(new userCtrl_adminMenu());
         }
 
+        #region Menu and panels navigations
         private void SwitchUserControl(UserControl userCtrl)
         {
             userCtrl.Dock = DockStyle.Fill;
@@ -39,9 +41,51 @@ namespace Restaurant_booking_system.Admin
             SwitchUserControl(new userCtrl_adminServices());
         }
 
+        private void btn_menu_Click(object sender, EventArgs e)
+        {
+            SwitchUserControl(new userCtrl_adminMenu());
+        }
+        #endregion
+
+        #region Menu strips buttons
         private void btn_logout_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void menuStrip_menu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip_reservations_Click(object sender, EventArgs e)
+        {
+            SwitchUserControl(new userCtrl_adminReservations());
+
+        }
+
+        private void menuStrip_account_Click(object sender, EventArgs e)
+        {
+            SwitchUserControl(new userCtrl_AdminAccount());
+        }
+
+        private void menuStrip_logout_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void menuStrip_exit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip_services_Click(object sender, EventArgs e)
+        {
+            SwitchUserControl(new userCtrl_adminServices());
+        }
+
+
+        #endregion
+
+        
     }
 }

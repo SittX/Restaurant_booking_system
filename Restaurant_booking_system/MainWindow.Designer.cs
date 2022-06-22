@@ -44,12 +44,10 @@
             this.panel_topMenu = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_main = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel.SuspendLayout();
             this.panel_topMenu.SuspendLayout();
-            this.panel_main.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -59,6 +57,7 @@
             this.bookingsToolStripMenuItem,
             this.bookingsHistoryToolStripMenuItem,
             this.accountToolStripMenuItem,
+            this.historyToolStripMenuItem,
             this.logOutToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -70,14 +69,14 @@
             // bookingsToolStripMenuItem
             // 
             this.bookingsToolStripMenuItem.Name = "bookingsToolStripMenuItem";
-            this.bookingsToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
-            this.bookingsToolStripMenuItem.Text = "&Bookings";
+            this.bookingsToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.bookingsToolStripMenuItem.Text = "&Menu";
             // 
             // bookingsHistoryToolStripMenuItem
             // 
             this.bookingsHistoryToolStripMenuItem.Name = "bookingsHistoryToolStripMenuItem";
-            this.bookingsHistoryToolStripMenuItem.Size = new System.Drawing.Size(109, 20);
-            this.bookingsHistoryToolStripMenuItem.Text = "Bookings &History";
+            this.bookingsHistoryToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
+            this.bookingsHistoryToolStripMenuItem.Text = "&Reservations";
             // 
             // accountToolStripMenuItem
             // 
@@ -101,7 +100,7 @@
             // 
             // panel
             // 
-            this.panel.BackColor = System.Drawing.Color.Cornsilk;
+            this.panel.BackColor = System.Drawing.Color.Linen;
             this.panel.Controls.Add(this.btn_logout);
             this.panel.Controls.Add(this.btn_history);
             this.panel.Controls.Add(this.btn_account);
@@ -116,11 +115,11 @@
             // 
             // btn_logout
             // 
-            this.btn_logout.BackColor = System.Drawing.Color.IndianRed;
+            this.btn_logout.BackColor = System.Drawing.Color.RosyBrown;
             this.btn_logout.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_logout.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_logout.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btn_logout.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_logout.Location = new System.Drawing.Point(0, 324);
             this.btn_logout.Name = "btn_logout";
             this.btn_logout.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -132,11 +131,11 @@
             // 
             // btn_history
             // 
-            this.btn_history.BackColor = System.Drawing.Color.IndianRed;
+            this.btn_history.BackColor = System.Drawing.Color.RosyBrown;
             this.btn_history.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_history.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_history.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_history.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btn_history.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_history.Location = new System.Drawing.Point(0, 260);
             this.btn_history.Name = "btn_history";
             this.btn_history.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -149,11 +148,11 @@
             // 
             // btn_account
             // 
-            this.btn_account.BackColor = System.Drawing.Color.IndianRed;
+            this.btn_account.BackColor = System.Drawing.Color.RosyBrown;
             this.btn_account.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_account.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_account.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_account.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btn_account.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_account.Location = new System.Drawing.Point(0, 207);
             this.btn_account.Name = "btn_account";
             this.btn_account.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -166,11 +165,11 @@
             // 
             // btn_reservations
             // 
-            this.btn_reservations.BackColor = System.Drawing.Color.IndianRed;
+            this.btn_reservations.BackColor = System.Drawing.Color.RosyBrown;
             this.btn_reservations.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_reservations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_reservations.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_reservations.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btn_reservations.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_reservations.Location = new System.Drawing.Point(0, 154);
             this.btn_reservations.Name = "btn_reservations";
             this.btn_reservations.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -183,11 +182,11 @@
             // 
             // btn_menu
             // 
-            this.btn_menu.BackColor = System.Drawing.Color.IndianRed;
+            this.btn_menu.BackColor = System.Drawing.Color.RosyBrown;
             this.btn_menu.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_menu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_menu.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_menu.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btn_menu.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.btn_menu.Location = new System.Drawing.Point(0, 100);
             this.btn_menu.Name = "btn_menu";
             this.btn_menu.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
@@ -199,7 +198,7 @@
             // 
             // panel_logo
             // 
-            this.panel_logo.BackColor = System.Drawing.Color.Cornsilk;
+            this.panel_logo.BackColor = System.Drawing.Color.Linen;
             this.panel_logo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_logo.Location = new System.Drawing.Point(0, 0);
             this.panel_logo.Name = "panel_logo";
@@ -208,7 +207,7 @@
             // 
             // panel_topMenu
             // 
-            this.panel_topMenu.BackColor = System.Drawing.Color.Cornsilk;
+            this.panel_topMenu.BackColor = System.Drawing.Color.Linen;
             this.panel_topMenu.Controls.Add(this.label1);
             this.panel_topMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_topMenu.Location = new System.Drawing.Point(211, 24);
@@ -228,23 +227,18 @@
             // 
             // panel_main
             // 
-            this.panel_main.BackColor = System.Drawing.Color.Cornsilk;
-            this.panel_main.Controls.Add(this.pictureBox1);
+            this.panel_main.BackColor = System.Drawing.Color.Linen;
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_main.Location = new System.Drawing.Point(211, 69);
             this.panel_main.Name = "panel_main";
             this.panel_main.Size = new System.Drawing.Size(1032, 731);
             this.panel_main.TabIndex = 3;
             // 
-            // pictureBox1
+            // historyToolStripMenuItem
             // 
-            this.pictureBox1.Image = global::Restaurant_booking_system.Properties.Resources.FineDiner;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 35);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(993, 556);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
+            this.historyToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.historyToolStripMenuItem.Text = "&History";
             // 
             // MainWindow
             // 
@@ -266,8 +260,6 @@
             this.panel.ResumeLayout(false);
             this.panel_topMenu.ResumeLayout(false);
             this.panel_topMenu.PerformLayout();
-            this.panel_main.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -291,6 +283,6 @@
         private Button btn_logout;
         private Panel panel_logo;
         private Label label1;
-        private PictureBox pictureBox1;
+        private ToolStripMenuItem historyToolStripMenuItem;
     }
 }

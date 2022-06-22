@@ -10,6 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using Restaurant_booking_system.Interfaces;
+using Restaurant_booking_system.DataAccess;
 
 namespace Restaurant_booking_system
 {
@@ -21,11 +23,11 @@ namespace Restaurant_booking_system
         /// User password should also be hashed for data security
         /// We should also check the phone number of the user
         /// </summary>
-        private RestaurantDataSetTableAdapters.customersTableAdapter customerTableAdapter;
+        private ICustomerDataAccess _customerDataAccess;
         public RegisterationForm()
         {
             InitializeComponent();
-            customerTableAdapter = new RestaurantDataSetTableAdapters.customersTableAdapter();
+            _customerDataAccess= new CustomerDataAccess();
 
         }
 
@@ -35,7 +37,7 @@ namespace Restaurant_booking_system
             {
                 if (ValidateInputs())
                 {
-                    User _newUser = new User()
+                    User newUser = new User()
                     {
                         Firstname = txtbox_fname.Text,
                         Lastname = txtbox_lname.Text,
@@ -45,9 +47,11 @@ namespace Restaurant_booking_system
                         PhoneNumber = txtbox_phNumber.Text
                     };
 
-                    customerTableAdapter.Insert(_newUser.Firstname, _newUser.Lastname, _newUser.Username, _newUser.Password, _newUser.Email);
-                    lbl_registerationStatus.Text = "User account has been succefully created !";
-                    lbl_registerationStatus.ForeColor = Color.Green;
+                    if(_customerDataAccess.Insert(newUser))
+                    {
+                        lbl_registerationStatus.Text = "User account has been succefully created !";
+                        lbl_registerationStatus.ForeColor = Color.Green;
+                    }
                 }
                 else
                 {

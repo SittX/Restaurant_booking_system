@@ -32,7 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel_bottom = new System.Windows.Forms.Panel();
             this.panel_main = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_reload = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txt_deleteAccPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -47,12 +47,12 @@
             this.txt_newAccName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView_adminAccounts = new System.Windows.Forms.DataGridView();
             this.panel_top.SuspendLayout();
             this.panel_main.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_adminAccounts)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_top
@@ -61,7 +61,7 @@
             this.panel_top.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_top.Location = new System.Drawing.Point(0, 0);
             this.panel_top.Name = "panel_top";
-            this.panel_top.Size = new System.Drawing.Size(1037, 47);
+            this.panel_top.Size = new System.Drawing.Size(875, 47);
             this.panel_top.TabIndex = 0;
             // 
             // label1
@@ -79,33 +79,34 @@
             this.panel_bottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel_bottom.Location = new System.Drawing.Point(0, 589);
             this.panel_bottom.Name = "panel_bottom";
-            this.panel_bottom.Size = new System.Drawing.Size(1037, 71);
+            this.panel_bottom.Size = new System.Drawing.Size(875, 71);
             this.panel_bottom.TabIndex = 1;
             // 
             // panel_main
             // 
             this.panel_main.AutoScroll = true;
-            this.panel_main.Controls.Add(this.button1);
+            this.panel_main.Controls.Add(this.btn_reload);
             this.panel_main.Controls.Add(this.groupBox1);
             this.panel_main.Controls.Add(this.groupBox4);
             this.panel_main.Controls.Add(this.label2);
-            this.panel_main.Controls.Add(this.dataGridView1);
+            this.panel_main.Controls.Add(this.dataGridView_adminAccounts);
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_main.Location = new System.Drawing.Point(0, 47);
             this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(1037, 542);
+            this.panel_main.Size = new System.Drawing.Size(875, 542);
             this.panel_main.TabIndex = 2;
             // 
-            // button1
+            // btn_reload
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(943, 365);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(64, 28);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Reload";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_reload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_reload.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_reload.Location = new System.Drawing.Point(766, 316);
+            this.btn_reload.Name = "btn_reload";
+            this.btn_reload.Size = new System.Drawing.Size(64, 28);
+            this.btn_reload.TabIndex = 11;
+            this.btn_reload.Text = "Reload";
+            this.btn_reload.UseVisualStyleBackColor = true;
+            this.btn_reload.Click += new System.EventHandler(this.btn_reload_Click);
             // 
             // groupBox1
             // 
@@ -150,6 +151,7 @@
             this.btn_deleteAcc.TabIndex = 4;
             this.btn_deleteAcc.Text = "Delete";
             this.btn_deleteAcc.UseVisualStyleBackColor = true;
+            this.btn_deleteAcc.Click += new System.EventHandler(this.btn_deleteAcc_Click);
             // 
             // txt_deleteAccName
             // 
@@ -163,11 +165,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(6, 45);
+            this.label4.Location = new System.Drawing.Point(72, 45);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(105, 26);
+            this.label4.Size = new System.Drawing.Size(31, 26);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Username";
+            this.label4.Text = "Id";
             // 
             // groupBox4
             // 
@@ -213,6 +215,7 @@
             this.btn_cancelNewAcc.TabIndex = 8;
             this.btn_cancelNewAcc.Text = "Cancel";
             this.btn_cancelNewAcc.UseVisualStyleBackColor = true;
+            this.btn_cancelNewAcc.Click += new System.EventHandler(this.btn_cancelNewAcc_Click);
             // 
             // btn_createNewAcc
             // 
@@ -222,8 +225,9 @@
             this.btn_createNewAcc.Name = "btn_createNewAcc";
             this.btn_createNewAcc.Size = new System.Drawing.Size(90, 45);
             this.btn_createNewAcc.TabIndex = 4;
-            this.btn_createNewAcc.Text = "Update";
+            this.btn_createNewAcc.Text = "Create";
             this.btn_createNewAcc.UseVisualStyleBackColor = true;
+            this.btn_createNewAcc.Click += new System.EventHandler(this.btn_createNewAcc_Click);
             // 
             // txt_newAccName
             // 
@@ -247,20 +251,20 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(590, 31);
+            this.label2.Location = new System.Drawing.Point(478, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(229, 26);
             this.label2.TabIndex = 1;
             this.label2.Text = "Current admin accounts";
             // 
-            // dataGridView1
+            // dataGridView_adminAccounts
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(381, 60);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(626, 299);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView_adminAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_adminAccounts.Location = new System.Drawing.Point(380, 44);
+            this.dataGridView_adminAccounts.Name = "dataGridView_adminAccounts";
+            this.dataGridView_adminAccounts.RowTemplate.Height = 25;
+            this.dataGridView_adminAccounts.Size = new System.Drawing.Size(450, 266);
+            this.dataGridView_adminAccounts.TabIndex = 0;
             // 
             // userCtrl_AdminAccount
             // 
@@ -271,7 +275,8 @@
             this.Controls.Add(this.panel_bottom);
             this.Controls.Add(this.panel_top);
             this.Name = "userCtrl_AdminAccount";
-            this.Size = new System.Drawing.Size(1037, 660);
+            this.Size = new System.Drawing.Size(875, 660);
+            this.Load += new System.EventHandler(this.userCtrl_AdminAccount_Load);
             this.panel_top.ResumeLayout(false);
             this.panel_top.PerformLayout();
             this.panel_main.ResumeLayout(false);
@@ -280,7 +285,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_adminAccounts)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -291,7 +296,7 @@
         private Panel panel_bottom;
         private Panel panel_main;
         private Label label1;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridView_adminAccounts;
         private Label label2;
         private GroupBox groupBox4;
         private TextBox txt_newAccPassword;
@@ -306,6 +311,6 @@
         private Button btn_deleteAcc;
         private TextBox txt_deleteAccName;
         private Label label4;
-        private Button button1;
+        private Button btn_reload;
     }
 }
