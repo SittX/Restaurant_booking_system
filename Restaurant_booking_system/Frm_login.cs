@@ -53,6 +53,7 @@ namespace Restaurant_booking_system
                 {
                     User currentUser = new User()
                     {
+                        Id = Convert.ToInt32(userDt[0][0].ToString()),
                         Firstname = userDt[0][1].ToString(),
                         Lastname = userDt[0][2].ToString(),
                         Username = userDt[0][3].ToString(),

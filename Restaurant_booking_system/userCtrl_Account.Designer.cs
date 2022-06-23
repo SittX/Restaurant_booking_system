@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.panel_top = new System.Windows.Forms.Panel();
+            this.txt_newUsername = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btn_updateUsername = new System.Windows.Forms.Button();
             this.btn_updatePassword = new System.Windows.Forms.Button();
             this.txt_email = new System.Windows.Forms.TextBox();
             this.txt_newPassword = new System.Windows.Forms.TextBox();
@@ -44,12 +47,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel_bottom = new System.Windows.Forms.Panel();
             this.btn_createNewAccount = new System.Windows.Forms.Button();
+            this.lbl_operationsStatus = new System.Windows.Forms.Label();
             this.panel_top.SuspendLayout();
             this.panel_bottom.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_top
             // 
+            this.panel_top.Controls.Add(this.txt_newUsername);
+            this.panel_top.Controls.Add(this.label7);
+            this.panel_top.Controls.Add(this.btn_updateUsername);
             this.panel_top.Controls.Add(this.btn_updatePassword);
             this.panel_top.Controls.Add(this.txt_email);
             this.panel_top.Controls.Add(this.txt_newPassword);
@@ -69,6 +76,35 @@
             this.panel_top.Size = new System.Drawing.Size(774, 576);
             this.panel_top.TabIndex = 0;
             // 
+            // txt_newUsername
+            // 
+            this.txt_newUsername.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_newUsername.Location = new System.Drawing.Point(430, 189);
+            this.txt_newUsername.Name = "txt_newUsername";
+            this.txt_newUsername.Size = new System.Drawing.Size(313, 27);
+            this.txt_newUsername.TabIndex = 15;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(427, 163);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(132, 23);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "New username";
+            // 
+            // btn_updateUsername
+            // 
+            this.btn_updateUsername.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_updateUsername.Location = new System.Drawing.Point(583, 222);
+            this.btn_updateUsername.Name = "btn_updateUsername";
+            this.btn_updateUsername.Size = new System.Drawing.Size(160, 48);
+            this.btn_updateUsername.TabIndex = 13;
+            this.btn_updateUsername.Text = "Update username";
+            this.btn_updateUsername.UseVisualStyleBackColor = true;
+            this.btn_updateUsername.Click += new System.EventHandler(this.btn_updateUsername_Click);
+            // 
             // btn_updatePassword
             // 
             this.btn_updatePassword.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
@@ -78,6 +114,7 @@
             this.btn_updatePassword.TabIndex = 12;
             this.btn_updatePassword.Text = "Update password";
             this.btn_updatePassword.UseVisualStyleBackColor = true;
+            this.btn_updatePassword.Click += new System.EventHandler(this.btn_updatePassword_Click);
             // 
             // txt_email
             // 
@@ -106,7 +143,7 @@
             // txt_username
             // 
             this.txt_username.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_username.Location = new System.Drawing.Point(169, 176);
+            this.txt_username.Location = new System.Drawing.Point(169, 189);
             this.txt_username.Name = "txt_username";
             this.txt_username.Size = new System.Drawing.Size(217, 27);
             this.txt_username.TabIndex = 8;
@@ -181,7 +218,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(70, 180);
+            this.label1.Location = new System.Drawing.Point(70, 193);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 23);
             this.label1.TabIndex = 0;
@@ -189,6 +226,7 @@
             // 
             // panel_bottom
             // 
+            this.panel_bottom.Controls.Add(this.lbl_operationsStatus);
             this.panel_bottom.Controls.Add(this.btn_createNewAccount);
             this.panel_bottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel_bottom.Location = new System.Drawing.Point(0, 582);
@@ -209,6 +247,15 @@
             this.btn_createNewAccount.Text = "Create new account";
             this.btn_createNewAccount.UseVisualStyleBackColor = false;
             // 
+            // lbl_operationsStatus
+            // 
+            this.lbl_operationsStatus.AutoSize = true;
+            this.lbl_operationsStatus.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_operationsStatus.Location = new System.Drawing.Point(33, 54);
+            this.lbl_operationsStatus.Name = "lbl_operationsStatus";
+            this.lbl_operationsStatus.Size = new System.Drawing.Size(0, 23);
+            this.lbl_operationsStatus.TabIndex = 16;
+            // 
             // userCtrl_Account
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -221,6 +268,7 @@
             this.panel_top.ResumeLayout(false);
             this.panel_top.PerformLayout();
             this.panel_bottom.ResumeLayout(false);
+            this.panel_bottom.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -243,5 +291,9 @@
         private Label label1;
         private Panel panel_bottom;
         private Button btn_createNewAccount;
+        private TextBox txt_newUsername;
+        private Label label7;
+        private Button btn_updateUsername;
+        private Label lbl_operationsStatus;
     }
 }

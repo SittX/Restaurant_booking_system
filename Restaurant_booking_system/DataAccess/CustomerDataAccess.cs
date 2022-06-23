@@ -22,42 +22,60 @@ namespace Restaurant_booking_system.DataAccess
 
         public customersDataTable GetAll()
         {
-            return _adapter.GetData();
+            var data = _adapter.GetData();
+            if (data.Count() > 0)
+            {
+                return data;
+            }
+            return new customersDataTable();
         }
 
         public customersDataTable Search(string username, string password)
         {
             var data = _adapter.GetDataByUsernameAndPassword(username, password);
-            if (data.Count() <= 0)
-            {
-                return null;
-            }
-            else
+            if (data.Count() > 0)
             {
                 return data;
             }
-        }
-        public void UpdateUsername(string new_username, string old_username, string id)
-        {
-            _adapter.UpdateUsername(new_username, old_username, id);
-        }
-
-        public void UpdatePassword(string new_password, string old_password, string username)
-        {
-            _adapter.UpdatePassword(new_password, username, old_password);
+            else
+            {
+                return new customersDataTable();
+            }
         }
 
-        public void Delete(string username, string password)
+        public customersDataTable SearchById(int id)
         {
-            _adapter.DeleteAccount(username, password);
+            var data = _adapter.GetDataById(id);
+            if(data.Count() > 0)
+            {
+                return data;
+            }
+            return new customersDataTable();
+        }
+
+        public bool UpdateUsername(string new_username, string old_username, string password)
+        {
+            if (_adapter.UpdateUsername(new_username,password,old_username) == 1) return true;
+            return false;
+        }
+
+        public bool UpdatePassword(string new_password, string old_password, string username)
+        {
+            if (_adapter.UpdatePassword(new_password, username, old_password) == 1) return true;
+
+            return false;
+        }
+
+        public bool Delete(string username, string password)
+        {
+            if (_adapter.DeleteAccount(username, password) == 1) return true;
+
+            return false;
         }
 
         public bool Insert(User new_customer)
         {
-            if (_adapter.Insert(new_customer.Firstname, new_customer.Lastname, new_customer.Username, new_customer.Password, new_customer.Email) == 1)
-            {
-                return true;
-            }
+            if (_adapter.Insert(new_customer.Firstname, new_customer.Lastname, new_customer.Username, new_customer.Password, new_customer.Email) == 1) return true;
             return false;
         }
     }

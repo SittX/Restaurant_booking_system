@@ -26,20 +26,22 @@ namespace Restaurant_booking_system.DataAccess
 
         public administratorsDataTable GetAll()
         {
-            return adapter.GetData();
+            var data = adapter.GetData();
+            if(data.Count() > 0)
+            {
+                return data ;
+            }
+            return new administratorsDataTable();
         }
         
         public administratorsDataTable Search(string username, string password)
         {
             var data = adapter.GetDataByUsernameAndPwd(username, password);
-            if (data is not null)
+            if (data.Count() > 0)
             {
                 return data;
             }
-            else
-            {
-                return new administratorsDataTable();
-            }
+            return new administratorsDataTable();
         }
 
         
@@ -49,14 +51,16 @@ namespace Restaurant_booking_system.DataAccess
             return false;
         }
 
-        public void Update(int id, Administrator updatedAccount, Administrator originalAccount)
+        public bool Update(int id, Administrator updatedAccount, Administrator originalAccount)
         {
-            adapter.UpdateAccount(updatedAccount.Username, updatedAccount.Password, id, originalAccount.Username, originalAccount.Password);
+            if(adapter.UpdateAccount(updatedAccount.Username, updatedAccount.Password, id, originalAccount.Username, originalAccount.Password) == 1)return true;
+            return false;
         }
 
-        public void Delete(int id,string password)
+        public bool Delete(int id,string password)
         {
-            adapter.DeleteAccount(id,password);
+            if(adapter.DeleteAccount(id,password) == 1) return true;
+            return false;
         }
     }
 }

@@ -32,14 +32,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel_bottom = new System.Windows.Forms.Panel();
             this.panel_main = new System.Windows.Forms.Panel();
+            this.lbl_accountOperationsStatus = new System.Windows.Forms.Label();
             this.btn_reload = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txt_deleteAccPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_deleteAcc = new System.Windows.Forms.Button();
-            this.txt_deleteAccName = new System.Windows.Forms.TextBox();
+            this.txt_deleteAccId = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.txt_newAccReEnteredPassword = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.txt_newAccPassword = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btn_cancelNewAcc = new System.Windows.Forms.Button();
@@ -61,7 +64,7 @@
             this.panel_top.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_top.Location = new System.Drawing.Point(0, 0);
             this.panel_top.Name = "panel_top";
-            this.panel_top.Size = new System.Drawing.Size(875, 47);
+            this.panel_top.Size = new System.Drawing.Size(916, 47);
             this.panel_top.TabIndex = 0;
             // 
             // label1
@@ -77,14 +80,15 @@
             // panel_bottom
             // 
             this.panel_bottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_bottom.Location = new System.Drawing.Point(0, 589);
+            this.panel_bottom.Location = new System.Drawing.Point(0, 651);
             this.panel_bottom.Name = "panel_bottom";
-            this.panel_bottom.Size = new System.Drawing.Size(875, 71);
+            this.panel_bottom.Size = new System.Drawing.Size(916, 41);
             this.panel_bottom.TabIndex = 1;
             // 
             // panel_main
             // 
             this.panel_main.AutoScroll = true;
+            this.panel_main.Controls.Add(this.lbl_accountOperationsStatus);
             this.panel_main.Controls.Add(this.btn_reload);
             this.panel_main.Controls.Add(this.groupBox1);
             this.panel_main.Controls.Add(this.groupBox4);
@@ -93,16 +97,24 @@
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_main.Location = new System.Drawing.Point(0, 47);
             this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(875, 542);
+            this.panel_main.Size = new System.Drawing.Size(916, 604);
             this.panel_main.TabIndex = 2;
+            // 
+            // lbl_accountOperationsStatus
+            // 
+            this.lbl_accountOperationsStatus.AutoSize = true;
+            this.lbl_accountOperationsStatus.Location = new System.Drawing.Point(465, 353);
+            this.lbl_accountOperationsStatus.Name = "lbl_accountOperationsStatus";
+            this.lbl_accountOperationsStatus.Size = new System.Drawing.Size(0, 15);
+            this.lbl_accountOperationsStatus.TabIndex = 13;
             // 
             // btn_reload
             // 
             this.btn_reload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_reload.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_reload.Location = new System.Drawing.Point(766, 316);
+            this.btn_reload.Location = new System.Drawing.Point(819, 341);
             this.btn_reload.Name = "btn_reload";
-            this.btn_reload.Size = new System.Drawing.Size(64, 28);
+            this.btn_reload.Size = new System.Drawing.Size(62, 27);
             this.btn_reload.TabIndex = 11;
             this.btn_reload.Text = "Reload";
             this.btn_reload.UseVisualStyleBackColor = true;
@@ -113,12 +125,12 @@
             this.groupBox1.Controls.Add(this.txt_deleteAccPassword);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.btn_deleteAcc);
-            this.groupBox1.Controls.Add(this.txt_deleteAccName);
+            this.groupBox1.Controls.Add(this.txt_deleteAccId);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(31, 289);
+            this.groupBox1.Location = new System.Drawing.Point(13, 420);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(312, 225);
+            this.groupBox1.Size = new System.Drawing.Size(399, 181);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Delete account";
@@ -126,16 +138,17 @@
             // txt_deleteAccPassword
             // 
             this.txt_deleteAccPassword.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_deleteAccPassword.Location = new System.Drawing.Point(117, 113);
+            this.txt_deleteAccPassword.Location = new System.Drawing.Point(117, 89);
             this.txt_deleteAccPassword.Name = "txt_deleteAccPassword";
-            this.txt_deleteAccPassword.Size = new System.Drawing.Size(161, 27);
+            this.txt_deleteAccPassword.PasswordChar = '*';
+            this.txt_deleteAccPassword.Size = new System.Drawing.Size(253, 27);
             this.txt_deleteAccPassword.TabIndex = 9;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(6, 111);
+            this.label3.Location = new System.Drawing.Point(6, 87);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 26);
             this.label3.TabIndex = 10;
@@ -145,27 +158,27 @@
             // 
             this.btn_deleteAcc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_deleteAcc.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_deleteAcc.Location = new System.Drawing.Point(188, 163);
+            this.btn_deleteAcc.Location = new System.Drawing.Point(292, 133);
             this.btn_deleteAcc.Name = "btn_deleteAcc";
-            this.btn_deleteAcc.Size = new System.Drawing.Size(90, 45);
+            this.btn_deleteAcc.Size = new System.Drawing.Size(78, 35);
             this.btn_deleteAcc.TabIndex = 4;
             this.btn_deleteAcc.Text = "Delete";
             this.btn_deleteAcc.UseVisualStyleBackColor = true;
             this.btn_deleteAcc.Click += new System.EventHandler(this.btn_deleteAcc_Click);
             // 
-            // txt_deleteAccName
+            // txt_deleteAccId
             // 
-            this.txt_deleteAccName.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_deleteAccName.Location = new System.Drawing.Point(117, 47);
-            this.txt_deleteAccName.Name = "txt_deleteAccName";
-            this.txt_deleteAccName.Size = new System.Drawing.Size(161, 27);
-            this.txt_deleteAccName.TabIndex = 4;
+            this.txt_deleteAccId.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_deleteAccId.Location = new System.Drawing.Point(117, 41);
+            this.txt_deleteAccId.Name = "txt_deleteAccId";
+            this.txt_deleteAccId.Size = new System.Drawing.Size(83, 27);
+            this.txt_deleteAccId.TabIndex = 4;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(72, 45);
+            this.label4.Location = new System.Drawing.Point(72, 39);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(31, 26);
             this.label4.TabIndex = 4;
@@ -173,6 +186,8 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.txt_newAccReEnteredPassword);
+            this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.txt_newAccPassword);
             this.groupBox4.Controls.Add(this.label7);
             this.groupBox4.Controls.Add(this.btn_cancelNewAcc);
@@ -180,28 +195,48 @@
             this.groupBox4.Controls.Add(this.txt_newAccName);
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox4.Location = new System.Drawing.Point(31, 31);
+            this.groupBox4.Location = new System.Drawing.Point(13, 15);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(312, 241);
+            this.groupBox4.Size = new System.Drawing.Size(340, 399);
             this.groupBox4.TabIndex = 10;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Create account";
             // 
+            // txt_newAccReEnteredPassword
+            // 
+            this.txt_newAccReEnteredPassword.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_newAccReEnteredPassword.Location = new System.Drawing.Point(42, 226);
+            this.txt_newAccReEnteredPassword.Name = "txt_newAccReEnteredPassword";
+            this.txt_newAccReEnteredPassword.PasswordChar = '*';
+            this.txt_newAccReEnteredPassword.Size = new System.Drawing.Size(255, 27);
+            this.txt_newAccReEnteredPassword.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Constantia", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(35, 197);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(147, 21);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Re-enter password";
+            // 
             // txt_newAccPassword
             // 
             this.txt_newAccPassword.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_newAccPassword.Location = new System.Drawing.Point(117, 113);
+            this.txt_newAccPassword.Location = new System.Drawing.Point(40, 161);
             this.txt_newAccPassword.Name = "txt_newAccPassword";
-            this.txt_newAccPassword.Size = new System.Drawing.Size(161, 27);
+            this.txt_newAccPassword.PasswordChar = '*';
+            this.txt_newAccPassword.Size = new System.Drawing.Size(255, 27);
             this.txt_newAccPassword.TabIndex = 9;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(6, 111);
+            this.label7.Font = new System.Drawing.Font("Constantia", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(40, 132);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(97, 26);
+            this.label7.Size = new System.Drawing.Size(80, 21);
             this.label7.TabIndex = 10;
             this.label7.Text = "Password";
             // 
@@ -209,9 +244,9 @@
             // 
             this.btn_cancelNewAcc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancelNewAcc.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_cancelNewAcc.Location = new System.Drawing.Point(185, 172);
+            this.btn_cancelNewAcc.Location = new System.Drawing.Point(225, 325);
             this.btn_cancelNewAcc.Name = "btn_cancelNewAcc";
-            this.btn_cancelNewAcc.Size = new System.Drawing.Size(90, 45);
+            this.btn_cancelNewAcc.Size = new System.Drawing.Size(78, 45);
             this.btn_cancelNewAcc.TabIndex = 8;
             this.btn_cancelNewAcc.Text = "Cancel";
             this.btn_cancelNewAcc.UseVisualStyleBackColor = true;
@@ -221,9 +256,9 @@
             // 
             this.btn_createNewAcc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_createNewAcc.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_createNewAcc.Location = new System.Drawing.Point(89, 172);
+            this.btn_createNewAcc.Location = new System.Drawing.Point(145, 325);
             this.btn_createNewAcc.Name = "btn_createNewAcc";
-            this.btn_createNewAcc.Size = new System.Drawing.Size(90, 45);
+            this.btn_createNewAcc.Size = new System.Drawing.Size(74, 45);
             this.btn_createNewAcc.TabIndex = 4;
             this.btn_createNewAcc.Text = "Create";
             this.btn_createNewAcc.UseVisualStyleBackColor = true;
@@ -232,18 +267,18 @@
             // txt_newAccName
             // 
             this.txt_newAccName.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_newAccName.Location = new System.Drawing.Point(117, 47);
+            this.txt_newAccName.Location = new System.Drawing.Point(40, 68);
             this.txt_newAccName.Name = "txt_newAccName";
-            this.txt_newAccName.Size = new System.Drawing.Size(161, 27);
+            this.txt_newAccName.Size = new System.Drawing.Size(255, 27);
             this.txt_newAccName.TabIndex = 4;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(6, 45);
+            this.label9.Font = new System.Drawing.Font("Constantia", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label9.Location = new System.Drawing.Point(40, 39);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(105, 26);
+            this.label9.Size = new System.Drawing.Size(86, 21);
             this.label9.TabIndex = 4;
             this.label9.Text = "Username";
             // 
@@ -251,7 +286,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(478, 15);
+            this.label2.Location = new System.Drawing.Point(520, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(229, 26);
             this.label2.TabIndex = 1;
@@ -259,9 +294,12 @@
             // 
             // dataGridView_adminAccounts
             // 
+            this.dataGridView_adminAccounts.AllowUserToAddRows = false;
+            this.dataGridView_adminAccounts.AllowUserToDeleteRows = false;
             this.dataGridView_adminAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_adminAccounts.Location = new System.Drawing.Point(380, 44);
+            this.dataGridView_adminAccounts.Location = new System.Drawing.Point(431, 69);
             this.dataGridView_adminAccounts.Name = "dataGridView_adminAccounts";
+            this.dataGridView_adminAccounts.ReadOnly = true;
             this.dataGridView_adminAccounts.RowTemplate.Height = 25;
             this.dataGridView_adminAccounts.Size = new System.Drawing.Size(450, 266);
             this.dataGridView_adminAccounts.TabIndex = 0;
@@ -275,7 +313,7 @@
             this.Controls.Add(this.panel_bottom);
             this.Controls.Add(this.panel_top);
             this.Name = "userCtrl_AdminAccount";
-            this.Size = new System.Drawing.Size(875, 660);
+            this.Size = new System.Drawing.Size(916, 692);
             this.Load += new System.EventHandler(this.userCtrl_AdminAccount_Load);
             this.panel_top.ResumeLayout(false);
             this.panel_top.PerformLayout();
@@ -299,7 +337,6 @@
         private DataGridView dataGridView_adminAccounts;
         private Label label2;
         private GroupBox groupBox4;
-        private TextBox txt_newAccPassword;
         private Label label7;
         private Button btn_cancelNewAcc;
         private Button btn_createNewAcc;
@@ -309,8 +346,12 @@
         private TextBox txt_deleteAccPassword;
         private Label label3;
         private Button btn_deleteAcc;
-        private TextBox txt_deleteAccName;
+        private TextBox txt_deleteAccId;
         private Label label4;
         private Button btn_reload;
+        private TextBox txt_newAccReEnteredPassword;
+        private Label label5;
+        private TextBox txt_newAccPassword;
+        private Label lbl_accountOperationsStatus;
     }
 }
