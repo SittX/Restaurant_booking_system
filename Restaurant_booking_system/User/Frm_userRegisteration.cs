@@ -15,7 +15,7 @@ using Restaurant_booking_system.DataAccess;
 
 namespace Restaurant_booking_system
 {
-    public partial class RegisterationForm : Form
+    public partial class Frm_userRegisteration : Form
     {
 
         /// <summary>
@@ -23,11 +23,11 @@ namespace Restaurant_booking_system
         /// User password should also be hashed for data security
         /// We should also check the phone number of the user
         /// </summary>
-        private ICustomerDataAccess _customerDataAccess;
-        public RegisterationForm()
+        private ICustomerRepository _customerDataAccess;
+        public Frm_userRegisteration()
         {
             InitializeComponent();
-            _customerDataAccess= new CustomerDataAccess();
+            _customerDataAccess= new CustomerRepository();
 
         }
 
@@ -39,8 +39,6 @@ namespace Restaurant_booking_system
                 {
                     User newUser = new User()
                     {
-                        Firstname = txtbox_fname.Text,
-                        Lastname = txtbox_lname.Text,
                         Email = txtbox_email.Text,
                         Username = txtbox_username.Text,
                         Password = txtbox_password.Text,
@@ -70,9 +68,7 @@ namespace Restaurant_booking_system
         {
             // Validate input is not null or empty
             if(ValidateNullOrEmpty(txtbox_email)
-               && ValidateNullOrEmpty(txtbox_fname)
                && ValidateNullOrEmpty(txtbox_password)
-               && ValidateNullOrEmpty(txtbox_lname)
                && ValidateNullOrEmpty(txtbox_phNumber)
                && ValidateNullOrEmpty(txtbox_username))
             {

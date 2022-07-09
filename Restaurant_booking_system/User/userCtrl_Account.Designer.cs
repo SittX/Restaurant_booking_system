@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel_top = new System.Windows.Forms.Panel();
+            this.panel_main = new System.Windows.Forms.Panel();
             this.txt_newUsername = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btn_updateUsername = new System.Windows.Forms.Button();
@@ -37,58 +37,52 @@
             this.txt_newPassword = new System.Windows.Forms.TextBox();
             this.txt_oldPassword = new System.Windows.Forms.TextBox();
             this.txt_username = new System.Windows.Forms.TextBox();
-            this.txt_lname = new System.Windows.Forms.TextBox();
-            this.txt_fname = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel_bottom = new System.Windows.Forms.Panel();
-            this.btn_createNewAccount = new System.Windows.Forms.Button();
+            this.panel_top = new System.Windows.Forms.Panel();
             this.lbl_operationsStatus = new System.Windows.Forms.Label();
+            this.btn_createNewAccount = new System.Windows.Forms.Button();
+            this.panel_bottom = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel_main.SuspendLayout();
             this.panel_top.SuspendLayout();
-            this.panel_bottom.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel_top
+            // panel_main
             // 
-            this.panel_top.Controls.Add(this.txt_newUsername);
-            this.panel_top.Controls.Add(this.label7);
-            this.panel_top.Controls.Add(this.btn_updateUsername);
-            this.panel_top.Controls.Add(this.btn_updatePassword);
-            this.panel_top.Controls.Add(this.txt_email);
-            this.panel_top.Controls.Add(this.txt_newPassword);
-            this.panel_top.Controls.Add(this.txt_oldPassword);
-            this.panel_top.Controls.Add(this.txt_username);
-            this.panel_top.Controls.Add(this.txt_lname);
-            this.panel_top.Controls.Add(this.txt_fname);
-            this.panel_top.Controls.Add(this.label6);
-            this.panel_top.Controls.Add(this.label5);
-            this.panel_top.Controls.Add(this.label4);
-            this.panel_top.Controls.Add(this.label3);
-            this.panel_top.Controls.Add(this.label2);
-            this.panel_top.Controls.Add(this.label1);
-            this.panel_top.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_top.Location = new System.Drawing.Point(0, 0);
-            this.panel_top.Name = "panel_top";
-            this.panel_top.Size = new System.Drawing.Size(774, 576);
-            this.panel_top.TabIndex = 0;
+            this.panel_main.Controls.Add(this.groupBox1);
+            this.panel_main.Controls.Add(this.txt_newUsername);
+            this.panel_main.Controls.Add(this.btn_createNewAccount);
+            this.panel_main.Controls.Add(this.label7);
+            this.panel_main.Controls.Add(this.btn_updateUsername);
+            this.panel_main.Controls.Add(this.txt_email);
+            this.panel_main.Controls.Add(this.txt_username);
+            this.panel_main.Controls.Add(this.label4);
+            this.panel_main.Controls.Add(this.label1);
+            this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_main.Location = new System.Drawing.Point(0, 0);
+            this.panel_main.Name = "panel_main";
+            this.panel_main.Size = new System.Drawing.Size(1040, 592);
+            this.panel_main.TabIndex = 0;
+            this.panel_main.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_main_Paint);
             // 
             // txt_newUsername
             // 
             this.txt_newUsername.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_newUsername.Location = new System.Drawing.Point(430, 189);
+            this.txt_newUsername.Location = new System.Drawing.Point(169, 237);
             this.txt_newUsername.Name = "txt_newUsername";
-            this.txt_newUsername.Size = new System.Drawing.Size(313, 27);
+            this.txt_newUsername.Size = new System.Drawing.Size(217, 27);
             this.txt_newUsername.TabIndex = 15;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(427, 163);
+            this.label7.Location = new System.Drawing.Point(31, 241);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(132, 23);
             this.label7.TabIndex = 14;
@@ -96,38 +90,42 @@
             // 
             // btn_updateUsername
             // 
+            this.btn_updateUsername.BackColor = System.Drawing.Color.Orange;
+            this.btn_updateUsername.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_updateUsername.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_updateUsername.Location = new System.Drawing.Point(583, 222);
+            this.btn_updateUsername.Location = new System.Drawing.Point(392, 232);
             this.btn_updateUsername.Name = "btn_updateUsername";
-            this.btn_updateUsername.Size = new System.Drawing.Size(160, 48);
+            this.btn_updateUsername.Size = new System.Drawing.Size(93, 32);
             this.btn_updateUsername.TabIndex = 13;
-            this.btn_updateUsername.Text = "Update username";
-            this.btn_updateUsername.UseVisualStyleBackColor = true;
+            this.btn_updateUsername.Text = "Update";
+            this.btn_updateUsername.UseVisualStyleBackColor = false;
             this.btn_updateUsername.Click += new System.EventHandler(this.btn_updateUsername_Click);
             // 
             // btn_updatePassword
             // 
+            this.btn_updatePassword.BackColor = System.Drawing.Color.Orange;
+            this.btn_updatePassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_updatePassword.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_updatePassword.Location = new System.Drawing.Point(230, 416);
+            this.btn_updatePassword.Location = new System.Drawing.Point(228, 197);
             this.btn_updatePassword.Name = "btn_updatePassword";
             this.btn_updatePassword.Size = new System.Drawing.Size(156, 37);
             this.btn_updatePassword.TabIndex = 12;
-            this.btn_updatePassword.Text = "Update password";
-            this.btn_updatePassword.UseVisualStyleBackColor = true;
+            this.btn_updatePassword.Text = "Update";
+            this.btn_updatePassword.UseVisualStyleBackColor = false;
             this.btn_updatePassword.Click += new System.EventHandler(this.btn_updatePassword_Click);
             // 
             // txt_email
             // 
             this.txt_email.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_email.Location = new System.Drawing.Point(95, 502);
+            this.txt_email.Location = new System.Drawing.Point(98, 333);
             this.txt_email.Name = "txt_email";
-            this.txt_email.Size = new System.Drawing.Size(291, 27);
+            this.txt_email.Size = new System.Drawing.Size(387, 27);
             this.txt_email.TabIndex = 11;
             // 
             // txt_newPassword
             // 
             this.txt_newPassword.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_newPassword.Location = new System.Drawing.Point(169, 355);
+            this.txt_newPassword.Location = new System.Drawing.Point(167, 136);
             this.txt_newPassword.Name = "txt_newPassword";
             this.txt_newPassword.Size = new System.Drawing.Size(217, 27);
             this.txt_newPassword.TabIndex = 10;
@@ -135,7 +133,7 @@
             // txt_oldPassword
             // 
             this.txt_oldPassword.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_oldPassword.Location = new System.Drawing.Point(169, 273);
+            this.txt_oldPassword.Location = new System.Drawing.Point(167, 54);
             this.txt_oldPassword.Name = "txt_oldPassword";
             this.txt_oldPassword.Size = new System.Drawing.Size(217, 27);
             this.txt_oldPassword.TabIndex = 9;
@@ -143,52 +141,16 @@
             // txt_username
             // 
             this.txt_username.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_username.Location = new System.Drawing.Point(169, 189);
+            this.txt_username.Location = new System.Drawing.Point(169, 175);
             this.txt_username.Name = "txt_username";
             this.txt_username.Size = new System.Drawing.Size(217, 27);
             this.txt_username.TabIndex = 8;
-            // 
-            // txt_lname
-            // 
-            this.txt_lname.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_lname.Location = new System.Drawing.Point(526, 80);
-            this.txt_lname.Name = "txt_lname";
-            this.txt_lname.Size = new System.Drawing.Size(217, 27);
-            this.txt_lname.TabIndex = 7;
-            // 
-            // txt_fname
-            // 
-            this.txt_fname.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_fname.Location = new System.Drawing.Point(169, 80);
-            this.txt_fname.Name = "txt_fname";
-            this.txt_fname.Size = new System.Drawing.Size(217, 27);
-            this.txt_fname.TabIndex = 6;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(430, 80);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 23);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Lastname";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(71, 80);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 23);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Firstname";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(33, 502);
+            this.label4.Location = new System.Drawing.Point(36, 333);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 23);
             this.label4.TabIndex = 3;
@@ -198,7 +160,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(33, 355);
+            this.label3.Location = new System.Drawing.Point(31, 136);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(130, 23);
             this.label3.TabIndex = 2;
@@ -208,7 +170,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(39, 273);
+            this.label2.Location = new System.Drawing.Point(37, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(124, 23);
             this.label2.TabIndex = 1;
@@ -218,34 +180,22 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(70, 193);
+            this.label1.Location = new System.Drawing.Point(31, 179);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "Username";
             // 
-            // panel_bottom
+            // panel_top
             // 
-            this.panel_bottom.Controls.Add(this.lbl_operationsStatus);
-            this.panel_bottom.Controls.Add(this.btn_createNewAccount);
-            this.panel_bottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_bottom.Location = new System.Drawing.Point(0, 582);
-            this.panel_bottom.Name = "panel_bottom";
-            this.panel_bottom.Size = new System.Drawing.Size(774, 144);
-            this.panel_bottom.TabIndex = 1;
-            // 
-            // btn_createNewAccount
-            // 
-            this.btn_createNewAccount.BackColor = System.Drawing.SystemColors.Desktop;
-            this.btn_createNewAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_createNewAccount.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_createNewAccount.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_createNewAccount.Location = new System.Drawing.Point(512, 43);
-            this.btn_createNewAccount.Name = "btn_createNewAccount";
-            this.btn_createNewAccount.Size = new System.Drawing.Size(167, 47);
-            this.btn_createNewAccount.TabIndex = 0;
-            this.btn_createNewAccount.Text = "Create new account";
-            this.btn_createNewAccount.UseVisualStyleBackColor = false;
+            this.panel_top.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.panel_top.Controls.Add(this.label5);
+            this.panel_top.Controls.Add(this.lbl_operationsStatus);
+            this.panel_top.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_top.Location = new System.Drawing.Point(0, 0);
+            this.panel_top.Name = "panel_top";
+            this.panel_top.Size = new System.Drawing.Size(1040, 69);
+            this.panel_top.TabIndex = 1;
             // 
             // lbl_operationsStatus
             // 
@@ -256,44 +206,93 @@
             this.lbl_operationsStatus.Size = new System.Drawing.Size(0, 23);
             this.lbl_operationsStatus.TabIndex = 16;
             // 
+            // btn_createNewAccount
+            // 
+            this.btn_createNewAccount.BackColor = System.Drawing.SystemColors.Desktop;
+            this.btn_createNewAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_createNewAccount.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_createNewAccount.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_createNewAccount.Location = new System.Drawing.Point(812, 437);
+            this.btn_createNewAccount.Name = "btn_createNewAccount";
+            this.btn_createNewAccount.Size = new System.Drawing.Size(167, 47);
+            this.btn_createNewAccount.TabIndex = 0;
+            this.btn_createNewAccount.Text = "Create new account";
+            this.btn_createNewAccount.UseVisualStyleBackColor = false;
+            // 
+            // panel_bottom
+            // 
+            this.panel_bottom.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.panel_bottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel_bottom.Location = new System.Drawing.Point(0, 531);
+            this.panel_bottom.Name = "panel_bottom";
+            this.panel_bottom.Size = new System.Drawing.Size(1040, 61);
+            this.panel_bottom.TabIndex = 2;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btn_updatePassword);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txt_oldPassword);
+            this.groupBox1.Controls.Add(this.txt_newPassword);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox1.Location = new System.Drawing.Point(529, 125);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(450, 276);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Password";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Constantia", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(459, 16);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(119, 36);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Account";
+            // 
             // userCtrl_Account
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel_bottom);
             this.Controls.Add(this.panel_top);
+            this.Controls.Add(this.panel_main);
             this.Name = "userCtrl_Account";
-            this.Size = new System.Drawing.Size(774, 726);
+            this.Size = new System.Drawing.Size(1040, 592);
             this.Load += new System.EventHandler(this.userCtrl_Account_Load);
+            this.panel_main.ResumeLayout(false);
+            this.panel_main.PerformLayout();
             this.panel_top.ResumeLayout(false);
             this.panel_top.PerformLayout();
-            this.panel_bottom.ResumeLayout(false);
-            this.panel_bottom.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Panel panel_top;
+        private Panel panel_main;
         private Button btn_updatePassword;
         private TextBox txt_email;
         private TextBox txt_newPassword;
         private TextBox txt_oldPassword;
         private TextBox txt_username;
-        private TextBox txt_lname;
-        private TextBox txt_fname;
-        private Label label6;
-        private Label label5;
         private Label label4;
         private Label label3;
         private Label label2;
         private Label label1;
-        private Panel panel_bottom;
+        private Panel panel_top;
         private Button btn_createNewAccount;
         private TextBox txt_newUsername;
         private Label label7;
         private Button btn_updateUsername;
         private Label lbl_operationsStatus;
+        private Panel panel_bottom;
+        private GroupBox groupBox1;
+        private Label label5;
     }
 }

@@ -16,19 +16,17 @@ namespace Restaurant_booking_system
     public partial class userCtrl_Account : UserControl
     {
 
-        private ICustomerDataAccess _dataAccess;
+        private ICustomerRepository _dataAccess;
         public userCtrl_Account()
         {
             InitializeComponent();
-            _dataAccess = new CustomerDataAccess();
+            _dataAccess = new CustomerRepository();
         }
 
         private void userCtrl_Account_Load(object sender, EventArgs e)
         {
-            txt_fname.Text = SessionInfo.LoggedInUser.Firstname;
-            txt_lname.Text = SessionInfo.LoggedInUser.Lastname;
-            txt_email.Text = SessionInfo.LoggedInUser.Email;
-            txt_username.Text = SessionInfo.LoggedInUser.Username;
+            txt_email.Text = Session.Session.LoggedInUser.Email;
+            txt_username.Text = Session.Session.LoggedInUser.Username;
         }
 
         private void btn_updatePassword_Click(object sender, EventArgs e)
@@ -55,7 +53,7 @@ namespace Restaurant_booking_system
         {
             var newUsername = txt_newUsername.Text;
             var oldUsername = txt_username.Text;
-            if (_dataAccess.UpdateUsername(newUsername, oldUsername, SessionInfo.LoggedInUser.Password))
+            if (_dataAccess.UpdateUsername(newUsername, oldUsername, Session.Session.LoggedInUser.Password))
             {
                 lbl_operationsStatus.Text = "Updated Username";
                 lbl_operationsStatus.ForeColor = Color.Green;
@@ -65,10 +63,10 @@ namespace Restaurant_booking_system
 
         private void ReloadInfo()
         {
-            var data = _dataAccess.SearchById(SessionInfo.LoggedInUser.Id);
+            var data = _dataAccess.SearchById(Session.Session.LoggedInUser.Id);
             if(data.Count()> 0)
             {
-                SessionInfo.LoggedInUser = new Models.User()
+                Session.Session.LoggedInUser = new Models.User()
                 {
                     Id = Convert.ToInt32(data[0][0].ToString()),
                     Firstname = data[0][1].ToString(),
@@ -81,7 +79,9 @@ namespace Restaurant_booking_system
             }
         }
 
+        private void panel_main_Paint(object sender, PaintEventArgs e)
+        {
 
-
+        }
     }
 }

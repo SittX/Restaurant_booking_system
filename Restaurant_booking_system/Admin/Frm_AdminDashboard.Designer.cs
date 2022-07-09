@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.panel_topMenu = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lbl_title = new System.Windows.Forms.Label();
             this.panel = new System.Windows.Forms.Panel();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_services = new System.Windows.Forms.Button();
             this.btn_account = new System.Windows.Forms.Button();
             this.btn_reservations = new System.Windows.Forms.Button();
-            this.btn_menu = new System.Windows.Forms.Button();
+            this.btn_dashboard = new System.Windows.Forms.Button();
             this.panel_logo = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuStrip_menu = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,32 +52,32 @@
             // 
             // panel_topMenu
             // 
-            this.panel_topMenu.BackColor = System.Drawing.Color.Cornsilk;
-            this.panel_topMenu.Controls.Add(this.label1);
+            this.panel_topMenu.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.panel_topMenu.Controls.Add(this.lbl_title);
             this.panel_topMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_topMenu.Location = new System.Drawing.Point(211, 24);
             this.panel_topMenu.Name = "panel_topMenu";
-            this.panel_topMenu.Size = new System.Drawing.Size(1004, 51);
+            this.panel_topMenu.Size = new System.Drawing.Size(1004, 58);
             this.panel_topMenu.TabIndex = 6;
             // 
-            // label1
+            // lbl_title
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Constantia", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(395, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(239, 36);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Admin dashboard";
+            this.lbl_title.AutoSize = true;
+            this.lbl_title.Font = new System.Drawing.Font("Constantia", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_title.Location = new System.Drawing.Point(391, 12);
+            this.lbl_title.Name = "lbl_title";
+            this.lbl_title.Size = new System.Drawing.Size(239, 36);
+            this.lbl_title.TabIndex = 0;
+            this.lbl_title.Text = "Admin dashboard";
             // 
             // panel
             // 
-            this.panel.BackColor = System.Drawing.Color.Cornsilk;
+            this.panel.BackColor = System.Drawing.Color.LightSteelBlue;
             this.panel.Controls.Add(this.btn_logout);
             this.panel.Controls.Add(this.btn_services);
             this.panel.Controls.Add(this.btn_account);
             this.panel.Controls.Add(this.btn_reservations);
-            this.panel.Controls.Add(this.btn_menu);
+            this.panel.Controls.Add(this.btn_dashboard);
             this.panel.Controls.Add(this.panel_logo);
             this.panel.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel.Location = new System.Drawing.Point(0, 24);
@@ -87,12 +87,12 @@
             // 
             // btn_logout
             // 
-            this.btn_logout.BackColor = System.Drawing.Color.IndianRed;
+            this.btn_logout.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_logout.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_logout.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_logout.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btn_logout.Location = new System.Drawing.Point(0, 324);
+            this.btn_logout.ForeColor = System.Drawing.Color.Black;
+            this.btn_logout.Location = new System.Drawing.Point(0, 333);
             this.btn_logout.Name = "btn_logout";
             this.btn_logout.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_logout.Size = new System.Drawing.Size(211, 64);
@@ -104,12 +104,12 @@
             // 
             // btn_services
             // 
-            this.btn_services.BackColor = System.Drawing.Color.IndianRed;
+            this.btn_services.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_services.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_services.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_services.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_services.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btn_services.Location = new System.Drawing.Point(0, 260);
+            this.btn_services.ForeColor = System.Drawing.Color.Black;
+            this.btn_services.Location = new System.Drawing.Point(0, 269);
             this.btn_services.Name = "btn_services";
             this.btn_services.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_services.Size = new System.Drawing.Size(211, 64);
@@ -121,12 +121,12 @@
             // 
             // btn_account
             // 
-            this.btn_account.BackColor = System.Drawing.Color.IndianRed;
+            this.btn_account.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_account.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_account.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_account.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_account.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btn_account.Location = new System.Drawing.Point(0, 207);
+            this.btn_account.ForeColor = System.Drawing.Color.Black;
+            this.btn_account.Location = new System.Drawing.Point(0, 216);
             this.btn_account.Name = "btn_account";
             this.btn_account.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_account.Size = new System.Drawing.Size(211, 53);
@@ -138,12 +138,12 @@
             // 
             // btn_reservations
             // 
-            this.btn_reservations.BackColor = System.Drawing.Color.IndianRed;
+            this.btn_reservations.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_reservations.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_reservations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_reservations.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_reservations.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btn_reservations.Location = new System.Drawing.Point(0, 154);
+            this.btn_reservations.ForeColor = System.Drawing.Color.Black;
+            this.btn_reservations.Location = new System.Drawing.Point(0, 163);
             this.btn_reservations.Name = "btn_reservations";
             this.btn_reservations.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_reservations.Size = new System.Drawing.Size(211, 53);
@@ -153,35 +153,35 @@
             this.btn_reservations.UseVisualStyleBackColor = false;
             this.btn_reservations.Click += new System.EventHandler(this.btn_reservations_Click);
             // 
-            // btn_menu
+            // btn_dashboard
             // 
-            this.btn_menu.BackColor = System.Drawing.Color.IndianRed;
-            this.btn_menu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_menu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_menu.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_menu.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btn_menu.Location = new System.Drawing.Point(0, 100);
-            this.btn_menu.Name = "btn_menu";
-            this.btn_menu.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_menu.Size = new System.Drawing.Size(211, 54);
-            this.btn_menu.TabIndex = 1;
-            this.btn_menu.Text = "Menu";
-            this.btn_menu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_menu.UseVisualStyleBackColor = false;
-            this.btn_menu.Click += new System.EventHandler(this.btn_menu_Click);
+            this.btn_dashboard.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btn_dashboard.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_dashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_dashboard.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_dashboard.ForeColor = System.Drawing.Color.Black;
+            this.btn_dashboard.Location = new System.Drawing.Point(0, 109);
+            this.btn_dashboard.Name = "btn_dashboard";
+            this.btn_dashboard.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btn_dashboard.Size = new System.Drawing.Size(211, 54);
+            this.btn_dashboard.TabIndex = 1;
+            this.btn_dashboard.Text = "Dashboard";
+            this.btn_dashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_dashboard.UseVisualStyleBackColor = false;
+            this.btn_dashboard.Click += new System.EventHandler(this.btn_menu_Click);
             // 
             // panel_logo
             // 
-            this.panel_logo.BackColor = System.Drawing.Color.Cornsilk;
+            this.panel_logo.BackColor = System.Drawing.Color.LightSteelBlue;
             this.panel_logo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_logo.Location = new System.Drawing.Point(0, 0);
             this.panel_logo.Name = "panel_logo";
-            this.panel_logo.Size = new System.Drawing.Size(211, 100);
+            this.panel_logo.Size = new System.Drawing.Size(211, 109);
             this.panel_logo.TabIndex = 0;
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.RosyBrown;
+            this.menuStrip1.BackColor = System.Drawing.Color.LightSlateGray;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuStrip_menu,
             this.menuStrip_reservations,
@@ -239,10 +239,11 @@
             // 
             // panel_mainBackground
             // 
+            this.panel_mainBackground.BackColor = System.Drawing.Color.White;
             this.panel_mainBackground.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_mainBackground.Location = new System.Drawing.Point(211, 75);
+            this.panel_mainBackground.Location = new System.Drawing.Point(211, 82);
             this.panel_mainBackground.Name = "panel_mainBackground";
-            this.panel_mainBackground.Size = new System.Drawing.Size(1004, 642);
+            this.panel_mainBackground.Size = new System.Drawing.Size(1004, 635);
             this.panel_mainBackground.TabIndex = 7;
             // 
             // Frm_AdminDashboard
@@ -269,13 +270,13 @@
 
         #endregion
         private Panel panel_topMenu;
-        private Label label1;
+        private Label lbl_title;
         private Panel panel;
         private Button btn_logout;
         private Button btn_services;
         private Button btn_account;
         private Button btn_reservations;
-        private Button btn_menu;
+        private Button btn_dashboard;
         private Panel panel_logo;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem menuStrip_menu;

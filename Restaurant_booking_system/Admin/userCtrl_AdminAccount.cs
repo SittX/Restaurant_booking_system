@@ -1,4 +1,4 @@
-﻿using Restaurant_booking_system.DataAccess;
+﻿using Restaurant_booking_system.Repositories;
 using Restaurant_booking_system.Interfaces;
 using Restaurant_booking_system.Models;
 using System;
@@ -22,11 +22,11 @@ namespace Restaurant_booking_system.Admin
     /// </summary>
     public partial class userCtrl_AdminAccount : UserControl
     {
-        private IAdminDataccess _dataAccess;
+        private IAdminRepository _dataAccess;
         public userCtrl_AdminAccount()
         {
             InitializeComponent();
-            _dataAccess = new AdminDataccess();
+            _dataAccess = new AdminRepository();
         }
 
         private void userCtrl_AdminAccount_Load(object sender, EventArgs e)
@@ -92,5 +92,7 @@ namespace Restaurant_booking_system.Admin
                 lbl_accountOperationsStatus.ForeColor = Color.Red;
             }
         }
+
+
     }
 }

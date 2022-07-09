@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Restaurant_booking_system.Admin
 {
-    public partial class Frm_adminTableReservatoins : Form
+    public partial class Frm_AdminAddReservation : Form
     {
-        public Frm_adminTableReservatoins()
+        public Frm_AdminAddReservation()
         {
             InitializeComponent();
         }

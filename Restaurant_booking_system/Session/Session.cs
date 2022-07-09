@@ -12,7 +12,7 @@ namespace Restaurant_booking_system.Session
     ///  After the user has been logged in to their account, that user account will stored in the "LoggedInUser" and 
     ///  this will keep track of all the user's activities.
     /// </summary>
-    public static class SessionInfo
+    public static class Session
     {
         public static User? LoggedInUser { get; set; }
         public static Administrator? LoggedInAdmin { get; set; }

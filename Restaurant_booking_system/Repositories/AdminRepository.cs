@@ -7,7 +7,7 @@ using static Restaurant_booking_system.RestaurantDataSet;
 using Restaurant_booking_system.Models;
 using Restaurant_booking_system.Interfaces;
 
-namespace Restaurant_booking_system.DataAccess
+namespace Restaurant_booking_system.Repositories
 {
     /// <summary>
     ///  This class will contains all the CRUD operations between the application and the SQL server
@@ -15,10 +15,10 @@ namespace Restaurant_booking_system.DataAccess
 
    
     
-    internal class AdminDataccess : IAdminDataccess
+    public class AdminRepository : IAdminRepository
     {
         private RestaurantDataSetTableAdapters.administratorsTableAdapter adapter;
-        public AdminDataccess()
+        public AdminRepository()
         {
             adapter = new RestaurantDataSetTableAdapters.administratorsTableAdapter();
         }
@@ -34,14 +34,14 @@ namespace Restaurant_booking_system.DataAccess
             return new administratorsDataTable();
         }
         
-        public administratorsDataTable Search(string username, string password)
+        public administratorsDataTable? Search(string username, string password)
         {
             var data = adapter.GetDataByUsernameAndPwd(username, password);
             if (data.Count() > 0)
             {
                 return data;
             }
-            return new administratorsDataTable();
+            return null;
         }
 
         

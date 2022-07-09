@@ -7,15 +7,15 @@ using System.Text;
 using System.Threading.Tasks;
 using static Restaurant_booking_system.RestaurantDataSet;
 
-namespace Restaurant_booking_system.DataAccess
+namespace Restaurant_booking_system.Repositories
 {
     /// <summary>
     ///  This class will contains all the CRUD operations between the application and the SQL server
     /// </summary>
-    internal class CustomerDataAccess : ICustomerDataAccess
+    internal class CustomerRepository : ICustomerRepository
     {
         private RestaurantDataSetTableAdapters.customersTableAdapter _adapter;
-        public CustomerDataAccess()
+        public CustomerRepository()
         {
             _adapter = new RestaurantDataSetTableAdapters.customersTableAdapter();
         }
@@ -23,30 +23,30 @@ namespace Restaurant_booking_system.DataAccess
         public customersDataTable GetAll()
         {
             var data = _adapter.GetData();
-            if (data.Count() > 0)
+            if (data.Count() > 0 && data is not null)
             {
                 return data;
             }
             return new customersDataTable();
         }
 
-        public customersDataTable Search(string username, string password)
+        public customersDataTable? Search(string username, string password)
         {
             var data = _adapter.GetDataByUsernameAndPassword(username, password);
-            if (data.Count() > 0)
+            if (data.Count() > 0 && data is not null)
             {
                 return data;
             }
             else
             {
-                return new customersDataTable();
+                return null;
             }
         }
 
         public customersDataTable SearchById(int id)
         {
             var data = _adapter.GetDataById(id);
-            if(data.Count() > 0)
+            if(data.Count() > 0 && data is not null)
             {
                 return data;
             }

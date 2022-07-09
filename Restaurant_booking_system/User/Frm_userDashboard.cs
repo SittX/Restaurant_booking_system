@@ -10,9 +10,9 @@ using System.Windows.Forms;
 using Restaurant_booking_system;
 namespace Restaurant_booking_system
 {
-    public partial class MainWindow : Form
+    public partial class Frm_userDashboard : Form
     {
-        public MainWindow()
+        public Frm_userDashboard()
         {
             InitializeComponent();
         }

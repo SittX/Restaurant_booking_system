@@ -19,7 +19,7 @@ namespace Restaurant_booking_system.Admin
 
         private void btn_makeReservation_Click(object sender, EventArgs e)
         {
-            Form reservationFrm = new Frm_adminTableReservatoins();
+            Form reservationFrm = new Frm_AdminAddReservation();
             reservationFrm.Show();
         }
     }

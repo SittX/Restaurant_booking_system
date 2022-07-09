@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Restaurant_booking_system
+namespace Restaurant_booking_system.Admin.PopUpWindows
 {
-    public partial class userCtrl_Reservation : UserControl
+    public partial class Frm_UpdateReservation : Form
     {
-        public userCtrl_Reservation()
+        public Frm_UpdateReservation()
         {
             InitializeComponent();
         }
