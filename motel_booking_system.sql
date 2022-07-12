@@ -1,6 +1,8 @@
 CREATE DATABASE motel_booking_db;
 USE motel_booking_db;
 
+
+select * FROm customers;
 CREATE TABLE customers(
 	id VARCHAR(40) PRIMARY KEY,
 	username VARCHAR(30) UNIQUE NOT NULL,
@@ -10,7 +12,7 @@ CREATE TABLE customers(
 	ph_number VARCHAR(40) UNIQUE
 );
 
-
+select * FROM administrators;
 CREATE TABLE administrators(
 	id VARCHAR(40) PRIMARY KEY,
 	username VARCHAR(30) UNIQUE NOT NULL,
@@ -22,10 +24,18 @@ CREATE TABLE room_types(
 	id int PRIMARY KEY IDENTITY,
 	type_description VARCHAR(40) UNIQUE NOT NULL
 );
+INSERT INTO room_types(type_description) VALUES('Single badroom');
+INSERT INTO room_types(type_description) VALUES('Double badroom');
+INSERT INTO room_types(type_description) VALUES('Deluxe room');
+INSERT INTO room_types(type_description) VALUES('Family room');
+
+SELECT * FROM room_types;
+
 
 CREATE TABLE rooms(
 	id int PRIMARY KEY,
 	room_type INT,
+	room_description TEXT,
 	CONSTRAINT FK_rooms_roomType 
 		FOREIGN KEY(room_type) 
 		REFERENCES room_types(id) 

@@ -34,6 +34,9 @@
             this.panel_main = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView_adminAccounts = new System.Windows.Forms.DataGridView();
+            this.txt_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbl_accountOperationsStatus = new System.Windows.Forms.Label();
             this.btn_reload = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -51,9 +54,6 @@
             this.btn_createNewAcc = new System.Windows.Forms.Button();
             this.txt_newAccName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txt_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txt_username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txt_password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel_top.SuspendLayout();
             this.panel_main.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -117,6 +117,8 @@
             // 
             // dataGridView_adminAccounts
             // 
+            this.dataGridView_adminAccounts.AllowUserToAddRows = false;
+            this.dataGridView_adminAccounts.AllowUserToDeleteRows = false;
             this.dataGridView_adminAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_adminAccounts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.txt_id,
@@ -124,9 +126,36 @@
             this.txt_password});
             this.dataGridView_adminAccounts.Location = new System.Drawing.Point(18, 22);
             this.dataGridView_adminAccounts.Name = "dataGridView_adminAccounts";
+            this.dataGridView_adminAccounts.ReadOnly = true;
             this.dataGridView_adminAccounts.RowTemplate.Height = 25;
             this.dataGridView_adminAccounts.Size = new System.Drawing.Size(473, 278);
             this.dataGridView_adminAccounts.TabIndex = 17;
+            // 
+            // txt_id
+            // 
+            this.txt_id.DataPropertyName = "id";
+            this.txt_id.Frozen = true;
+            this.txt_id.HeaderText = "EmployeeId";
+            this.txt_id.Name = "txt_id";
+            this.txt_id.ReadOnly = true;
+            // 
+            // txt_username
+            // 
+            this.txt_username.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.txt_username.DataPropertyName = "username";
+            this.txt_username.Frozen = true;
+            this.txt_username.HeaderText = "Username";
+            this.txt_username.Name = "txt_username";
+            this.txt_username.ReadOnly = true;
+            this.txt_username.Width = 330;
+            // 
+            // txt_password
+            // 
+            this.txt_password.Frozen = true;
+            this.txt_password.HeaderText = "Password";
+            this.txt_password.Name = "txt_password";
+            this.txt_password.ReadOnly = true;
+            this.txt_password.Visible = false;
             // 
             // lbl_accountOperationsStatus
             // 
@@ -316,29 +345,6 @@
             this.label9.Size = new System.Drawing.Size(86, 21);
             this.label9.TabIndex = 4;
             this.label9.Text = "Username";
-            // 
-            // txt_id
-            // 
-            this.txt_id.DataPropertyName = "id";
-            this.txt_id.Frozen = true;
-            this.txt_id.HeaderText = "EmployeeId";
-            this.txt_id.Name = "txt_id";
-            // 
-            // txt_username
-            // 
-            this.txt_username.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.txt_username.DataPropertyName = "username";
-            this.txt_username.Frozen = true;
-            this.txt_username.HeaderText = "Username";
-            this.txt_username.Name = "txt_username";
-            this.txt_username.Width = 330;
-            // 
-            // txt_password
-            // 
-            this.txt_password.Frozen = true;
-            this.txt_password.HeaderText = "Password";
-            this.txt_password.Name = "txt_password";
-            this.txt_password.Visible = false;
             // 
             // userCtrl_AdminAccount
             // 

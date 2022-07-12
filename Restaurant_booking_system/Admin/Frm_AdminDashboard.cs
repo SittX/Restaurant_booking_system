@@ -1,4 +1,6 @@
-﻿namespace Restaurant_booking_system.Admin
+﻿using Restaurant_booking_system.Repositories;
+
+namespace Restaurant_booking_system.Admin
 {
     public partial class Frm_AdminDashboard : Form
     {
@@ -28,7 +30,13 @@
 
         private void btn_services_Click(object sender, EventArgs e)
         {
-            SwitchUserControl(new userCtrl_adminServices());
+            //SwitchUserControl(new userCtrl_adminServices(new ServicesRepository(new BookingDataSetTableAdapters.roomsTableAdapter()));
+            SwitchUserControl(
+                new userCtrl_adminServices(
+                new RoomTypeRepository(new BookingDataSetTableAdapters.room_typesTableAdapter()),
+                new RoomsRepository(new BookingDataSetTableAdapters.roomsTableAdapter())
+                   )
+                );
         }
 
         private void btn_menu_Click(object sender, EventArgs e)
@@ -70,7 +78,10 @@
 
         private void menuStrip_services_Click(object sender, EventArgs e)
         {
-            SwitchUserControl(new userCtrl_adminServices());
+            SwitchUserControl(new userCtrl_adminServices(
+                new RoomTypeRepository(new BookingDataSetTableAdapters.room_typesTableAdapter()),
+                new RoomsRepository(new BookingDataSetTableAdapters.roomsTableAdapter())
+                ));
         }
 
 
