@@ -62,8 +62,12 @@ namespace Restaurant_booking_system
             SwitchUserControl(new userCtrl_history());
         }
 
+
         #endregion
 
+        private void bookingsHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

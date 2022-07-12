@@ -148,7 +148,7 @@
             this.btn_reservations.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_reservations.Size = new System.Drawing.Size(211, 53);
             this.btn_reservations.TabIndex = 3;
-            this.btn_reservations.Text = "Reservations";
+            this.btn_reservations.Text = "Bookings";
             this.btn_reservations.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_reservations.UseVisualStyleBackColor = false;
             this.btn_reservations.Click += new System.EventHandler(this.btn_reservations_Click);
@@ -205,8 +205,8 @@
             // menuStrip_reservations
             // 
             this.menuStrip_reservations.Name = "menuStrip_reservations";
-            this.menuStrip_reservations.Size = new System.Drawing.Size(85, 20);
-            this.menuStrip_reservations.Text = "&Reservations";
+            this.menuStrip_reservations.Size = new System.Drawing.Size(68, 20);
+            this.menuStrip_reservations.Text = "&Bookings";
             this.menuStrip_reservations.Click += new System.EventHandler(this.menuStrip_reservations_Click);
             // 
             // menuStrip_account

@@ -37,18 +37,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.date_bookingDate = new System.Windows.Forms.DateTimePicker();
-            this.cmb_bookingTime = new System.Windows.Forms.ComboBox();
-            this.cmb_tableType = new System.Windows.Forms.ComboBox();
+            this.datePicker_checkIn = new System.Windows.Forms.DateTimePicker();
+            this.cmb_roomType = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.dtGrid_availableTables = new System.Windows.Forms.DataGridView();
+            this.dtGrid_availableRooms = new System.Windows.Forms.DataGridView();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_confirm = new System.Windows.Forms.Button();
             this.panel_bottom = new System.Windows.Forms.Panel();
+            this.datePicker_checkOut = new System.Windows.Forms.DateTimePicker();
             this.panel_top.SuspendLayout();
             this.panel_main.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGrid_availableTables)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGrid_availableRooms)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_top
@@ -67,9 +67,9 @@
             this.label1.Font = new System.Drawing.Font("Constantia", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(503, 31);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(237, 33);
+            this.label1.Size = new System.Drawing.Size(245, 33);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Table reservation";
+            this.label1.Text = "Room reservation";
             // 
             // panel_main
             // 
@@ -78,7 +78,7 @@
             this.panel_main.BackColor = System.Drawing.Color.White;
             this.panel_main.Controls.Add(this.groupBox1);
             this.panel_main.Controls.Add(this.label7);
-            this.panel_main.Controls.Add(this.dtGrid_availableTables);
+            this.panel_main.Controls.Add(this.dtGrid_availableRooms);
             this.panel_main.Controls.Add(this.btn_cancel);
             this.panel_main.Controls.Add(this.btn_confirm);
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -89,14 +89,14 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.datePicker_checkOut);
             this.groupBox1.Controls.Add(this.txt_phNumber);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.date_bookingDate);
-            this.groupBox1.Controls.Add(this.cmb_bookingTime);
-            this.groupBox1.Controls.Add(this.cmb_tableType);
+            this.groupBox1.Controls.Add(this.datePicker_checkIn);
+            this.groupBox1.Controls.Add(this.cmb_roomType);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(752, 65);
             this.groupBox1.Name = "groupBox1";
@@ -118,31 +118,31 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(142, 66);
+            this.label2.Location = new System.Drawing.Point(100, 66);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 26);
+            this.label2.Size = new System.Drawing.Size(103, 26);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Date";
+            this.label2.Text = "Check In :";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(103, 213);
+            this.label3.Location = new System.Drawing.Point(79, 213);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 26);
+            this.label3.Size = new System.Drawing.Size(109, 26);
             this.label3.TabIndex = 1;
-            this.label3.Text = "Table type";
+            this.label3.Text = "Room type";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(100, 140);
+            this.label4.Location = new System.Drawing.Point(79, 140);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 26);
+            this.label4.Size = new System.Drawing.Size(124, 26);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Check In : ";
+            this.label4.Text = "Check Out : ";
             // 
             // label6
             // 
@@ -154,28 +154,20 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Phone number :";
             // 
-            // date_bookingDate
+            // datePicker_checkIn
             // 
-            this.date_bookingDate.Location = new System.Drawing.Point(214, 66);
-            this.date_bookingDate.Name = "date_bookingDate";
-            this.date_bookingDate.Size = new System.Drawing.Size(193, 33);
-            this.date_bookingDate.TabIndex = 4;
+            this.datePicker_checkIn.Location = new System.Drawing.Point(214, 66);
+            this.datePicker_checkIn.Name = "datePicker_checkIn";
+            this.datePicker_checkIn.Size = new System.Drawing.Size(193, 33);
+            this.datePicker_checkIn.TabIndex = 4;
             // 
-            // cmb_bookingTime
+            // cmb_roomType
             // 
-            this.cmb_bookingTime.FormattingEnabled = true;
-            this.cmb_bookingTime.Location = new System.Drawing.Point(214, 140);
-            this.cmb_bookingTime.Name = "cmb_bookingTime";
-            this.cmb_bookingTime.Size = new System.Drawing.Size(193, 33);
-            this.cmb_bookingTime.TabIndex = 5;
-            // 
-            // cmb_tableType
-            // 
-            this.cmb_tableType.FormattingEnabled = true;
-            this.cmb_tableType.Location = new System.Drawing.Point(214, 213);
-            this.cmb_tableType.Name = "cmb_tableType";
-            this.cmb_tableType.Size = new System.Drawing.Size(84, 33);
-            this.cmb_tableType.TabIndex = 7;
+            this.cmb_roomType.FormattingEnabled = true;
+            this.cmb_roomType.Location = new System.Drawing.Point(214, 213);
+            this.cmb_roomType.Name = "cmb_roomType";
+            this.cmb_roomType.Size = new System.Drawing.Size(242, 33);
+            this.cmb_roomType.TabIndex = 7;
             // 
             // label7
             // 
@@ -183,18 +175,18 @@
             this.label7.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.Location = new System.Drawing.Point(23, 36);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(158, 26);
+            this.label7.Size = new System.Drawing.Size(156, 26);
             this.label7.TabIndex = 13;
-            this.label7.Text = "Available Tables";
+            this.label7.Text = "Available rooms";
             // 
-            // dtGrid_availableTables
+            // dtGrid_availableRooms
             // 
-            this.dtGrid_availableTables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGrid_availableTables.Location = new System.Drawing.Point(23, 65);
-            this.dtGrid_availableTables.Name = "dtGrid_availableTables";
-            this.dtGrid_availableTables.RowTemplate.Height = 25;
-            this.dtGrid_availableTables.Size = new System.Drawing.Size(697, 418);
-            this.dtGrid_availableTables.TabIndex = 12;
+            this.dtGrid_availableRooms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGrid_availableRooms.Location = new System.Drawing.Point(23, 65);
+            this.dtGrid_availableRooms.Name = "dtGrid_availableRooms";
+            this.dtGrid_availableRooms.RowTemplate.Height = 25;
+            this.dtGrid_availableRooms.Size = new System.Drawing.Size(697, 418);
+            this.dtGrid_availableRooms.TabIndex = 12;
             // 
             // btn_cancel
             // 
@@ -232,6 +224,13 @@
             this.panel_bottom.Size = new System.Drawing.Size(1368, 62);
             this.panel_bottom.TabIndex = 2;
             // 
+            // datePicker_checkOut
+            // 
+            this.datePicker_checkOut.Location = new System.Drawing.Point(214, 140);
+            this.datePicker_checkOut.Name = "datePicker_checkOut";
+            this.datePicker_checkOut.Size = new System.Drawing.Size(193, 33);
+            this.datePicker_checkOut.TabIndex = 12;
+            // 
             // userCtrl_Reservation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -250,7 +249,7 @@
             this.panel_main.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGrid_availableTables)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGrid_availableRooms)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -269,11 +268,11 @@
         private Label label6;
         private Button btn_cancel;
         private Button btn_confirm;
-        private ComboBox cmb_tableType;
-        private ComboBox cmb_bookingTime;
-        private DateTimePicker date_bookingDate;
+        private ComboBox cmb_roomType;
+        private DateTimePicker datePicker_checkIn;
         private Label label7;
-        private DataGridView dtGrid_availableTables;
+        private DataGridView dtGrid_availableRooms;
         private GroupBox groupBox1;
+        private DateTimePicker datePicker_checkOut;
     }
 }

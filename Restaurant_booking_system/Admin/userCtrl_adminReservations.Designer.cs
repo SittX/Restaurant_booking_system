@@ -32,13 +32,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel_bottom = new System.Windows.Forms.Panel();
             this.panel_main = new System.Windows.Forms.Panel();
-            this.btn_cancelReservation = new System.Windows.Forms.Button();
-            this.btn_makeReservation = new System.Windows.Forms.Button();
-            this.btn_updateReservation = new System.Windows.Forms.Button();
-            this.dtGridView_reservations = new System.Windows.Forms.DataGridView();
+            this.btn_cancelBooking = new System.Windows.Forms.Button();
+            this.btn_makeBooking = new System.Windows.Forms.Button();
+            this.btn_updateBooking = new System.Windows.Forms.Button();
+            this.dtGridView_bookings = new System.Windows.Forms.DataGridView();
             this.panel_top.SuspendLayout();
             this.panel_main.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridView_reservations)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridView_bookings)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_top
@@ -57,9 +57,9 @@
             this.label1.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(341, 10);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(283, 26);
+            this.label1.Size = new System.Drawing.Size(248, 26);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Reservations Control panel";
+            this.label1.Text = "Bookings Control panel";
             // 
             // panel_bottom
             // 
@@ -74,61 +74,61 @@
             // 
             this.panel_main.AutoScroll = true;
             this.panel_main.BackColor = System.Drawing.Color.White;
-            this.panel_main.Controls.Add(this.btn_cancelReservation);
-            this.panel_main.Controls.Add(this.btn_makeReservation);
-            this.panel_main.Controls.Add(this.btn_updateReservation);
-            this.panel_main.Controls.Add(this.dtGridView_reservations);
+            this.panel_main.Controls.Add(this.btn_cancelBooking);
+            this.panel_main.Controls.Add(this.btn_makeBooking);
+            this.panel_main.Controls.Add(this.btn_updateBooking);
+            this.panel_main.Controls.Add(this.dtGridView_bookings);
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_main.Location = new System.Drawing.Point(0, 51);
             this.panel_main.Name = "panel_main";
             this.panel_main.Size = new System.Drawing.Size(905, 673);
             this.panel_main.TabIndex = 2;
             // 
-            // btn_cancelReservation
+            // btn_cancelBooking
             // 
-            this.btn_cancelReservation.BackColor = System.Drawing.Color.Red;
-            this.btn_cancelReservation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancelReservation.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_cancelReservation.Location = new System.Drawing.Point(546, 570);
-            this.btn_cancelReservation.Name = "btn_cancelReservation";
-            this.btn_cancelReservation.Size = new System.Drawing.Size(116, 53);
-            this.btn_cancelReservation.TabIndex = 3;
-            this.btn_cancelReservation.Text = "Delete ";
-            this.btn_cancelReservation.UseVisualStyleBackColor = false;
+            this.btn_cancelBooking.BackColor = System.Drawing.Color.Red;
+            this.btn_cancelBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cancelBooking.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_cancelBooking.Location = new System.Drawing.Point(546, 570);
+            this.btn_cancelBooking.Name = "btn_cancelBooking";
+            this.btn_cancelBooking.Size = new System.Drawing.Size(116, 53);
+            this.btn_cancelBooking.TabIndex = 3;
+            this.btn_cancelBooking.Text = "Delete ";
+            this.btn_cancelBooking.UseVisualStyleBackColor = false;
             // 
-            // btn_makeReservation
+            // btn_makeBooking
             // 
-            this.btn_makeReservation.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btn_makeReservation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_makeReservation.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_makeReservation.Location = new System.Drawing.Point(244, 570);
-            this.btn_makeReservation.Name = "btn_makeReservation";
-            this.btn_makeReservation.Size = new System.Drawing.Size(110, 53);
-            this.btn_makeReservation.TabIndex = 2;
-            this.btn_makeReservation.Text = "Create";
-            this.btn_makeReservation.UseVisualStyleBackColor = false;
-            this.btn_makeReservation.Click += new System.EventHandler(this.btn_makeReservation_Click);
+            this.btn_makeBooking.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btn_makeBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_makeBooking.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_makeBooking.Location = new System.Drawing.Point(244, 570);
+            this.btn_makeBooking.Name = "btn_makeBooking";
+            this.btn_makeBooking.Size = new System.Drawing.Size(110, 53);
+            this.btn_makeBooking.TabIndex = 2;
+            this.btn_makeBooking.Text = "Create";
+            this.btn_makeBooking.UseVisualStyleBackColor = false;
+            this.btn_makeBooking.Click += new System.EventHandler(this.btn_makeReservation_Click);
             // 
-            // btn_updateReservation
+            // btn_updateBooking
             // 
-            this.btn_updateReservation.BackColor = System.Drawing.Color.Orange;
-            this.btn_updateReservation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_updateReservation.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_updateReservation.Location = new System.Drawing.Point(399, 570);
-            this.btn_updateReservation.Name = "btn_updateReservation";
-            this.btn_updateReservation.Size = new System.Drawing.Size(116, 53);
-            this.btn_updateReservation.TabIndex = 1;
-            this.btn_updateReservation.Text = "Update";
-            this.btn_updateReservation.UseVisualStyleBackColor = false;
+            this.btn_updateBooking.BackColor = System.Drawing.Color.Orange;
+            this.btn_updateBooking.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_updateBooking.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_updateBooking.Location = new System.Drawing.Point(399, 570);
+            this.btn_updateBooking.Name = "btn_updateBooking";
+            this.btn_updateBooking.Size = new System.Drawing.Size(116, 53);
+            this.btn_updateBooking.TabIndex = 1;
+            this.btn_updateBooking.Text = "Update";
+            this.btn_updateBooking.UseVisualStyleBackColor = false;
             // 
-            // dtGridView_reservations
+            // dtGridView_bookings
             // 
-            this.dtGridView_reservations.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGridView_reservations.Location = new System.Drawing.Point(26, 36);
-            this.dtGridView_reservations.Name = "dtGridView_reservations";
-            this.dtGridView_reservations.RowTemplate.Height = 25;
-            this.dtGridView_reservations.Size = new System.Drawing.Size(854, 517);
-            this.dtGridView_reservations.TabIndex = 0;
+            this.dtGridView_bookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGridView_bookings.Location = new System.Drawing.Point(26, 36);
+            this.dtGridView_bookings.Name = "dtGridView_bookings";
+            this.dtGridView_bookings.RowTemplate.Height = 25;
+            this.dtGridView_bookings.Size = new System.Drawing.Size(854, 517);
+            this.dtGridView_bookings.TabIndex = 0;
             // 
             // userCtrl_adminReservations
             // 
@@ -143,7 +143,7 @@
             this.panel_top.ResumeLayout(false);
             this.panel_top.PerformLayout();
             this.panel_main.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridView_reservations)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridView_bookings)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -154,9 +154,9 @@
         private Panel panel_bottom;
         private Label label1;
         private Panel panel_main;
-        private DataGridView dtGridView_reservations;
-        private Button btn_cancelReservation;
-        private Button btn_makeReservation;
-        private Button btn_updateReservation;
+        private DataGridView dtGridView_bookings;
+        private Button btn_cancelBooking;
+        private Button btn_makeBooking;
+        private Button btn_updateBooking;
     }
 }

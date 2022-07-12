@@ -75,8 +75,9 @@
             // bookingsHistoryToolStripMenuItem
             // 
             this.bookingsHistoryToolStripMenuItem.Name = "bookingsHistoryToolStripMenuItem";
-            this.bookingsHistoryToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
-            this.bookingsHistoryToolStripMenuItem.Text = "&Reservations";
+            this.bookingsHistoryToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.bookingsHistoryToolStripMenuItem.Text = "&Booking";
+            this.bookingsHistoryToolStripMenuItem.Click += new System.EventHandler(this.bookingsHistoryToolStripMenuItem_Click);
             // 
             // accountToolStripMenuItem
             // 
@@ -181,7 +182,7 @@
             this.btn_reservations.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_reservations.Size = new System.Drawing.Size(211, 53);
             this.btn_reservations.TabIndex = 3;
-            this.btn_reservations.Text = "Reservations";
+            this.btn_reservations.Text = "Booking";
             this.btn_reservations.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_reservations.UseVisualStyleBackColor = false;
             this.btn_reservations.Click += new System.EventHandler(this.btn_reservations_Click);
@@ -225,11 +226,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Constantia", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(290, 21);
+            this.label1.Location = new System.Drawing.Point(369, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(419, 36);
+            this.label1.Size = new System.Drawing.Size(420, 36);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Restaurant bookings application";
+            this.label1.Text = "Motel room booking application";
             // 
             // panel_main
             // 

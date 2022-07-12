@@ -27,7 +27,7 @@ namespace Restaurant_booking_system
         private void userCtrl_Reservation_Load(object sender, EventArgs e)
         {
             bookings = repo.GetBookings();
-            dtGrid_availableTables.DataSource = bookings;
+            dtGrid_availableRooms.DataSource = bookings;
             SeperateTime();
             checkDataTime();
         }
