@@ -1,11 +1,6 @@
 ﻿using Restaurant_booking_system.Interfaces;
 using Restaurant_booking_system.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Restaurant_booking_system.RestaurantDataSet;
+using static Restaurant_booking_system.BookingDataSet;
 
 namespace Restaurant_booking_system.Repositories
 {
@@ -14,68 +9,76 @@ namespace Restaurant_booking_system.Repositories
     /// </summary>
     internal class CustomerRepository : ICustomerRepository
     {
-        private RestaurantDataSetTableAdapters.customersTableAdapter _adapter;
-        public CustomerRepository()
+        private BookingDataSetTableAdapters.customersTableAdapter _adapter;
+        public CustomerRepository(BookingDataSetTableAdapters.customersTableAdapter adapter)
         {
-            _adapter = new RestaurantDataSetTableAdapters.customersTableAdapter();
+            _adapter = adapter;
+        }
+
+        public bool Delete(string username, string password)
+        {
+            if (_adapter.DeleteAccount(username, password) == 1)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         public customersDataTable GetAll()
         {
             var data = _adapter.GetData();
-            if (data.Count() > 0 && data is not null)
+
+            if (data.Count() <= 0 && data is null)
             {
-                return data;
+                return new customersDataTable();
             }
-            return new customersDataTable();
+            return data;
+        }
+
+        public bool Insert(Customer newCus)
+        {
+            if (_adapter.InsertNewCustomerAcc(
+                                              Customer.GenerateId(_adapter.GetData()),
+                                              newCus.Username,
+                                              newCus.Password,
+                                              newCus.Email,
+                                              newCus.NRC,
+                                              newCus.PhoneNumber) == 1) return true;
+            return false;
         }
 
         public customersDataTable? Search(string username, string password)
         {
             var data = _adapter.GetDataByUsernameAndPassword(username, password);
-            if (data.Count() > 0 && data is not null)
+
+            if (data.Count() <= 0 && data is null)
             {
-                return data;
+                return new customersDataTable();
             }
-            else
-            {
-                return null;
-            }
+            return data;
         }
 
-        public customersDataTable SearchById(int id)
+        public customersDataTable? SearchById(string id)
         {
             var data = _adapter.GetDataById(id);
-            if(data.Count() > 0 && data is not null)
+
+            if (data.Count() <= 0 && data is null)
             {
-                return data;
+                return new customersDataTable();
             }
-            return new customersDataTable();
+            return data;
         }
 
-        public bool UpdateUsername(string new_username, string old_username, string password)
+        public bool UpdatePassword(string newPassword, string oldPassword, string username)
         {
-            if (_adapter.UpdateUsername(new_username,password,old_username) == 1) return true;
+            if (_adapter.UpdatePassword(newPassword,username,oldPassword) == 1) return true;
             return false;
         }
 
-        public bool UpdatePassword(string new_password, string old_password, string username)
+        public bool UpdateUsername(string newUsername, string oldUsername, string password)
         {
-            if (_adapter.UpdatePassword(new_password, username, old_password) == 1) return true;
-
-            return false;
-        }
-
-        public bool Delete(string username, string password)
-        {
-            if (_adapter.DeleteAccount(username, password) == 1) return true;
-
-            return false;
-        }
-
-        public bool Insert(User new_customer)
-        {
-            if (_adapter.Insert(new_customer.Firstname, new_customer.Lastname, new_customer.Username, new_customer.Password, new_customer.Email) == 1) return true;
+            if (_adapter.UpdateUsername(newUsername, oldUsername, password) == 1) return true;
             return false;
         }
     }

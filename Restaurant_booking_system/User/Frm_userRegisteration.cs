@@ -1,17 +1,6 @@
-﻿using static Restaurant_booking_system.InputValidations.InputValidation;
+﻿using Restaurant_booking_system.Interfaces;
 using Restaurant_booking_system.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Data.SqlClient;
-using Restaurant_booking_system.Interfaces;
-using Restaurant_booking_system.DataAccess;
+using static Restaurant_booking_system.InputValidations.InputValidation;
 
 namespace Restaurant_booking_system
 {
@@ -23,43 +12,36 @@ namespace Restaurant_booking_system
         /// User password should also be hashed for data security
         /// We should also check the phone number of the user
         /// </summary>
-        private ICustomerRepository _customerDataAccess;
-        public Frm_userRegisteration()
+        private ICustomerRepository _repo;
+        public Frm_userRegisteration(ICustomerRepository repo)
         {
             InitializeComponent();
-            _customerDataAccess= new CustomerRepository();
-
+            _repo = repo;
         }
 
         private void btn_saveRegisteration_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (ValidateInputs())
-                {
-                    User newUser = new User()
-                    {
-                        Email = txtbox_email.Text,
-                        Username = txtbox_username.Text,
-                        Password = txtbox_password.Text,
-                        PhoneNumber = txtbox_phNumber.Text
-                    };
 
-                    if(_customerDataAccess.Insert(newUser))
-                    {
-                        lbl_registerationStatus.Text = "User account has been succefully created !";
-                        lbl_registerationStatus.ForeColor = Color.Green;
-                    }
-                }
-                else
-                {
-                    lbl_registerationStatus.Text = "Please check inputs";
-                    lbl_registerationStatus.ForeColor = Color.Red;
-                }
-            }
-            catch(Exception ex)
+            if (!ValidateInputs())
             {
-                MessageBox.Show(ex.Message);
+                lbl_registerationStatus.Text = "Invalid inputs";
+                lbl_registerationStatus.ForeColor = Color.Red;
+            }
+
+
+            Customer newUser = new Customer()
+            {
+                Email = txt_email.Text,
+                Username = txt_username.Text,
+                Password = txt_password.Text,
+                PhoneNumber = txt_phNumber.Text,
+                NRC = txt_nrc.Text
+            };
+
+            if (_repo.Insert(newUser))
+            {
+                lbl_registerationStatus.Text = "User account has been succefully created !";
+                lbl_registerationStatus.ForeColor = Color.Green;
             }
 
         }
@@ -67,22 +49,19 @@ namespace Restaurant_booking_system
         private bool ValidateInputs()
         {
             // Validate input is not null or empty
-            if(ValidateNullOrEmpty(txtbox_email)
-               && ValidateNullOrEmpty(txtbox_password)
-               && ValidateNullOrEmpty(txtbox_phNumber)
-               && ValidateNullOrEmpty(txtbox_username))
+            if (!ValidateNullOrEmpty(txt_email)
+               && !ValidateNullOrEmpty(txt_password)
+               && !ValidateNullOrEmpty(txt_phNumber)
+               && !ValidateNullOrEmpty(txt_nrc)
+               && !ValidateNullOrEmpty(txt_username)
+               && !ValidateEmail(txt_email))
             {
-                // Validate email address 
-                if (ValidateEmail(txtbox_email))
-                {
-                    return true;
-                }
-
                 return false;
-            } 
-
-            return false;
+            }
+            return true;
         }
-        
+
     }
+
+
 }

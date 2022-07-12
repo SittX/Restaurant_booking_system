@@ -1,16 +1,15 @@
 using Restaurant_booking_system.Admin;
 using Restaurant_booking_system.Interfaces;
 using Restaurant_booking_system.Models;
-using Restaurant_booking_system.Session;
-using System.Data;
-using static Restaurant_booking_system.RestaurantDataSet;
+using Restaurant_booking_system.Repositories;
+using static Restaurant_booking_system.BookingDataSet;
 
 namespace Restaurant_booking_system
 {
     public partial class Frm_login : Form
     {
-        
-        private administratorsDataTable _admins = new administratorsDataTable();
+
+        private adminDataTable _admins = new adminDataTable();
         private customersDataTable _users = new customersDataTable();
 
         // All the dependencies in Form class are injected into the constructor
@@ -27,7 +26,8 @@ namespace Restaurant_booking_system
         #region Event handlers
         private void link_registerNewUser_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form registerationForm = new Frm_userRegisteration();
+            // Inject customer repository into registeration form
+            Form registerationForm = new Frm_userRegisteration(new CustomerRepository(new BookingDataSetTableAdapters.customersTableAdapter()));
             registerationForm.Show();
         }
 
@@ -55,15 +55,20 @@ namespace Restaurant_booking_system
         /// This func authenticate if the account exists or not .
         /// If it exists , it will assign the return data table to private variables "_users" or "_admins"
         /// </summary>
-        /// <returns></returns>
+        /// <returns> If user exists , return TRUE. Else return FALSE. </returns>
         private bool AuthenticateUser()
         {
             string username = txtBox_loginUsername.Text;
             string password = mskTxtBox_password.Text;
-            _users = _customerRepo.Search(username, password);
-            _admins = _adminRepo.Search(username, password);
-            
-            if(_users.Count() > 0 || _admins.Count() > 0)
+            var users = _customerRepo.Search(username, password);
+            var admins = _adminRepo.Search(username, password);
+            if(users is not null && admins is not null)
+            {
+                _users = users;
+                _admins = admins;
+            }
+
+            if (_users.Count() > 0 || _admins.Count() > 0)
             {
                 return true;
             }
@@ -80,50 +85,52 @@ namespace Restaurant_booking_system
         /// <returns></returns>
         private void SaveSessionOwner()
         {
-                if (_users.Count() > 0 && _users is not null)
+            if (_users.Count() > 0)
+            {
+                Customer currentUser = new Customer()
                 {
-                    User currentUser = new User()
-                    {
-                        Id = Convert.ToInt32(_users[0][0].ToString()),
-                        Firstname = _users[0][1].ToString(),
-                        Lastname = _users[0][2].ToString(),
-                        Username = _users[0][3].ToString(),
-                        Password = _users[0][4].ToString(),
-                        Email = _users[0][5].ToString()
-                    };
+                    Id = _users[0]["id"].ToString(),
+                    Username = _users[0]["username"].ToString(),
+                    Password = _users[0]["acc_password"].ToString(),
+                    Email = _users[0]["email"].ToString(),
+                    PhoneNumber = _users[0]["ph_number"].ToString(),
+                    NRC = _users[0]["NRC"].ToString()
+                };
 
-                    LogUser(currentUser);
+                SaveUser(currentUser);
 
-                    Form HomeWindow = new Frm_userDashboard();
-                    HomeWindow.Show();
-                }
-                else if (_admins.Count() > 0 && _admins is not null)
-                {
-                    Administrator currentAdmin = new Administrator()
-                    {
-                        Id = Convert.ToInt32(_admins[0][0]),
-                        Username = _admins[0][1].ToString(),
-                        Password = _admins[0][2].ToString()
-                    };
-
-                    LogUser(currentAdmin);
-
-
-                    Form adminDashboard = new Frm_AdminDashboard();
-                    adminDashboard.Show();
-                }
+                Form HomeWindow = new Frm_userDashboard();
+                HomeWindow.Show();
             }
+            else if (_admins.Count() > 0 && _admins is not null)
+            {
+                Administrator currentAdmin = new Administrator()
+                {
+                    Id = _admins[0]["id"].ToString(),
+                    Username = _admins[0]["username"].ToString(),
+                    Password = _admins[0]["password"].ToString()
+                };
+
+                SaveUser(currentAdmin);
+
+
+                Form adminDashboard = new Frm_AdminDashboard();
+                adminDashboard.Show();
+            }
+        }
 
         /// <summary>
         /// Save currently logged in user to "SessionInfo" class
         /// </summary>
         /// <param name="obj"></param>
-        private void LogUser(object obj)
+        private void SaveUser(object obj)
         {
-            MessageBox.Show(obj.GetType().ToString());
-            if(obj.GetType() == typeof(User))
+            // Output current object type into MessageBox
+            //MessageBox.Show(obj.GetType().ToString());
+
+            if (obj.GetType() == typeof(Customer))
             {
-                Session.Session.LoggedInUser = obj as User;
+                Session.Session.LoggedInUser = obj as Customer;
             }
             else
             {
@@ -132,6 +139,17 @@ namespace Restaurant_booking_system
         }
 
         #endregion
+
+        private void btn_login_Click_1(object sender, EventArgs e)
+        {
+            if (AuthenticateUser())
+            {
+                // This should be closed when the user has been authenticated and not hide
+                // Try to find a way to close this window !
+                SaveSessionOwner();
+                this.Hide();
+            }
+        }
     }
 
 }

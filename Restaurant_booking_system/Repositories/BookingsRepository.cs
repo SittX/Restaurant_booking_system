@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Restaurant_booking_system.RestaurantDataSet;
+﻿using static Restaurant_booking_system.RestaurantDataSet;
 
 namespace Restaurant_booking_system.Repositories
 {
@@ -19,7 +14,7 @@ namespace Restaurant_booking_system.Repositories
         {
             var data = _adapter.GetData();
 
-            if(data.Count() > 0 && data is not null)
+            if (data.Count() > 0 && data is not null)
             {
                 return data;
             }

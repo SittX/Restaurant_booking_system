@@ -40,7 +40,7 @@
             this.txt_deleteAccPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btn_deleteAcc = new System.Windows.Forms.Button();
-            this.txt_deleteAccId = new System.Windows.Forms.TextBox();
+            this.txt_deleteAccUsername = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.txt_newAccReEnteredPassword = new System.Windows.Forms.TextBox();
@@ -51,6 +51,9 @@
             this.btn_createNewAcc = new System.Windows.Forms.Button();
             this.txt_newAccName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.txt_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_password = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel_top.SuspendLayout();
             this.panel_main.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -114,15 +117,16 @@
             // 
             // dataGridView_adminAccounts
             // 
-            this.dataGridView_adminAccounts.AllowUserToAddRows = false;
-            this.dataGridView_adminAccounts.AllowUserToDeleteRows = false;
             this.dataGridView_adminAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_adminAccounts.Location = new System.Drawing.Point(18, 26);
+            this.dataGridView_adminAccounts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.txt_id,
+            this.txt_username,
+            this.txt_password});
+            this.dataGridView_adminAccounts.Location = new System.Drawing.Point(18, 22);
             this.dataGridView_adminAccounts.Name = "dataGridView_adminAccounts";
-            this.dataGridView_adminAccounts.ReadOnly = true;
             this.dataGridView_adminAccounts.RowTemplate.Height = 25;
-            this.dataGridView_adminAccounts.Size = new System.Drawing.Size(473, 266);
-            this.dataGridView_adminAccounts.TabIndex = 0;
+            this.dataGridView_adminAccounts.Size = new System.Drawing.Size(473, 278);
+            this.dataGridView_adminAccounts.TabIndex = 17;
             // 
             // lbl_accountOperationsStatus
             // 
@@ -150,7 +154,7 @@
             this.groupBox1.Controls.Add(this.txt_deleteAccPassword);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.btn_deleteAcc);
-            this.groupBox1.Controls.Add(this.txt_deleteAccId);
+            this.groupBox1.Controls.Add(this.txt_deleteAccUsername);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -193,23 +197,23 @@
             this.btn_deleteAcc.UseVisualStyleBackColor = false;
             this.btn_deleteAcc.Click += new System.EventHandler(this.btn_deleteAcc_Click);
             // 
-            // txt_deleteAccId
+            // txt_deleteAccUsername
             // 
-            this.txt_deleteAccId.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_deleteAccId.Location = new System.Drawing.Point(117, 41);
-            this.txt_deleteAccId.Name = "txt_deleteAccId";
-            this.txt_deleteAccId.Size = new System.Drawing.Size(83, 27);
-            this.txt_deleteAccId.TabIndex = 4;
+            this.txt_deleteAccUsername.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_deleteAccUsername.Location = new System.Drawing.Point(117, 41);
+            this.txt_deleteAccUsername.Name = "txt_deleteAccUsername";
+            this.txt_deleteAccUsername.Size = new System.Drawing.Size(83, 27);
+            this.txt_deleteAccUsername.TabIndex = 4;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(72, 39);
+            this.label4.Location = new System.Drawing.Point(6, 42);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 26);
+            this.label4.Size = new System.Drawing.Size(105, 26);
             this.label4.TabIndex = 4;
-            this.label4.Text = "Id";
+            this.label4.Text = "Username";
             // 
             // groupBox4
             // 
@@ -313,6 +317,29 @@
             this.label9.TabIndex = 4;
             this.label9.Text = "Username";
             // 
+            // txt_id
+            // 
+            this.txt_id.DataPropertyName = "id";
+            this.txt_id.Frozen = true;
+            this.txt_id.HeaderText = "EmployeeId";
+            this.txt_id.Name = "txt_id";
+            // 
+            // txt_username
+            // 
+            this.txt_username.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.txt_username.DataPropertyName = "username";
+            this.txt_username.Frozen = true;
+            this.txt_username.HeaderText = "Username";
+            this.txt_username.Name = "txt_username";
+            this.txt_username.Width = 330;
+            // 
+            // txt_password
+            // 
+            this.txt_password.Frozen = true;
+            this.txt_password.HeaderText = "Password";
+            this.txt_password.Name = "txt_password";
+            this.txt_password.Visible = false;
+            // 
             // userCtrl_AdminAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -344,7 +371,6 @@
         private Panel panel_bottom;
         private Panel panel_main;
         private Label label1;
-        private DataGridView dataGridView_adminAccounts;
         private GroupBox groupBox4;
         private Label label7;
         private Button btn_cancelNewAcc;
@@ -355,7 +381,7 @@
         private TextBox txt_deleteAccPassword;
         private Label label3;
         private Button btn_deleteAcc;
-        private TextBox txt_deleteAccId;
+        private TextBox txt_deleteAccUsername;
         private Label label4;
         private Button btn_reload;
         private TextBox txt_newAccReEnteredPassword;
@@ -363,5 +389,9 @@
         private TextBox txt_newAccPassword;
         private Label lbl_accountOperationsStatus;
         private GroupBox groupBox2;
+        private DataGridView dataGridView_adminAccounts;
+        private DataGridViewTextBoxColumn txt_id;
+        private DataGridViewTextBoxColumn txt_username;
+        private DataGridViewTextBoxColumn txt_password;
     }
 }

@@ -5,11 +5,11 @@ namespace Restaurant_booking_system.Interfaces
     public interface ICustomerRepository
     {
         bool Delete(string username, string password);
-        RestaurantDataSet.customersDataTable GetAll();
-        bool Insert(User new_customer);
-        RestaurantDataSet.customersDataTable? Search(string username, string password);
-        RestaurantDataSet.customersDataTable SearchById(int id);
-        bool UpdatePassword(string new_password, string old_password, string username);
-        bool UpdateUsername(string new_username, string old_username, string password);
+        BookingDataSet.customersDataTable GetAll();
+        bool Insert(Customer newCus);
+        BookingDataSet.customersDataTable? Search(string username, string password);
+        BookingDataSet.customersDataTable? SearchById(string id);
+        bool UpdatePassword(string newPassword, string oldPassword, string username);
+        bool UpdateUsername(string newUsername, string oldUsername, string password);
     }
 }

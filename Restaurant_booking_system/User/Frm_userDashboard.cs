@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Restaurant_booking_system;
+﻿using Restaurant_booking_system.Repositories;
+
 namespace Restaurant_booking_system
 {
     public partial class Frm_userDashboard : Form
@@ -26,9 +18,9 @@ namespace Restaurant_booking_system
 
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Are you sure to exit?","Exit",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Are you sure to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                Form loginForm = new Frm_login();
+                Form loginForm = new Frm_login(new CustomerRepository(new BookingDataSetTableAdapters.customersTableAdapter()), new AdminRepository(new BookingDataSetTableAdapters.adminTableAdapter()));
                 loginForm.Show();
 
                 this.Close();
@@ -47,12 +39,12 @@ namespace Restaurant_booking_system
             userCtrl.Show();
         }
 
-        private void btn_account_Click(object sender,EventArgs e)
+        private void btn_account_Click(object sender, EventArgs e)
         {
-            SwitchUserControl(new userCtrl_Account());
+            SwitchUserControl(new userCtrl_Account(new CustomerRepository(new BookingDataSetTableAdapters.customersTableAdapter())));
         }
 
-        private void btn_reservations_Click(object sender,EventArgs e)
+        private void btn_reservations_Click(object sender, EventArgs e)
         {
             SwitchUserControl(new userCtrl_Reservation());
         }

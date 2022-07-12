@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Restaurant_booking_system.RestaurantDataSet;
-using Restaurant_booking_system.Models;
+﻿
 using Restaurant_booking_system.Interfaces;
+using Restaurant_booking_system.Models;
+using static Restaurant_booking_system.BookingDataSet;
 
 namespace Restaurant_booking_system.Repositories
 {
@@ -13,54 +9,66 @@ namespace Restaurant_booking_system.Repositories
     ///  This class will contains all the CRUD operations between the application and the SQL server
     /// </summary>
 
-   
-    
+
     public class AdminRepository : IAdminRepository
     {
-        private RestaurantDataSetTableAdapters.administratorsTableAdapter adapter;
-        public AdminRepository()
+        private BookingDataSetTableAdapters.adminTableAdapter _adapter;
+        public AdminRepository(BookingDataSetTableAdapters.adminTableAdapter adapter)
         {
-            adapter = new RestaurantDataSetTableAdapters.administratorsTableAdapter();
+            _adapter = adapter;
         }
 
-
-        public administratorsDataTable GetAll()
+        public bool Delete(string username, string password)
         {
-            var data = adapter.GetData();
-            if(data.Count() > 0)
-            {
-                return data ;
-            }
-            return new administratorsDataTable();
+            if (_adapter.DeleteAccount(username, password) == 1) return true;
+            return false;
         }
-        
-        public administratorsDataTable? Search(string username, string password)
+
+        public adminDataTable GetAll()
         {
-            var data = adapter.GetDataByUsernameAndPwd(username, password);
-            if (data.Count() > 0)
+            var data = _adapter.GetData();
+            if (data is not null)
             {
                 return data;
             }
-            return null;
+            return new adminDataTable();
         }
 
-        
-        public bool Insert(Administrator new_admin)
+        public bool Insert(Administrator newAdmin)
         {
-            if (adapter.Insert(new_admin.Username, new_admin.Password) == 1) return true;
-            return false;
+            try
+            {
+                if (newAdmin is null)
+                {
+                    return false;
+                }
+
+                if (_adapter.InsertNewAdminAccount(
+                    newAdmin.Id,
+                    newAdmin.Username,
+                    newAdmin.Password) == 1)
+                {
+                    return true;
+                }
+
+                return false;
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
         }
 
-        public bool Update(int id, Administrator updatedAccount, Administrator originalAccount)
+        public adminDataTable? Search(string username, string password)
         {
-            if(adapter.UpdateAccount(updatedAccount.Username, updatedAccount.Password, id, originalAccount.Username, originalAccount.Password) == 1)return true;
-            return false;
+            var data = _adapter.GetDataByUsernameAndPassword(username, password);
+            if (data.Count() < 1 && data is null)
+            {
+                return new adminDataTable();
+            }
+            return data;
         }
 
-        public bool Delete(int id,string password)
-        {
-            if(adapter.DeleteAccount(id,password) == 1) return true;
-            return false;
-        }
     }
 }
