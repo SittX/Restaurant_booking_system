@@ -2,7 +2,7 @@
 {
     public interface IRoomTypeRepository
     {
-        bool Delete(string description);
+        bool Delete(int typeId);
         BookingDataSet.room_typesDataTable GetAll();
         bool Insert(string description);
         bool Update(string oldDescription, string newDescription);

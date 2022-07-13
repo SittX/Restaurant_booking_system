@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btn_cancel = new System.Windows.Forms.Button();
+            this.txt_description = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.txt_roomNo = new System.Windows.Forms.TextBox();
             this.btn_addRoom = new System.Windows.Forms.Button();
-            this.btn_cancel = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmb_roomType = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,13 +44,13 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.groupBox1.Controls.Add(this.btn_cancel);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txt_description);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txt_roomNo);
             this.groupBox1.Controls.Add(this.btn_addRoom);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cmb_roomType);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(34, 12);
             this.groupBox1.Name = "groupBox1";
@@ -59,20 +59,33 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "New Room details";
             // 
-            // textBox1
+            // btn_cancel
             // 
-            this.textBox1.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(21, 174);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(537, 69);
-            this.textBox1.TabIndex = 22;
+            this.btn_cancel.BackColor = System.Drawing.Color.Red;
+            this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cancel.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_cancel.Location = new System.Drawing.Point(451, 339);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(105, 45);
+            this.btn_cancel.TabIndex = 24;
+            this.btn_cancel.Text = "Cancel";
+            this.btn_cancel.UseVisualStyleBackColor = false;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
+            // 
+            // txt_description
+            // 
+            this.txt_description.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_description.Location = new System.Drawing.Point(19, 253);
+            this.txt_description.Multiline = true;
+            this.txt_description.Name = "txt_description";
+            this.txt_description.Size = new System.Drawing.Size(537, 69);
+            this.txt_description.TabIndex = 22;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(21, 79);
+            this.label1.Location = new System.Drawing.Point(18, 66);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(142, 26);
             this.label1.TabIndex = 10;
@@ -82,61 +95,50 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(377, 81);
+            this.label2.Location = new System.Drawing.Point(28, 165);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 26);
             this.label2.TabIndex = 11;
             this.label2.Text = "Room type";
             // 
-            // textBox2
+            // txt_roomNo
             // 
-            this.textBox2.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(169, 81);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(124, 27);
-            this.textBox2.TabIndex = 9;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(498, 83);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(60, 29);
-            this.comboBox1.TabIndex = 13;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(21, 145);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(172, 26);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "Room description";
+            this.txt_roomNo.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_roomNo.Location = new System.Drawing.Point(166, 68);
+            this.txt_roomNo.Name = "txt_roomNo";
+            this.txt_roomNo.Size = new System.Drawing.Size(124, 27);
+            this.txt_roomNo.TabIndex = 9;
             // 
             // btn_addRoom
             // 
             this.btn_addRoom.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btn_addRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_addRoom.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_addRoom.Location = new System.Drawing.Point(342, 302);
+            this.btn_addRoom.Location = new System.Drawing.Point(340, 339);
             this.btn_addRoom.Name = "btn_addRoom";
             this.btn_addRoom.Size = new System.Drawing.Size(105, 45);
             this.btn_addRoom.TabIndex = 20;
             this.btn_addRoom.Text = "Add";
             this.btn_addRoom.UseVisualStyleBackColor = false;
+            this.btn_addRoom.Click += new System.EventHandler(this.btn_addRoom_Click);
             // 
-            // btn_cancel
+            // label3
             // 
-            this.btn_cancel.BackColor = System.Drawing.Color.Red;
-            this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancel.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_cancel.Location = new System.Drawing.Point(453, 302);
-            this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(105, 45);
-            this.btn_cancel.TabIndex = 24;
-            this.btn_cancel.Text = "Cancel";
-            this.btn_cancel.UseVisualStyleBackColor = false;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(19, 224);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(172, 26);
+            this.label3.TabIndex = 23;
+            this.label3.Text = "Room description";
+            // 
+            // cmb_roomType
+            // 
+            this.cmb_roomType.FormattingEnabled = true;
+            this.cmb_roomType.Location = new System.Drawing.Point(166, 165);
+            this.cmb_roomType.Name = "cmb_roomType";
+            this.cmb_roomType.Size = new System.Drawing.Size(296, 29);
+            this.cmb_roomType.TabIndex = 13;
             // 
             // Frm_AddNewRoom
             // 
@@ -147,6 +149,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Frm_AddNewRoom";
             this.Text = "Frm_AddNewRoom";
+            this.Load += new System.EventHandler(this.Frm_AddNewRoom_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -156,12 +159,12 @@
         #endregion
 
         private GroupBox groupBox1;
-        private TextBox textBox1;
+        private TextBox txt_description;
         private Label label1;
         private Label label2;
-        private TextBox textBox2;
+        private TextBox txt_roomNo;
         private Label label3;
-        private ComboBox comboBox1;
+        private ComboBox cmb_roomType;
         private Button btn_cancel;
         private Button btn_addRoom;
     }

@@ -35,9 +35,9 @@ namespace Restaurant_booking_system.Repositories
         }
 
 
-        public bool Delete(string description)
+        public bool Delete(int typeId)
         {
-            if (_adapter.DeleteRoomType(description) == 1) return true;
+            if (_adapter.DeleteRoomType(typeId) == 1) return true;
             return false;
         }
 

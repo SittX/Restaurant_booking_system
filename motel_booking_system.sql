@@ -30,7 +30,7 @@ INSERT INTO room_types(type_description) VALUES('Deluxe room');
 INSERT INTO room_types(type_description) VALUES('Family room');
 
 SELECT * FROM room_types;
-
+SELECT * FROM rooms;
 
 CREATE TABLE rooms(
 	id int PRIMARY KEY,

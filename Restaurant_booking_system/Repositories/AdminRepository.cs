@@ -56,6 +56,7 @@ namespace Restaurant_booking_system.Repositories
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 return false;
             }
         }

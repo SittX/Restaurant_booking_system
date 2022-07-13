@@ -49,8 +49,8 @@
             this.cmb_roomNumber = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btn_deleteService = new System.Windows.Forms.Button();
-            this.btn_addService = new System.Windows.Forms.Button();
+            this.btn_deleteRoom = new System.Windows.Forms.Button();
+            this.btn_addRoom = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel_bottom = new System.Windows.Forms.Panel();
             this.panel_top.SuspendLayout();
@@ -94,8 +94,8 @@
             this.panel_main.Controls.Add(this.cmb_roomNumber);
             this.panel_main.Controls.Add(this.label3);
             this.panel_main.Controls.Add(this.label2);
-            this.panel_main.Controls.Add(this.btn_deleteService);
-            this.panel_main.Controls.Add(this.btn_addService);
+            this.panel_main.Controls.Add(this.btn_deleteRoom);
+            this.panel_main.Controls.Add(this.btn_addRoom);
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_main.Location = new System.Drawing.Point(0, 40);
             this.panel_main.Name = "panel_main";
@@ -284,30 +284,31 @@
             this.label2.TabIndex = 24;
             this.label2.Text = "Room Number";
             // 
-            // btn_deleteService
+            // btn_deleteRoom
             // 
-            this.btn_deleteService.BackColor = System.Drawing.Color.Red;
-            this.btn_deleteService.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_deleteService.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_deleteService.Location = new System.Drawing.Point(625, 226);
-            this.btn_deleteService.Name = "btn_deleteService";
-            this.btn_deleteService.Size = new System.Drawing.Size(208, 45);
-            this.btn_deleteService.TabIndex = 21;
-            this.btn_deleteService.Text = "Delete room";
-            this.btn_deleteService.UseVisualStyleBackColor = false;
-            this.btn_deleteService.Click += new System.EventHandler(this.btn_deleteService_Click);
+            this.btn_deleteRoom.BackColor = System.Drawing.Color.Red;
+            this.btn_deleteRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_deleteRoom.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_deleteRoom.Location = new System.Drawing.Point(625, 226);
+            this.btn_deleteRoom.Name = "btn_deleteRoom";
+            this.btn_deleteRoom.Size = new System.Drawing.Size(208, 45);
+            this.btn_deleteRoom.TabIndex = 21;
+            this.btn_deleteRoom.Text = "Delete room";
+            this.btn_deleteRoom.UseVisualStyleBackColor = false;
+            this.btn_deleteRoom.Click += new System.EventHandler(this.btn_deleteRoom_Click);
             // 
-            // btn_addService
+            // btn_addRoom
             // 
-            this.btn_addService.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btn_addService.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_addService.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_addService.Location = new System.Drawing.Point(625, 88);
-            this.btn_addService.Name = "btn_addService";
-            this.btn_addService.Size = new System.Drawing.Size(208, 45);
-            this.btn_addService.TabIndex = 9;
-            this.btn_addService.Text = "Add new room";
-            this.btn_addService.UseVisualStyleBackColor = false;
+            this.btn_addRoom.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btn_addRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_addRoom.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_addRoom.Location = new System.Drawing.Point(625, 88);
+            this.btn_addRoom.Name = "btn_addRoom";
+            this.btn_addRoom.Size = new System.Drawing.Size(208, 45);
+            this.btn_addRoom.TabIndex = 9;
+            this.btn_addRoom.Text = "Add new room";
+            this.btn_addRoom.UseVisualStyleBackColor = false;
+            this.btn_addRoom.Click += new System.EventHandler(this.btn_addRoom_Click);
             // 
             // panel_bottom
             // 
@@ -346,8 +347,8 @@
         private Panel panel_top;
         private Panel panel_main;
         private Label label1;
-        private Button btn_deleteService;
-        private Button btn_addService;
+        private Button btn_deleteRoom;
+        private Button btn_addRoom;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private Panel panel_bottom;
         private Label label2;
