@@ -142,7 +142,7 @@
             this.btn_login.TabIndex = 11;
             this.btn_login.Text = "Login";
             this.btn_login.UseVisualStyleBackColor = false;
-            this.btn_login.Click += new System.EventHandler(this.btn_login_Click_1);
+            this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
             // mskTxtBox_password
             // 

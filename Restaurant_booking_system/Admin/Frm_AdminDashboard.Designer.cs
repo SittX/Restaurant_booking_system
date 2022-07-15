@@ -88,14 +88,14 @@
             // btn_logout
             // 
             this.btn_logout.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btn_logout.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_logout.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btn_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_logout.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_logout.ForeColor = System.Drawing.Color.Black;
-            this.btn_logout.Location = new System.Drawing.Point(0, 333);
+            this.btn_logout.Location = new System.Drawing.Point(0, 634);
             this.btn_logout.Name = "btn_logout";
             this.btn_logout.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_logout.Size = new System.Drawing.Size(211, 64);
+            this.btn_logout.Size = new System.Drawing.Size(211, 59);
             this.btn_logout.TabIndex = 8;
             this.btn_logout.Text = "Log Out";
             this.btn_logout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -258,6 +258,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "Frm_AdminDashboard";
             this.Text = "Frm_AdminDashboard";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_AdminDashboard_FormClosing);
             this.panel_topMenu.ResumeLayout(false);
             this.panel_topMenu.PerformLayout();
             this.panel.ResumeLayout(false);

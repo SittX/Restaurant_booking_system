@@ -23,6 +23,12 @@ namespace Restaurant_booking_system.Admin
         private void userCtrl_AdminAccount_Load(object sender, EventArgs e)
         {
             dataGridView_adminAccounts.DataSource = _dataAccess.GetAll();
+            
+            foreach(var permission in Enum.GetValues(typeof(Administrator.Permissions)))
+            {
+                cmb_permissions.Items.Add((int)permission);
+            }
+            
         }
 
         // This function need to be refactored
@@ -31,7 +37,9 @@ namespace Restaurant_booking_system.Admin
             var username = txt_newAccName.Text;
             var password = txt_newAccPassword.Text;
             var reEnteredPassword = txt_newAccReEnteredPassword.Text;
-
+            var permissions = cmb_permissions.SelectedValue.ToString();
+            MessageBox.Show(cmb_permissions.SelectedValue.ToString());
+            //var permission = Enum.GetValues(Admin.);
             // Check for Null or Empty inputs
             if (!string.IsNullOrEmpty(username)
                 && !string.IsNullOrEmpty(password)
@@ -46,6 +54,7 @@ namespace Restaurant_booking_system.Admin
                         Username = username,
                         Password = password
                     };
+                    
 
                     // Check if the account creation is successful or not
                     if (_dataAccess.Insert(newAccount))

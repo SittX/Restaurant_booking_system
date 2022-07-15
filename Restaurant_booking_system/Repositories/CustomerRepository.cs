@@ -72,7 +72,7 @@ namespace Restaurant_booking_system.Repositories
 
         public bool UpdatePassword(string newPassword, string oldPassword, string username)
         {
-            if (_adapter.UpdatePassword(newPassword,username,oldPassword) == 1) return true;
+            if (_adapter.UpdatePassword(newPassword, username, oldPassword) == 1) return true;
             return false;
         }
 

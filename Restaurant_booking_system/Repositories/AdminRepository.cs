@@ -43,7 +43,7 @@ namespace Restaurant_booking_system.Repositories
                     return false;
                 }
 
-                if (_adapter.InsertNewAdminAccount(
+                if (_adapter.InsertNewAccount(
                     newAdmin.Id,
                     newAdmin.Username,
                     newAdmin.Password) == 1)

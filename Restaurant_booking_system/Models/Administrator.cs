@@ -4,9 +4,17 @@ namespace Restaurant_booking_system.Models
 {
     public class Administrator
     {
+        public enum Permissions
+        {
+            CanReadnWrite = 1 ,
+            CanRead = 2,
+        }
+
         public string Id { get; set; }
         public string? Username { get; set; }
         public string? Password { get; set; }
+        public string? Permission { get; set; }
+        
 
         public static string GenerateId(DataTable dt)
         {
@@ -27,6 +35,7 @@ namespace Restaurant_booking_system.Models
             string newId = "A_" + oldNum.ToString("0000");
             return newId;
         }
+
     }
 
 }

@@ -1,5 +1,4 @@
 ﻿using Restaurant_booking_system.Interfaces;
-using Restaurant_booking_system.Repositories;
 
 namespace Restaurant_booking_system
 {
@@ -34,7 +33,7 @@ namespace Restaurant_booking_system
                 var newPassword = txt_newPassword.Text;
 
                 // Check if the operations is success or not
-                if (_repo.UpdatePassword(newPassword,oldPassword,username))
+                if (_repo.UpdatePassword(newPassword, oldPassword, username))
                 {
                     lbl_operationsStatus.Text = "Updated password";
                     lbl_operationsStatus.ForeColor = Color.Green;
@@ -49,7 +48,7 @@ namespace Restaurant_booking_system
         {
             var newUsername = txt_newUsername.Text;
             var oldUsername = txt_username.Text;
-            if (_repo.UpdateUsername(newUsername,oldUsername,password))
+            if (_repo.UpdateUsername(newUsername, oldUsername, password))
             {
                 lbl_operationsStatus.Text = "Updated Username";
                 lbl_operationsStatus.ForeColor = Color.Green;
@@ -70,7 +69,7 @@ namespace Restaurant_booking_system
                     Password = data[0]["acc_password"].ToString(),
                     Email = data[0]["email"].ToString(),
                     NRC = data[0]["NRC"].ToString(),
-                    PhoneNumber= data[0]["ph_number"].ToString()
+                    PhoneNumber = data[0]["ph_number"].ToString()
                 };
                 // Reload the form to update the value
                 userCtrl_Account_Load(this, EventArgs.Empty);

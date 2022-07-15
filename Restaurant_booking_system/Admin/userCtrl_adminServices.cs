@@ -50,7 +50,7 @@ namespace Restaurant_booking_system.Admin
 
         private void btn_deleteRoom_Click(object sender, EventArgs e)
         {
-           _roomRepo.Delete(Convert.ToInt32(cmb_roomNumber.SelectedValue.ToString()));
+            _roomRepo.Delete(Convert.ToInt32(cmb_roomNumber.SelectedValue.ToString()));
 
             PopulateRoom();
         }

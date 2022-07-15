@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Restaurant_booking_system.BookingDataSetTableAdapters;
+﻿using Restaurant_booking_system.BookingDataSetTableAdapters;
 using Restaurant_booking_system.Interfaces;
 using static Restaurant_booking_system.BookingDataSet;
 

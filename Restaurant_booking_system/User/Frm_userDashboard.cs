@@ -20,7 +20,7 @@ namespace Restaurant_booking_system
         {
             if (MessageBox.Show("Are you sure to exit?", "Exit", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                Form loginForm = new Frm_login(new CustomerRepository(new BookingDataSetTableAdapters.customersTableAdapter()), new AdminRepository(new BookingDataSetTableAdapters.adminTableAdapter()));
+                Form loginForm = new Frm_login();
                 loginForm.Show();
 
                 this.Close();
@@ -60,6 +60,11 @@ namespace Restaurant_booking_system
         private void bookingsHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Frm_userDashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

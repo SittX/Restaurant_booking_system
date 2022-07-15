@@ -85,8 +85,12 @@ namespace Restaurant_booking_system.Admin
         }
 
 
+
         #endregion
 
-
+        private void Frm_AdminDashboard_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

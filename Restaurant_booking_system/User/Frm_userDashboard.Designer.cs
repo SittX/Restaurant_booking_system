@@ -117,17 +117,17 @@
             this.panel.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel.Location = new System.Drawing.Point(0, 24);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(211, 776);
+            this.panel.Size = new System.Drawing.Size(211, 737);
             this.panel.TabIndex = 1;
             // 
             // btn_logout
             // 
             this.btn_logout.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btn_logout.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_logout.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btn_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_logout.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_logout.ForeColor = System.Drawing.Color.Black;
-            this.btn_logout.Location = new System.Drawing.Point(0, 324);
+            this.btn_logout.Location = new System.Drawing.Point(0, 673);
             this.btn_logout.Name = "btn_logout";
             this.btn_logout.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_logout.Size = new System.Drawing.Size(211, 64);
@@ -238,14 +238,14 @@
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_main.Location = new System.Drawing.Point(211, 84);
             this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(1173, 716);
+            this.panel_main.Size = new System.Drawing.Size(1173, 677);
             this.panel_main.TabIndex = 3;
             // 
             // Frm_userDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1384, 800);
+            this.ClientSize = new System.Drawing.Size(1384, 761);
             this.Controls.Add(this.panel_main);
             this.Controls.Add(this.panel_topMenu);
             this.Controls.Add(this.panel);
@@ -256,6 +256,7 @@
             this.Name = "Frm_userDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainWindow";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_userDashboard_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel.ResumeLayout(false);

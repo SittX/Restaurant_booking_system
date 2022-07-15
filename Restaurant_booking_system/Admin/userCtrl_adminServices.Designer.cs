@@ -207,7 +207,7 @@
             this.groupBox1.Controls.Add(this.btn_addNewType);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(587, 395);
+            this.groupBox1.Location = new System.Drawing.Point(607, 395);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(342, 236);
             this.groupBox1.TabIndex = 35;
