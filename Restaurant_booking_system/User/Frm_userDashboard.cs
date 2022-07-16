@@ -1,4 +1,5 @@
-﻿using Restaurant_booking_system.Repositories;
+﻿using Restaurant_booking_system.Models;
+using Restaurant_booking_system.Repositories;
 
 namespace Restaurant_booking_system
 {
@@ -65,6 +66,16 @@ namespace Restaurant_booking_system
         private void Frm_userDashboard_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btn_logout_Click(object sender, EventArgs e)
+        {
+            Session.Session.IsUser = false;
+            Session.Session.LoggedInUser = new Customer();
+            Form login = new Frm_login();
+            login.Show();
+
+            this.Hide();
         }
     }
 }

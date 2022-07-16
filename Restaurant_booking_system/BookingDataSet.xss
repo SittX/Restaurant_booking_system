@@ -8,25 +8,25 @@
   <Shapes>
     <Shape ID="DesignTable:customers" ZOrder="6" X="669" Y="58" Height="267" Width="387" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
     <Shape ID="DesignTable:room_types" ZOrder="5" X="996" Y="567" Height="172" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
-    <Shape ID="DesignTable:rooms" ZOrder="2" X="353" Y="368" Height="210" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
+    <Shape ID="DesignTable:rooms" ZOrder="1" X="353" Y="368" Height="229" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
     <Shape ID="DesignTable:bookings" ZOrder="10" X="248" Y="62" Height="172" Width="198" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
     <Shape ID="DesignTable:reviews" ZOrder="4" X="754" Y="391" Height="172" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
-    <Shape ID="DesignTable:admin" ZOrder="1" X="345" Y="620" Height="210" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
+    <Shape ID="DesignTable:admin" ZOrder="2" X="345" Y="620" Height="210" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
   </Shapes>
   <Connectors>
     <Connector ID="DesignRelation:FK_rooms_roomType" ZOrder="9" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>996</X>
-          <Y>586</Y>
+          <Y>605</Y>
         </Point>
         <Point>
           <X>636</X>
-          <Y>586</Y>
+          <Y>605</Y>
         </Point>
         <Point>
           <X>636</X>
-          <Y>578</Y>
+          <Y>597</Y>
         </Point>
       </RoutePoints>
     </Connector>

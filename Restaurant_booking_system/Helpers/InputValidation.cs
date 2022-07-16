@@ -25,10 +25,44 @@ namespace Restaurant_booking_system.InputValidations
             return true;
         }
 
-
-        public static bool ValidatePhoneNumber(TextBox textbox)
+        public static bool ValidatePhoneNumber(MaskedTextBox textbox)
         {
-            return false;
+            if (textbox.Text == null) return false;
+
+            // This regex is for international phone number format
+            Regex phNumSignature = new Regex(@"\([0-9]+\)-[0-9]+");
+
+            if (!phNumSignature.IsMatch(textbox.Text))
+            {
+                MessageBox.Show("Invalid Input",
+                                "Please check the input value",
+                                MessageBoxButtons.OKCancel,
+                                MessageBoxIcon.Warning);
+
+                textbox.Focus();
+                return false;
+            }
+            return true;
+        }
+
+        public static bool ValidateNRC(TextBox textbox)
+        {
+            if (textbox.Text == null) return false;
+
+
+            var nrcSignature = new Regex(@"\d/[a-zA-Z]+\([a-zA-Z]\)[0-9]+");
+            if (nrcSignature.IsMatch(textbox.Text))
+            {
+                MessageBox.Show("Invalid Input",
+                                "Please check the input value",
+                                MessageBoxButtons.OKCancel,
+                                MessageBoxIcon.Warning);
+
+                textbox.Focus();
+
+                return false;
+            }
+            return true;
         }
 
         // This method checks whether the textbox values is null or empty

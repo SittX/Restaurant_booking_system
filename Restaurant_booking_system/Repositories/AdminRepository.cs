@@ -46,7 +46,8 @@ namespace Restaurant_booking_system.Repositories
                 if (_adapter.InsertNewAccount(
                     newAdmin.Id,
                     newAdmin.Username,
-                    newAdmin.Password) == 1)
+                    newAdmin.Password,
+                    newAdmin.Permission) == 1)
                 {
                     return true;
                 }

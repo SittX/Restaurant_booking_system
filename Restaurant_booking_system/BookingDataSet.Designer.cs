@@ -1106,6 +1106,8 @@ namespace Restaurant_booking_system {
             
             private global::System.Data.DataColumn columntype_description;
             
+            private global::System.Data.DataColumn columnprice;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public roomsDataTable() {
@@ -1173,6 +1175,14 @@ namespace Restaurant_booking_system {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn priceColumn {
+                get {
+                    return this.columnprice;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1208,13 +1218,14 @@ namespace Restaurant_booking_system {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public roomsRow AddroomsRow(int id, room_typesRow parentroom_typesRowByFK_rooms_roomType, string room_description, string type_description) {
+            public roomsRow AddroomsRow(int id, room_typesRow parentroom_typesRowByFK_rooms_roomType, string room_description, string type_description, int price) {
                 roomsRow rowroomsRow = ((roomsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
                         null,
                         room_description,
-                        type_description};
+                        type_description,
+                        price};
                 if ((parentroom_typesRowByFK_rooms_roomType != null)) {
                     columnValuesArray[1] = parentroom_typesRowByFK_rooms_roomType[0];
                 }
@@ -1251,6 +1262,7 @@ namespace Restaurant_booking_system {
                 this.columnroom_type = base.Columns["room_type"];
                 this.columnroom_description = base.Columns["room_description"];
                 this.columntype_description = base.Columns["type_description"];
+                this.columnprice = base.Columns["price"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1264,6 +1276,8 @@ namespace Restaurant_booking_system {
                 base.Columns.Add(this.columnroom_description);
                 this.columntype_description = new global::System.Data.DataColumn("type_description", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntype_description);
+                this.columnprice = new global::System.Data.DataColumn("price", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnprice);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AllowDBNull = false;
@@ -2580,6 +2594,22 @@ namespace Restaurant_booking_system {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int price {
+                get {
+                    try {
+                        return ((int)(this[this.tablerooms.priceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'price\' in table \'rooms\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablerooms.priceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public room_typesRow room_typesRow {
                 get {
                     return ((room_typesRow)(this.GetParentRow(this.Table.ParentRelations["FK_rooms_roomType"])));
@@ -2623,6 +2653,18 @@ namespace Restaurant_booking_system {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Settype_descriptionNull() {
                 this[this.tablerooms.type_descriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IspriceNull() {
+                return this.IsNull(this.tablerooms.priceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetpriceNull() {
+                this[this.tablerooms.priceColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4505,6 +4547,7 @@ SELECT id, username, acc_password, email, NRC, ph_number FROM customers WHERE (i
             tableMapping.ColumnMappings.Add("room_type", "room_type");
             tableMapping.ColumnMappings.Add("room_description", "room_description");
             tableMapping.ColumnMappings.Add("type_description", "type_description");
+            tableMapping.ColumnMappings.Add("price", "price");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -4521,9 +4564,9 @@ SELECT id, username, acc_password, email, NRC, ph_number FROM customers WHERE (i
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        rooms.id, rooms.room_type, rooms.room_description, room_types.type_" +
-                "description\r\nFROM            rooms LEFT JOIN\r\n                         room_type" +
-                "s ON rooms.room_type = room_types.id";
+            this._commandCollection[0].CommandText = "SELECT        rooms.id, rooms.room_type, rooms.room_description, rooms.price,room" +
+                "_types.type_description\r\nFROM            rooms LEFT JOIN\r\n                      " +
+                "   room_types ON rooms.room_type = room_types.id";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -4543,12 +4586,13 @@ WHERE        (NOT EXISTS
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@checkOut", global::System.Data.SqlDbType.VarChar, 3, global::System.Data.ParameterDirection.Input, 0, 0, "", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "INSERT INTO rooms\r\n                         (id, room_type,room_description)\r\nVAL" +
-                "UES        (@id,@room_type,@room_description); ";
+            this._commandCollection[3].CommandText = "INSERT INTO rooms\r\n                         (id, room_type,room_description,price" +
+                ")\r\nVALUES        (@id,@room_type,@room_description,@price); ";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@room_type", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "room_type", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@room_description", global::System.Data.SqlDbType.Text, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "room_description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@price", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "price", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4651,7 +4695,7 @@ WHERE        (NOT EXISTS
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertNewRoom(int id, global::System.Nullable<int> room_type, string room_description) {
+        public virtual int InsertNewRoom(int id, global::System.Nullable<int> room_type, string room_description, global::System.Nullable<int> price) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             command.Parameters[0].Value = ((int)(id));
             if ((room_type.HasValue == true)) {
@@ -4665,6 +4709,12 @@ WHERE        (NOT EXISTS
             }
             else {
                 command.Parameters[2].Value = ((string)(room_description));
+            }
+            if ((price.HasValue == true)) {
+                command.Parameters[3].Value = ((int)(price.Value));
+            }
+            else {
+                command.Parameters[3].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -5729,13 +5779,13 @@ SELECT id, username, acc_password, permission FROM administrators WHERE (id = @i
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@password", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "acc_password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "INSERT INTO administrators\r\n                         (id, username, acc_password)" +
-                "\r\nVALUES        (@id,@username,@acc_password); \r\nSELECT id, username, acc_passwo" +
-                "rd FROM administrators WHERE (id = @id)";
+            this._commandCollection[3].CommandText = "INSERT INTO administrators\r\n                         (id, username, acc_password," +
+                "permission)\r\nVALUES        (@id,@username,@acc_password,@permission); \r\n";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.VarChar, 40, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@username", global::System.Data.SqlDbType.VarChar, 30, global::System.Data.ParameterDirection.Input, 0, 0, "username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@acc_password", global::System.Data.SqlDbType.VarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "acc_password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@permission", global::System.Data.SqlDbType.VarChar, 25, global::System.Data.ParameterDirection.Input, 0, 0, "permission", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6045,7 +6095,7 @@ SELECT id, username, acc_password, permission FROM administrators WHERE (id = @i
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertNewAccount(string id, string username, string acc_password) {
+        public virtual int InsertNewAccount(string id, string username, string acc_password, string permission) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             if ((id == null)) {
                 throw new global::System.ArgumentNullException("id");
@@ -6064,6 +6114,12 @@ SELECT id, username, acc_password, permission FROM administrators WHERE (id = @i
             }
             else {
                 command.Parameters[2].Value = ((string)(acc_password));
+            }
+            if ((permission == null)) {
+                throw new global::System.ArgumentNullException("permission");
+            }
+            else {
+                command.Parameters[3].Value = ((string)(permission));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 

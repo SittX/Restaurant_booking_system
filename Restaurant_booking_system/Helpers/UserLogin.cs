@@ -79,7 +79,8 @@ namespace Restaurant_booking_system.Helpers
                 {
                     Id = _adminDt[0]["id"].ToString(),
                     Username = _adminDt[0]["username"].ToString(),
-                    Password = _adminDt[0]["password"].ToString()
+                    Password = _adminDt[0]["acc_password"].ToString(),
+                    Permission = _adminDt[0]["permission"].ToString()
                 };
 
                 Session.Session.LoggedInAdmin = currentUser;

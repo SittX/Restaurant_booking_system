@@ -37,10 +37,10 @@
             this.txt_email = new System.Windows.Forms.TextBox();
             this.btn_saveRegisteration = new System.Windows.Forms.Button();
             this.btn_cancelRegisteration = new System.Windows.Forms.Button();
-            this.txt_phNumber = new System.Windows.Forms.TextBox();
             this.lbl_registerationStatus = new System.Windows.Forms.Label();
             this.txt_nrc = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txt_phNumber = new System.Windows.Forms.MaskedTextBox();
             this.SuspendLayout();
             // 
             // label3
@@ -112,9 +112,9 @@
             this.btn_saveRegisteration.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btn_saveRegisteration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_saveRegisteration.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_saveRegisteration.Location = new System.Drawing.Point(204, 476);
+            this.btn_saveRegisteration.Location = new System.Drawing.Point(210, 486);
             this.btn_saveRegisteration.Name = "btn_saveRegisteration";
-            this.btn_saveRegisteration.Size = new System.Drawing.Size(94, 45);
+            this.btn_saveRegisteration.Size = new System.Drawing.Size(88, 35);
             this.btn_saveRegisteration.TabIndex = 12;
             this.btn_saveRegisteration.Text = "Create";
             this.btn_saveRegisteration.UseVisualStyleBackColor = false;
@@ -125,20 +125,12 @@
             this.btn_cancelRegisteration.BackColor = System.Drawing.Color.Red;
             this.btn_cancelRegisteration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancelRegisteration.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_cancelRegisteration.Location = new System.Drawing.Point(335, 476);
+            this.btn_cancelRegisteration.Location = new System.Drawing.Point(335, 486);
             this.btn_cancelRegisteration.Name = "btn_cancelRegisteration";
-            this.btn_cancelRegisteration.Size = new System.Drawing.Size(94, 45);
+            this.btn_cancelRegisteration.Size = new System.Drawing.Size(94, 35);
             this.btn_cancelRegisteration.TabIndex = 13;
             this.btn_cancelRegisteration.Text = "Cancel";
             this.btn_cancelRegisteration.UseVisualStyleBackColor = false;
-            // 
-            // txt_phNumber
-            // 
-            this.txt_phNumber.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_phNumber.Location = new System.Drawing.Point(158, 402);
-            this.txt_phNumber.Name = "txt_phNumber";
-            this.txt_phNumber.Size = new System.Drawing.Size(261, 27);
-            this.txt_phNumber.TabIndex = 14;
             // 
             // lbl_registerationStatus
             // 
@@ -167,15 +159,24 @@
             this.label1.TabIndex = 16;
             this.label1.Text = "NRC ";
             // 
+            // txt_phNumber
+            // 
+            this.txt_phNumber.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_phNumber.Location = new System.Drawing.Point(158, 404);
+            this.txt_phNumber.Mask = "(00)-0000000000";
+            this.txt_phNumber.Name = "txt_phNumber";
+            this.txt_phNumber.Size = new System.Drawing.Size(261, 29);
+            this.txt_phNumber.TabIndex = 18;
+            // 
             // Frm_userRegisteration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(587, 569);
+            this.ClientSize = new System.Drawing.Size(526, 569);
+            this.Controls.Add(this.txt_phNumber);
             this.Controls.Add(this.txt_nrc);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_registerationStatus);
-            this.Controls.Add(this.txt_phNumber);
             this.Controls.Add(this.btn_cancelRegisteration);
             this.Controls.Add(this.btn_saveRegisteration);
             this.Controls.Add(this.txt_email);
@@ -202,9 +203,9 @@
         private TextBox txt_email;
         private Button btn_saveRegisteration;
         private Button btn_cancelRegisteration;
-        private TextBox txt_phNumber;
         private Label lbl_registerationStatus;
         private TextBox txt_nrc;
         private Label label1;
+        private MaskedTextBox txt_phNumber;
     }
 }

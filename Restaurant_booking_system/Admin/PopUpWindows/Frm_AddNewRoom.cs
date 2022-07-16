@@ -19,9 +19,10 @@ namespace Restaurant_booking_system.Admin.PopUpWindows
             var roomNumber = Convert.ToInt32(txt_roomNo.Text);
             var roomType = Convert.ToInt32(cmb_roomType.SelectedValue);
             var description = txt_description.Text;
+            var price = Convert.ToInt32(txt_price.Text);
 
 
-            _roomRepo.Insert(roomNumber, roomType, description);
+            _roomRepo.Insert(roomNumber, roomType, description,price);
             // Update DtGridView_room of "userCtrl_adminService" panel
         }
 

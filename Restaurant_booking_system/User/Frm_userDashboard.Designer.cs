@@ -135,6 +135,7 @@
             this.btn_logout.Text = "Log Out";
             this.btn_logout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_logout.UseVisualStyleBackColor = false;
+            this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
             // 
             // btn_history
             // 

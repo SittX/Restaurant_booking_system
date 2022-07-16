@@ -46,15 +46,17 @@ namespace Restaurant_booking_system
 
         }
 
+
         private bool ValidateInputs()
         {
             // Validate input is not null or empty
             if (!ValidateNullOrEmpty(txt_email)
                && !ValidateNullOrEmpty(txt_password)
-               && !ValidateNullOrEmpty(txt_phNumber)
+               && !ValidatePhoneNumber(txt_phNumber)
                && !ValidateNullOrEmpty(txt_nrc)
                && !ValidateNullOrEmpty(txt_username)
-               && !ValidateEmail(txt_email))
+               && !ValidateEmail(txt_email)
+               && !ValidateNRC(txt_nrc))
             {
                 return false;
             }

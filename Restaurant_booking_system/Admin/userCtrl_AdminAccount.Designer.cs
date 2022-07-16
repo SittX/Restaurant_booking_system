@@ -34,8 +34,12 @@
             this.panel_main = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView_adminAccounts = new System.Windows.Forms.DataGridView();
-            this.lbl_accountOperationsStatus = new System.Windows.Forms.Label();
+            this.txt_empId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_password = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_permission = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_reload = new System.Windows.Forms.Button();
+            this.lbl_accountOperationsStatus = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txt_deleteAccPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,20 +47,16 @@
             this.txt_deleteAccUsername = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.cmb_permissions = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.txt_newAccReEnteredPassword = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txt_newAccPassword = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.btn_cancelNewAcc = new System.Windows.Forms.Button();
             this.btn_createNewAcc = new System.Windows.Forms.Button();
             this.txt_newAccName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.txt_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txt_username = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txt_password = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txt_Permissions = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmb_permissions = new System.Windows.Forms.ComboBox();
             this.panel_top.SuspendLayout();
             this.panel_main.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -98,6 +98,7 @@
             // 
             this.panel_main.AutoScroll = true;
             this.panel_main.Controls.Add(this.groupBox2);
+            this.panel_main.Controls.Add(this.lbl_accountOperationsStatus);
             this.panel_main.Controls.Add(this.groupBox1);
             this.panel_main.Controls.Add(this.groupBox4);
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -109,11 +110,10 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dataGridView_adminAccounts);
-            this.groupBox2.Controls.Add(this.lbl_accountOperationsStatus);
             this.groupBox2.Controls.Add(this.btn_reload);
             this.groupBox2.Location = new System.Drawing.Point(28, 40);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(513, 365);
+            this.groupBox2.Size = new System.Drawing.Size(581, 399);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Admin accounts";
@@ -124,36 +124,66 @@
             this.dataGridView_adminAccounts.AllowUserToDeleteRows = false;
             this.dataGridView_adminAccounts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_adminAccounts.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.txt_id,
+            this.txt_empId,
             this.txt_username,
             this.txt_password,
-            this.txt_Permissions});
+            this.txt_permission});
             this.dataGridView_adminAccounts.Location = new System.Drawing.Point(6, 22);
             this.dataGridView_adminAccounts.Name = "dataGridView_adminAccounts";
             this.dataGridView_adminAccounts.ReadOnly = true;
             this.dataGridView_adminAccounts.RowTemplate.Height = 25;
-            this.dataGridView_adminAccounts.Size = new System.Drawing.Size(489, 278);
+            this.dataGridView_adminAccounts.Size = new System.Drawing.Size(569, 330);
             this.dataGridView_adminAccounts.TabIndex = 17;
             // 
-            // lbl_accountOperationsStatus
+            // txt_empId
             // 
-            this.lbl_accountOperationsStatus.AutoSize = true;
-            this.lbl_accountOperationsStatus.Location = new System.Drawing.Point(18, 318);
-            this.lbl_accountOperationsStatus.Name = "lbl_accountOperationsStatus";
-            this.lbl_accountOperationsStatus.Size = new System.Drawing.Size(0, 15);
-            this.lbl_accountOperationsStatus.TabIndex = 13;
+            this.txt_empId.DataPropertyName = "id";
+            this.txt_empId.HeaderText = "Employee Id";
+            this.txt_empId.Name = "txt_empId";
+            this.txt_empId.ReadOnly = true;
+            // 
+            // txt_username
+            // 
+            this.txt_username.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.txt_username.DataPropertyName = "username";
+            this.txt_username.HeaderText = "Username";
+            this.txt_username.Name = "txt_username";
+            this.txt_username.ReadOnly = true;
+            // 
+            // txt_password
+            // 
+            this.txt_password.DataPropertyName = "acc_password";
+            this.txt_password.HeaderText = "Password";
+            this.txt_password.Name = "txt_password";
+            this.txt_password.ReadOnly = true;
+            this.txt_password.Visible = false;
+            // 
+            // txt_permission
+            // 
+            this.txt_permission.DataPropertyName = "permission";
+            this.txt_permission.HeaderText = "Permission";
+            this.txt_permission.Name = "txt_permission";
+            this.txt_permission.ReadOnly = true;
             // 
             // btn_reload
             // 
             this.btn_reload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_reload.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_reload.Location = new System.Drawing.Point(429, 306);
+            this.btn_reload.Location = new System.Drawing.Point(513, 358);
             this.btn_reload.Name = "btn_reload";
             this.btn_reload.Size = new System.Drawing.Size(62, 27);
             this.btn_reload.TabIndex = 11;
             this.btn_reload.Text = "Reload";
             this.btn_reload.UseVisualStyleBackColor = true;
             this.btn_reload.Click += new System.EventHandler(this.btn_reload_Click);
+            // 
+            // lbl_accountOperationsStatus
+            // 
+            this.lbl_accountOperationsStatus.AutoSize = true;
+            this.lbl_accountOperationsStatus.Location = new System.Drawing.Point(34, 472);
+            this.lbl_accountOperationsStatus.Name = "lbl_accountOperationsStatus";
+            this.lbl_accountOperationsStatus.Size = new System.Drawing.Size(0, 15);
+            this.lbl_accountOperationsStatus.TabIndex = 13;
             // 
             // groupBox1
             // 
@@ -165,9 +195,9 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(615, 485);
+            this.groupBox1.Location = new System.Drawing.Point(28, 455);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(388, 180);
+            this.groupBox1.Size = new System.Drawing.Size(359, 236);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Delete account";
@@ -175,17 +205,17 @@
             // txt_deleteAccPassword
             // 
             this.txt_deleteAccPassword.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_deleteAccPassword.Location = new System.Drawing.Point(117, 89);
+            this.txt_deleteAccPassword.Location = new System.Drawing.Point(25, 142);
             this.txt_deleteAccPassword.Name = "txt_deleteAccPassword";
             this.txt_deleteAccPassword.PasswordChar = '*';
-            this.txt_deleteAccPassword.Size = new System.Drawing.Size(223, 27);
+            this.txt_deleteAccPassword.Size = new System.Drawing.Size(274, 27);
             this.txt_deleteAccPassword.TabIndex = 9;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(6, 87);
+            this.label3.Location = new System.Drawing.Point(25, 112);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 26);
             this.label3.TabIndex = 10;
@@ -196,7 +226,7 @@
             this.btn_deleteAcc.BackColor = System.Drawing.Color.Red;
             this.btn_deleteAcc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_deleteAcc.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_deleteAcc.Location = new System.Drawing.Point(262, 139);
+            this.btn_deleteAcc.Location = new System.Drawing.Point(25, 190);
             this.btn_deleteAcc.Name = "btn_deleteAcc";
             this.btn_deleteAcc.Size = new System.Drawing.Size(78, 35);
             this.btn_deleteAcc.TabIndex = 4;
@@ -207,16 +237,16 @@
             // txt_deleteAccUsername
             // 
             this.txt_deleteAccUsername.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_deleteAccUsername.Location = new System.Drawing.Point(117, 41);
+            this.txt_deleteAccUsername.Location = new System.Drawing.Point(25, 64);
             this.txt_deleteAccUsername.Name = "txt_deleteAccUsername";
-            this.txt_deleteAccUsername.Size = new System.Drawing.Size(83, 27);
+            this.txt_deleteAccUsername.Size = new System.Drawing.Size(274, 27);
             this.txt_deleteAccUsername.TabIndex = 4;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(6, 42);
+            this.label4.Location = new System.Drawing.Point(25, 35);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(105, 26);
             this.label4.TabIndex = 4;
@@ -244,20 +274,38 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Create account";
             // 
+            // cmb_permissions
+            // 
+            this.cmb_permissions.FormattingEnabled = true;
+            this.cmb_permissions.Location = new System.Drawing.Point(51, 305);
+            this.cmb_permissions.Name = "cmb_permissions";
+            this.cmb_permissions.Size = new System.Drawing.Size(262, 27);
+            this.cmb_permissions.TabIndex = 14;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Constantia", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(51, 281);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 21);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "Permissions";
+            // 
             // txt_newAccReEnteredPassword
             // 
             this.txt_newAccReEnteredPassword.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_newAccReEnteredPassword.Location = new System.Drawing.Point(58, 226);
+            this.txt_newAccReEnteredPassword.Location = new System.Drawing.Point(51, 228);
             this.txt_newAccReEnteredPassword.Name = "txt_newAccReEnteredPassword";
             this.txt_newAccReEnteredPassword.PasswordChar = '*';
-            this.txt_newAccReEnteredPassword.Size = new System.Drawing.Size(255, 27);
+            this.txt_newAccReEnteredPassword.Size = new System.Drawing.Size(262, 27);
             this.txt_newAccReEnteredPassword.TabIndex = 11;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Constantia", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(51, 197);
+            this.label5.Location = new System.Drawing.Point(51, 204);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(147, 21);
             this.label5.TabIndex = 12;
@@ -269,15 +317,25 @@
             this.txt_newAccPassword.Location = new System.Drawing.Point(51, 145);
             this.txt_newAccPassword.Name = "txt_newAccPassword";
             this.txt_newAccPassword.PasswordChar = '*';
-            this.txt_newAccPassword.Size = new System.Drawing.Size(255, 27);
+            this.txt_newAccPassword.Size = new System.Drawing.Size(262, 27);
             this.txt_newAccPassword.TabIndex = 9;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Constantia", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(51, 121);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(80, 21);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Password";
             // 
             // btn_cancelNewAcc
             // 
             this.btn_cancelNewAcc.BackColor = System.Drawing.Color.Red;
             this.btn_cancelNewAcc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancelNewAcc.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_cancelNewAcc.Location = new System.Drawing.Point(235, 348);
+            this.btn_cancelNewAcc.Location = new System.Drawing.Point(131, 348);
             this.btn_cancelNewAcc.Name = "btn_cancelNewAcc";
             this.btn_cancelNewAcc.Size = new System.Drawing.Size(78, 45);
             this.btn_cancelNewAcc.TabIndex = 8;
@@ -290,7 +348,7 @@
             this.btn_createNewAcc.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btn_createNewAcc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_createNewAcc.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_createNewAcc.Location = new System.Drawing.Point(151, 348);
+            this.btn_createNewAcc.Location = new System.Drawing.Point(51, 348);
             this.btn_createNewAcc.Name = "btn_createNewAcc";
             this.btn_createNewAcc.Size = new System.Drawing.Size(74, 45);
             this.btn_createNewAcc.TabIndex = 4;
@@ -301,79 +359,20 @@
             // txt_newAccName
             // 
             this.txt_newAccName.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_newAccName.Location = new System.Drawing.Point(58, 66);
+            this.txt_newAccName.Location = new System.Drawing.Point(51, 66);
             this.txt_newAccName.Name = "txt_newAccName";
-            this.txt_newAccName.Size = new System.Drawing.Size(255, 27);
+            this.txt_newAccName.Size = new System.Drawing.Size(262, 27);
             this.txt_newAccName.TabIndex = 4;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Constantia", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(58, 37);
+            this.label9.Location = new System.Drawing.Point(51, 42);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(86, 21);
             this.label9.TabIndex = 4;
             this.label9.Text = "Username";
-            // 
-            // txt_id
-            // 
-            this.txt_id.DataPropertyName = "id";
-            this.txt_id.Frozen = true;
-            this.txt_id.HeaderText = "EmployeeId";
-            this.txt_id.Name = "txt_id";
-            this.txt_id.ReadOnly = true;
-            // 
-            // txt_username
-            // 
-            this.txt_username.DataPropertyName = "username";
-            this.txt_username.Frozen = true;
-            this.txt_username.HeaderText = "Username";
-            this.txt_username.Name = "txt_username";
-            this.txt_username.ReadOnly = true;
-            this.txt_username.Width = 330;
-            // 
-            // txt_password
-            // 
-            this.txt_password.Frozen = true;
-            this.txt_password.HeaderText = "Password";
-            this.txt_password.Name = "txt_password";
-            this.txt_password.ReadOnly = true;
-            this.txt_password.Visible = false;
-            // 
-            // txt_Permissions
-            // 
-            this.txt_Permissions.HeaderText = "Permissions";
-            this.txt_Permissions.Name = "txt_Permissions";
-            this.txt_Permissions.ReadOnly = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Constantia", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(51, 116);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(80, 21);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Password";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Constantia", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(51, 279);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 21);
-            this.label2.TabIndex = 13;
-            this.label2.Text = "Permissions";
-            // 
-            // cmb_permissions
-            // 
-            this.cmb_permissions.FormattingEnabled = true;
-            this.cmb_permissions.Location = new System.Drawing.Point(58, 306);
-            this.cmb_permissions.Name = "cmb_permissions";
-            this.cmb_permissions.Size = new System.Drawing.Size(206, 27);
-            this.cmb_permissions.TabIndex = 14;
             // 
             // userCtrl_AdminAccount
             // 
@@ -389,8 +388,8 @@
             this.panel_top.ResumeLayout(false);
             this.panel_top.PerformLayout();
             this.panel_main.ResumeLayout(false);
+            this.panel_main.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_adminAccounts)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -425,11 +424,13 @@
         private GroupBox groupBox2;
         private DataGridView dataGridView_adminAccounts;
         private DataGridViewTextBoxColumn txt_id;
-        private DataGridViewTextBoxColumn txt_username;
-        private DataGridViewTextBoxColumn txt_password;
         private DataGridViewTextBoxColumn txt_Permissions;
         private ComboBox cmb_permissions;
         private Label label2;
         private Label label7;
+        private DataGridViewTextBoxColumn txt_empId;
+        private DataGridViewTextBoxColumn txt_username;
+        private DataGridViewTextBoxColumn txt_password;
+        private DataGridViewTextBoxColumn txt_permission;
     }
 }

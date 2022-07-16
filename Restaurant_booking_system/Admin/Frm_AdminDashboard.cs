@@ -1,4 +1,5 @@
-﻿using Restaurant_booking_system.Repositories;
+﻿using Restaurant_booking_system.Models;
+using Restaurant_booking_system.Repositories;
 
 namespace Restaurant_booking_system.Admin
 {
@@ -48,7 +49,12 @@ namespace Restaurant_booking_system.Admin
         #region Menu strips buttons
         private void btn_logout_Click(object sender, EventArgs e)
         {
+            Session.Session.IsAdmin = false;
+            Session.Session.LoggedInAdmin = new Administrator();
+            Form login = new Frm_login();
+            login.Show();
 
+            this.Hide();
         }
 
         private void menuStrip_menu_Click(object sender, EventArgs e)

@@ -23,12 +23,9 @@ namespace Restaurant_booking_system.Admin
         private void userCtrl_AdminAccount_Load(object sender, EventArgs e)
         {
             dataGridView_adminAccounts.DataSource = _dataAccess.GetAll();
-            
-            foreach(var permission in Enum.GetValues(typeof(Administrator.Permissions)))
-            {
-                cmb_permissions.Items.Add((int)permission);
-            }
-            
+
+            cmb_permissions.DataSource = Enum.GetValues(typeof(Administrator.Permissions));
+
         }
 
         // This function need to be refactored
@@ -37,48 +34,54 @@ namespace Restaurant_booking_system.Admin
             var username = txt_newAccName.Text;
             var password = txt_newAccPassword.Text;
             var reEnteredPassword = txt_newAccReEnteredPassword.Text;
-            var permissions = cmb_permissions.SelectedValue.ToString();
-            MessageBox.Show(cmb_permissions.SelectedValue.ToString());
-            //var permission = Enum.GetValues(Admin.);
-            // Check for Null or Empty inputs
-            if (!string.IsNullOrEmpty(username)
-                && !string.IsNullOrEmpty(password)
-                && !string.IsNullOrEmpty(reEnteredPassword))
+            var permission = cmb_permissions.SelectedValue.ToString();
+
+            // Check current logged in user permission
+            if (Session.Session.LoggedInAdmin.Permission != Administrator.Permissions.CanReadnWrite.ToString())
             {
-                // Check if both of the two password inputs are identical
-                if (password == reEnteredPassword)
-                {
-                    var newAccount = new Administrator()
-                    {
-                        Id = Administrator.GenerateId(_dataAccess.GetAll()),
-                        Username = username,
-                        Password = password
-                    };
-                    
-
-                    // Check if the account creation is successful or not
-                    if (_dataAccess.Insert(newAccount))
-                    {
-                        lbl_accountOperationsStatus.Text = "New user account has been successfully created. \nReload the table to see the account.";
-                        lbl_accountOperationsStatus.ForeColor = Color.Green;
-                    }
-                    else
-                    {
-                        MessageBox.Show("User cannot be created. Try again later.");
-                    }
-                }
-                else
-                {
-                    lbl_accountOperationsStatus.Text = "Passwords are not identical.";
-                    lbl_accountOperationsStatus.ForeColor = Color.Red;
-                }
-
+                lbl_accountOperationsStatus.Text = "You don't have permission to do this action !";
+                lbl_accountOperationsStatus.ForeColor = Color.Red;
+                return;
             }
-            else
+
+            // Check for Null or Empty inputs
+            if (string.IsNullOrEmpty(username)
+                && string.IsNullOrEmpty(password)
+                && string.IsNullOrEmpty(reEnteredPassword))
             {
                 MessageBox.Show("Inputs can't be empty");
                 txt_newAccName.Focus();
             }
+
+            // Break causes if two passwords are not identical
+            if (password != reEnteredPassword)
+            {
+                lbl_accountOperationsStatus.Text = "Passwords are not identical.";
+                lbl_accountOperationsStatus.ForeColor = Color.Red;
+            }
+
+
+            var newAccount = new Administrator()
+            {
+                Id = Administrator.GenerateId(_dataAccess.GetAll()),
+                Username = username,
+                Password = password,
+                Permission = permission
+            };
+
+
+            // Check if the account creation is successful or not
+            if (!_dataAccess.Insert(newAccount))
+            {
+
+                MessageBox.Show("User cannot be created. Try again later.");
+            }
+
+
+            lbl_accountOperationsStatus.Text = "New user account has been successfully created. \nReload the table to see the account.";
+            lbl_accountOperationsStatus.ForeColor = Color.Green;
+            ClearInputs();
+
         }
 
         private void btn_reload_Click(object sender, EventArgs e)
@@ -90,22 +93,37 @@ namespace Restaurant_booking_system.Admin
         {
             txt_newAccName.Text = null;
             txt_newAccPassword.Text = null;
+            ClearInputs();
         }
 
         private void btn_deleteAcc_Click(object sender, EventArgs e)
         {
-            if (_dataAccess.Delete(txt_deleteAccUsername.Text, txt_deleteAccPassword.Text))
+            if (Session.Session.LoggedInAdmin.Permission != Administrator.Permissions.CanReadnWrite.ToString())
             {
-                lbl_accountOperationsStatus.Text = "Account has been deleted.";
-                lbl_accountOperationsStatus.ForeColor = Color.Green;
+                lbl_accountOperationsStatus.Text = "You don't have permission to do this action !";
+                lbl_accountOperationsStatus.ForeColor = Color.Red;
+                return;
             }
-            else
+
+            if (!_dataAccess.Delete(txt_deleteAccUsername.Text, txt_deleteAccPassword.Text))
             {
                 lbl_accountOperationsStatus.Text = "Account cannot be deleted";
                 lbl_accountOperationsStatus.ForeColor = Color.Red;
             }
+
+            lbl_accountOperationsStatus.Text = "Account has been deleted.";
+            lbl_accountOperationsStatus.ForeColor = Color.Green;
+            ClearInputs();
+
         }
 
-
+        private void ClearInputs()
+        {
+            txt_deleteAccPassword.Text = String.Empty;
+            txt_deleteAccUsername.Text = String.Empty;
+            txt_newAccName.Text = String.Empty;
+            txt_newAccPassword.Text = String.Empty;
+            txt_newAccReEnteredPassword.Text = String.Empty;
+        }
     }
 }
