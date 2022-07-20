@@ -28,6 +28,8 @@ VALUES('U_003','Nicole','sdkfdsdafwer','adfwer@gmail.com','asasdf3aerdf','082132
 
 
 select * FROM administrators;
+
+INSERT INTO administrators(id,username,acc_password,permission) VALUES('A_001','admin','admin123','CanReadnWrite');
 DROP TABLE administrators;
 CREATE TABLE administrators(
 	id VARCHAR(40) NOT NULL PRIMARY KEY,
@@ -51,20 +53,30 @@ SELECT * FROM room_types;
 SELECT * FROM rooms;
 
 
-INSERT INTO rooms(id,room_type,room_description) VALUES(102,1,'hello world');
-INSERT INTO rooms(id,room_type,room_description) VALUES(103,3,'Stupid dateTime object');
-INSERT INTO rooms(id,room_type,room_description) VALUES(104,2,'Deez Nuts');
+INSERT INTO rooms(id,room_type,room_description,price) VALUES(102,1,'hello world',100000);
+INSERT INTO rooms(id,room_type,room_description,price) VALUES(103,3,'Stupid dateTime object',30000);
+INSERT INTO rooms(id,room_type,room_description,price) VALUES(104,2,'Deez Nuts',5000);
 
 
 CREATE TABLE rooms(
 	id int PRIMARY KEY,
 	room_type INT,
 	room_description TEXT,
+	price INT,
 	CONSTRAINT FK_rooms_roomType 
 		FOREIGN KEY(room_type) 
 		REFERENCES room_types(id) 
 		ON DELETE CASCADE
 );
+SELECT * FROM rooms;
+
+ALTER TABLE rooms
+ADD CONSTRAINT df_rooms_img
+DEFAULT null FOR img;
+
+
+SELECT * FROM bookings;
+
 
 INSERT INTO bookings(room_id,cus_id,check_in,check_out) 
 VALUES(102,'U_001','07/14/2022','07/18/2022');

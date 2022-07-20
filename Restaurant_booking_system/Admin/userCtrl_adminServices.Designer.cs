@@ -58,6 +58,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel_bottom = new System.Windows.Forms.Panel();
+            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel_top.SuspendLayout();
             this.panel_main.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -285,6 +287,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtPrice);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txt_newTypeDescription);
             this.groupBox1.Controls.Add(this.btn_addNewType);
             this.groupBox1.Controls.Add(this.label6);
@@ -302,7 +306,7 @@
             this.txt_newTypeDescription.Location = new System.Drawing.Point(16, 76);
             this.txt_newTypeDescription.Multiline = true;
             this.txt_newTypeDescription.Name = "txt_newTypeDescription";
-            this.txt_newTypeDescription.Size = new System.Drawing.Size(297, 207);
+            this.txt_newTypeDescription.Size = new System.Drawing.Size(297, 81);
             this.txt_newTypeDescription.TabIndex = 32;
             // 
             // btn_addNewType
@@ -310,9 +314,9 @@
             this.btn_addNewType.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btn_addNewType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_addNewType.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_addNewType.Location = new System.Drawing.Point(16, 308);
+            this.btn_addNewType.Location = new System.Drawing.Point(217, 313);
             this.btn_addNewType.Name = "btn_addNewType";
-            this.btn_addNewType.Size = new System.Drawing.Size(142, 41);
+            this.btn_addNewType.Size = new System.Drawing.Size(96, 36);
             this.btn_addNewType.TabIndex = 34;
             this.btn_addNewType.Text = "Add";
             this.btn_addNewType.UseVisualStyleBackColor = false;
@@ -377,6 +381,24 @@
             this.panel_bottom.Size = new System.Drawing.Size(1130, 18);
             this.panel_bottom.TabIndex = 24;
             // 
+            // txtPrice
+            // 
+            this.txtPrice.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtPrice.Location = new System.Drawing.Point(16, 221);
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(207, 27);
+            this.txtPrice.TabIndex = 35;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Location = new System.Drawing.Point(16, 192);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 26);
+            this.label7.TabIndex = 36;
+            this.label7.Text = "Price";
+            // 
             // userCtrl_adminServices
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -440,5 +462,7 @@
         private DataGridViewTextBoxColumn txt_description;
         private GroupBox groupBox3;
         private GroupBox groupBox4;
+        private TextBox txtPrice;
+        private Label label7;
     }
 }

@@ -23,9 +23,9 @@ namespace Restaurant_booking_system.Repositories
             return data;
         }
 
-        public bool Insert(string description)
+        public bool Insert(string description,int price)
         {
-            if (_adapter.InsertNewRoomType(description) == 1) return true;
+            if (_adapter.InsertNewRoomType(description,price) == 1) return true;
             return false;
         }
 
@@ -36,9 +36,9 @@ namespace Restaurant_booking_system.Repositories
             return false;
         }
 
-        public bool Update(string oldDescription, string newDescription)
+        public bool Update(string oldDescription, string newDescription,int newPrice)
         {
-            if (_adapter.UpdateRoomType(newDescription, oldDescription) == 1) return true;
+            if (_adapter.UpdateRoomType(newDescription,newPrice, oldDescription) == 1) return true;
             return false;
         }
     }

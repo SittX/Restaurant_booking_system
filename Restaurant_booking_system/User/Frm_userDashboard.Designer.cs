@@ -203,6 +203,7 @@
             this.btn_menu.Text = "Menu";
             this.btn_menu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_menu.UseVisualStyleBackColor = false;
+            this.btn_menu.Click += new System.EventHandler(this.btn_menu_Click);
             // 
             // panel_logo
             // 
@@ -235,6 +236,7 @@
             // 
             // panel_main
             // 
+            this.panel_main.AutoScroll = true;
             this.panel_main.BackColor = System.Drawing.Color.White;
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_main.Location = new System.Drawing.Point(211, 84);

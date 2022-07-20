@@ -24,9 +24,10 @@ namespace Restaurant_booking_system.Repositories
             return data;
         }
 
-        public bool Insert(int roomNumber, int roomType, string description,int price)
+        public bool Insert(int roomNumber, int roomType, string description, string? img = null)
         {
-            if (_adapter.InsertNewRoom(roomNumber, roomType, description,price) == 1) return true;
+
+            if (_adapter.InsertNewRoom(roomNumber, roomType, description, img) == 1) return true;
             return false;
         }
 

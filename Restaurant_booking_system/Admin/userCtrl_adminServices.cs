@@ -26,7 +26,7 @@ namespace Restaurant_booking_system.Admin
 
         private void btn_addNewType_Click(object sender, EventArgs e)
         {
-            _roomTypeRepo.Insert(txt_newTypeDescription.Text);
+            _roomTypeRepo.Insert(txt_newTypeDescription.Text,Convert.ToInt32(txtPrice.Text));
             PopulateRoomType();
         }
 
@@ -44,8 +44,6 @@ namespace Restaurant_booking_system.Admin
                 new RoomsRepository(new BookingDataSetTableAdapters.roomsTableAdapter()),
                 new RoomTypeRepository(new BookingDataSetTableAdapters.room_typesTableAdapter()));
             form.Show();
-
-
         }
 
         private void btn_deleteRoom_Click(object sender, EventArgs e)

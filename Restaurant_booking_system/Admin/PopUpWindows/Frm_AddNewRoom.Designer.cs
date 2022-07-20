@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.picBox_roomImg = new System.Windows.Forms.PictureBox();
+            this.btn_browseImg = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.txt_description = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,16 +40,17 @@
             this.btn_addRoom = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.cmb_roomType = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txt_price = new System.Windows.Forms.TextBox();
+            this.ofd_img = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_roomImg)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txt_price);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.picBox_roomImg);
+            this.groupBox1.Controls.Add(this.btn_browseImg);
             this.groupBox1.Controls.Add(this.btn_cancel);
             this.groupBox1.Controls.Add(this.txt_description);
             this.groupBox1.Controls.Add(this.label1);
@@ -56,19 +60,52 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.cmb_roomType);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(34, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(579, 445);
+            this.groupBox1.Size = new System.Drawing.Size(607, 702);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "New Room details";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(20, 30);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(172, 26);
+            this.label5.TabIndex = 29;
+            this.label5.Text = "Room description";
+            // 
+            // picBox_roomImg
+            // 
+            this.picBox_roomImg.BackColor = System.Drawing.Color.White;
+            this.picBox_roomImg.Location = new System.Drawing.Point(20, 59);
+            this.picBox_roomImg.Name = "picBox_roomImg";
+            this.picBox_roomImg.Size = new System.Drawing.Size(392, 291);
+            this.picBox_roomImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picBox_roomImg.TabIndex = 28;
+            this.picBox_roomImg.TabStop = false;
+            // 
+            // btn_browseImg
+            // 
+            this.btn_browseImg.BackColor = System.Drawing.Color.CadetBlue;
+            this.btn_browseImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_browseImg.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_browseImg.Location = new System.Drawing.Point(418, 316);
+            this.btn_browseImg.Name = "btn_browseImg";
+            this.btn_browseImg.Size = new System.Drawing.Size(151, 34);
+            this.btn_browseImg.TabIndex = 27;
+            this.btn_browseImg.Text = "Browse image";
+            this.btn_browseImg.UseVisualStyleBackColor = false;
+            this.btn_browseImg.Click += new System.EventHandler(this.btn_browseImg_Click);
             // 
             // btn_cancel
             // 
             this.btn_cancel.BackColor = System.Drawing.Color.Red;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_cancel.Location = new System.Drawing.Point(109, 373);
+            this.btn_cancel.Location = new System.Drawing.Point(475, 640);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(82, 34);
             this.btn_cancel.TabIndex = 24;
@@ -79,7 +116,7 @@
             // txt_description
             // 
             this.txt_description.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_description.Location = new System.Drawing.Point(19, 253);
+            this.txt_description.Location = new System.Drawing.Point(20, 550);
             this.txt_description.Multiline = true;
             this.txt_description.Name = "txt_description";
             this.txt_description.Size = new System.Drawing.Size(537, 69);
@@ -89,7 +126,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(19, 52);
+            this.label1.Location = new System.Drawing.Point(20, 378);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(142, 26);
             this.label1.TabIndex = 10;
@@ -99,7 +136,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(19, 140);
+            this.label2.Location = new System.Drawing.Point(20, 449);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 26);
             this.label2.TabIndex = 11;
@@ -108,7 +145,7 @@
             // txt_roomNo
             // 
             this.txt_roomNo.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_roomNo.Location = new System.Drawing.Point(19, 81);
+            this.txt_roomNo.Location = new System.Drawing.Point(20, 407);
             this.txt_roomNo.Name = "txt_roomNo";
             this.txt_roomNo.Size = new System.Drawing.Size(142, 27);
             this.txt_roomNo.TabIndex = 9;
@@ -118,7 +155,7 @@
             this.btn_addRoom.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btn_addRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_addRoom.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_addRoom.Location = new System.Drawing.Point(19, 373);
+            this.btn_addRoom.Location = new System.Drawing.Point(382, 640);
             this.btn_addRoom.Name = "btn_addRoom";
             this.btn_addRoom.Size = new System.Drawing.Size(79, 34);
             this.btn_addRoom.TabIndex = 20;
@@ -130,7 +167,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(19, 224);
+            this.label3.Location = new System.Drawing.Point(20, 521);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(172, 26);
             this.label3.TabIndex = 23;
@@ -139,41 +176,30 @@
             // cmb_roomType
             // 
             this.cmb_roomType.FormattingEnabled = true;
-            this.cmb_roomType.Location = new System.Drawing.Point(19, 169);
+            this.cmb_roomType.Location = new System.Drawing.Point(20, 478);
             this.cmb_roomType.Name = "cmb_roomType";
             this.cmb_roomType.Size = new System.Drawing.Size(296, 29);
             this.cmb_roomType.TabIndex = 13;
             // 
-            // label4
+            // ofd_img
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(353, 140);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 26);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "Price";
-            // 
-            // txt_price
-            // 
-            this.txt_price.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_price.Location = new System.Drawing.Point(353, 169);
-            this.txt_price.Name = "txt_price";
-            this.txt_price.Size = new System.Drawing.Size(203, 27);
-            this.txt_price.TabIndex = 25;
+            this.ofd_img.FileName = "openFileDialog1";
+            this.ofd_img.InitialDirectory = "C:\\";
+            this.ofd_img.Title = "Image for rooms";
             // 
             // Frm_AddNewRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
-            this.ClientSize = new System.Drawing.Size(654, 488);
+            this.ClientSize = new System.Drawing.Size(645, 726);
             this.Controls.Add(this.groupBox1);
             this.Name = "Frm_AddNewRoom";
             this.Text = "Frm_AddNewRoom";
             this.Load += new System.EventHandler(this.Frm_AddNewRoom_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_roomImg)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -189,7 +215,9 @@
         private ComboBox cmb_roomType;
         private Button btn_cancel;
         private Button btn_addRoom;
-        private Label label4;
-        private TextBox txt_price;
+        private OpenFileDialog ofd_img;
+        private Label label5;
+        private PictureBox picBox_roomImg;
+        private Button btn_browseImg;
     }
 }

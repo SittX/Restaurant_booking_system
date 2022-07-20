@@ -1,5 +1,6 @@
 ﻿using Restaurant_booking_system.Models;
 using Restaurant_booking_system.Repositories;
+using Restaurant_booking_system.User;
 
 namespace Restaurant_booking_system
 {
@@ -77,5 +78,11 @@ namespace Restaurant_booking_system
 
             this.Hide();
         }
+
+        private void btn_menu_Click(object sender, EventArgs e)
+        {
+            SwitchUserControl(new userCtrl_menu(new RoomsRepository(new BookingDataSetTableAdapters.roomsTableAdapter())));
+        }
+
     }
 }
