@@ -1,6 +1,16 @@
 CREATE DATABASE motel_booking_db;
 USE motel_booking_db;
 
+
+SELECT * FROM customers;
+SELECT * FROM administrators;
+SELECT * FROM room_types;
+SELECT * FROM rooms;
+SELECT * FROM bookings;
+
+
+
+
 DROP table customers;
 DROP table administrators;
 DROP table room_types;
