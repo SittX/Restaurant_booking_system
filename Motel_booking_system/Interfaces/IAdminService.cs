@@ -1,4 +1,5 @@
-﻿using Restaurant_booking_system.Models;
+﻿using Motel_booking_system;
+using Restaurant_booking_system.Models;
 
 namespace Restaurant_booking_system.Interfaces
 {

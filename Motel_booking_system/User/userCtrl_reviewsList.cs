@@ -1,0 +1,55 @@
+﻿using Restaurant_booking_system.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Motel_booking_system.User
+{
+    public partial class userCtrl_reviewsList : UserControl
+    {
+        private readonly IReviewsService _reviewService;
+
+        public userCtrl_reviewsList(IReviewsService reviewService)
+        {
+            InitializeComponent();
+            _reviewService = reviewService;
+        }
+
+        private void userCtrl_reviewsList_Load(object sender, EventArgs e)
+        {
+            LoadReviews();
+        }
+
+        private void LoadReviews()
+        {
+            var dt = _reviewService.GetAll();
+
+            foreach(var review in dt)
+            {
+                var reviewItem = new userCtrl_reviewItem();
+                reviewItem.Username = review["username"].ToString();
+                reviewItem.Review = review["review"].ToString();
+
+                AddToFlowLayoutPanel(reviewItem);
+            }
+        }
+
+        private void AddToFlowLayoutPanel(userCtrl_reviewItem reviewItem)
+        {
+            if (flowLayoutPanel_reviews.Controls.Count < 0)
+            {
+                flowLayoutPanel_reviews.Controls.Clear();
+            }
+            else
+            {
+                flowLayoutPanel_reviews.Controls.Add(reviewItem);
+            }
+        }
+    }
+}

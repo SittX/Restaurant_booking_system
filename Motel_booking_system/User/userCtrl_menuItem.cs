@@ -8,8 +8,7 @@ namespace Restaurant_booking_system.User
         {
             InitializeComponent();
         }
-
-        private string _type;
+private string _type;
         private string _price;
         private string _img;
 
@@ -42,5 +41,6 @@ namespace Restaurant_booking_system.User
             get => _img;
             set { _img = value; picBox_img.ImageLocation = value; }
         }
+        
     }
 }

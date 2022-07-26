@@ -1,6 +1,6 @@
 ﻿using Restaurant_booking_system.Interfaces;
 using Restaurant_booking_system.Models;
-using static Restaurant_booking_system.BookingDataSet;
+using static Motel_booking_system.BookingDataSet;
 
 namespace Restaurant_booking_system.Services
 {
@@ -9,8 +9,8 @@ namespace Restaurant_booking_system.Services
     /// </summary>
     internal class CustomerService : ICustomerService
     {
-        private BookingDataSetTableAdapters.customersTableAdapter _adapter;
-        public CustomerService(BookingDataSetTableAdapters.customersTableAdapter adapter)
+        private Motel_booking_system.BookingDataSetTableAdapters.customersTableAdapter _adapter;
+        public CustomerService(Motel_booking_system.BookingDataSetTableAdapters.customersTableAdapter adapter)
         {
             _adapter = adapter;
         }

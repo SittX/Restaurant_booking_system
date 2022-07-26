@@ -48,7 +48,7 @@ namespace Restaurant_booking_system
 
         private void btn_createNewAccount_Click(object sender, EventArgs e)
         {
-            Form userRegisteration = new Frm_userRegisteration(new CustomerService(new BookingDataSetTableAdapters.customersTableAdapter()));
+            Form userRegisteration = new Frm_userRegisteration(new CustomerService(new Motel_booking_system.BookingDataSetTableAdapters.customersTableAdapter()));
             userRegisteration.Show();
         }
 

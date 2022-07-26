@@ -45,8 +45,8 @@ namespace Restaurant_booking_system.Admin
         private void btn_addRoom_Click(object sender, EventArgs e)
         {
             Form form = new Frm_AddNewRoom(
-                new RoomsService(new BookingDataSetTableAdapters.roomsTableAdapter()),
-                new RoomTypeService(new BookingDataSetTableAdapters.room_typesTableAdapter()));
+                new RoomsService(new Motel_booking_system.BookingDataSetTableAdapters.roomsTableAdapter()),
+                new RoomTypeService(new Motel_booking_system.BookingDataSetTableAdapters.room_typesTableAdapter()));
             form.Show();
         }
 

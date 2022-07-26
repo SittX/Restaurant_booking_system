@@ -1,7 +1,7 @@
 ﻿
 using Restaurant_booking_system.Interfaces;
 using Restaurant_booking_system.Models;
-using static Restaurant_booking_system.BookingDataSet;
+using static Motel_booking_system.BookingDataSet;
 
 namespace Restaurant_booking_system.Services
 {
@@ -12,8 +12,8 @@ namespace Restaurant_booking_system.Services
 
     public class AdminService : IAdminService
     {
-        private BookingDataSetTableAdapters.adminTableAdapter _adapter;
-        public AdminService(BookingDataSetTableAdapters.adminTableAdapter adapter)
+        private Motel_booking_system.BookingDataSetTableAdapters.adminTableAdapter _adapter;
+        public AdminService(Motel_booking_system.BookingDataSetTableAdapters.adminTableAdapter adapter)
         {
             _adapter = adapter;
         }

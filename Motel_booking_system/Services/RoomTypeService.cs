@@ -1,6 +1,6 @@
-﻿using Restaurant_booking_system.BookingDataSetTableAdapters;
+﻿using Motel_booking_system.BookingDataSetTableAdapters;
 using Restaurant_booking_system.Interfaces;
-using static Restaurant_booking_system.BookingDataSet;
+using static Motel_booking_system.BookingDataSet;
 
 namespace Restaurant_booking_system.Services
 {

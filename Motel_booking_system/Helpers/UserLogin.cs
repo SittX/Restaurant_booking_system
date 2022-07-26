@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Restaurant_booking_system.BookingDataSet;
+using static Motel_booking_system.BookingDataSet;
 
 namespace Restaurant_booking_system.Helpers
 {

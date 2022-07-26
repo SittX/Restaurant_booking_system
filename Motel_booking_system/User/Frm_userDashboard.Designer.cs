@@ -37,7 +37,7 @@
             this.menuStrip_exit = new System.Windows.Forms.ToolStripMenuItem();
             this.panel = new System.Windows.Forms.Panel();
             this.btn_logout = new System.Windows.Forms.Button();
-            this.btn_history = new System.Windows.Forms.Button();
+            this.btn_review = new System.Windows.Forms.Button();
             this.btn_account = new System.Windows.Forms.Button();
             this.btn_reservations = new System.Windows.Forms.Button();
             this.btn_menu = new System.Windows.Forms.Button();
@@ -112,7 +112,7 @@
             // 
             this.panel.BackColor = System.Drawing.Color.LightSteelBlue;
             this.panel.Controls.Add(this.btn_logout);
-            this.panel.Controls.Add(this.btn_history);
+            this.panel.Controls.Add(this.btn_review);
             this.panel.Controls.Add(this.btn_account);
             this.panel.Controls.Add(this.btn_reservations);
             this.panel.Controls.Add(this.btn_menu);
@@ -140,22 +140,22 @@
             this.btn_logout.UseVisualStyleBackColor = false;
             this.btn_logout.Click += new System.EventHandler(this.btn_logout_Click);
             // 
-            // btn_history
+            // btn_review
             // 
-            this.btn_history.BackColor = System.Drawing.Color.LightSlateGray;
-            this.btn_history.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_history.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_history.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_history.ForeColor = System.Drawing.Color.Black;
-            this.btn_history.Location = new System.Drawing.Point(0, 260);
-            this.btn_history.Name = "btn_history";
-            this.btn_history.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_history.Size = new System.Drawing.Size(211, 64);
-            this.btn_history.TabIndex = 7;
-            this.btn_history.Text = "History";
-            this.btn_history.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_history.UseVisualStyleBackColor = false;
-            this.btn_history.Click += new System.EventHandler(this.btn_history_Click);
+            this.btn_review.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btn_review.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_review.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_review.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_review.ForeColor = System.Drawing.Color.Black;
+            this.btn_review.Location = new System.Drawing.Point(0, 260);
+            this.btn_review.Name = "btn_review";
+            this.btn_review.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btn_review.Size = new System.Drawing.Size(211, 64);
+            this.btn_review.TabIndex = 7;
+            this.btn_review.Text = "Reviews";
+            this.btn_review.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_review.UseVisualStyleBackColor = false;
+            this.btn_review.Click += new System.EventHandler(this.btn_review_Click);
             // 
             // btn_account
             // 
@@ -282,7 +282,7 @@
         private ToolStripMenuItem menuStrip_logout;
         private ToolStripMenuItem menuStrip_exit;
         private Panel panel;
-        private Button btn_history;
+        private Button btn_review;
         private Button btn_account;
         private Button btn_reservations;
         private Button btn_menu;

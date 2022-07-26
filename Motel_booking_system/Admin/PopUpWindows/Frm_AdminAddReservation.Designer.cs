@@ -33,6 +33,9 @@
             this.panel_main = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.dtGridView_availableRooms = new System.Windows.Forms.DataGridView();
+            this.txt_roomNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_roomDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btn_searchRooms = new System.Windows.Forms.Button();
@@ -51,7 +54,7 @@
             this.txt_cusName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btn_cancel = new System.Windows.Forms.Button();
-            this.btn_confirm = new System.Windows.Forms.Button();
+            this.btn_confirmReservation = new System.Windows.Forms.Button();
             this.panel_bottom = new System.Windows.Forms.Panel();
             this.panel_top.SuspendLayout();
             this.panel_main.SuspendLayout();
@@ -87,7 +90,7 @@
             this.panel_main.Controls.Add(this.groupBox2);
             this.panel_main.Controls.Add(this.groupBox1);
             this.panel_main.Controls.Add(this.btn_cancel);
-            this.panel_main.Controls.Add(this.btn_confirm);
+            this.panel_main.Controls.Add(this.btn_confirmReservation);
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_main.ForeColor = System.Drawing.Color.White;
             this.panel_main.Location = new System.Drawing.Point(0, 47);
@@ -108,12 +111,41 @@
             // 
             // dtGridView_availableRooms
             // 
+            this.dtGridView_availableRooms.AllowUserToAddRows = false;
+            this.dtGridView_availableRooms.AllowUserToDeleteRows = false;
             this.dtGridView_availableRooms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGridView_availableRooms.Location = new System.Drawing.Point(502, 30);
+            this.dtGridView_availableRooms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.txt_roomNumber,
+            this.txt_roomDescription,
+            this.txt_price});
+            this.dtGridView_availableRooms.Location = new System.Drawing.Point(12, 32);
             this.dtGridView_availableRooms.Name = "dtGridView_availableRooms";
+            this.dtGridView_availableRooms.ReadOnly = true;
             this.dtGridView_availableRooms.RowTemplate.Height = 25;
-            this.dtGridView_availableRooms.Size = new System.Drawing.Size(588, 292);
+            this.dtGridView_availableRooms.Size = new System.Drawing.Size(1078, 345);
             this.dtGridView_availableRooms.TabIndex = 33;
+            // 
+            // txt_roomNumber
+            // 
+            this.txt_roomNumber.DataPropertyName = "RoomNumber";
+            this.txt_roomNumber.HeaderText = "Room Number";
+            this.txt_roomNumber.Name = "txt_roomNumber";
+            this.txt_roomNumber.ReadOnly = true;
+            // 
+            // txt_roomDescription
+            // 
+            this.txt_roomDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.txt_roomDescription.DataPropertyName = "Description";
+            this.txt_roomDescription.HeaderText = "Room Description";
+            this.txt_roomDescription.Name = "txt_roomDescription";
+            this.txt_roomDescription.ReadOnly = true;
+            // 
+            // txt_price
+            // 
+            this.txt_price.DataPropertyName = "Price";
+            this.txt_price.HeaderText = "Price";
+            this.txt_price.Name = "txt_price";
+            this.txt_price.ReadOnly = true;
             // 
             // groupBox2
             // 
@@ -127,7 +159,7 @@
             this.groupBox2.Controls.Add(this.cmb_roomType);
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(31, 30);
+            this.groupBox2.Location = new System.Drawing.Point(12, 383);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(446, 292);
             this.groupBox2.TabIndex = 32;
@@ -222,7 +254,7 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(31, 330);
+            this.groupBox1.Location = new System.Drawing.Point(537, 383);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(446, 326);
             this.groupBox1.TabIndex = 28;
@@ -311,7 +343,7 @@
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_cancel.ForeColor = System.Drawing.Color.Black;
-            this.btn_cancel.Location = new System.Drawing.Point(371, 662);
+            this.btn_cancel.Location = new System.Drawing.Point(987, 674);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(96, 35);
             this.btn_cancel.TabIndex = 27;
@@ -319,19 +351,19 @@
             this.btn_cancel.UseVisualStyleBackColor = false;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancelReservation_Click);
             // 
-            // btn_confirm
+            // btn_confirmReservation
             // 
-            this.btn_confirm.BackColor = System.Drawing.Color.MediumSeaGreen;
-            this.btn_confirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_confirm.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_confirm.ForeColor = System.Drawing.Color.Black;
-            this.btn_confirm.Location = new System.Drawing.Point(271, 662);
-            this.btn_confirm.Name = "btn_confirm";
-            this.btn_confirm.Size = new System.Drawing.Size(94, 35);
-            this.btn_confirm.TabIndex = 26;
-            this.btn_confirm.Text = "Confirm";
-            this.btn_confirm.UseVisualStyleBackColor = false;
-            this.btn_confirm.Click += new System.EventHandler(this.btn_confirm_Click);
+            this.btn_confirmReservation.BackColor = System.Drawing.Color.MediumSeaGreen;
+            this.btn_confirmReservation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_confirmReservation.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_confirmReservation.ForeColor = System.Drawing.Color.Black;
+            this.btn_confirmReservation.Location = new System.Drawing.Point(987, 633);
+            this.btn_confirmReservation.Name = "btn_confirmReservation";
+            this.btn_confirmReservation.Size = new System.Drawing.Size(94, 35);
+            this.btn_confirmReservation.TabIndex = 26;
+            this.btn_confirmReservation.Text = "Confirm";
+            this.btn_confirmReservation.UseVisualStyleBackColor = false;
+            this.btn_confirmReservation.Click += new System.EventHandler(this.btn_confirmReservation_Click);
             // 
             // panel_bottom
             // 
@@ -374,7 +406,7 @@
         private Panel panel_main;
         private Panel panel_bottom;
         private Button btn_cancel;
-        private Button btn_confirm;
+        private Button btn_confirmReservation;
         private TextBox txt_cusEmail;
         private TextBox txt_cusPhNumber;
         private TextBox txt_cusName;
@@ -395,5 +427,8 @@
         private DataGridView dtGridView_availableRooms;
         private Label label9;
         private TextBox txt_nrc;
+        private DataGridViewTextBoxColumn txt_roomNumber;
+        private DataGridViewTextBoxColumn txt_roomDescription;
+        private DataGridViewTextBoxColumn txt_price;
     }
 }

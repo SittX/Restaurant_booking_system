@@ -18,7 +18,7 @@ namespace Restaurant_booking_system
             // Inject customer repository into registeration form
             Form registerationForm = new Frm_userRegisteration(
                 new CustomerService(
-                    new BookingDataSetTableAdapters.customersTableAdapter()
+                    new Motel_booking_system.BookingDataSetTableAdapters.customersTableAdapter()
                     )
                 );
             registerationForm.Show();
@@ -40,8 +40,8 @@ namespace Restaurant_booking_system
 
 
             UserLogin login = new UserLogin(
-                new CustomerService(new BookingDataSetTableAdapters.customersTableAdapter()),
-                new AdminService(new BookingDataSetTableAdapters.adminTableAdapter()));
+                new CustomerService(new Motel_booking_system.BookingDataSetTableAdapters.customersTableAdapter()),
+                new AdminService(new Motel_booking_system.BookingDataSetTableAdapters.adminTableAdapter()));
 
             // Authenticate the current user and open the form that they have access to open
             if (login.LoginUser(username, password))

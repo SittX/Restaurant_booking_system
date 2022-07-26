@@ -1,4 +1,6 @@
-﻿namespace Restaurant_booking_system.Interfaces
+﻿using Motel_booking_system;
+
+namespace Restaurant_booking_system.Interfaces
 {
     public interface IRoomTypeService
     {

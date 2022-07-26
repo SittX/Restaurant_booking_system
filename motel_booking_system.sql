@@ -180,20 +180,80 @@ WHERE id  NOT IN (
 	)
 )
 
+
+
+
+
+	SELECT DISTINCT room_type
+	FROM rooms AS  r
+	WHERE NOT EXISTS 
+		(
+			SELECT 1
+			FROM bookings AS b
+			WHERE b.check_in <= @checkOut 
+			AND b.check_out >= @checkin
+			AND b.room_id = r.id
+		) AND room_type = @roomType
+	GROUP BY room_type
+
+SELECT * FROM rooms;
+SELECT * FROM room_types;
+SELECT * FROM bookings;
+SELECT * FROM reviews;
+
+INSERT INTO reviews(cus_id,review) VALUES('U_0005','Very nice motel. The service is execellent.');
+
+INSERT INTO bookings(room_id,cus_id,check_in,check_out) 
+VALUES(200,'U_0005','20220718','20220717');
+-- Simplified version
 DECLARE @checkIn VARCHAR(20) = '20220711';
 DECLARE @checkOut VARCHAR(20) = '20220712';
+DECLARE @roomType INT = 4;
 
--- Simplified version
-SELECT *
-FROM rooms AS  r
-WHERE NOT EXISTS 
-    (
-        SELECT 1
-        FROM bookings AS b
-        WHERE b.check_in <= @checkOut 
-        AND b.check_out >= @checkin
-        AND b.room_id = r.id
-    )  
+SELECT rooms.room_description,room_types.price
+FROM room_types
+INNER JOIN rooms
+ON rooms.room_type = (
+	SELECT DISTINCT room_type
+	FROM rooms AS  r
+	WHERE NOT EXISTS 
+		(
+			SELECT 1
+			FROM bookings AS b
+			WHERE b.check_in <= @checkOut 
+			AND b.check_out >= @checkin
+			AND b.room_id = r.id
+		)
+			AND room_type = @roomType
+) AND room_types.id = (
+	SELECT DISTINCT room_type
+	FROM rooms AS  r
+	WHERE NOT EXISTS 
+		(
+			SELECT 1
+			FROM bookings AS b
+			WHERE b.check_in <= @checkOut 
+			AND b.check_out >= @checkin
+			AND b.room_id = r.id
+		)
+			AND room_type = @roomType
+)
+
+SELECT * FROM room_types
+LEFT JOIN rooms 
+ON room_types.id = (
+	SELECT DISTINCT room_type
+	FROM rooms AS  r
+	WHERE NOT EXISTS 
+		(
+			SELECT 1
+			FROM bookings AS b
+			WHERE b.check_in <= @checkOut 
+			AND b.check_out >= @checkin
+			AND b.room_id = r.id
+		) AND room_type = @roomType
+	);
+
 
 SELECT * 
 FROM rooms 
