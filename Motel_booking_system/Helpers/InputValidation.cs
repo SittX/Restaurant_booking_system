@@ -15,7 +15,7 @@ namespace Restaurant_booking_system.InputValidations
             if (!emailSignature.IsMatch(textbox.Text))
             {
 
-                MessageBox.Show("Invalid Input", "Please check the input value",
+                MessageBox.Show("Invalid email address.Please try again.", "Invalid email address",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
                 textbox.Focus();
@@ -34,8 +34,8 @@ namespace Restaurant_booking_system.InputValidations
 
             if (!phNumSignature.IsMatch(textbox.Text))
             {
-                MessageBox.Show("Invalid Input",
-                                "Please check the input value",
+                MessageBox.Show("Invalid phone number.Please try again. ",
+                                "Invalid phone number.",
                                 MessageBoxButtons.OKCancel,
                                 MessageBoxIcon.Warning);
 
@@ -51,10 +51,10 @@ namespace Restaurant_booking_system.InputValidations
 
 
             var nrcSignature = new Regex(@"\d/[a-zA-Z]+\([a-zA-Z]\)[0-9]+");
-            if (nrcSignature.IsMatch(textbox.Text))
+            if (!nrcSignature.IsMatch(textbox.Text))
             {
-                MessageBox.Show("Invalid Input",
-                                "Please check the input value",
+                MessageBox.Show("NRC number is invalid. Please try again.",
+                                "Invalid NRC number",
                                 MessageBoxButtons.OKCancel,
                                 MessageBoxIcon.Warning);
 
@@ -70,7 +70,7 @@ namespace Restaurant_booking_system.InputValidations
         {
             if (textbox.Text == null || textbox.Text == "")
             {
-                MessageBox.Show("Invalid Input", "Please check the input value",
+                MessageBox.Show("Input value cannot be empty. Please try again.", "Invalid input value",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
 
                 textbox.Focus();

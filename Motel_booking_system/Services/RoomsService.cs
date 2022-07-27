@@ -1,4 +1,5 @@
 ﻿using Motel_booking_system.BookingDataSetTableAdapters;
+using Motel_booking_system.Helpers;
 using Restaurant_booking_system.Interfaces;
 using Restaurant_booking_system.Models;
 using System.Data;
@@ -11,9 +12,9 @@ namespace Restaurant_booking_system.Services
     {
         private readonly roomsTableAdapter _adapter;
 
-        public RoomsService(roomsTableAdapter adapter)
+        public RoomsService()
         {
-            _adapter = adapter;
+            _adapter = new roomsTableAdapter();
         }
 
         public roomsDataTable GetAll()
@@ -28,15 +29,32 @@ namespace Restaurant_booking_system.Services
 
         public bool Insert(int roomNumber, int roomType, string description, string? img = null)
         {
+            try
+            {
+                if (_adapter.InsertNewRoom(roomNumber, roomType, description, img) == 1) return true;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                OutputMessage.WarningMessage(ex.Message);
+                return false;
+            }
 
-            if (_adapter.InsertNewRoom(roomNumber, roomType, description, img) == 1) return true;
-            return false;
         }
 
         public bool Delete(int roomNumber)
         {
-            if (_adapter.DeleteRoom(roomNumber) == 1) return true;
-            return false;
+            try
+            {
+                if (_adapter.DeleteRoom(roomNumber) == 1) return true;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                OutputMessage.WarningMessage(ex.Message);
+                return false;
+            }
+
         }
 
         // Will implement it later
@@ -45,8 +63,27 @@ namespace Restaurant_booking_system.Services
             return false;
         }
 
+        public bool IsRoomExist(int roomNumber)
+        {
+            try
+            {
+                var dt = _adapter.GetDataByRoomNumber(roomNumber);
+                var count = dt.Count;
+                if (dt.Count > 0 && dt is not null)
+                {
+                    OutputMessage.WarningMessage("Room number already exists. Please try again.");
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                OutputMessage.ErrorMessage(ex.Message);
+                throw;
+            }
+        }
 
-        public DataTable GetAvailableRooms(string checkIn, string checkOut,int roomType)
+        public DataTable GetAvailableRooms(string checkIn, string checkOut, int roomType)
         {
             DataTable dt = new DataTable();
             dt.Columns.Add("RoomNumber");
@@ -118,21 +155,29 @@ namespace Restaurant_booking_system.Services
                 // Open connection to the database
                 connection.Open();
 
-                using (SqlDataReader reader = command.ExecuteReader())
+                try
                 {
-                    if (reader.HasRows)
+                    using (SqlDataReader reader = command.ExecuteReader())
                     {
-                        while (reader.Read())
+                        if (reader.HasRows)
                         {
-                            DataRow dr = dt.NewRow(); // have new row on each iteration
-                            dr["RoomNumber"] = reader[0];
-                            dr["Description"] = reader[1];
-                            dr["Price"] = reader[2];
-                            dt.Rows.Add(dr);
+                            while (reader.Read())
+                            {
+                                DataRow dr = dt.NewRow(); // have new row on each iteration
+                                dr["RoomNumber"] = reader[0];
+                                dr["Description"] = reader[1];
+                                dr["Price"] = reader[2];
+                                dt.Rows.Add(dr);
+                            }
                         }
+                        reader.Close();
                     }
-                    reader.Close();
                 }
+                catch (Exception ex)
+                {
+                    OutputMessage.ErrorMessage(ex.Message);
+                }
+
                 connection.Close();
             }
 

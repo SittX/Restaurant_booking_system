@@ -3,7 +3,6 @@ using Motel_booking_system.Helpers;
 using Restaurant_booking_system.Interfaces;
 using Restaurant_booking_system.Models;
 using System.Data;
-using System.Data.SqlClient;
 
 namespace Restaurant_booking_system.Admin
 {
@@ -39,7 +38,12 @@ namespace Restaurant_booking_system.Admin
             checkOut = dtPicker_checkOut.Value.ToString("yyyy-MM-dd");
             roomType = Convert.ToInt32(cmb_roomType.SelectedValue);
 
-           DataTable dt =  _roomService.GetAvailableRooms(checkIn, checkOut, roomType);
+            if (!_bookingService.ValidateReservationDate(checkIn, checkOut))
+            {
+                return;
+            }
+
+            DataTable dt = _roomService.GetAvailableRooms(checkIn, checkOut, roomType);
 
             dtGridView_availableRooms.DataSource = dt;
         }
@@ -49,33 +53,84 @@ namespace Restaurant_booking_system.Admin
             cmb_roomType.ValueMember = "room_type";
             cmb_roomType.DisplayMember = "type_description";
             cmb_roomType.DataSource = _roomService.GetAll();
+
+            // Set CheckIn datetime picker to current date
+            dtPicker_checkIn.MinDate = DateTime.Now;
         }
 
         private void btn_confirmReservation_Click(object sender, EventArgs e)
         {
-            // Insert booking into database
+            if (!ValidateInputs())
+            {
+                OutputMessage.WarningMessage("Input cannot be empty. Please enter all the details for reservation.");
+                return;
+            }
+
+            if (!_bookingService.ValidateReservationDate(checkIn, checkOut))
+            {
+                return;
+            }
+
+            int roomNumber = Convert.ToInt32(txt_bookingRoomNumber.Text);
+
+            CreateNewUserAccount();
+
+
+            // Make bookings with newly created user account
+            _bookingService.InsertNewBooking(roomNumber, userId, checkIn, checkOut);
+
+        }
+
+        private void CreateNewUserAccount()
+        {
+
+            //Validate inputs
+            if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_cusName)
+                && !InputValidations.InputValidation.ValidateEmail(txt_cusEmail)
+                && !InputValidations.InputValidation.ValidateNRC(txt_nrc)
+                && !InputValidations.InputValidation.ValidatePhoneNumber(txt_cusPhNumber)
+                )
+            {
+                return;
+            }
+
             string username = txt_cusName.Text;
             string NRC = txt_nrc.Text;
             string email = txt_cusEmail.Text;
             string phoneNumber = txt_cusPhNumber.Text;
 
-            // Will require validation logic here
+            if (!_customerService.CheckDuplicateUsername(username))
+            {
+                return;
+            }
+
+
             if (!CreateNewUserAccount(username, NRC, email, phoneNumber))
             {
                 OutputMessage.ErrorMessage("User account cannot be created.Please try again");
             }
-
-            // Make bookings with newly created user account
-            _bookingService.InsertNewBooking(200,userId,checkIn,checkOut);
-
         }
 
         private bool CreateNewUserAccount(string username, string NRC, string email, string phoneNumber)
         {
             var users = _customerService.GetAll();
             userId = Customer.GenerateId(users);
-           Customer newUser = new Customer() { Id = userId,Username = username, NRC = NRC, Email = email, PhoneNumber = phoneNumber,Password = NRC};
+            Customer newUser = new Customer() { Id = userId, Username = username, NRC = NRC, Email = email, PhoneNumber = phoneNumber, Password = NRC };
             return _customerService.Insert(newUser);
+        }
+
+        private bool ValidateInputs()
+        {
+            if (String.IsNullOrEmpty(txt_bookingRoomNumber.Text))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private void dtPicker_checkIn_ValueChanged(object sender, EventArgs e)
+        {
+            dtPicker_checkOut.MinDate = dtPicker_checkIn.Value;
         }
     }
 }

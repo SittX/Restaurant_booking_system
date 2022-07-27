@@ -25,6 +25,13 @@ namespace Restaurant_booking_system.Admin
 
         private void btn_addNewType_Click(object sender, EventArgs e)
         {
+            if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_newTypeDescription) &&
+               !InputValidations.InputValidation.ValidateNullOrEmpty(txtPrice))
+            {
+                return;
+            }
+
+
             _roomTypeService.Insert(txt_newTypeDescription.Text, Convert.ToInt32(txtPrice.Text));
 
             // Empty inputs
@@ -35,7 +42,7 @@ namespace Restaurant_booking_system.Admin
             PopulateRoomType();
         }
 
-        // Need to add error handling for empty values
+
         private void btn_deleteType_Click(object sender, EventArgs e)
         {
             _roomTypeService.Delete(Convert.ToInt32(cmb_typeId.SelectedValue));
@@ -45,8 +52,8 @@ namespace Restaurant_booking_system.Admin
         private void btn_addRoom_Click(object sender, EventArgs e)
         {
             Form form = new Frm_AddNewRoom(
-                new RoomsService(new Motel_booking_system.BookingDataSetTableAdapters.roomsTableAdapter()),
-                new RoomTypeService(new Motel_booking_system.BookingDataSetTableAdapters.room_typesTableAdapter()));
+                new RoomsService(),
+                new RoomTypeService());
             form.Show();
         }
 
@@ -62,7 +69,7 @@ namespace Restaurant_booking_system.Admin
         private void btn_reload_Click(object sender, EventArgs e)
         {
             PopulateRoom();
-        } 
+        }
         #endregion
 
 
@@ -87,7 +94,7 @@ namespace Restaurant_booking_system.Admin
             cmb_typeId.DisplayMember = "type_description";
             cmb_typeId.ValueMember = "id";
             cmb_typeId.DataSource = room_Types;
-        } 
+        }
         #endregion
     }
 }

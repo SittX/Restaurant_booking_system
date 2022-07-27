@@ -1,5 +1,4 @@
 ﻿using Motel_booking_system;
-using Restaurant_booking_system;
 
 namespace Restaurant_booking_system.Interfaces
 {
@@ -8,5 +7,6 @@ namespace Restaurant_booking_system.Interfaces
         BookingDataSet.bookingsDataTable GetBookings();
         bool InsertNewBooking(int roomId, string cusId, string checkIn, string checkOut);
         bool DeleteBooking(int bookingId);
+        bool ValidateReservationDate(string checkIn, string checkOut);
     }
 }

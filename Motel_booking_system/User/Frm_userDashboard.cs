@@ -42,12 +42,12 @@ namespace Restaurant_booking_system
 
         private void btn_account_Click(object sender, EventArgs e)
         {
-            SwitchUserControl(new userCtrl_Account(new CustomerService(new Motel_booking_system.BookingDataSetTableAdapters.customersTableAdapter())));
+            SwitchUserControl(new userCtrl_Account(new CustomerService()));
         }
 
         private void btn_reservations_Click(object sender, EventArgs e)
         {
-            SwitchUserControl(new userCtrl_Reservation(new BookingsService(new Motel_booking_system.BookingDataSetTableAdapters.bookingsTableAdapter()), new RoomsService(new Motel_booking_system.BookingDataSetTableAdapters.roomsTableAdapter())));
+            SwitchUserControl(new userCtrl_Reservation(new BookingsService(), new RoomsService(),new ReviewsService()));
         }
 
         private void btn_history_Click(object sender, EventArgs e)
@@ -61,12 +61,12 @@ namespace Restaurant_booking_system
         }
         private void btn_menu_Click(object sender, EventArgs e)
         {
-            SwitchUserControl(new userCtrl_menu(new RoomsService(new Motel_booking_system.BookingDataSetTableAdapters.roomsTableAdapter())));
+            SwitchUserControl(new userCtrl_menu(new RoomsService()));
         }
 
         private void btn_review_Click(object sender, EventArgs e)
         {
-            SwitchUserControl(new userCtrl_reviewsList(new ReviewsService(new Motel_booking_system.BookingDataSetTableAdapters.reviewsTableAdapter())));
+            SwitchUserControl(new userCtrl_reviewsList(new ReviewsService()));
         }
         #endregion
 
@@ -74,17 +74,17 @@ namespace Restaurant_booking_system
         #region MenuStrip items
         private void menuStrip_menu_Click(object sender, EventArgs e)
         {
-            SwitchUserControl(new userCtrl_menu(new RoomsService(new Motel_booking_system.BookingDataSetTableAdapters.roomsTableAdapter())));
+            SwitchUserControl(new userCtrl_menu(new RoomsService()));
         }
 
         private void menuStrip_booking_Click(object sender, EventArgs e)
         {
-            SwitchUserControl(new userCtrl_Reservation(new BookingsService(new Motel_booking_system.BookingDataSetTableAdapters.bookingsTableAdapter()),new RoomsService(new Motel_booking_system.BookingDataSetTableAdapters.roomsTableAdapter())));
+            SwitchUserControl(new userCtrl_Reservation(new BookingsService(), new RoomsService(),new ReviewsService()));
         }
 
         private void menuStrip_account_Click(object sender, EventArgs e)
         {
-            SwitchUserControl(new userCtrl_Account(new CustomerService(new Motel_booking_system.BookingDataSetTableAdapters.customersTableAdapter())));
+            SwitchUserControl(new userCtrl_Account(new CustomerService()));
         }
 
         private void menuStrip_history_Click(object sender, EventArgs e)

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Motel_booking_system.Helpers
+﻿namespace Motel_booking_system.Helpers
 {
     public static class OutputMessage
     {
@@ -15,7 +9,7 @@ namespace Motel_booking_system.Helpers
 
         public static void WarningMessage(string message)
         {
-            MessageBox.Show(message,"Warning",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
+            MessageBox.Show(message, "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
         }
 
     }

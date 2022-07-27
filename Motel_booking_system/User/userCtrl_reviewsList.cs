@@ -1,13 +1,4 @@
 ﻿using Restaurant_booking_system.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Motel_booking_system.User
 {
@@ -30,7 +21,7 @@ namespace Motel_booking_system.User
         {
             var dt = _reviewService.GetAll();
 
-            foreach(var review in dt)
+            foreach (var review in dt)
             {
                 var reviewItem = new userCtrl_reviewItem();
                 reviewItem.Username = review["username"].ToString();

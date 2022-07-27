@@ -1,6 +1,5 @@
 ﻿using Restaurant_booking_system.Models;
 using Restaurant_booking_system.Services;
-using Motel_booking_system;
 
 namespace Restaurant_booking_system.Admin
 {
@@ -41,14 +40,14 @@ namespace Restaurant_booking_system.Admin
         private void btn_account_Click(object sender, EventArgs e)
         {
             SwitchUserControl(new userCtrl_AdminAccount(
-                new AdminService(new Motel_booking_system.BookingDataSetTableAdapters.adminTableAdapter())
+                new AdminService()
                     )
                 );
         }
 
         private void btn_reservations_Click(object sender, EventArgs e)
         {
-            SwitchUserControl(new userCtrl_adminReservations(new BookingsService(new Motel_booking_system.BookingDataSetTableAdapters.bookingsTableAdapter())));
+            SwitchUserControl(new userCtrl_adminReservations(new BookingsService()));
         }
 
         private void btn_services_Click(object sender, EventArgs e)
@@ -56,8 +55,8 @@ namespace Restaurant_booking_system.Admin
             //SwitchUserControl(new userCtrl_adminServices(new ServicesRepository(new BookingDataSetTableAdapters.roomsTableAdapter()));
             SwitchUserControl(
                 new userCtrl_adminServices(
-                new RoomTypeService(new Motel_booking_system.BookingDataSetTableAdapters.room_typesTableAdapter()),
-                new RoomsService(new Motel_booking_system.BookingDataSetTableAdapters.roomsTableAdapter())
+                new RoomTypeService(),
+                new RoomsService()
                    )
                 );
         }
@@ -78,13 +77,13 @@ namespace Restaurant_booking_system.Admin
 
         private void menuStrip_reservations_Click(object sender, EventArgs e)
         {
-            SwitchUserControl(new userCtrl_adminReservations(new BookingsService(new Motel_booking_system.BookingDataSetTableAdapters.bookingsTableAdapter())));
+            SwitchUserControl(new userCtrl_adminReservations(new BookingsService()));
         }
 
         private void menuStrip_account_Click(object sender, EventArgs e)
         {
             SwitchUserControl(new userCtrl_AdminAccount(
-                new AdminService(new Motel_booking_system.BookingDataSetTableAdapters.adminTableAdapter())
+                new AdminService()
                     )
                 );
         }
@@ -109,8 +108,8 @@ namespace Restaurant_booking_system.Admin
         {
             SwitchUserControl(
                 new userCtrl_adminServices(
-                new RoomTypeService(new Motel_booking_system.BookingDataSetTableAdapters.room_typesTableAdapter()),
-                new RoomsService(new Motel_booking_system.BookingDataSetTableAdapters.roomsTableAdapter())
+                new RoomTypeService(),
+                new RoomsService()
                    )
                 );
         }

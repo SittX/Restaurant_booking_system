@@ -8,8 +8,9 @@ namespace Restaurant_booking_system.Interfaces
     {
         bool Delete(int roomNumber);
         BookingDataSet.roomsDataTable GetAll();
-        bool Insert(int roomNumber, int roomType, string description,string? img = null);
+        bool Insert(int roomNumber, int roomType, string description, string? img = null);
         bool Update(int roomNumber, Room updatedRoom);
         DataTable GetAvailableRooms(string checkIn, string checkOut, int roomType);
+        bool IsRoomExist(int roomNumber);
     }
 }

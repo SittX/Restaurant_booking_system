@@ -1,4 +1,5 @@
 ﻿using Motel_booking_system.BookingDataSetTableAdapters;
+using Motel_booking_system.Helpers;
 using Restaurant_booking_system.Interfaces;
 using static Motel_booking_system.BookingDataSet;
 
@@ -6,11 +7,11 @@ namespace Restaurant_booking_system.Services
 {
     public class RoomTypeService : IRoomTypeService
     {
-        private readonly room_typesTableAdapter _adapter;
+        private room_typesTableAdapter _adapter;
 
-        public RoomTypeService(room_typesTableAdapter adapter)
+        public RoomTypeService()
         {
-            _adapter = adapter;
+            _adapter = new room_typesTableAdapter();
         }
 
         public room_typesDataTable GetAll()
@@ -23,23 +24,51 @@ namespace Restaurant_booking_system.Services
             return data;
         }
 
-        public bool Insert(string description,int price)
+
+
+        public bool Insert(string description, int price)
         {
-            if (_adapter.InsertNewRoomType(description,price) == 1) return true;
-            return false;
+            try
+            {
+                if (_adapter.InsertNewRoomType(description, price) == 1) return true;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                OutputMessage.ErrorMessage(ex.Message);
+                return false;
+            }
         }
 
 
         public bool Delete(int typeId)
         {
-            if (_adapter.DeleteRoomType(typeId) == 1) return true;
-            return false;
+            try
+            {
+                if (_adapter.DeleteRoomType(typeId) == 1) return true;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                OutputMessage.ErrorMessage(ex.Message);
+                return false;
+            }
+
         }
 
-        public bool Update(string oldDescription, string newDescription,int newPrice)
+        public bool Update(string oldDescription, string newDescription, int newPrice)
         {
-            if (_adapter.UpdateRoomType(newDescription,newPrice, oldDescription) == 1) return true;
-            return false;
+            try
+            {
+                if (_adapter.UpdateRoomType(newDescription, newPrice, oldDescription) == 1) return true;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                OutputMessage.ErrorMessage(ex.Message);
+                return false;
+            }
+
         }
     }
 }

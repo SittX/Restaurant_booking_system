@@ -1,6 +1,3 @@
-using Restaurant_booking_system.Admin;
-using Restaurant_booking_system.Services;
-
 namespace Restaurant_booking_system
 {
 

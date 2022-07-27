@@ -12,5 +12,6 @@ namespace Restaurant_booking_system.Interfaces
         BookingDataSet.customersDataTable? SearchById(string id);
         bool UpdatePassword(string newPassword, string oldPassword, string username);
         bool UpdateUsername(string newUsername, string oldUsername, string password);
+        bool CheckDuplicateUsername(string username);
     }
 }

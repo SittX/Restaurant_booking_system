@@ -12,11 +12,11 @@ namespace Restaurant_booking_system
         /// User password should also be hashed for data security
         /// We should also check the phone number of the user
         /// </summary>
-        private ICustomerService _repo;
-        public Frm_userRegisteration(ICustomerService repo)
+        private ICustomerService _customerService;
+        public Frm_userRegisteration(ICustomerService customerService)
         {
             InitializeComponent();
-            _repo = repo;
+            _customerService = customerService;
         }
 
         private void btn_saveRegisteration_Click(object sender, EventArgs e)
@@ -26,8 +26,15 @@ namespace Restaurant_booking_system
             {
                 lbl_registerationStatus.Text = "Invalid inputs";
                 lbl_registerationStatus.ForeColor = Color.Red;
+                return;
             }
 
+            // Check duplicate username
+            if (!_customerService.CheckDuplicateUsername(txt_username.Text))
+            {
+                txt_username.Text = String.Empty;
+                return;
+            }
 
             Customer newUser = new Customer()
             {
@@ -38,7 +45,7 @@ namespace Restaurant_booking_system
                 NRC = txt_nrc.Text
             };
 
-            if (_repo.Insert(newUser))
+            if (_customerService.Insert(newUser))
             {
                 lbl_registerationStatus.Text = "User account has been succefully created !";
                 lbl_registerationStatus.ForeColor = Color.Green;
@@ -50,11 +57,10 @@ namespace Restaurant_booking_system
         private bool ValidateInputs()
         {
             // Validate input is not null or empty
-            if (!ValidateNullOrEmpty(txt_email)
-               && !ValidateNullOrEmpty(txt_password)
-               && !ValidatePhoneNumber(txt_phNumber)
-               && !ValidateNullOrEmpty(txt_nrc)
-               && !ValidateNullOrEmpty(txt_username)
+            if (!ValidateNullOrEmpty(txt_username)
+                && !ValidateNullOrEmpty(txt_password)
+                &&
+                !ValidatePhoneNumber(txt_phNumber)
                && !ValidateEmail(txt_email)
                && !ValidateNRC(txt_nrc))
             {

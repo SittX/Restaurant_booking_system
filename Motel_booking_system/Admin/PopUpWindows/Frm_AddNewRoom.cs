@@ -1,4 +1,5 @@
-﻿using Restaurant_booking_system.Interfaces;
+﻿using Motel_booking_system.Helpers;
+using Restaurant_booking_system.Interfaces;
 
 namespace Restaurant_booking_system.Admin.PopUpWindows
 {
@@ -17,28 +18,43 @@ namespace Restaurant_booking_system.Admin.PopUpWindows
 
         private void btn_addRoom_Click(object sender, EventArgs e)
         {
+            // Check empty or invalid input values
+            if (string.IsNullOrEmpty(txt_roomNo.Text)
+                && string.IsNullOrEmpty(txt_description.Text))
+            {
+                OutputMessage.WarningMessage("Input values can be empty or null. Please check your inputs.");
+                return;
+            }
+
             var roomNumber = Convert.ToInt32(txt_roomNo.Text);
             var roomType = Convert.ToInt32(cmb_roomType.SelectedValue);
             var description = txt_description.Text;
 
+            // Check if the room number already exists or not
+            if (!_roomRepo.IsRoomExist(roomNumber))
+            {
+                return;
+            }
+
+            // If filePath is empty, insert new room without picture
             if (string.IsNullOrEmpty(filePath))
             {
                 _roomRepo.Insert(roomNumber, roomType, description);
                 this.Close();
                 return;
             }
+
+            // If filepath is not empty , insert filePath into new room
             _roomRepo.Insert(roomNumber, roomType, description, filePath);
             this.Close();
 
             // Update DtGridView_room of "userCtrl_adminService" panel
-
-
         }
 
         private void Frm_AddNewRoom_Load(object sender, EventArgs e)
         {
             var roomTypes = _roomTypeRepo.GetAll();
-            
+
             // Populate room type combo box
             cmb_roomType.DisplayMember = "type_description";
             cmb_roomType.ValueMember = "id";

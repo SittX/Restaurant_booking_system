@@ -8,7 +8,7 @@ namespace Restaurant_booking_system.User
         {
             InitializeComponent();
         }
-private string _type;
+        private string _type;
         private string _price;
         private string _img;
 
@@ -16,7 +16,7 @@ private string _type;
         [Category("Custrom props")]
         public string Type
         {
-            get => _type; 
+            get => _type;
             set
             {
                 _type = value;
@@ -27,7 +27,7 @@ private string _type;
         [Category("Custrom props")]
         public string Price
         {
-            get => _price; 
+            get => _price;
             set
             {
                 _price = value;
@@ -41,6 +41,6 @@ private string _type;
             get => _img;
             set { _img = value; picBox_img.ImageLocation = value; }
         }
-        
+
     }
 }

@@ -15,9 +15,9 @@ namespace Restaurant_booking_system.Admin
         private void btn_makeReservation_Click(object sender, EventArgs e)
         {
             Form reservationFrm = new Frm_AdminAddReservation(
-                new RoomsService(new Motel_booking_system.BookingDataSetTableAdapters.roomsTableAdapter()),
-                new BookingsService(new Motel_booking_system.BookingDataSetTableAdapters.bookingsTableAdapter()),
-                new CustomerService(new Motel_booking_system.BookingDataSetTableAdapters.customersTableAdapter())
+                new RoomsService(),
+                new BookingsService(),
+                new CustomerService()
                 );
 
             reservationFrm.Show();

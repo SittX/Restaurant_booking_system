@@ -9,5 +9,6 @@ namespace Restaurant_booking_system.Interfaces
         BookingDataSet.adminDataTable GetAll();
         bool Insert(Administrator newAdmin);
         BookingDataSet.adminDataTable? Search(string username, string password);
+        bool CheckDuplicateUsername(string username);
     }
 }

@@ -1,13 +1,4 @@
 ﻿using Restaurant_booking_system.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Restaurant_booking_system.User
 {
@@ -15,7 +6,7 @@ namespace Restaurant_booking_system.User
     {
         private readonly IReviewsService _repo;
 
-        public Frm_userReviews(IReviewsService repo )
+        public Frm_userReviews(IReviewsService repo)
         {
             InitializeComponent();
             _repo = repo;
@@ -24,7 +15,7 @@ namespace Restaurant_booking_system.User
         private void btn_submit_Click(object sender, EventArgs e)
         {
             string review = txt_review.Text;
-            if(_repo.Insert(Session.CurrentSession.LoggedInUser.Id, DateTime.Now, review))
+            if (_repo.Insert(Session.CurrentSession.LoggedInUser.Id, DateTime.Now, review))
             {
                 lbl_status.Text = "Thank you for choosing our motel. Hope to see you soon.";
                 lbl_status.ForeColor = Color.Green;
@@ -33,7 +24,7 @@ namespace Restaurant_booking_system.User
 
         private void btn_cancel_Click(object sender, EventArgs e)
         {
-            this.Close() ;
+            this.Close();
         }
     }
 }

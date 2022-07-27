@@ -6,7 +6,7 @@ namespace Restaurant_booking_system.Models
     {
         public enum Permissions
         {
-            CanReadnWrite = 1 ,
+            CanReadnWrite = 1,
             CanRead = 2,
         }
 
@@ -14,7 +14,7 @@ namespace Restaurant_booking_system.Models
         public string? Username { get; set; }
         public string? Password { get; set; }
         public string? Permission { get; set; }
-        
+
 
         public static string GenerateId(DataTable dt)
         {

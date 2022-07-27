@@ -1,10 +1,5 @@
 ﻿using Restaurant_booking_system.Interfaces;
 using Restaurant_booking_system.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static Motel_booking_system.BookingDataSet;
 
 namespace Restaurant_booking_system.Helpers

@@ -1,10 +1,6 @@
 ﻿using Motel_booking_system.BookingDataSetTableAdapters;
+using Motel_booking_system.Helpers;
 using Restaurant_booking_system.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static Motel_booking_system.BookingDataSet;
 
 namespace Restaurant_booking_system.Services
@@ -13,15 +9,23 @@ namespace Restaurant_booking_system.Services
     {
         private readonly reviewsTableAdapter _adapter;
 
-        public ReviewsService(reviewsTableAdapter adapter)
+        public ReviewsService()
         {
-            _adapter = adapter;
+            _adapter = new reviewsTableAdapter();
         }
 
         public bool Insert(string cusId, DateTime date, string review)
         {
-            if (_adapter.InsertReview(cusId, date, review) == 1) return true;
-            return false;
+            try
+            {
+                if (_adapter.InsertReview(cusId, date, review) == 1) return true;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                OutputMessage.ErrorMessage(ex.Message);
+                return false;
+            }
         }
 
         public reviewsDataTable GetAll()

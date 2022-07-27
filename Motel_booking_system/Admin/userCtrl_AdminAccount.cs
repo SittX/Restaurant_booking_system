@@ -1,7 +1,6 @@
 ﻿using Motel_booking_system.Helpers;
 using Restaurant_booking_system.Interfaces;
 using Restaurant_booking_system.Models;
-using Restaurant_booking_system.Services;
 
 
 
@@ -27,8 +26,18 @@ namespace Restaurant_booking_system.Admin
             cmb_permissions.DataSource = Enum.GetValues(typeof(Administrator.Permissions));
         }
 
-        private bool ValidateNewAccountInput(string username,string password,string reEnteredPassword)
+        private bool ValidateNewAccountInput(string username, string password, string reEnteredPassword)
         {
+            // Check for Null or Empty inputs
+            if (string.IsNullOrEmpty(username)
+                && string.IsNullOrEmpty(password)
+                && string.IsNullOrEmpty(reEnteredPassword))
+            {
+                OutputMessage.WarningMessage("Input values cannot be empty. Please check your inputs.");
+                txt_newAccName.Focus();
+                return false;
+            }
+
             // Check current logged in user permission
             if (Session.CurrentSession.LoggedInAdmin.Permission != Administrator.Permissions.CanReadnWrite.ToString())
             {
@@ -37,15 +46,7 @@ namespace Restaurant_booking_system.Admin
                 return false;
             }
 
-            // Check for Null or Empty inputs
-            if (string.IsNullOrEmpty(username)
-                && string.IsNullOrEmpty(password)
-                && string.IsNullOrEmpty(reEnteredPassword))
-            {
-                OutputMessage.WarningMessage("Invalid input value!");
-                txt_newAccName.Focus();
-                return false;
-            }
+
 
             // Break causes if two passwords are not identical
             if (password != reEnteredPassword)
@@ -69,7 +70,13 @@ namespace Restaurant_booking_system.Admin
             var permission = cmb_permissions.SelectedValue.ToString();
 
 
-            if (ValidateNewAccountInput(username, password, reEnteredPassword))
+            if (!ValidateNewAccountInput(username, password, reEnteredPassword))
+            {
+                return;
+            }
+
+            // Check if duplicate username
+            if (!_adminService.CheckDuplicateUsername(username))
             {
                 return;
             }
@@ -118,6 +125,14 @@ namespace Restaurant_booking_system.Admin
                 return;
             }
 
+            if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_deleteAccUsername)
+                &&
+                !InputValidations.InputValidation.ValidateNullOrEmpty(txt_deleteAccPassword)
+                )
+            {
+                return;
+            }
+
             if (!_adminService.Delete(txt_deleteAccUsername.Text, txt_deleteAccPassword.Text))
             {
                 lbl_accountOperationsStatus.Text = "Account cannot be deleted";
@@ -128,7 +143,7 @@ namespace Restaurant_booking_system.Admin
             lbl_accountOperationsStatus.ForeColor = Color.Green;
             ClearInputs();
 
-        } 
+        }
         #endregion
 
         private void ClearInputs()

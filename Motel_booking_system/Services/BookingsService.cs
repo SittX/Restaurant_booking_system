@@ -1,4 +1,5 @@
-﻿using Restaurant_booking_system.Interfaces;
+﻿using Motel_booking_system.Helpers;
+using Restaurant_booking_system.Interfaces;
 using System.Data;
 using System.Data.SqlClient;
 using static Motel_booking_system.BookingDataSet;
@@ -8,9 +9,9 @@ namespace Restaurant_booking_system.Services
     public class BookingsService : IBookingsService
     {
         private Motel_booking_system.BookingDataSetTableAdapters.bookingsTableAdapter _adapter;
-        public BookingsService(Motel_booking_system.BookingDataSetTableAdapters.bookingsTableAdapter adapter)
+        public BookingsService()
         {
-            _adapter = adapter;
+            _adapter = new Motel_booking_system.BookingDataSetTableAdapters.bookingsTableAdapter();
         }
 
         public bookingsDataTable GetBookings()
@@ -30,7 +31,22 @@ namespace Restaurant_booking_system.Services
             return false;
         }
 
-        public bool InsertNewBooking(int roomId,string cusId,string checkIn,string checkOut)
+        public bool ValidateReservationDate(string checkIn, string checkOut)
+        {
+            var checkInDate = Convert.ToInt32(checkIn.Split('-')[2]);
+            var checkOutDate = Convert.ToInt32(checkOut.Split('-')[2]);
+            var checkInMonth = Convert.ToInt32(checkIn.Split('-')[1]);
+            var checkOutMonth = Convert.ToInt32(checkOut.Split('-')[1]);
+
+            if (checkOutDate < checkInDate && checkOutMonth <= checkInMonth)
+            {
+                OutputMessage.ErrorMessage("Check Out date cannot be less than check in date.");
+                return false;
+            }
+            return true;
+        }
+
+        public bool InsertNewBooking(int roomId, string cusId, string checkIn, string checkOut)
         {
             //if (_adapter.InsertNewBooking(roomId, cusId, checkIn, checkOut) == 1) return true;
             //return false;
@@ -82,10 +98,10 @@ namespace Restaurant_booking_system.Services
                 // Open connection to the database
                 connection.Open();
 
-                if(command.ExecuteNonQuery() == -1) return false;
+                if (command.ExecuteNonQuery() == -1) return false;
                 return true;
+            }
         }
-    }
 
 
     }

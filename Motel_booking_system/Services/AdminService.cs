@@ -1,4 +1,5 @@
 ﻿
+using Motel_booking_system.Helpers;
 using Restaurant_booking_system.Interfaces;
 using Restaurant_booking_system.Models;
 using static Motel_booking_system.BookingDataSet;
@@ -13,10 +14,12 @@ namespace Restaurant_booking_system.Services
     public class AdminService : IAdminService
     {
         private Motel_booking_system.BookingDataSetTableAdapters.adminTableAdapter _adapter;
-        public AdminService(Motel_booking_system.BookingDataSetTableAdapters.adminTableAdapter adapter)
+        public AdminService()
         {
-            _adapter = adapter;
+            _adapter = new Motel_booking_system.BookingDataSetTableAdapters.adminTableAdapter();
         }
+
+
 
         public bool Delete(string username, string password)
         {
@@ -70,6 +73,26 @@ namespace Restaurant_booking_system.Services
                 return new adminDataTable();
             }
             return data;
+        }
+
+        public bool CheckDuplicateUsername(string username)
+        {
+            try
+            {
+                var dt = _adapter.GetDataByUsername(username);
+                var count = dt.Count;
+                if (dt.Count > 0 && dt is not null)
+                {
+                    OutputMessage.WarningMessage("Username already exists. Please try again.");
+                    return false;
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                OutputMessage.ErrorMessage(ex.Message);
+                return false;
+            }
         }
 
     }
