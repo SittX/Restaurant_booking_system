@@ -64,7 +64,7 @@ namespace Restaurant_booking_system
             // LoginAttempts will be increase everytime the authentication failed
             loginAttempts++;
 
-            if(loginAttempts > 2)
+            if(loginAttempts > 5)
             {
                 DisableLoginBtn();
             }
