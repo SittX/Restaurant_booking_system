@@ -52,7 +52,7 @@ namespace Restaurant_booking_system
 
         private void btn_history_Click(object sender, EventArgs e)
         {
-            SwitchUserControl(new userCtrl_history());
+            SwitchUserControl(new userCtrl_history(new BookingsService()));
         }
 
         private void btn_logout_Click(object sender, EventArgs e)
@@ -89,7 +89,7 @@ namespace Restaurant_booking_system
 
         private void menuStrip_history_Click(object sender, EventArgs e)
         {
-            SwitchUserControl(new userCtrl_history());
+            SwitchUserControl(new userCtrl_history(new BookingsService()));
         }
 
         private void menuStrip_logout_Click(object sender, EventArgs e)
@@ -105,8 +105,11 @@ namespace Restaurant_booking_system
             }
             return;
         }
+
+        private void menuStrip_reviews_Click(object sender, EventArgs e)
+        {
+            SwitchUserControl(new userCtrl_history(new BookingsService()));
+        }
         #endregion
-
-
     }
 }

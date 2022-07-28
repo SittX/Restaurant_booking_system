@@ -36,6 +36,7 @@ namespace Restaurant_booking_system
                 return;
             }
 
+
             Customer newUser = new Customer()
             {
                 Email = txt_email.Text,
@@ -49,6 +50,7 @@ namespace Restaurant_booking_system
             {
                 lbl_registerationStatus.Text = "User account has been succefully created !";
                 lbl_registerationStatus.ForeColor = Color.Green;
+                this.Close();
             }
 
         }

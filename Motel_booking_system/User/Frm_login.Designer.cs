@@ -28,18 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.top_panel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.bottom_panel = new System.Windows.Forms.Panel();
             this.link_registerNewUser = new System.Windows.Forms.LinkLabel();
             this.label4 = new System.Windows.Forms.Label();
             this.main_panel = new System.Windows.Forms.Panel();
+            this.lbl_failureTimer = new System.Windows.Forms.Label();
+            this.lbl_loginFailureMsg = new System.Windows.Forms.Label();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_login = new System.Windows.Forms.Button();
             this.mskTxtBox_password = new System.Windows.Forms.MaskedTextBox();
             this.txtBox_loginUsername = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.top_panel.SuspendLayout();
             this.bottom_panel.SuspendLayout();
             this.main_panel.SuspendLayout();
@@ -107,6 +111,8 @@
             // main_panel
             // 
             this.main_panel.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.main_panel.Controls.Add(this.lbl_failureTimer);
+            this.main_panel.Controls.Add(this.lbl_loginFailureMsg);
             this.main_panel.Controls.Add(this.btn_cancel);
             this.main_panel.Controls.Add(this.btn_login);
             this.main_panel.Controls.Add(this.mskTxtBox_password);
@@ -119,6 +125,32 @@
             this.main_panel.Size = new System.Drawing.Size(693, 416);
             this.main_panel.TabIndex = 2;
             // 
+            // lbl_failureTimer
+            // 
+            this.lbl_failureTimer.AutoSize = true;
+            this.lbl_failureTimer.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_failureTimer.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_failureTimer.ForeColor = System.Drawing.Color.Red;
+            this.lbl_failureTimer.Location = new System.Drawing.Point(458, 364);
+            this.lbl_failureTimer.Name = "lbl_failureTimer";
+            this.lbl_failureTimer.Size = new System.Drawing.Size(21, 22);
+            this.lbl_failureTimer.TabIndex = 14;
+            this.lbl_failureTimer.Text = "0";
+            this.lbl_failureTimer.Visible = false;
+            // 
+            // lbl_loginFailureMsg
+            // 
+            this.lbl_loginFailureMsg.AutoSize = true;
+            this.lbl_loginFailureMsg.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_loginFailureMsg.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_loginFailureMsg.ForeColor = System.Drawing.Color.Red;
+            this.lbl_loginFailureMsg.Location = new System.Drawing.Point(117, 364);
+            this.lbl_loginFailureMsg.Name = "lbl_loginFailureMsg";
+            this.lbl_loginFailureMsg.Size = new System.Drawing.Size(344, 22);
+            this.lbl_loginFailureMsg.TabIndex = 13;
+            this.lbl_loginFailureMsg.Text = "Login Attempts Exceeded. Try again in :";
+            this.lbl_loginFailureMsg.Visible = false;
+            // 
             // btn_cancel
             // 
             this.btn_cancel.BackColor = System.Drawing.Color.IndianRed;
@@ -130,6 +162,7 @@
             this.btn_cancel.TabIndex = 12;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = false;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click_1);
             // 
             // btn_login
             // 
@@ -226,5 +259,8 @@
         private TextBox txtBox_loginUsername;
         private Label label3;
         private Label label2;
+        private System.Windows.Forms.Timer timer;
+        private Label lbl_failureTimer;
+        private Label lbl_loginFailureMsg;
     }
 }

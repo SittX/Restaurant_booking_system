@@ -36,6 +36,7 @@
             this.menuStrip_logout = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip_exit = new System.Windows.Forms.ToolStripMenuItem();
             this.panel = new System.Windows.Forms.Panel();
+            this.btn_history = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
             this.btn_review = new System.Windows.Forms.Button();
             this.btn_account = new System.Windows.Forms.Button();
@@ -45,6 +46,7 @@
             this.panel_topMenu = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_main = new System.Windows.Forms.Panel();
+            this.menuStrip_reviews = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel.SuspendLayout();
             this.panel_topMenu.SuspendLayout();
@@ -59,7 +61,8 @@
             this.menuStrip_account,
             this.menuStrip_history,
             this.menuStrip_logout,
-            this.menuStrip_exit});
+            this.menuStrip_exit,
+            this.menuStrip_reviews});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1384, 24);
@@ -111,6 +114,7 @@
             // panel
             // 
             this.panel.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.panel.Controls.Add(this.btn_history);
             this.panel.Controls.Add(this.btn_logout);
             this.panel.Controls.Add(this.btn_review);
             this.panel.Controls.Add(this.btn_account);
@@ -122,6 +126,23 @@
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(211, 737);
             this.panel.TabIndex = 1;
+            // 
+            // btn_history
+            // 
+            this.btn_history.BackColor = System.Drawing.Color.LightSlateGray;
+            this.btn_history.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_history.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_history.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_history.ForeColor = System.Drawing.Color.Black;
+            this.btn_history.Location = new System.Drawing.Point(0, 318);
+            this.btn_history.Name = "btn_history";
+            this.btn_history.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btn_history.Size = new System.Drawing.Size(211, 57);
+            this.btn_history.TabIndex = 9;
+            this.btn_history.Text = "History";
+            this.btn_history.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_history.UseVisualStyleBackColor = false;
+            this.btn_history.Click += new System.EventHandler(this.btn_history_Click);
             // 
             // btn_logout
             // 
@@ -150,7 +171,7 @@
             this.btn_review.Location = new System.Drawing.Point(0, 260);
             this.btn_review.Name = "btn_review";
             this.btn_review.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.btn_review.Size = new System.Drawing.Size(211, 64);
+            this.btn_review.Size = new System.Drawing.Size(211, 58);
             this.btn_review.TabIndex = 7;
             this.btn_review.Text = "Reviews";
             this.btn_review.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -247,6 +268,13 @@
             this.panel_main.Size = new System.Drawing.Size(1173, 677);
             this.panel_main.TabIndex = 3;
             // 
+            // menuStrip_reviews
+            // 
+            this.menuStrip_reviews.Name = "menuStrip_reviews";
+            this.menuStrip_reviews.Size = new System.Drawing.Size(61, 20);
+            this.menuStrip_reviews.Text = "&Reviews";
+            this.menuStrip_reviews.Click += new System.EventHandler(this.menuStrip_reviews_Click);
+            // 
             // Frm_userDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -292,5 +320,7 @@
         private Panel panel_logo;
         private Label label1;
         private ToolStripMenuItem menuStrip_history;
+        private Button btn_history;
+        private ToolStripMenuItem menuStrip_reviews;
     }
 }

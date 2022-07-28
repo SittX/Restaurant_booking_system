@@ -14,16 +14,19 @@ namespace Restaurant_booking_system.Services
     public class AdminService : IAdminService
     {
         private Motel_booking_system.BookingDataSetTableAdapters.adminTableAdapter _adapter;
+        private Motel_booking_system.BookingDataSetTableAdapters.customersTableAdapter _customerAdapter;
         public AdminService()
         {
             _adapter = new Motel_booking_system.BookingDataSetTableAdapters.adminTableAdapter();
+            _customerAdapter = new Motel_booking_system.BookingDataSetTableAdapters.customersTableAdapter();
         }
 
 
 
         public bool Delete(string username, string password)
         {
-            if (_adapter.DeleteAccount(username, password) == 1) return true;
+            string encryptedPassword = PasswordEncryption.Encrypt(password);
+            if (_adapter.DeleteAccount(username, encryptedPassword) == 1) return true;
             return false;
         }
 
@@ -46,10 +49,16 @@ namespace Restaurant_booking_system.Services
                     return false;
                 }
 
+                var id = Administrator.GenerateId(_adapter.GetData());
+                var password = newAdmin.Password;
+
+                string encryptedPassword = PasswordEncryption.Encrypt(password);
+
+
                 if (_adapter.InsertNewAccount(
-                    newAdmin.Id,
+                    id,
                     newAdmin.Username,
-                    newAdmin.Password,
+                    encryptedPassword,
                     newAdmin.Permission) == 1)
                 {
                     return true;
@@ -67,6 +76,7 @@ namespace Restaurant_booking_system.Services
 
         public adminDataTable? Search(string username, string password)
         {
+
             var data = _adapter.GetDataByUsernameAndPassword(username, password);
             if (data.Count() < 1 && data is null)
             {
@@ -79,9 +89,11 @@ namespace Restaurant_booking_system.Services
         {
             try
             {
-                var dt = _adapter.GetDataByUsername(username);
-                var count = dt.Count;
-                if (dt.Count > 0 && dt is not null)
+                var adminDt = _adapter.GetDataByUsername(username);
+                var customerDt = _customerAdapter.GetDataByUsername(username);
+                var count = adminDt.Count;
+                var count2 = customerDt.Count;
+                if (adminDt.Count > 0 || customerDt.Count > 0)
                 {
                     OutputMessage.WarningMessage("Username already exists. Please try again.");
                     return false;

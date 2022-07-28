@@ -1,4 +1,5 @@
-﻿using Restaurant_booking_system.Interfaces;
+﻿using Motel_booking_system.Helpers;
+using Restaurant_booking_system.Interfaces;
 using Restaurant_booking_system.Services;
 namespace Restaurant_booking_system
 {
@@ -28,10 +29,11 @@ namespace Restaurant_booking_system
             }
 
             var oldPassword = txt_oldPassword.Text;
+            var encryptedOldPassword = PasswordEncryption.Encrypt(oldPassword);
             var newPassword = txt_newPassword.Text;
 
             // Check if the operations is success or not
-            if (_customerService.UpdatePassword(newPassword, oldPassword, username))
+            if (_customerService.UpdatePassword(newPassword, encryptedOldPassword, Session.CurrentSession.LoggedInUser.Id))
             {
                 lbl_operationsStatus.Text = "Updated password";
                 lbl_operationsStatus.ForeColor = Color.Green;
@@ -65,7 +67,7 @@ namespace Restaurant_booking_system
                 return;
             }
 
-            if (_customerService.UpdateUsername(newUsername, oldUsername, password))
+            if (_customerService.UpdateUsername(newUsername, oldUsername, password,Session.CurrentSession.LoggedInUser.Id))
             {
                 lbl_operationsStatus.Text = "Updated Username";
                 lbl_operationsStatus.ForeColor = Color.Green;

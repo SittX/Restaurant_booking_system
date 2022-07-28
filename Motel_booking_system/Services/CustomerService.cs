@@ -11,9 +11,11 @@ namespace Restaurant_booking_system.Services
     internal class CustomerService : ICustomerService
     {
         private Motel_booking_system.BookingDataSetTableAdapters.customersTableAdapter _adapter;
+        private Motel_booking_system.BookingDataSetTableAdapters.adminTableAdapter _adminAdapter;
         public CustomerService()
         {
             _adapter = new Motel_booking_system.BookingDataSetTableAdapters.customersTableAdapter();
+            _adminAdapter = new Motel_booking_system.BookingDataSetTableAdapters.adminTableAdapter();
         }
 
         public bool Delete(string username, string password)
@@ -47,9 +49,11 @@ namespace Restaurant_booking_system.Services
         {
             try
             {
-                var dt = _adapter.GetDataByUsername(username);
-                var count = dt.Count;
-                if (dt.Count > 0 && dt is not null)
+                var customerDt = _adapter.GetDataByUsername(username);
+                var adminDt = _adminAdapter.GetDataByUsername(username);
+                var count = customerDt.Count;
+                var count2 = adminDt.Count;
+                if (customerDt.Count > 0 || adminDt.Count > 0)
                 {
                     OutputMessage.WarningMessage("Username already exists. Please try again.");
                     return false;
@@ -68,10 +72,16 @@ namespace Restaurant_booking_system.Services
 
             try
             {
+                var id = Customer.GenerateId(_adapter.GetData());
+                var password = newCus.Password;
+
+                string encryptedPassword = PasswordEncryption.Encrypt(password);
+
+
                 if (_adapter.InsertNewCustomerAcc(
-                                  Customer.GenerateId(_adapter.GetData()),
+                                  id,
                                   newCus.Username,
-                                  newCus.Password,
+                                  encryptedPassword,
                                   newCus.Email,
                                   newCus.NRC,
                                   newCus.PhoneNumber) == 1) return true;
@@ -116,11 +126,14 @@ namespace Restaurant_booking_system.Services
 
         }
 
-        public bool UpdatePassword(string newPassword, string oldPassword, string username)
+        public bool UpdatePassword(string newPassword, string oldPassword, string userId)
         {
             try
             {
-                if (_adapter.UpdatePassword(newPassword, username, oldPassword) == 1) return true;
+                string encryptedNewPassword = PasswordEncryption.Encrypt(newPassword);
+
+
+                if (_adapter.UpdatePassword(encryptedNewPassword, userId, oldPassword) == 1) return true;
                 return false;
             }
             catch (Exception ex)
@@ -131,10 +144,11 @@ namespace Restaurant_booking_system.Services
 
         }
 
-        public bool UpdateUsername(string newUsername, string oldUsername, string password)
+        public bool UpdateUsername(string newUsername, string oldUsername, string password,string userId)
         {
             try
             {
+
                 if (_adapter.UpdateUsername(newUsername, oldUsername, password) == 1) return true;
                 return false;
             }

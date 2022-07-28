@@ -18,7 +18,7 @@ namespace Restaurant_booking_system.Services
         {
             var data = _adapter.GetData();
 
-            if (data.Count() > 0 && data is not null)
+            if (data.Count > 0 && data is not null)
             {
                 return data;
             }
@@ -27,8 +27,27 @@ namespace Restaurant_booking_system.Services
 
         public bool DeleteBooking(int bookingId)
         {
-            if (_adapter.DeleteBooking(bookingId) == 1) return true;
-            return false;
+            try
+            {
+                if (_adapter.DeleteBooking(bookingId) == 1) return true;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                OutputMessage.ErrorMessage(ex.Message);
+                return false;
+            }
+        }
+
+        public bookingsDataTable GetBookingsByUserId(string customerId)
+        {
+            var data = _adapter.GetDataByCustomerId(customerId);
+
+            if(data.Count > 0 && data is not null)
+            {
+                return data;
+            }
+            return new bookingsDataTable();
         }
 
         public bool ValidateReservationDate(string checkIn, string checkOut)
@@ -48,9 +67,6 @@ namespace Restaurant_booking_system.Services
 
         public bool InsertNewBooking(int roomId, string cusId, string checkIn, string checkOut)
         {
-            //if (_adapter.InsertNewBooking(roomId, cusId, checkIn, checkOut) == 1) return true;
-            //return false;
-
             using (SqlConnection connection = new SqlConnection("Data Source=localhost;Initial Catalog=motel_booking_db;Integrated Security=True"))
             {
 

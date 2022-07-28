@@ -32,14 +32,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel_bottom = new System.Windows.Forms.Panel();
             this.panel_main = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.date_bookingDate = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.dtGridView_history = new System.Windows.Forms.DataGridView();
             this.panel_top.SuspendLayout();
             this.panel_main.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridView_history)).BeginInit();
             this.SuspendLayout();
             // 
@@ -67,7 +63,7 @@
             // 
             this.panel_bottom.BackColor = System.Drawing.Color.LightSlateGray;
             this.panel_bottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_bottom.Location = new System.Drawing.Point(0, 721);
+            this.panel_bottom.Location = new System.Drawing.Point(0, 571);
             this.panel_bottom.Name = "panel_bottom";
             this.panel_bottom.Size = new System.Drawing.Size(814, 49);
             this.panel_bottom.TabIndex = 2;
@@ -76,43 +72,13 @@
             // 
             this.panel_main.AutoScroll = true;
             this.panel_main.BackColor = System.Drawing.Color.White;
-            this.panel_main.Controls.Add(this.groupBox1);
             this.panel_main.Controls.Add(this.label2);
             this.panel_main.Controls.Add(this.dtGridView_history);
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_main.Location = new System.Drawing.Point(0, 69);
             this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(814, 652);
+            this.panel_main.Size = new System.Drawing.Size(814, 502);
             this.panel_main.TabIndex = 3;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.date_bookingDate);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(24, 488);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(343, 98);
-            this.groupBox1.TabIndex = 17;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Filter";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(13, 39);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 26);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Date";
-            // 
-            // date_bookingDate
-            // 
-            this.date_bookingDate.Location = new System.Drawing.Point(103, 39);
-            this.date_bookingDate.Name = "date_bookingDate";
-            this.date_bookingDate.Size = new System.Drawing.Size(193, 29);
-            this.date_bookingDate.TabIndex = 15;
             // 
             // label2
             // 
@@ -142,13 +108,12 @@
             this.Controls.Add(this.panel_bottom);
             this.Controls.Add(this.panel_top);
             this.Name = "userCtrl_history";
-            this.Size = new System.Drawing.Size(814, 770);
+            this.Size = new System.Drawing.Size(814, 620);
+            this.Load += new System.EventHandler(this.userCtrl_history_Load);
             this.panel_top.ResumeLayout(false);
             this.panel_top.PerformLayout();
             this.panel_main.ResumeLayout(false);
             this.panel_main.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridView_history)).EndInit();
             this.ResumeLayout(false);
 
@@ -162,8 +127,5 @@
         private Label label1;
         private DataGridView dtGridView_history;
         private Label label2;
-        private GroupBox groupBox1;
-        private Label label3;
-        private DateTimePicker date_bookingDate;
     }
 }
