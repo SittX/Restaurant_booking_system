@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace Restaurant_booking_system {
+namespace Motel_booking_system {
     
     
     /// <summary>
@@ -2810,7 +2810,7 @@ namespace Restaurant_booking_system {
         }
     }
 }
-namespace Restaurant_booking_system.RestaurantDataSetTableAdapters {
+namespace Motel_booking_system.RestaurantDataSetTableAdapters {
     
     
     /// <summary>
