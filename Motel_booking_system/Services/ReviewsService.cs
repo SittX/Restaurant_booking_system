@@ -1,9 +1,9 @@
 ﻿using Motel_booking_system.BookingDataSetTableAdapters;
 using Motel_booking_system.Helpers;
-using Restaurant_booking_system.Interfaces;
+using Motel_booking_system.Interfaces;
 using static Motel_booking_system.BookingDataSet;
 
-namespace Restaurant_booking_system.Services
+namespace Motel_booking_system.Services
 {
     public class ReviewsService : IReviewsService
     {
@@ -14,16 +14,18 @@ namespace Restaurant_booking_system.Services
             _adapter = new reviewsTableAdapter();
         }
 
-        public bool Insert(string cusId, DateTime date, string review)
+        #region Service methods
+        public bool Insert(string cusId, string review)
         {
             try
             {
-                if (_adapter.InsertReview(cusId, date, review) == 1) return true;
+                if (_adapter.InsertReview(cusId, review) == 1) return true;
                 return false;
             }
             catch (Exception ex)
             {
-                OutputMessage.ErrorMessage(ex.Message);
+                Console.WriteLine($"Error message: {ex.Message}");
+                OutputMessage.ErrorMessage("New room cannot be created. Please try again.");
                 return false;
             }
         }
@@ -37,8 +39,8 @@ namespace Restaurant_booking_system.Services
                 return data;
             }
             return new reviewsDataTable();
-
-        }
+        } 
+        #endregion
 
     }
 }

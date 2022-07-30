@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Restaurant_booking_system.InputValidations
+namespace Motel_booking_system.InputValidations
 {
     public static class InputValidation
     {
@@ -40,26 +40,6 @@ namespace Restaurant_booking_system.InputValidations
                                 MessageBoxIcon.Warning);
 
                 textbox.Focus();
-                return false;
-            }
-            return true;
-        }
-
-        public static bool ValidateNRC(TextBox textbox)
-        {
-            if (textbox.Text == null) return false;
-
-
-            var nrcSignature = new Regex(@"\d/[a-zA-Z]+\([a-zA-Z]\)[0-9]+");
-            if (!nrcSignature.IsMatch(textbox.Text))
-            {
-                MessageBox.Show("NRC number is invalid. Please try again.",
-                                "Invalid NRC number",
-                                MessageBoxButtons.OKCancel,
-                                MessageBoxIcon.Warning);
-
-                textbox.Focus();
-
                 return false;
             }
             return true;

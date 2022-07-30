@@ -1,10 +1,11 @@
 ﻿
 using Motel_booking_system.Helpers;
-using Restaurant_booking_system.Interfaces;
-using Restaurant_booking_system.Models;
+using Motel_booking_system.Interfaces;
+using Motel_booking_system.Models;
 using System.Data;
 
-namespace Restaurant_booking_system.Admin
+
+namespace Motel_booking_system.Admin
 {
     public partial class Frm_AdminAddReservation : Form
     {
@@ -12,13 +13,12 @@ namespace Restaurant_booking_system.Admin
         private readonly IBookingsService _bookingService;
         private readonly ICustomerService _customerService;
 
-        private string checkIn { get; set; }
-        private string checkOut { get; set; }
+        private string? checkIn { get; set; }
+        private string? checkOut { get; set; }
         private int roomType { get; set; }
 
-        private string userId { get; set; }
+        private string? userId { get; set; }
 
-        private Motel_booking_system.BookingDataSetTableAdapters.roomsTableAdapter _demoBooking = new Motel_booking_system.BookingDataSetTableAdapters.roomsTableAdapter();
         public Frm_AdminAddReservation(IRoomsService roomService, IBookingsService bookingService, ICustomerService customerService)
         {
             InitializeComponent();
@@ -27,6 +27,7 @@ namespace Restaurant_booking_system.Admin
             _customerService = customerService;
         }
 
+        #region Event handlers
         private void btn_cancelReservation_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -43,9 +44,9 @@ namespace Restaurant_booking_system.Admin
                 return;
             }
 
-            DataTable dt = _roomService.GetAvailableRooms(checkIn, checkOut, roomType);
+            DataTable availableRoomDataTable = _roomService.GetAvailableRooms(checkIn, checkOut, roomType);
 
-            dtGridView_availableRooms.DataSource = dt;
+            dtGridView_availableRooms.DataSource = availableRoomDataTable;
         }
 
         private void Frm_AdminAddReservation_Load(object sender, EventArgs e)
@@ -54,7 +55,7 @@ namespace Restaurant_booking_system.Admin
             cmb_roomType.DisplayMember = "type_description";
             cmb_roomType.DataSource = _roomService.GetAll();
 
-            // Set CheckIn datetime picker to current date
+            // Set CheckIn datetime picker minimum value to current date
             dtPicker_checkIn.MinDate = DateTime.Now;
         }
 
@@ -81,13 +82,37 @@ namespace Restaurant_booking_system.Admin
 
         }
 
+        private void dtPicker_checkIn_ValueChanged(object sender, EventArgs e)
+        {
+            dtPicker_checkOut.MinDate = dtPicker_checkIn.Value;
+        }
+        #endregion
+
+
+        #region Methods
+        private bool CreateNewUserAccount(string username, string email, string phoneNumber)
+        {
+            try
+            {
+                var users = _customerService.GetAll();
+                userId = Customer.GenerateId(users);
+                Customer newUser = new Customer() { Id = userId, Username = username, Email = email, PhoneNumber = phoneNumber, Password = username };
+                return _customerService.Insert(newUser);
+            }
+            catch (Exception ex)
+            {
+                OutputMessage.ErrorMessage("Cannot create account. Please try again.");
+                return false;
+            }
+
+        }
+
         private void CreateNewUserAccount()
         {
 
             //Validate inputs
             if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_cusName)
                 && !InputValidations.InputValidation.ValidateEmail(txt_cusEmail)
-                && !InputValidations.InputValidation.ValidateNRC(txt_nrc)
                 && !InputValidations.InputValidation.ValidatePhoneNumber(txt_cusPhNumber)
                 )
             {
@@ -95,42 +120,33 @@ namespace Restaurant_booking_system.Admin
             }
 
             string username = txt_cusName.Text;
-            string NRC = txt_nrc.Text;
             string email = txt_cusEmail.Text;
             string phoneNumber = txt_cusPhNumber.Text;
 
+            // Check if the username already exists or not
             if (!_customerService.CheckDuplicateUsername(username))
             {
                 return;
             }
 
 
-            if (!CreateNewUserAccount(username, NRC, email, phoneNumber))
+            if (!CreateNewUserAccount(username, email, phoneNumber))
             {
                 OutputMessage.ErrorMessage("User account cannot be created.Please try again");
+                return;
             }
-        }
-
-        private bool CreateNewUserAccount(string username, string NRC, string email, string phoneNumber)
-        {
-            var users = _customerService.GetAll();
-            userId = Customer.GenerateId(users);
-            Customer newUser = new Customer() { Id = userId, Username = username, NRC = NRC, Email = email, PhoneNumber = phoneNumber, Password = NRC };
-            return _customerService.Insert(newUser);
         }
 
         private bool ValidateInputs()
         {
-            if (String.IsNullOrEmpty(txt_bookingRoomNumber.Text))
+            if (string.IsNullOrEmpty(txt_bookingRoomNumber.Text)
+                && string.IsNullOrEmpty(checkIn)
+                && string.IsNullOrEmpty(checkOut))
             {
                 return false;
             }
             return true;
-        }
-
-        private void dtPicker_checkIn_ValueChanged(object sender, EventArgs e)
-        {
-            dtPicker_checkOut.MinDate = dtPicker_checkIn.Value;
-        }
+        } 
+        #endregion
     }
 }

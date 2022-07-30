@@ -1,9 +1,9 @@
 ﻿using Motel_booking_system.User;
-using Restaurant_booking_system.Models;
-using Restaurant_booking_system.Services;
-using Restaurant_booking_system.User;
+using Motel_booking_system.Models;
+using Motel_booking_system.Services;
+using Motel_booking_system.User;
 
-namespace Restaurant_booking_system
+namespace Motel_booking_system
 {
     public partial class Frm_userDashboard : Form
     {
@@ -29,7 +29,7 @@ namespace Restaurant_booking_system
         }
 
 
-        #region  Menubar navigation event handlers
+        #region  Event handlers
 
         // Add User Control to the Main panel
         private void SwitchUserControl(UserControl userCtrl)

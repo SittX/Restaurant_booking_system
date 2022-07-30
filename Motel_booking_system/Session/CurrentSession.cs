@@ -1,6 +1,6 @@
-﻿using Restaurant_booking_system.Models;
+﻿using Motel_booking_system.Models;
 
-namespace Restaurant_booking_system.Session
+namespace Motel_booking_system.Session
 {
     /// <summary>
     ///  This static class will store the currently logged in user account to keep track of activities across the application

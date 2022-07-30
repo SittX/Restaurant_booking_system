@@ -1,17 +1,11 @@
-﻿using Restaurant_booking_system.Interfaces;
-using Restaurant_booking_system.Models;
-using static Restaurant_booking_system.InputValidations.InputValidation;
+﻿using Motel_booking_system.Interfaces;
+using Motel_booking_system.Models;
+using static Motel_booking_system.InputValidations.InputValidation;
 
-namespace Restaurant_booking_system
+namespace Motel_booking_system
 {
     public partial class Frm_userRegisteration : Form
     {
-
-        /// <summary>
-        /// This class is used for creating new user account
-        /// User password should also be hashed for data security
-        /// We should also check the phone number of the user
-        /// </summary>
         private ICustomerService _customerService;
         public Frm_userRegisteration(ICustomerService customerService)
         {
@@ -19,6 +13,7 @@ namespace Restaurant_booking_system
             _customerService = customerService;
         }
 
+        #region Event handlers
         private void btn_saveRegisteration_Click(object sender, EventArgs e)
         {
 
@@ -42,8 +37,7 @@ namespace Restaurant_booking_system
                 Email = txt_email.Text,
                 Username = txt_username.Text,
                 Password = txt_password.Text,
-                PhoneNumber = txt_phNumber.Text,
-                NRC = txt_nrc.Text
+                PhoneNumber = txt_phNumber.Text
             };
 
             if (_customerService.Insert(newUser))
@@ -56,6 +50,12 @@ namespace Restaurant_booking_system
         }
 
 
+        private void btn_cancelRegisteration_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        } 
+        #endregion
+
         private bool ValidateInputs()
         {
             // Validate input is not null or empty
@@ -63,14 +63,12 @@ namespace Restaurant_booking_system
                 && !ValidateNullOrEmpty(txt_password)
                 &&
                 !ValidatePhoneNumber(txt_phNumber)
-               && !ValidateEmail(txt_email)
-               && !ValidateNRC(txt_nrc))
+               && !ValidateEmail(txt_email))
             {
                 return false;
             }
             return true;
         }
-
 
     }
 

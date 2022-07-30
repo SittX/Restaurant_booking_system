@@ -1,4 +1,4 @@
-﻿namespace Restaurant_booking_system.User
+﻿namespace Motel_booking_system.User
 {
     partial class userCtrl_menuItem
     {
@@ -40,12 +40,13 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.LightSlateGray;
             this.panel1.Controls.Add(this.lbl_price);
             this.panel1.Controls.Add(this.lbl_type);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(400, 0);
+            this.panel1.Location = new System.Drawing.Point(378, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(429, 151);
+            this.panel1.Size = new System.Drawing.Size(451, 151);
             this.panel1.TabIndex = 0;
             // 
             // lbl_price

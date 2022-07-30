@@ -1,4 +1,4 @@
-﻿namespace Restaurant_booking_system
+﻿namespace Motel_booking_system
 {
     partial class Frm_login
     {
@@ -77,7 +77,7 @@
             this.bottom_panel.Controls.Add(this.link_registerNewUser);
             this.bottom_panel.Controls.Add(this.label4);
             this.bottom_panel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bottom_panel.Location = new System.Drawing.Point(0, 481);
+            this.bottom_panel.Location = new System.Drawing.Point(0, 400);
             this.bottom_panel.Name = "bottom_panel";
             this.bottom_panel.Size = new System.Drawing.Size(693, 37);
             this.bottom_panel.TabIndex = 1;
@@ -122,7 +122,7 @@
             this.main_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.main_panel.Location = new System.Drawing.Point(0, 65);
             this.main_panel.Name = "main_panel";
-            this.main_panel.Size = new System.Drawing.Size(693, 416);
+            this.main_panel.Size = new System.Drawing.Size(693, 335);
             this.main_panel.TabIndex = 2;
             // 
             // lbl_failureTimer
@@ -131,7 +131,7 @@
             this.lbl_failureTimer.BackColor = System.Drawing.Color.Transparent;
             this.lbl_failureTimer.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl_failureTimer.ForeColor = System.Drawing.Color.Red;
-            this.lbl_failureTimer.Location = new System.Drawing.Point(458, 364);
+            this.lbl_failureTimer.Location = new System.Drawing.Point(458, 281);
             this.lbl_failureTimer.Name = "lbl_failureTimer";
             this.lbl_failureTimer.Size = new System.Drawing.Size(21, 22);
             this.lbl_failureTimer.TabIndex = 14;
@@ -144,7 +144,7 @@
             this.lbl_loginFailureMsg.BackColor = System.Drawing.Color.Transparent;
             this.lbl_loginFailureMsg.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl_loginFailureMsg.ForeColor = System.Drawing.Color.Red;
-            this.lbl_loginFailureMsg.Location = new System.Drawing.Point(117, 364);
+            this.lbl_loginFailureMsg.Location = new System.Drawing.Point(117, 281);
             this.lbl_loginFailureMsg.Name = "lbl_loginFailureMsg";
             this.lbl_loginFailureMsg.Size = new System.Drawing.Size(344, 22);
             this.lbl_loginFailureMsg.TabIndex = 13;
@@ -156,20 +156,20 @@
             this.btn_cancel.BackColor = System.Drawing.Color.IndianRed;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_cancel.Location = new System.Drawing.Point(385, 276);
+            this.btn_cancel.Location = new System.Drawing.Point(325, 207);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(94, 35);
             this.btn_cancel.TabIndex = 12;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = false;
-            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click_1);
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // btn_login
             // 
             this.btn_login.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_login.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_login.Location = new System.Drawing.Point(283, 276);
+            this.btn_login.Location = new System.Drawing.Point(223, 207);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(94, 35);
             this.btn_login.TabIndex = 11;
@@ -180,7 +180,7 @@
             // mskTxtBox_password
             // 
             this.mskTxtBox_password.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.mskTxtBox_password.Location = new System.Drawing.Point(217, 221);
+            this.mskTxtBox_password.Location = new System.Drawing.Point(223, 147);
             this.mskTxtBox_password.Name = "mskTxtBox_password";
             this.mskTxtBox_password.PasswordChar = '*';
             this.mskTxtBox_password.Size = new System.Drawing.Size(262, 26);
@@ -189,7 +189,7 @@
             // txtBox_loginUsername
             // 
             this.txtBox_loginUsername.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtBox_loginUsername.Location = new System.Drawing.Point(214, 130);
+            this.txtBox_loginUsername.Location = new System.Drawing.Point(220, 56);
             this.txtBox_loginUsername.Name = "txtBox_loginUsername";
             this.txtBox_loginUsername.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txtBox_loginUsername.Size = new System.Drawing.Size(265, 26);
@@ -201,7 +201,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(117, 225);
+            this.label3.Location = new System.Drawing.Point(123, 151);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 22);
             this.label3.TabIndex = 8;
@@ -213,7 +213,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(111, 134);
+            this.label2.Location = new System.Drawing.Point(117, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 22);
             this.label2.TabIndex = 7;
@@ -223,7 +223,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(693, 518);
+            this.ClientSize = new System.Drawing.Size(693, 437);
             this.Controls.Add(this.main_panel);
             this.Controls.Add(this.bottom_panel);
             this.Controls.Add(this.top_panel);

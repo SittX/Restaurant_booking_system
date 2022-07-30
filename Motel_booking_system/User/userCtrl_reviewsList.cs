@@ -1,4 +1,4 @@
-﻿using Restaurant_booking_system.Interfaces;
+﻿using Motel_booking_system.Interfaces;
 
 namespace Motel_booking_system.User
 {

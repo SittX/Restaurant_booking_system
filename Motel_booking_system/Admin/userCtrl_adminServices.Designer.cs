@@ -1,4 +1,4 @@
-﻿namespace Restaurant_booking_system.Admin
+﻿namespace Motel_booking_system.Admin
 {
     partial class userCtrl_adminServices
     {
@@ -32,6 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel_main = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.btn_reload = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_addRoom = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -60,7 +61,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel_bottom = new System.Windows.Forms.Panel();
-            this.btn_reload = new System.Windows.Forms.Button();
             this.panel_top.SuspendLayout();
             this.panel_main.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -79,14 +79,14 @@
             this.panel_top.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_top.Location = new System.Drawing.Point(0, 0);
             this.panel_top.Name = "panel_top";
-            this.panel_top.Size = new System.Drawing.Size(1130, 40);
+            this.panel_top.Size = new System.Drawing.Size(1199, 34);
             this.panel_top.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(421, 14);
+            this.label1.Location = new System.Drawing.Point(502, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 23);
             this.label1.TabIndex = 2;
@@ -100,13 +100,14 @@
             this.panel_main.Controls.Add(this.groupBox5);
             this.panel_main.Controls.Add(this.groupBox3);
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_main.Location = new System.Drawing.Point(0, 40);
+            this.panel_main.Location = new System.Drawing.Point(0, 34);
             this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(1130, 922);
+            this.panel_main.Size = new System.Drawing.Size(1199, 928);
             this.panel_main.TabIndex = 2;
             // 
             // groupBox5
             // 
+            this.groupBox5.BackColor = System.Drawing.Color.LightSlateGray;
             this.groupBox5.Controls.Add(this.btn_reload);
             this.groupBox5.Controls.Add(this.label2);
             this.groupBox5.Controls.Add(this.btn_addRoom);
@@ -114,10 +115,24 @@
             this.groupBox5.Controls.Add(this.dtGridView_rooms);
             this.groupBox5.Location = new System.Drawing.Point(31, 6);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1072, 459);
+            this.groupBox5.Size = new System.Drawing.Size(1072, 439);
             this.groupBox5.TabIndex = 43;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Rooms";
+            // 
+            // btn_reload
+            // 
+            this.btn_reload.BackColor = System.Drawing.Color.Gray;
+            this.btn_reload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_reload.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_reload.ForeColor = System.Drawing.Color.White;
+            this.btn_reload.Location = new System.Drawing.Point(985, 357);
+            this.btn_reload.Name = "btn_reload";
+            this.btn_reload.Size = new System.Drawing.Size(61, 30);
+            this.btn_reload.TabIndex = 42;
+            this.btn_reload.Text = "Reload";
+            this.btn_reload.UseVisualStyleBackColor = false;
+            this.btn_reload.Click += new System.EventHandler(this.btn_reload_Click);
             // 
             // label2
             // 
@@ -233,13 +248,14 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.BackColor = System.Drawing.Color.LightSlateGray;
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Controls.Add(this.groupBox1);
             this.groupBox3.Controls.Add(this.dtGridView_roomTypes);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Location = new System.Drawing.Point(31, 505);
+            this.groupBox3.Location = new System.Drawing.Point(31, 461);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1072, 447);
+            this.groupBox3.Size = new System.Drawing.Size(1072, 428);
             this.groupBox3.TabIndex = 42;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Room Types";
@@ -398,22 +414,8 @@
             this.panel_bottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel_bottom.Location = new System.Drawing.Point(0, 944);
             this.panel_bottom.Name = "panel_bottom";
-            this.panel_bottom.Size = new System.Drawing.Size(1130, 18);
+            this.panel_bottom.Size = new System.Drawing.Size(1199, 18);
             this.panel_bottom.TabIndex = 24;
-            // 
-            // btn_reload
-            // 
-            this.btn_reload.BackColor = System.Drawing.Color.DarkBlue;
-            this.btn_reload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_reload.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_reload.ForeColor = System.Drawing.Color.White;
-            this.btn_reload.Location = new System.Drawing.Point(985, 357);
-            this.btn_reload.Name = "btn_reload";
-            this.btn_reload.Size = new System.Drawing.Size(61, 30);
-            this.btn_reload.TabIndex = 42;
-            this.btn_reload.Text = "Reload";
-            this.btn_reload.UseVisualStyleBackColor = false;
-            this.btn_reload.Click += new System.EventHandler(this.btn_reload_Click);
             // 
             // userCtrl_adminServices
             // 
@@ -424,7 +426,7 @@
             this.Controls.Add(this.panel_main);
             this.Controls.Add(this.panel_top);
             this.Name = "userCtrl_adminServices";
-            this.Size = new System.Drawing.Size(1130, 962);
+            this.Size = new System.Drawing.Size(1199, 962);
             this.Load += new System.EventHandler(this.userCtrl_adminServices_Load);
             this.panel_top.ResumeLayout(false);
             this.panel_top.PerformLayout();

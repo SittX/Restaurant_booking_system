@@ -1,37 +1,37 @@
 using Motel_booking_system.Helpers;
-using Restaurant_booking_system.Admin;
-using Restaurant_booking_system.Helpers;
-using Restaurant_booking_system.Services;
+using Motel_booking_system.Admin;
+using Motel_booking_system.Helpers;
+using Motel_booking_system.Services;
 
-namespace Restaurant_booking_system
+namespace Motel_booking_system
 {
     public partial class Frm_login : Form
     {
         private int timerDuration = 60;
+        private int loginAttempts = 0;
+
         public Frm_login()
         {
             InitializeComponent();
         }
 
 
+        #region Event Handlers
         private void link_registerNewUser_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             // Inject customer repository into registeration form
-            Form registerationForm = new Frm_userRegisteration(
-                new CustomerService(
-                    )
-                );
+            Form registerationForm = new Frm_userRegisteration(new CustomerService());
             registerationForm.Show();
         }
 
-
-
         private void btn_cancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (this.Owner is not null)
+            {
+                Application.Exit();
+            }
         }
 
-        private int loginAttempts = 0;
 
         private void btn_login_Click(object sender, EventArgs e)
         {
@@ -41,7 +41,8 @@ namespace Restaurant_booking_system
 
             UserLogin login = new UserLogin(
                 new CustomerService(),
-                new AdminService());
+                new AdminService()
+                );
 
 
             // Authenticate the current user and open the form that they have access to open
@@ -64,29 +65,13 @@ namespace Restaurant_booking_system
             // LoginAttempts will be increase everytime the authentication failed
             loginAttempts++;
 
-            if(loginAttempts > 5)
+            if (loginAttempts > 5)
             {
                 DisableLoginBtn();
             }
         }
 
 
-        private void DisableLoginBtn()
-        {
-            lbl_failureTimer.Visible = true;
-            lbl_loginFailureMsg.Visible = true;
-
-            btn_login.Enabled = false; // Disable login button
-
-            timer.Interval = 1000; // Start timer with 1 second interval
-            timer.Start();
-            timerDuration = 60; // Set timer duration to 60 seconds
-
-            // Add event handler to the timer delegate
-            timer.Tick += EnableLoginBtn;
-
-            loginAttempts = 0;
-        }
 
         private void EnableLoginBtn(object? sender, EventArgs e)
         {
@@ -94,7 +79,7 @@ namespace Restaurant_booking_system
 
             lbl_failureTimer.Text = timerDuration.ToString();
 
-            if(timerDuration <= 0)
+            if (timerDuration <= 0)
             {
                 timer.Stop();
                 btn_login.Enabled = true;
@@ -107,15 +92,26 @@ namespace Restaurant_booking_system
             {
                 Application.Exit();
             }
+        } 
+        #endregion
+
+        private void DisableLoginBtn()
+        {
+            lbl_failureTimer.Visible = true;
+            lbl_loginFailureMsg.Visible = true;
+
+            btn_login.Enabled = false; // Disable login button
+
+            timer.Interval = 1000; // Start timer with 1 second interval
+            timer.Start();
+            timerDuration = 60; // Set timer duration to 60 seconds
+
+            // Subscribe event handler to the timer delegate
+            timer.Tick += EnableLoginBtn;
+
+            loginAttempts = 0;
         }
 
-        private void btn_cancel_Click_1(object sender, EventArgs e)
-        {
-            if (this.Owner is not null)
-            {
-                Application.Exit();
-            }
-        }
     }
 
 }

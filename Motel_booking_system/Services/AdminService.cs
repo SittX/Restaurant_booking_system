@@ -1,16 +1,9 @@
-﻿
-using Motel_booking_system.Helpers;
-using Restaurant_booking_system.Interfaces;
-using Restaurant_booking_system.Models;
+﻿using Motel_booking_system.Helpers;
+using Motel_booking_system.Interfaces;
+using Motel_booking_system.Models;
 using static Motel_booking_system.BookingDataSet;
-
-namespace Restaurant_booking_system.Services
+namespace Motel_booking_system.Services
 {
-    /// <summary>
-    ///  This class will contains all the CRUD operations between the application and the SQL server
-    /// </summary>
-
-
     public class AdminService : IAdminService
     {
         private Motel_booking_system.BookingDataSetTableAdapters.adminTableAdapter _adapter;
@@ -22,7 +15,7 @@ namespace Restaurant_booking_system.Services
         }
 
 
-
+        #region Service methods
         public bool Delete(string username, string password)
         {
             string encryptedPassword = PasswordEncryption.Encrypt(password);
@@ -44,16 +37,10 @@ namespace Restaurant_booking_system.Services
         {
             try
             {
-                if (newAdmin is null)
-                {
-                    return false;
-                }
-
                 var id = Administrator.GenerateId(_adapter.GetData());
                 var password = newAdmin.Password;
 
                 string encryptedPassword = PasswordEncryption.Encrypt(password);
-
 
                 if (_adapter.InsertNewAccount(
                     id,
@@ -67,9 +54,16 @@ namespace Restaurant_booking_system.Services
                 return false;
 
             }
+            catch (InvalidDataException ie)
+            {
+                Console.WriteLine($"Error message: {ie.Message}");
+                OutputMessage.ErrorMessage("Invalid data. Please try again");
+                return false;
+            }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                Console.WriteLine($"Error message: {ex.Message}");
+                OutputMessage.ErrorMessage("Account cannot be created. Please try again.");
                 return false;
             }
         }
@@ -102,10 +96,12 @@ namespace Restaurant_booking_system.Services
             }
             catch (Exception ex)
             {
-                OutputMessage.ErrorMessage(ex.Message);
+                Console.WriteLine($"Error message: {ex.Message}");
+                OutputMessage.ErrorMessage("Account cannot not be created. Please try again.");
                 return false;
             }
-        }
+        } 
+        #endregion
 
     }
 }

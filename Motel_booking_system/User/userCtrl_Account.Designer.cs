@@ -1,4 +1,4 @@
-﻿namespace Restaurant_booking_system
+﻿namespace Motel_booking_system
 {
     partial class userCtrl_Account
     {
@@ -47,27 +47,25 @@
             this.panel_top = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel_bottom = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.panel_main.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel_top.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_main
             // 
+            this.panel_main.Controls.Add(this.groupBox2);
             this.panel_main.Controls.Add(this.groupBox1);
             this.panel_main.Controls.Add(this.lbl_operationsStatus);
-            this.panel_main.Controls.Add(this.txt_newUsername);
             this.panel_main.Controls.Add(this.btn_createNewAccount);
-            this.panel_main.Controls.Add(this.label7);
-            this.panel_main.Controls.Add(this.btn_updateUsername);
             this.panel_main.Controls.Add(this.txt_email);
-            this.panel_main.Controls.Add(this.txt_username);
             this.panel_main.Controls.Add(this.label4);
-            this.panel_main.Controls.Add(this.label1);
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_main.Location = new System.Drawing.Point(0, 0);
             this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(1040, 592);
+            this.panel_main.Size = new System.Drawing.Size(1040, 488);
             this.panel_main.TabIndex = 0;
             // 
             // groupBox1
@@ -78,7 +76,7 @@
             this.groupBox1.Controls.Add(this.txt_oldPassword);
             this.groupBox1.Controls.Add(this.txt_newPassword);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(529, 125);
+            this.groupBox1.Location = new System.Drawing.Point(529, 95);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(450, 276);
             this.groupBox1.TabIndex = 16;
@@ -148,7 +146,7 @@
             // txt_newUsername
             // 
             this.txt_newUsername.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_newUsername.Location = new System.Drawing.Point(169, 237);
+            this.txt_newUsername.Location = new System.Drawing.Point(164, 104);
             this.txt_newUsername.Name = "txt_newUsername";
             this.txt_newUsername.Size = new System.Drawing.Size(217, 27);
             this.txt_newUsername.TabIndex = 15;
@@ -159,7 +157,7 @@
             this.btn_createNewAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_createNewAccount.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_createNewAccount.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_createNewAccount.Location = new System.Drawing.Point(812, 437);
+            this.btn_createNewAccount.Location = new System.Drawing.Point(812, 389);
             this.btn_createNewAccount.Name = "btn_createNewAccount";
             this.btn_createNewAccount.Size = new System.Drawing.Size(167, 47);
             this.btn_createNewAccount.TabIndex = 0;
@@ -171,7 +169,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(31, 241);
+            this.label7.Location = new System.Drawing.Point(26, 108);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(132, 23);
             this.label7.TabIndex = 14;
@@ -182,18 +180,18 @@
             this.btn_updateUsername.BackColor = System.Drawing.Color.Orange;
             this.btn_updateUsername.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_updateUsername.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_updateUsername.Location = new System.Drawing.Point(392, 232);
+            this.btn_updateUsername.Location = new System.Drawing.Point(164, 161);
             this.btn_updateUsername.Name = "btn_updateUsername";
-            this.btn_updateUsername.Size = new System.Drawing.Size(93, 32);
+            this.btn_updateUsername.Size = new System.Drawing.Size(100, 32);
             this.btn_updateUsername.TabIndex = 13;
-            this.btn_updateUsername.Text = "Update";
+            this.btn_updateUsername.Text = "Update ";
             this.btn_updateUsername.UseVisualStyleBackColor = false;
             this.btn_updateUsername.Click += new System.EventHandler(this.btn_updateUsername_Click);
             // 
             // txt_email
             // 
             this.txt_email.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_email.Location = new System.Drawing.Point(98, 333);
+            this.txt_email.Location = new System.Drawing.Point(185, 344);
             this.txt_email.Name = "txt_email";
             this.txt_email.ReadOnly = true;
             this.txt_email.Size = new System.Drawing.Size(288, 27);
@@ -202,7 +200,7 @@
             // txt_username
             // 
             this.txt_username.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_username.Location = new System.Drawing.Point(169, 175);
+            this.txt_username.Location = new System.Drawing.Point(164, 42);
             this.txt_username.Name = "txt_username";
             this.txt_username.ReadOnly = true;
             this.txt_username.Size = new System.Drawing.Size(217, 27);
@@ -212,7 +210,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(36, 333);
+            this.label4.Location = new System.Drawing.Point(123, 345);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 23);
             this.label4.TabIndex = 3;
@@ -222,7 +220,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(31, 179);
+            this.label1.Location = new System.Drawing.Point(26, 46);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 23);
             this.label1.TabIndex = 0;
@@ -252,10 +250,25 @@
             // 
             this.panel_bottom.BackColor = System.Drawing.Color.LightSteelBlue;
             this.panel_bottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_bottom.Location = new System.Drawing.Point(0, 531);
+            this.panel_bottom.Location = new System.Drawing.Point(0, 457);
             this.panel_bottom.Name = "panel_bottom";
-            this.panel_bottom.Size = new System.Drawing.Size(1040, 61);
+            this.panel_bottom.Size = new System.Drawing.Size(1040, 31);
             this.panel_bottom.TabIndex = 2;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.txt_username);
+            this.groupBox2.Controls.Add(this.btn_updateUsername);
+            this.groupBox2.Controls.Add(this.txt_newUsername);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox2.Location = new System.Drawing.Point(21, 95);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(471, 220);
+            this.groupBox2.TabIndex = 17;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Username";
             // 
             // userCtrl_Account
             // 
@@ -265,7 +278,7 @@
             this.Controls.Add(this.panel_top);
             this.Controls.Add(this.panel_main);
             this.Name = "userCtrl_Account";
-            this.Size = new System.Drawing.Size(1040, 592);
+            this.Size = new System.Drawing.Size(1040, 488);
             this.Load += new System.EventHandler(this.userCtrl_Account_Load);
             this.panel_main.ResumeLayout(false);
             this.panel_main.PerformLayout();
@@ -273,6 +286,8 @@
             this.groupBox1.PerformLayout();
             this.panel_top.ResumeLayout(false);
             this.panel_top.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -298,5 +313,6 @@
         private Panel panel_bottom;
         private GroupBox groupBox1;
         private Label label5;
+        private GroupBox groupBox2;
     }
 }

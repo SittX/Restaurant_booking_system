@@ -1,6 +1,6 @@
-﻿using Restaurant_booking_system.Interfaces;
+﻿using Motel_booking_system.Interfaces;
 
-namespace Restaurant_booking_system.User
+namespace Motel_booking_system.User
 {
     public partial class userCtrl_menu : UserControl
     {
@@ -29,7 +29,7 @@ namespace Restaurant_booking_system.User
             // this list is used to filter all the rooms so only one room for one room_type shows up
             var roomType = new List<string>();
 
-
+            // Filter duplicate room types
             for (int i = 1; i < menuItems.Length; i++)
             {
                 // If the room_type does not exist in the MenuItems roomType List , it will add to the list.
@@ -43,10 +43,8 @@ namespace Restaurant_booking_system.User
                     menuItems[i].Img = rooms[i]["img"].ToString();
                 }
 
-
                 // Add to flowLayoutPanel
                 AddToFlowLayoutPanel(menuItems[i]);
-
             }
         }
 

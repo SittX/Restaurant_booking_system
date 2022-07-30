@@ -1,4 +1,4 @@
-﻿namespace Restaurant_booking_system.User
+﻿namespace Motel_booking_system.User
 {
     partial class Frm_userReviews
     {

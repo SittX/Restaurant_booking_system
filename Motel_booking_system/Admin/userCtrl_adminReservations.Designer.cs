@@ -1,4 +1,4 @@
-﻿namespace Restaurant_booking_system.Admin
+﻿namespace Motel_booking_system.Admin
 {
     partial class userCtrl_adminReservations
     {
@@ -32,12 +32,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel_bottom = new System.Windows.Forms.Panel();
             this.panel_main = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmb_bookingId = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_cancelReservation = new System.Windows.Forms.Button();
             this.btn_makeBooking = new System.Windows.Forms.Button();
             this.dtGridView_bookings = new System.Windows.Forms.DataGridView();
-            this.cmb_bookingId = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel_top.SuspendLayout();
             this.panel_main.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridView_bookings)).BeginInit();
@@ -88,6 +88,24 @@
             this.panel_main.Size = new System.Drawing.Size(905, 530);
             this.panel_main.TabIndex = 2;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(466, 449);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(111, 25);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Booking Id";
+            // 
+            // cmb_bookingId
+            // 
+            this.cmb_bookingId.FormattingEnabled = true;
+            this.cmb_bookingId.Location = new System.Drawing.Point(466, 477);
+            this.cmb_bookingId.Name = "cmb_bookingId";
+            this.cmb_bookingId.Size = new System.Drawing.Size(170, 23);
+            this.cmb_bookingId.TabIndex = 5;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -126,30 +144,16 @@
             // 
             // dtGridView_bookings
             // 
+            this.dtGridView_bookings.AllowUserToAddRows = false;
+            this.dtGridView_bookings.AllowUserToDeleteRows = false;
+            this.dtGridView_bookings.AllowUserToOrderColumns = true;
             this.dtGridView_bookings.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtGridView_bookings.Location = new System.Drawing.Point(20, 51);
             this.dtGridView_bookings.Name = "dtGridView_bookings";
+            this.dtGridView_bookings.ReadOnly = true;
             this.dtGridView_bookings.RowTemplate.Height = 25;
             this.dtGridView_bookings.Size = new System.Drawing.Size(854, 395);
             this.dtGridView_bookings.TabIndex = 0;
-            // 
-            // cmb_bookingId
-            // 
-            this.cmb_bookingId.FormattingEnabled = true;
-            this.cmb_bookingId.Location = new System.Drawing.Point(466, 477);
-            this.cmb_bookingId.Name = "cmb_bookingId";
-            this.cmb_bookingId.Size = new System.Drawing.Size(170, 23);
-            this.cmb_bookingId.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(466, 449);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 25);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Booking Id";
             // 
             // userCtrl_adminReservations
             // 

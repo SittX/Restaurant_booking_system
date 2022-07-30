@@ -1,4 +1,4 @@
-﻿namespace Restaurant_booking_system
+﻿namespace Motel_booking_system
 {
     partial class Frm_userDashboard
     {
@@ -35,6 +35,7 @@
             this.menuStrip_history = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip_logout = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip_exit = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip_reviews = new System.Windows.Forms.ToolStripMenuItem();
             this.panel = new System.Windows.Forms.Panel();
             this.btn_history = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@
             this.panel_topMenu = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_main = new System.Windows.Forms.Panel();
-            this.menuStrip_reviews = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel.SuspendLayout();
             this.panel_topMenu.SuspendLayout();
@@ -60,9 +60,9 @@
             this.menuStrip_booking,
             this.menuStrip_account,
             this.menuStrip_history,
+            this.menuStrip_reviews,
             this.menuStrip_logout,
-            this.menuStrip_exit,
-            this.menuStrip_reviews});
+            this.menuStrip_exit});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1384, 24);
@@ -110,6 +110,13 @@
             this.menuStrip_exit.Size = new System.Drawing.Size(38, 20);
             this.menuStrip_exit.Text = "E&xit";
             this.menuStrip_exit.Click += new System.EventHandler(this.menuStrip_exit_Click);
+            // 
+            // menuStrip_reviews
+            // 
+            this.menuStrip_reviews.Name = "menuStrip_reviews";
+            this.menuStrip_reviews.Size = new System.Drawing.Size(61, 20);
+            this.menuStrip_reviews.Text = "&Reviews";
+            this.menuStrip_reviews.Click += new System.EventHandler(this.menuStrip_reviews_Click);
             // 
             // panel
             // 
@@ -267,13 +274,6 @@
             this.panel_main.Name = "panel_main";
             this.panel_main.Size = new System.Drawing.Size(1173, 677);
             this.panel_main.TabIndex = 3;
-            // 
-            // menuStrip_reviews
-            // 
-            this.menuStrip_reviews.Name = "menuStrip_reviews";
-            this.menuStrip_reviews.Size = new System.Drawing.Size(61, 20);
-            this.menuStrip_reviews.Text = "&Reviews";
-            this.menuStrip_reviews.Click += new System.EventHandler(this.menuStrip_reviews_Click);
             // 
             // Frm_userDashboard
             // 

@@ -1,4 +1,4 @@
-namespace Restaurant_booking_system
+namespace Motel_booking_system
 {
 
     internal static class Program

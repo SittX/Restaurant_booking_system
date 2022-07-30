@@ -1,4 +1,4 @@
-﻿namespace Restaurant_booking_system.Models
+﻿namespace Motel_booking_system.Models
 {
     public class Room
     {

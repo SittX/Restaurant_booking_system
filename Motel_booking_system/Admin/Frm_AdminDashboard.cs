@@ -1,7 +1,7 @@
-﻿using Restaurant_booking_system.Models;
-using Restaurant_booking_system.Services;
+﻿using Motel_booking_system.Models;
+using Motel_booking_system.Services;
 
-namespace Restaurant_booking_system.Admin
+namespace Motel_booking_system.Admin
 {
     public partial class Frm_AdminDashboard : Form
     {
@@ -117,7 +117,7 @@ namespace Restaurant_booking_system.Admin
 
         private void menuStrip_menu_Click(object sender, EventArgs e)
         {
-
+            SwitchUserControl(new userCtrl_adminMenu());
         }
         #endregion
 

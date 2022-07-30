@@ -1,4 +1,4 @@
-﻿namespace Restaurant_booking_system.Admin.PopUpWindows
+﻿namespace Motel_booking_system.Admin.PopUpWindows
 {
     partial class Frm_AddNewRoom
     {
@@ -62,7 +62,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(607, 702);
+            this.groupBox1.Size = new System.Drawing.Size(578, 702);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "New Room details";
@@ -73,17 +73,17 @@
             this.label5.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(20, 30);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(172, 26);
+            this.label5.Size = new System.Drawing.Size(124, 26);
             this.label5.TabIndex = 29;
-            this.label5.Text = "Room description";
+            this.label5.Text = "Room image";
             // 
             // picBox_roomImg
             // 
             this.picBox_roomImg.BackColor = System.Drawing.Color.White;
             this.picBox_roomImg.Location = new System.Drawing.Point(20, 59);
             this.picBox_roomImg.Name = "picBox_roomImg";
-            this.picBox_roomImg.Size = new System.Drawing.Size(392, 291);
-            this.picBox_roomImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picBox_roomImg.Size = new System.Drawing.Size(537, 291);
+            this.picBox_roomImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBox_roomImg.TabIndex = 28;
             this.picBox_roomImg.TabStop = false;
             // 
@@ -92,7 +92,7 @@
             this.btn_browseImg.BackColor = System.Drawing.Color.CadetBlue;
             this.btn_browseImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_browseImg.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_browseImg.Location = new System.Drawing.Point(418, 316);
+            this.btn_browseImg.Location = new System.Drawing.Point(406, 356);
             this.btn_browseImg.Name = "btn_browseImg";
             this.btn_browseImg.Size = new System.Drawing.Size(151, 34);
             this.btn_browseImg.TabIndex = 27;
@@ -192,7 +192,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
-            this.ClientSize = new System.Drawing.Size(645, 726);
+            this.ClientSize = new System.Drawing.Size(606, 726);
             this.Controls.Add(this.groupBox1);
             this.Name = "Frm_AddNewRoom";
             this.Text = "Add new room details";

@@ -1,7 +1,7 @@
 ﻿using Motel_booking_system.Helpers;
-using Restaurant_booking_system.Interfaces;
-using Restaurant_booking_system.Services;
-namespace Restaurant_booking_system
+using Motel_booking_system.Interfaces;
+using Motel_booking_system.Services;
+namespace Motel_booking_system
 {
     public partial class userCtrl_Account : UserControl
     {
@@ -12,9 +12,9 @@ namespace Restaurant_booking_system
         {
             InitializeComponent();
             _customerService = customerService;
-            //_repo = new CustomerRepository(new BookingDataSetTableAdapters.customersTableAdapter());
         }
 
+        #region Event handlers
         private void userCtrl_Account_Load(object sender, EventArgs e)
         {
             PopulateInputs();
@@ -40,8 +40,8 @@ namespace Restaurant_booking_system
                 ReloadInfo();
             }
 
-            txt_newPassword.Text = String.Empty;
-            txt_oldPassword.Text = String.Empty;
+            txt_newPassword.Text = string.Empty;
+            txt_oldPassword.Text = string.Empty;
         }
 
         private void btn_createNewAccount_Click(object sender, EventArgs e)
@@ -67,7 +67,7 @@ namespace Restaurant_booking_system
                 return;
             }
 
-            if (_customerService.UpdateUsername(newUsername, oldUsername, password,Session.CurrentSession.LoggedInUser.Id))
+            if (_customerService.UpdateUsername(newUsername, oldUsername, password, Session.CurrentSession.LoggedInUser.Id))
             {
                 lbl_operationsStatus.Text = "Updated Username";
                 lbl_operationsStatus.ForeColor = Color.Green;
@@ -75,12 +75,13 @@ namespace Restaurant_booking_system
             }
 
             txt_newUsername.Text = String.Empty;
-        }
+        } 
+        #endregion
 
         private void ReloadInfo()
         {
             var data = _customerService.SearchById(Session.CurrentSession.LoggedInUser.Id);
-            if (data.Count() > 0)
+            if ( data is not null && data.Count > 0)
             {
                 // Save newly changed data to Session User Object
                 Session.CurrentSession.LoggedInUser = new Models.Customer()
@@ -89,7 +90,6 @@ namespace Restaurant_booking_system
                     Username = data[0]["username"].ToString(),
                     Password = data[0]["acc_password"].ToString(),
                     Email = data[0]["email"].ToString(),
-                    NRC = data[0]["NRC"].ToString(),
                     PhoneNumber = data[0]["ph_number"].ToString()
                 };
                 // Change the input values with new values

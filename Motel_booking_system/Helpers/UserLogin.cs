@@ -1,8 +1,8 @@
-﻿using Restaurant_booking_system.Interfaces;
-using Restaurant_booking_system.Models;
+﻿using Motel_booking_system.Interfaces;
+using Motel_booking_system.Models;
 using static Motel_booking_system.BookingDataSet;
 
-namespace Restaurant_booking_system.Helpers
+namespace Motel_booking_system.Helpers
 {
     public class UserLogin
     {
@@ -21,20 +21,21 @@ namespace Restaurant_booking_system.Helpers
 
         /// <summary>
         /// This func authenticate if the account exists or not .
-        /// If it exists , it will assign the return data table to private variables "_users" or "_admins"
+        /// If it exists , it will assign the return data table 
         /// </summary>
         /// <returns> If user exists , return TRUE. Else return FALSE. </returns>
         public bool LoginUser(string username, string password)
         {
             var users = _customerRepo.Search(username, password);
             var admins = _adminRepo.Search(username, password);
+
             if (users is not null && admins is not null)
             {
                 _userDt = users;
                 _adminDt = admins;
             }
 
-            if (_userDt.Count() > 0 || _adminDt.Count() > 0)
+            if (_userDt.Count > 0 || _adminDt.Count > 0)
             {
                 SaveSessionOwner();
                 return true;
@@ -60,8 +61,7 @@ namespace Restaurant_booking_system.Helpers
                     Username = _userDt[0]["username"].ToString(),
                     Password = _userDt[0]["acc_password"].ToString(),
                     Email = _userDt[0]["email"].ToString(),
-                    PhoneNumber = _userDt[0]["ph_number"].ToString(),
-                    NRC = _userDt[0]["NRC"].ToString()
+                    PhoneNumber = _userDt[0]["ph_number"].ToString()
                 };
 
                 Session.CurrentSession.LoggedInUser = currentUser;
@@ -82,23 +82,6 @@ namespace Restaurant_booking_system.Helpers
                 Session.CurrentSession.IsAdmin = true;
             }
         }
-
-        /// <summary>
-        /// Save currently logged in user to "SessionInfo" class
-        /// </summary>
-        /// <param name="obj"></param>
-        //private void SaveUser(object obj)
-        //{ 
-
-        //    if (obj.GetType() == typeof(Customer))
-        //    {
-        //        Session.Session.LoggedInUser = obj as Customer;
-        //    }
-        //    else
-        //    {
-        //        Session.Session.LoggedInAdmin = obj as Administrator;
-        //    }
-        //}
 
     }
 }

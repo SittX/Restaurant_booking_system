@@ -1,7 +1,6 @@
-﻿using Motel_booking_system;
-using static Motel_booking_system.BookingDataSet;
+﻿using static Motel_booking_system.BookingDataSet;
 
-namespace Restaurant_booking_system.Interfaces
+namespace Motel_booking_system.Interfaces
 {
     public interface IBookingsService
     {

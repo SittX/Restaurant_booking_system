@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Restaurant_booking_system.User
+namespace Motel_booking_system.User
 {
     public partial class userCtrl_menuItem : UserControl
     {

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Security.Cryptography;
-using System.Text;
+﻿using System.Text;
 
 namespace Motel_booking_system.Helpers
 {
@@ -17,7 +11,8 @@ namespace Motel_booking_system.Helpers
             List<int> encryptedCharacters = new List<int>();
             StringBuilder encryptedString = new StringBuilder();
 
-            int temp = 0;
+            // use temporary variable to convert each character in the input to integers
+            int temp;
             foreach(char inputChar in inputArray)
             {
                 temp = (int)inputChar;
@@ -39,7 +34,8 @@ namespace Motel_booking_system.Helpers
             List<int> decryptedCharacters = new List<int>();
             StringBuilder decryptedString = new StringBuilder();
 
-            int temp = 0;
+            // use temporary variable to convert each character in the input to integers
+            int temp;
             foreach (char inputChar in inputArray)
             {
                 temp = (int)inputChar;

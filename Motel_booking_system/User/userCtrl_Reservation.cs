@@ -1,18 +1,17 @@
 ﻿using Motel_booking_system.Helpers;
-using Restaurant_booking_system.Interfaces;
+using Motel_booking_system.Interfaces;
 using System.Data;
 
-namespace Restaurant_booking_system
+namespace Motel_booking_system
 {
     public partial class userCtrl_Reservation : UserControl
     {
         private readonly IBookingsService _bookingService;
-
         private readonly IRoomsService _roomService;
         private readonly IReviewsService _reviewService;
 
-        private string checkIn { get; set; }
-        private string checkOut { get; set; }
+        private string? checkIn { get; set; }
+        private string? checkOut { get; set; }
         private int roomType { get; set; }
 
         public userCtrl_Reservation(IBookingsService bookingsService, IRoomsService roomService,IReviewsService reviewsService)
@@ -22,6 +21,7 @@ namespace Restaurant_booking_system
             _roomService = roomService;
             _reviewService = reviewsService;
         }
+        #region Event handlers
 
         private void userCtrl_Reservation_Load(object sender, EventArgs e)
         {
@@ -35,11 +35,11 @@ namespace Restaurant_booking_system
 
             // Hide review components
             gpBox_review.Visible = false;
-        }
 
-        private void label5_Click(object sender, EventArgs e)
-        {
 
+            // Set the default color of the DGV cells
+            dtGridView_availableRooms.DefaultCellStyle.ForeColor = Color.Black;
+            dtGridView_availableRooms.DefaultCellStyle.BackColor = Color.LightSteelBlue;
         }
 
         private void btn_searchRooms_Click(object sender, EventArgs e)
@@ -54,13 +54,19 @@ namespace Restaurant_booking_system
             }
 
 
-            DataTable dt = _roomService.GetAvailableRooms(checkIn, checkOut, roomType);
-
-            dtGridView_availableRooms.DataSource = dt;
+            DataTable availableRoomDataTable = _roomService.GetAvailableRooms(checkIn, checkOut, roomType);
+            dtGridView_availableRooms.DataSource = availableRoomDataTable;
         }
 
         private void btn_confirmReservation_Click(object sender, EventArgs e)
         {
+            // Booking confirmation
+            if (MessageBox.Show($"Booking Details\n Check-in: {checkIn} Check-out: {checkOut}\n Room number: {txt_roomNumber.Text}", "Booking confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) != DialogResult.OK)
+            {
+                return;
+            }
+
+
             // Validate inputs using InputValidation
             if (!ValidateInputs())
             {
@@ -87,7 +93,7 @@ namespace Restaurant_booking_system
 
         private bool ValidateInputs()
         {
-            if (String.IsNullOrEmpty(txt_roomNumber.Text))
+            if (string.IsNullOrEmpty(txt_roomNumber.Text))
             {
                 return false;
             }
@@ -98,13 +104,14 @@ namespace Restaurant_booking_system
         {
             if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_review))
             {
+                OutputMessage.WarningMessage("Please enter text to post a review.");
                 return;
             }
 
             string review = txt_review.Text;
-            if (_reviewService.Insert(Session.CurrentSession.LoggedInUser.Id, DateTime.Now, review))
+            if (_reviewService.Insert(Session.CurrentSession.LoggedInUser.Id, review))
             {
-                
+
                 lbl_reviewStatus.Text = "Thank you for choosing our motel. Hope to see you soon.";
                 lbl_reviewStatus.ForeColor = Color.Green;
             }
@@ -112,25 +119,9 @@ namespace Restaurant_booking_system
 
         private void btn_cancelReview_Click(object sender, EventArgs e)
         {
-
-        }
-
-        //private void SeperateTime()
-        //{
-        //    col1 = bookings[0]["check_in"].ToString();
-        //    col2 = bookings[0]["check_out"].ToString();
-        //    col3 = bookings[0]["customer_id"].ToString();
-        //    col4 = (DateTime)bookings[0]["booked_date"];
-
-        //    MessageBox.Show($"{col1} : {col2} : {col3} : {col4}");
-        //}
-        //private void checkDataTime()
-        //{
-        //    var date = col4.Date.ToString();
-        //    DateTime dateObj = DateTime.Now;
-        //    MessageBox.Show($"Booked Data is : {date} \n Datetime object : {dateObj.Day}");
-        //}
-
+            gpBox_review.Visible = false;
+        } 
+        #endregion
 
     }
 }

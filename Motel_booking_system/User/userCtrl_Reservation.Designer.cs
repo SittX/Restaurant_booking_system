@@ -1,4 +1,4 @@
-﻿namespace Restaurant_booking_system
+﻿namespace Motel_booking_system
 {
     partial class userCtrl_Reservation
     {
@@ -31,6 +31,10 @@
             this.panel_top = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_main = new System.Windows.Forms.Panel();
+            this.dtGridView_availableRooms = new System.Windows.Forms.DataGridView();
+            this.txt_availableRoomNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_availableRoomDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_availableRoomPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gpBox_review = new System.Windows.Forms.GroupBox();
             this.lbl_reviewStatus = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -38,7 +42,6 @@
             this.btn_submitReview = new System.Windows.Forms.Button();
             this.txt_review = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.dtGridView_availableRooms = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btn_cancel = new System.Windows.Forms.Button();
@@ -55,8 +58,8 @@
             this.panel_bottom = new System.Windows.Forms.Panel();
             this.panel_top.SuspendLayout();
             this.panel_main.SuspendLayout();
-            this.gpBox_review.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtGridView_availableRooms)).BeginInit();
+            this.gpBox_review.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,7 +77,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Constantia", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(559, 6);
+            this.label1.Location = new System.Drawing.Point(502, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(245, 33);
             this.label1.TabIndex = 0;
@@ -85,9 +88,9 @@
             this.panel_main.AutoScroll = true;
             this.panel_main.AutoSize = true;
             this.panel_main.BackColor = System.Drawing.Color.White;
+            this.panel_main.Controls.Add(this.dtGridView_availableRooms);
             this.panel_main.Controls.Add(this.gpBox_review);
             this.panel_main.Controls.Add(this.label5);
-            this.panel_main.Controls.Add(this.dtGridView_availableRooms);
             this.panel_main.Controls.Add(this.label8);
             this.panel_main.Controls.Add(this.groupBox2);
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -96,6 +99,46 @@
             this.panel_main.Name = "panel_main";
             this.panel_main.Size = new System.Drawing.Size(1243, 938);
             this.panel_main.TabIndex = 1;
+            // 
+            // dtGridView_availableRooms
+            // 
+            this.dtGridView_availableRooms.AllowUserToAddRows = false;
+            this.dtGridView_availableRooms.AllowUserToDeleteRows = false;
+            this.dtGridView_availableRooms.AllowUserToOrderColumns = true;
+            this.dtGridView_availableRooms.BackgroundColor = System.Drawing.Color.LightSlateGray;
+            this.dtGridView_availableRooms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtGridView_availableRooms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.txt_availableRoomNum,
+            this.txt_availableRoomDescription,
+            this.txt_availableRoomPrice});
+            this.dtGridView_availableRooms.Location = new System.Drawing.Point(601, 45);
+            this.dtGridView_availableRooms.Name = "dtGridView_availableRooms";
+            this.dtGridView_availableRooms.ReadOnly = true;
+            this.dtGridView_availableRooms.RowTemplate.Height = 25;
+            this.dtGridView_availableRooms.Size = new System.Drawing.Size(606, 381);
+            this.dtGridView_availableRooms.TabIndex = 39;
+            // 
+            // txt_availableRoomNum
+            // 
+            this.txt_availableRoomNum.DataPropertyName = "RoomNumber";
+            this.txt_availableRoomNum.HeaderText = "Room Number";
+            this.txt_availableRoomNum.Name = "txt_availableRoomNum";
+            this.txt_availableRoomNum.ReadOnly = true;
+            // 
+            // txt_availableRoomDescription
+            // 
+            this.txt_availableRoomDescription.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.txt_availableRoomDescription.DataPropertyName = "Description";
+            this.txt_availableRoomDescription.HeaderText = "Description";
+            this.txt_availableRoomDescription.Name = "txt_availableRoomDescription";
+            this.txt_availableRoomDescription.ReadOnly = true;
+            // 
+            // txt_availableRoomPrice
+            // 
+            this.txt_availableRoomPrice.DataPropertyName = "Price";
+            this.txt_availableRoomPrice.HeaderText = "Price";
+            this.txt_availableRoomPrice.Name = "txt_availableRoomPrice";
+            this.txt_availableRoomPrice.ReadOnly = true;
             // 
             // gpBox_review
             // 
@@ -183,18 +226,6 @@
             this.label5.Text = "Note : To make a room reservation, first search available rooms within your stayc" +
     "ation day range. \r\nThen, enter the room number that you want to make reservation" +
     ". ";
-            // 
-            // dtGridView_availableRooms
-            // 
-            this.dtGridView_availableRooms.AllowUserToAddRows = false;
-            this.dtGridView_availableRooms.AllowUserToDeleteRows = false;
-            this.dtGridView_availableRooms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtGridView_availableRooms.Location = new System.Drawing.Point(601, 45);
-            this.dtGridView_availableRooms.Name = "dtGridView_availableRooms";
-            this.dtGridView_availableRooms.ReadOnly = true;
-            this.dtGridView_availableRooms.RowTemplate.Height = 25;
-            this.dtGridView_availableRooms.Size = new System.Drawing.Size(570, 381);
-            this.dtGridView_availableRooms.TabIndex = 39;
             // 
             // label8
             // 
@@ -378,9 +409,9 @@
             this.panel_top.PerformLayout();
             this.panel_main.ResumeLayout(false);
             this.panel_main.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtGridView_availableRooms)).EndInit();
             this.gpBox_review.ResumeLayout(false);
             this.gpBox_review.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtGridView_availableRooms)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -415,5 +446,8 @@
         private TextBox txt_review;
         private Label label7;
         private Label lbl_reviewStatus;
+        private DataGridViewTextBoxColumn txt_availableRoomNum;
+        private DataGridViewTextBoxColumn txt_availableRoomDescription;
+        private DataGridViewTextBoxColumn txt_availableRoomPrice;
     }
 }

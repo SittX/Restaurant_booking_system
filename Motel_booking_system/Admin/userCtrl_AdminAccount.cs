@@ -1,16 +1,11 @@
 ﻿using Motel_booking_system.Helpers;
-using Restaurant_booking_system.Interfaces;
-using Restaurant_booking_system.Models;
+using Motel_booking_system.Interfaces;
+using Motel_booking_system.Models;
 
 
 
-namespace Restaurant_booking_system.Admin
+namespace Motel_booking_system.Admin
 {
-    /// <summary>
-    /// Admin dashboard needs some UI to indicate account has been created or not.
-    /// It also needs extra textbox to double check the new user account password
-    /// The buttons can be a little bit smaller
-    /// </summary>
     public partial class userCtrl_AdminAccount : UserControl
     {
         private IAdminService _adminService;
@@ -26,41 +21,6 @@ namespace Restaurant_booking_system.Admin
             cmb_permissions.DataSource = Enum.GetValues(typeof(Administrator.Permissions));
         }
 
-        private bool ValidateNewAccountInput(string username, string password, string reEnteredPassword)
-        {
-            // Check for Null or Empty inputs
-            if (string.IsNullOrEmpty(username)
-                && string.IsNullOrEmpty(password)
-                && string.IsNullOrEmpty(reEnteredPassword))
-            {
-                OutputMessage.WarningMessage("Input values cannot be empty. Please check your inputs.");
-                txt_newAccName.Focus();
-                return false;
-            }
-
-            // Check current logged in user permission
-            if (Session.CurrentSession.LoggedInAdmin.Permission != Administrator.Permissions.CanReadnWrite.ToString())
-            {
-                lbl_accountOperationsStatus.Text = "You don't have permission to do this action !";
-                lbl_accountOperationsStatus.ForeColor = Color.Red;
-                return false;
-            }
-
-
-
-            // Break causes if two passwords are not identical
-            if (password != reEnteredPassword)
-            {
-                lbl_accountOperationsStatus.Text = "Passwords are not identical.";
-                lbl_accountOperationsStatus.ForeColor = Color.Red;
-                return false;
-            }
-
-            return true;
-        }
-
-
-
         #region Event handlers
         private void btn_createNewAcc_Click(object sender, EventArgs e)
         {
@@ -69,7 +29,7 @@ namespace Restaurant_booking_system.Admin
             var reEnteredPassword = txt_newAccReEnteredPassword.Text;
             var permission = cmb_permissions.SelectedValue.ToString();
 
-
+            // valid new account 
             if (!ValidateNewAccountInput(username, password, reEnteredPassword))
             {
                 return;
@@ -81,7 +41,7 @@ namespace Restaurant_booking_system.Admin
                 return;
             }
 
-            // Create new admin account and insert into database
+            // Create new admin object and insert into database
             var newAccount = new Administrator()
             {
                 Id = Administrator.GenerateId(_adminService.GetAll()),
@@ -94,9 +54,9 @@ namespace Restaurant_booking_system.Admin
             // Check if the account creation is successful or not
             if (!_adminService.Insert(newAccount))
             {
-                OutputMessage.ErrorMessage("Account cannot create. Please try again later.");
+                return;
             }
-
+            
             ClearInputs();
 
             lbl_accountOperationsStatus.Text = "New user account has been successfully created. \nReload the table to see the account.";
@@ -118,6 +78,11 @@ namespace Restaurant_booking_system.Admin
 
         private void btn_deleteAcc_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show($"Are you sure to delete the entered account ?", "Account deletion", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) != DialogResult.OK)
+            {
+                return;
+            }
+
             if (Session.CurrentSession.LoggedInAdmin.Permission != Administrator.Permissions.CanReadnWrite.ToString())
             {
                 lbl_accountOperationsStatus.Text = "You don't have permission to do this action !";
@@ -146,6 +111,38 @@ namespace Restaurant_booking_system.Admin
         }
         #endregion
 
+        #region Methods
+        private bool ValidateNewAccountInput(string username, string password, string reEnteredPassword)
+        {
+            // Check for Null or Empty inputs
+            if (string.IsNullOrEmpty(username)
+                && string.IsNullOrEmpty(password)
+                && string.IsNullOrEmpty(reEnteredPassword))
+            {
+                OutputMessage.WarningMessage("Input values cannot be empty. Please check your inputs.");
+                txt_newAccName.Focus();
+                return false;
+            }
+
+            // Check current logged in user permission
+            if (Session.CurrentSession.LoggedInAdmin.Permission != Administrator.Permissions.CanReadnWrite.ToString())
+            {
+                lbl_accountOperationsStatus.Text = "You don't have permission to do this action !";
+                lbl_accountOperationsStatus.ForeColor = Color.Red;
+                return false;
+            }
+
+            // Break causes if two passwords are not identical
+            if (password != reEnteredPassword)
+            {
+                lbl_accountOperationsStatus.Text = "Passwords are not identical.";
+                lbl_accountOperationsStatus.ForeColor = Color.Red;
+                return false;
+            }
+
+            return true;
+        }
+
         private void ClearInputs()
         {
             txt_deleteAccPassword.Text = String.Empty;
@@ -153,6 +150,7 @@ namespace Restaurant_booking_system.Admin
             txt_newAccName.Text = String.Empty;
             txt_newAccPassword.Text = String.Empty;
             txt_newAccReEnteredPassword.Text = String.Empty;
-        }
+        } 
+        #endregion
     }
 }

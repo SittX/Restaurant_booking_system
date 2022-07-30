@@ -1,4 +1,4 @@
-﻿namespace Restaurant_booking_system.Admin
+﻿namespace Motel_booking_system.Admin
 {
     partial class Frm_AdminAddReservation
     {
@@ -40,9 +40,7 @@
             this.txt_cusPhNumber = new System.Windows.Forms.MaskedTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txt_bookingRoomNumber = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txt_nrc = new System.Windows.Forms.TextBox();
             this.btn_searchRooms = new System.Windows.Forms.Button();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.txt_cusEmail = new System.Windows.Forms.TextBox();
@@ -150,9 +148,7 @@
             this.groupBox2.Controls.Add(this.txt_cusPhNumber);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.txt_bookingRoomNumber);
-            this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.txt_nrc);
             this.groupBox2.Controls.Add(this.btn_searchRooms);
             this.groupBox2.Controls.Add(this.btn_cancel);
             this.groupBox2.Controls.Add(this.txt_cusEmail);
@@ -178,7 +174,7 @@
             // txt_cusPhNumber
             // 
             this.txt_cusPhNumber.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_cusPhNumber.Location = new System.Drawing.Point(163, 455);
+            this.txt_cusPhNumber.Location = new System.Drawing.Point(163, 413);
             this.txt_cusPhNumber.Mask = "(00)-0000000000";
             this.txt_cusPhNumber.Name = "txt_cusPhNumber";
             this.txt_cusPhNumber.Size = new System.Drawing.Size(241, 29);
@@ -189,7 +185,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(20, 515);
+            this.label10.Location = new System.Drawing.Point(20, 473);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(137, 26);
             this.label10.TabIndex = 32;
@@ -198,21 +194,10 @@
             // txt_bookingRoomNumber
             // 
             this.txt_bookingRoomNumber.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_bookingRoomNumber.Location = new System.Drawing.Point(163, 515);
+            this.txt_bookingRoomNumber.Location = new System.Drawing.Point(163, 473);
             this.txt_bookingRoomNumber.Name = "txt_bookingRoomNumber";
             this.txt_bookingRoomNumber.Size = new System.Drawing.Size(105, 29);
             this.txt_bookingRoomNumber.TabIndex = 33;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(91, 336);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(54, 26);
-            this.label9.TabIndex = 26;
-            this.label9.Text = "NRC";
             // 
             // label1
             // 
@@ -223,14 +208,6 @@
             this.label1.Size = new System.Drawing.Size(103, 26);
             this.label1.TabIndex = 14;
             this.label1.Text = "Check In :";
-            // 
-            // txt_nrc
-            // 
-            this.txt_nrc.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_nrc.Location = new System.Drawing.Point(163, 333);
-            this.txt_nrc.Name = "txt_nrc";
-            this.txt_nrc.Size = new System.Drawing.Size(241, 29);
-            this.txt_nrc.TabIndex = 27;
             // 
             // btn_searchRooms
             // 
@@ -252,7 +229,7 @@
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_cancel.ForeColor = System.Drawing.Color.Black;
-            this.btn_cancel.Location = new System.Drawing.Point(263, 570);
+            this.btn_cancel.Location = new System.Drawing.Point(263, 528);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(96, 35);
             this.btn_cancel.TabIndex = 27;
@@ -263,7 +240,7 @@
             // txt_cusEmail
             // 
             this.txt_cusEmail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_cusEmail.Location = new System.Drawing.Point(163, 393);
+            this.txt_cusEmail.Location = new System.Drawing.Point(163, 351);
             this.txt_cusEmail.Name = "txt_cusEmail";
             this.txt_cusEmail.Size = new System.Drawing.Size(241, 29);
             this.txt_cusEmail.TabIndex = 25;
@@ -274,7 +251,7 @@
             this.btn_confirmReservation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_confirmReservation.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_confirmReservation.ForeColor = System.Drawing.Color.Black;
-            this.btn_confirmReservation.Location = new System.Drawing.Point(163, 570);
+            this.btn_confirmReservation.Location = new System.Drawing.Point(163, 528);
             this.btn_confirmReservation.Name = "btn_confirmReservation";
             this.btn_confirmReservation.Size = new System.Drawing.Size(94, 35);
             this.btn_confirmReservation.TabIndex = 26;
@@ -297,7 +274,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(91, 396);
+            this.label5.Location = new System.Drawing.Point(91, 354);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 26);
             this.label5.TabIndex = 19;
@@ -360,7 +337,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(17, 455);
+            this.label6.Location = new System.Drawing.Point(17, 413);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(145, 26);
             this.label6.TabIndex = 20;
@@ -431,8 +408,6 @@
         private Button btn_searchRooms;
         private Label label8;
         private DataGridView dtGridView_availableRooms;
-        private Label label9;
-        private TextBox txt_nrc;
         private DataGridViewTextBoxColumn txt_roomNumber;
         private DataGridViewTextBoxColumn txt_roomDescription;
         private DataGridViewTextBoxColumn txt_price;

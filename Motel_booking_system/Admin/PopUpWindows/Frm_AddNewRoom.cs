@@ -1,21 +1,22 @@
 ﻿using Motel_booking_system.Helpers;
-using Restaurant_booking_system.Interfaces;
+using Motel_booking_system.Interfaces;
 
-namespace Restaurant_booking_system.Admin.PopUpWindows
+namespace Motel_booking_system.Admin.PopUpWindows
 {
     public partial class Frm_AddNewRoom : Form
     {
-        private readonly IRoomsService _roomRepo;
-        private readonly IRoomTypeService _roomTypeRepo;
-        private string filePath;
-        public Frm_AddNewRoom(IRoomsService roomRepo, IRoomTypeService roomTypeRepo)
+        private readonly IRoomsService _roomService;
+        private readonly IRoomTypeService _roomTypeService;
+        private string? imgFilePath;
+        public Frm_AddNewRoom(IRoomsService roomService, IRoomTypeService roomTypeService)
         {
             InitializeComponent();
-            _roomRepo = roomRepo;
-            _roomTypeRepo = roomTypeRepo;
+            _roomService = roomService;
+            _roomTypeService = roomTypeService;
 
         }
 
+        #region Event handlers
         private void btn_addRoom_Click(object sender, EventArgs e)
         {
             // Check empty or invalid input values
@@ -31,29 +32,27 @@ namespace Restaurant_booking_system.Admin.PopUpWindows
             var description = txt_description.Text;
 
             // Check if the room number already exists or not
-            if (!_roomRepo.IsRoomExist(roomNumber))
+            if (!_roomService.IsRoomExist(roomNumber))
             {
                 return;
             }
 
-            // If filePath is empty, insert new room without picture
-            if (string.IsNullOrEmpty(filePath))
+            // If imgFilePath is empty, insert new room without picture
+            if (string.IsNullOrEmpty(imgFilePath))
             {
-                _roomRepo.Insert(roomNumber, roomType, description);
+                _roomService.Insert(roomNumber, roomType, description);
                 this.Close();
                 return;
             }
 
-            // If filepath is not empty , insert filePath into new room
-            _roomRepo.Insert(roomNumber, roomType, description, filePath);
+            // If imgFilePath is not empty , insert imgFilePath into new room
+            _roomService.Insert(roomNumber, roomType, description, imgFilePath);
             this.Close();
-
-            // Update DtGridView_room of "userCtrl_adminService" panel
         }
 
         private void Frm_AddNewRoom_Load(object sender, EventArgs e)
         {
-            var roomTypes = _roomTypeRepo.GetAll();
+            var roomTypes = _roomTypeService.GetAll();
 
             // Populate room type combo box
             cmb_roomType.DisplayMember = "type_description";
@@ -63,33 +62,37 @@ namespace Restaurant_booking_system.Admin.PopUpWindows
 
         private void btn_cancel_Click(object sender, EventArgs e)
         {
-            txt_roomNo.Text = String.Empty;
-            txt_description.Text = String.Empty;
+            txt_roomNo.Text = string.Empty;
+            txt_description.Text = string.Empty;
+            this.Close();
         }
 
         private void btn_browseImg_Click(object sender, EventArgs e)
         {
+            // Create new OpenFileDialog object
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.InitialDirectory = @"C:\";
             ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
             ofd.Title = "Choose image of the room.";
             ofd.Multiselect = false;
+
+            // Check if the selected file has the allowed file extensions
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                filePath = ofd.FileName;
+                imgFilePath = ofd.FileName;
 
-                var fileExtension = Path.GetExtension(filePath);
+                var fileExtension = Path.GetExtension(imgFilePath);
 
                 switch (fileExtension)
                 {
                     case ".png":
-                        picBox_roomImg.ImageLocation = filePath;
+                        picBox_roomImg.ImageLocation = imgFilePath;
                         break;
                     case ".jpg":
-                        picBox_roomImg.ImageLocation = filePath;
+                        picBox_roomImg.ImageLocation = imgFilePath;
                         break;
                     case ".jpeg":
-                        picBox_roomImg.ImageLocation = filePath;
+                        picBox_roomImg.ImageLocation = imgFilePath;
                         break;
                     default:
                         MessageBox.Show("File type is not accepted.");
@@ -97,7 +100,8 @@ namespace Restaurant_booking_system.Admin.PopUpWindows
                 }
 
             }
-        }
+        } 
+        #endregion
 
 
     }

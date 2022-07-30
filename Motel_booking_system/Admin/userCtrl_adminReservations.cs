@@ -1,7 +1,7 @@
-﻿using Restaurant_booking_system.Interfaces;
-using Restaurant_booking_system.Services;
+﻿using Motel_booking_system.Interfaces;
+using Motel_booking_system.Services;
 
-namespace Restaurant_booking_system.Admin
+namespace Motel_booking_system.Admin
 {
     public partial class userCtrl_adminReservations : UserControl
     {
@@ -26,11 +26,21 @@ namespace Restaurant_booking_system.Admin
         private void userCtrl_adminReservations_Load(object sender, EventArgs e)
         {
             PopulateData();
+
+            // Set the default color of the DGV cells
+            dtGridView_bookings.DefaultCellStyle.ForeColor = Color.Black;
+            dtGridView_bookings.DefaultCellStyle.BackColor = Color.LightSteelBlue;
         }
 
         private void btn_cancelReservation_Click(object sender, EventArgs e)
         {
             int bookingId = Convert.ToInt32(cmb_bookingId.SelectedValue);
+
+            if(MessageBox.Show($"Are you sure to delete booking id {bookingId.ToString()} ?","Booking deletion",MessageBoxButtons.OKCancel,MessageBoxIcon.Exclamation) != DialogResult.OK)
+            {
+                return;   
+            }
+
             _bookingService.DeleteBooking(bookingId);
             PopulateData();
         }

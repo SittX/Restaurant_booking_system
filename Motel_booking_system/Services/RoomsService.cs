@@ -1,12 +1,11 @@
 ﻿using Motel_booking_system.BookingDataSetTableAdapters;
 using Motel_booking_system.Helpers;
-using Restaurant_booking_system.Interfaces;
-using Restaurant_booking_system.Models;
+using Motel_booking_system.Interfaces;
 using System.Data;
 using System.Data.SqlClient;
 using static Motel_booking_system.BookingDataSet;
 
-namespace Restaurant_booking_system.Services
+namespace Motel_booking_system.Services
 {
     public class RoomsService : IRoomsService
     {
@@ -17,6 +16,7 @@ namespace Restaurant_booking_system.Services
             _adapter = new roomsTableAdapter();
         }
 
+        #region Service methods
         public roomsDataTable GetAll()
         {
             var data = _adapter.GetData();
@@ -36,7 +36,8 @@ namespace Restaurant_booking_system.Services
             }
             catch (Exception ex)
             {
-                OutputMessage.WarningMessage(ex.Message);
+                Console.WriteLine($"Error message: {ex.Message}");
+                OutputMessage.WarningMessage("New room cannot be added. Please try again.");
                 return false;
             }
 
@@ -51,17 +52,13 @@ namespace Restaurant_booking_system.Services
             }
             catch (Exception ex)
             {
-                OutputMessage.WarningMessage(ex.Message);
+                Console.WriteLine($"Error message: {ex.Message}");
+                OutputMessage.WarningMessage("Room cannot be deleted. Please try again.");
                 return false;
             }
 
         }
 
-        // Will implement it later
-        public bool Update(int roomNumber, Room updatedRoom)
-        {
-            return false;
-        }
 
         public bool IsRoomExist(int roomNumber)
         {
@@ -78,7 +75,8 @@ namespace Restaurant_booking_system.Services
             }
             catch (Exception ex)
             {
-                OutputMessage.ErrorMessage(ex.Message);
+                Console.WriteLine($"Error message: {ex.Message}");
+                OutputMessage.ErrorMessage("Cannot find the room. Please try again.");
                 throw;
             }
         }
@@ -86,9 +84,9 @@ namespace Restaurant_booking_system.Services
         public DataTable GetAvailableRooms(string checkIn, string checkOut, int roomType)
         {
             DataTable dt = new DataTable();
-            dt.Columns.Add("RoomNumber");
-            dt.Columns.Add("Description");
-            dt.Columns.Add("Price");
+            dt.Columns.Add("RoomNumber", typeof(string));
+            dt.Columns.Add("Description", typeof(string));
+            dt.Columns.Add("Price", typeof(string));
 
             using (SqlConnection connection = new SqlConnection("Data Source=localhost;Initial Catalog=motel_booking_db;Integrated Security=True"))
             {
@@ -168,6 +166,8 @@ namespace Restaurant_booking_system.Services
                                 dr["Description"] = reader[1];
                                 dr["Price"] = reader[2];
                                 dt.Rows.Add(dr);
+
+                                //dt.Rows.Add(reader[0], reader[1], reader[2]);
                             }
                         }
                         reader.Close();
@@ -175,13 +175,15 @@ namespace Restaurant_booking_system.Services
                 }
                 catch (Exception ex)
                 {
-                    OutputMessage.ErrorMessage(ex.Message);
+                    Console.WriteLine($"Error message: {ex.Message}");
+                    OutputMessage.ErrorMessage("Cannot search available room. Please try again.");
                 }
 
                 connection.Close();
             }
 
             return dt;
-        }
+        } 
+        #endregion
     }
 }

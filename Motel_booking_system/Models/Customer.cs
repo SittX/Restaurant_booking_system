@@ -1,14 +1,13 @@
 ﻿using System.Data;
 
-namespace Restaurant_booking_system.Models
+namespace Motel_booking_system.Models
 {
     public class Customer
     {
-        public string Id { get; set; }
+        public string? Id { get; set; }
         public string? Username { get; set; }
         public string? Password { get; set; }
         public string? Email { get; set; }
-        public string? NRC { get; set; }
         public string? PhoneNumber { get; set; }
 
         public static string GenerateId(DataTable dt)

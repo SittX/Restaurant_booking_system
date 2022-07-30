@@ -16,7 +16,7 @@ DROP table administrators;
 DROP table room_types;
 DROP table rooms;
 DROP table bookings;
-
+DROP TABLE reviews;
 
 select * FROm customers;
 CREATE TABLE customers(
@@ -24,9 +24,9 @@ CREATE TABLE customers(
 	username VARCHAR(30) UNIQUE NOT NULL,
 	acc_password VARCHAR(255) UNIQUE NOT NULL,
 	email VARCHAR(50) UNIQUE NOT NULL,
-	NRC VARCHAR(80) UNIQUE NOT NULL,
 	ph_number VARCHAR(40) UNIQUE
 );
+
 INSERT INTO customers(id,username,acc_password,email,NRC,ph_number) 
 VALUES('U_001','kevn','sdkfwer','kdf@gmail.com','asdf','093323241');
 
@@ -39,7 +39,7 @@ VALUES('U_003','Nicole','sdkfdsdafwer','adfwer@gmail.com','asasdf3aerdf','082132
 
 select * FROM administrators;
 
-INSERT INTO administrators(id,username,acc_password,permission) VALUES('A_001','admin','admin123','CanReadnWrite');
+INSERT INTO administrators(id,username,acc_password,permission) VALUES('A_0001','admin','admin123','CanReadnWrite');
 DROP TABLE administrators;
 CREATE TABLE administrators(
 	id VARCHAR(40) NOT NULL PRIMARY KEY,
@@ -52,7 +52,8 @@ CREATE TABLE administrators(
 
 CREATE TABLE room_types(
 	id int PRIMARY KEY IDENTITY,
-	type_description VARCHAR(40) UNIQUE NOT NULL
+	type_description VARCHAR(40) UNIQUE NOT NULL,
+	price INT
 );
 INSERT INTO room_types(type_description) VALUES('Single badroom');
 INSERT INTO room_types(type_description) VALUES('Double badroom');
@@ -67,12 +68,12 @@ INSERT INTO rooms(id,room_type,room_description,price) VALUES(102,1,'hello world
 INSERT INTO rooms(id,room_type,room_description,price) VALUES(103,3,'Stupid dateTime object',30000);
 INSERT INTO rooms(id,room_type,room_description,price) VALUES(104,2,'Deez Nuts',5000);
 
-
+DROP table rooms;
 CREATE TABLE rooms(
 	id int PRIMARY KEY,
 	room_type INT,
 	room_description TEXT,
-	price INT,
+	img TEXT DEFAULT null,
 	CONSTRAINT FK_rooms_roomType 
 		FOREIGN KEY(room_type) 
 		REFERENCES room_types(id) 
@@ -128,7 +129,6 @@ CREATE TABLE bookings(
 CREATE TABLE reviews(
 	id int NOT NULL PRIMARY KEY IDENTITY,
 	cus_id VARCHAR(40),
-	reviewed_date DATETIME,
 	review TEXT
 	CONSTRAINT FK_reviews_cusId 
 		FOREIGN KEY(cus_id)

@@ -1,4 +1,4 @@
-﻿namespace Restaurant_booking_system.Admin
+﻿namespace Motel_booking_system.Admin
 {
     partial class userCtrl_AdminAccount
     {
@@ -99,8 +99,8 @@
             this.panel_main.AutoScroll = true;
             this.panel_main.Controls.Add(this.groupBox2);
             this.panel_main.Controls.Add(this.lbl_accountOperationsStatus);
-            this.panel_main.Controls.Add(this.groupBox1);
             this.panel_main.Controls.Add(this.groupBox4);
+            this.panel_main.Controls.Add(this.groupBox1);
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_main.Location = new System.Drawing.Point(0, 47);
             this.panel_main.Name = "panel_main";
@@ -111,7 +111,7 @@
             // 
             this.groupBox2.Controls.Add(this.dataGridView_adminAccounts);
             this.groupBox2.Controls.Add(this.btn_reload);
-            this.groupBox2.Location = new System.Drawing.Point(28, 40);
+            this.groupBox2.Location = new System.Drawing.Point(431, 29);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(581, 399);
             this.groupBox2.TabIndex = 16;
@@ -267,9 +267,9 @@
             this.groupBox4.Controls.Add(this.label9);
             this.groupBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox4.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox4.Location = new System.Drawing.Point(615, 40);
+            this.groupBox4.Location = new System.Drawing.Point(28, 29);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(388, 399);
+            this.groupBox4.Size = new System.Drawing.Size(359, 399);
             this.groupBox4.TabIndex = 10;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Create account";

@@ -1,16 +1,18 @@
 ﻿using System.Data;
 
-namespace Restaurant_booking_system.Models
+namespace Motel_booking_system.Models
 {
     public class Administrator
     {
+        // Enum for defining admin account permissions
         public enum Permissions
         {
             CanReadnWrite = 1,
             CanRead = 2,
         }
 
-        public string Id { get; set; }
+
+        public string? Id { get; set; }
         public string? Username { get; set; }
         public string? Password { get; set; }
         public string? Permission { get; set; }
@@ -28,7 +30,7 @@ namespace Restaurant_booking_system.Models
 
             if (lastRow is null)
             {
-                return String.Empty;
+                return string.Empty;
             }
             int oldNum = Convert.ToInt32(lastRow.Substring(2));
             oldNum = oldNum + 1;

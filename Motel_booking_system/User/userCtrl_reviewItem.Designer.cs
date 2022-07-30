@@ -36,7 +36,7 @@
             // 
             this.lbl_username.AutoSize = true;
             this.lbl_username.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_username.Location = new System.Drawing.Point(3, 29);
+            this.lbl_username.Location = new System.Drawing.Point(3, 13);
             this.lbl_username.Name = "lbl_username";
             this.lbl_username.Size = new System.Drawing.Size(90, 22);
             this.lbl_username.TabIndex = 0;
@@ -46,7 +46,7 @@
             // 
             this.lbl_review.AutoSize = true;
             this.lbl_review.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_review.Location = new System.Drawing.Point(3, 70);
+            this.lbl_review.Location = new System.Drawing.Point(3, 48);
             this.lbl_review.Name = "lbl_review";
             this.lbl_review.Size = new System.Drawing.Size(70, 22);
             this.lbl_review.TabIndex = 1;
@@ -56,10 +56,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.AutoSize = true;
+            this.BackColor = System.Drawing.Color.LightSlateGray;
             this.Controls.Add(this.lbl_review);
             this.Controls.Add(this.lbl_username);
             this.Name = "userCtrl_reviewItem";
-            this.Size = new System.Drawing.Size(504, 150);
+            this.Size = new System.Drawing.Size(504, 121);
             this.ResumeLayout(false);
             this.PerformLayout();
 

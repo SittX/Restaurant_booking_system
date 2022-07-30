@@ -1,10 +1,10 @@
 ﻿using static Motel_booking_system.BookingDataSet;
 
-namespace Restaurant_booking_system.Interfaces
+namespace Motel_booking_system.Interfaces
 {
     public interface IReviewsService
     {
-        bool Insert(string cusId, DateTime date, string review);
+        bool Insert(string cusId, string review);
         reviewsDataTable GetAll();
     }
 }

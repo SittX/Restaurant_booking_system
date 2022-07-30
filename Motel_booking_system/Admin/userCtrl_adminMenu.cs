@@ -1,4 +1,4 @@
-﻿namespace Restaurant_booking_system.Admin
+﻿namespace Motel_booking_system.Admin
 {
     public partial class userCtrl_adminMenu : UserControl
     {

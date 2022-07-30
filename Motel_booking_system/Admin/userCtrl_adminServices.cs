@@ -1,8 +1,8 @@
-﻿using Restaurant_booking_system.Admin.PopUpWindows;
-using Restaurant_booking_system.Interfaces;
-using Restaurant_booking_system.Services;
+﻿using Motel_booking_system.Admin.PopUpWindows;
+using Motel_booking_system.Interfaces;
+using Motel_booking_system.Services;
 
-namespace Restaurant_booking_system.Admin
+namespace Motel_booking_system.Admin
 {
     public partial class userCtrl_adminServices : UserControl
     {
@@ -35,8 +35,8 @@ namespace Restaurant_booking_system.Admin
             _roomTypeService.Insert(txt_newTypeDescription.Text, Convert.ToInt32(txtPrice.Text));
 
             // Empty inputs
-            txt_newTypeDescription.Text = String.Empty;
-            txtPrice.Text = String.Empty;
+            txt_newTypeDescription.Text = string.Empty;
+            txtPrice.Text = string.Empty;
 
             // Reload new items into DtGridView
             PopulateRoomType();
@@ -45,6 +45,11 @@ namespace Restaurant_booking_system.Admin
 
         private void btn_deleteType_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show($"Are you sure to delete the entered room type?", "Room Type deletion", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) != DialogResult.OK)
+            {
+                return;
+            }
+
             _roomTypeService.Delete(Convert.ToInt32(cmb_typeId.SelectedValue));
             PopulateRoomType();
         }
@@ -59,7 +64,11 @@ namespace Restaurant_booking_system.Admin
 
         private void btn_deleteRoom_Click(object sender, EventArgs e)
         {
-            // Removed ToString(), Might create a bug here
+            if (MessageBox.Show($"Are you sure to delete the selected room?", "Room deletion", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) != DialogResult.OK)
+            {
+                return;
+            }
+
             _roomService.Delete(Convert.ToInt32(cmb_roomNumber.SelectedValue));
 
             PopulateRoom();
@@ -73,8 +82,7 @@ namespace Restaurant_booking_system.Admin
         #endregion
 
 
-
-        #region DtGridView populate methods
+        #region Methods
         private void PopulateRoom()
         {
             dtGridView_rooms.DataSource = _roomService.GetAll();

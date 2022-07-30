@@ -1,23 +1,21 @@
 ﻿using Motel_booking_system.Helpers;
-using Restaurant_booking_system.Interfaces;
-using Restaurant_booking_system.Models;
+using Motel_booking_system.Interfaces;
+using Motel_booking_system.Models;
 using static Motel_booking_system.BookingDataSet;
 
-namespace Restaurant_booking_system.Services
+namespace Motel_booking_system.Services
 {
-    /// <summary>
-    ///  This class will contains all the CRUD operations between the application and the SQL server
-    /// </summary>
     internal class CustomerService : ICustomerService
     {
-        private Motel_booking_system.BookingDataSetTableAdapters.customersTableAdapter _adapter;
-        private Motel_booking_system.BookingDataSetTableAdapters.adminTableAdapter _adminAdapter;
+        private readonly Motel_booking_system.BookingDataSetTableAdapters.customersTableAdapter _adapter;
+        private readonly Motel_booking_system.BookingDataSetTableAdapters.adminTableAdapter _adminAdapter;
         public CustomerService()
         {
             _adapter = new Motel_booking_system.BookingDataSetTableAdapters.customersTableAdapter();
             _adminAdapter = new Motel_booking_system.BookingDataSetTableAdapters.adminTableAdapter();
         }
 
+        #region Service methods
         public bool Delete(string username, string password)
         {
             try
@@ -28,7 +26,8 @@ namespace Restaurant_booking_system.Services
             }
             catch (Exception ex)
             {
-                OutputMessage.ErrorMessage(ex.Message);
+                Console.WriteLine($"Error message : {ex.Message}");
+                OutputMessage.ErrorMessage("Account cannot be deleted. Please try again.");
                 return false;
             }
 
@@ -62,7 +61,8 @@ namespace Restaurant_booking_system.Services
             }
             catch (Exception ex)
             {
-                OutputMessage.ErrorMessage(ex.Message);
+                Console.WriteLine($"Error message : {ex.Message}");
+                OutputMessage.ErrorMessage("Internal service error happen. Press \"Ok\" to continue.");
                 return false;
             }
         }
@@ -83,13 +83,13 @@ namespace Restaurant_booking_system.Services
                                   newCus.Username,
                                   encryptedPassword,
                                   newCus.Email,
-                                  newCus.NRC,
                                   newCus.PhoneNumber) == 1) return true;
                 return false;
             }
             catch (Exception ex)
             {
-                OutputMessage.ErrorMessage(ex.Message);
+                Console.WriteLine($"Error message : {ex.Message}");
+                OutputMessage.ErrorMessage("New account cannot be created. Please try again.");
                 return false;
             }
 
@@ -120,7 +120,8 @@ namespace Restaurant_booking_system.Services
             }
             catch (Exception ex)
             {
-                OutputMessage.ErrorMessage(ex.Message);
+                Console.WriteLine($"Error message : {ex.Message}");
+                OutputMessage.ErrorMessage("Account cannot find. Please try again.");
                 return new customersDataTable();
             }
 
@@ -138,13 +139,14 @@ namespace Restaurant_booking_system.Services
             }
             catch (Exception ex)
             {
-                OutputMessage.ErrorMessage(ex.Message);
+                Console.WriteLine($"Error message : {ex.Message}");
+                OutputMessage.ErrorMessage("Password cannot be changed. Please try again.");
                 return false;
             }
 
         }
 
-        public bool UpdateUsername(string newUsername, string oldUsername, string password,string userId)
+        public bool UpdateUsername(string newUsername, string oldUsername, string password, string userId)
         {
             try
             {
@@ -154,10 +156,12 @@ namespace Restaurant_booking_system.Services
             }
             catch (Exception ex)
             {
-                OutputMessage.ErrorMessage(ex.Message);
+                Console.WriteLine($"Error message : {ex.Message}");
+                OutputMessage.ErrorMessage("Username cannot be updated. Please try again.");
                 return false;
             }
 
-        }
+        } 
+        #endregion
     }
 }

@@ -93,6 +93,16 @@ namespace Motel_booking_system.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap motel {
+            get {
+                object obj = ResourceManager.GetObject("motel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap reservationIcon {
             get {
                 object obj = ResourceManager.GetObject("reservationIcon", resourceCulture);
