@@ -40,10 +40,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cmb_roomNumber = new System.Windows.Forms.ComboBox();
             this.dtGridView_rooms = new System.Windows.Forms.DataGridView();
-            this.txt_roomId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txt_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txt_roomType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txt_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -61,6 +57,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel_bottom = new System.Windows.Forms.Panel();
+            this.txt_roomId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_ROOMTYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel_top.SuspendLayout();
             this.panel_main.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -85,10 +86,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(502, 0);
+            this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(502, 7);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 23);
+            this.label1.Size = new System.Drawing.Size(99, 24);
             this.label1.TabIndex = 2;
             this.label1.Text = "Services ";
             // 
@@ -113,6 +114,7 @@
             this.groupBox5.Controls.Add(this.btn_addRoom);
             this.groupBox5.Controls.Add(this.groupBox2);
             this.groupBox5.Controls.Add(this.dtGridView_rooms);
+            this.groupBox5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox5.Location = new System.Drawing.Point(31, 6);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(1072, 439);
@@ -137,10 +139,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(6, 31);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(146, 26);
+            this.label2.Size = new System.Drawing.Size(142, 24);
             this.label2.TabIndex = 24;
             this.label2.Text = "Room Number";
             // 
@@ -148,7 +150,7 @@
             // 
             this.btn_addRoom.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btn_addRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_addRoom.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_addRoom.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_addRoom.Location = new System.Drawing.Point(20, 370);
             this.btn_addRoom.Name = "btn_addRoom";
             this.btn_addRoom.Size = new System.Drawing.Size(168, 33);
@@ -171,9 +173,9 @@
             // 
             // btn_deleteRoom
             // 
-            this.btn_deleteRoom.BackColor = System.Drawing.Color.Red;
+            this.btn_deleteRoom.BackColor = System.Drawing.Color.IndianRed;
             this.btn_deleteRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_deleteRoom.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_deleteRoom.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_deleteRoom.Location = new System.Drawing.Point(277, 20);
             this.btn_deleteRoom.Name = "btn_deleteRoom";
             this.btn_deleteRoom.Size = new System.Drawing.Size(147, 40);
@@ -185,10 +187,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(29, 27);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(142, 26);
+            this.label3.Size = new System.Drawing.Size(131, 22);
             this.label3.TabIndex = 26;
             this.label3.Text = "Room number";
             // 
@@ -197,18 +199,20 @@
             this.cmb_roomNumber.FormattingEnabled = true;
             this.cmb_roomNumber.Location = new System.Drawing.Point(177, 32);
             this.cmb_roomNumber.Name = "cmb_roomNumber";
-            this.cmb_roomNumber.Size = new System.Drawing.Size(60, 23);
+            this.cmb_roomNumber.Size = new System.Drawing.Size(60, 24);
             this.cmb_roomNumber.TabIndex = 27;
             // 
             // dtGridView_rooms
             // 
             this.dtGridView_rooms.AllowUserToAddRows = false;
             this.dtGridView_rooms.AllowUserToDeleteRows = false;
+            this.dtGridView_rooms.AllowUserToOrderColumns = true;
             this.dtGridView_rooms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtGridView_rooms.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.txt_roomId,
+            this.txt_ROOMTYPE,
             this.txt_price,
-            this.txt_roomType,
+            this.dataGridViewTextBoxColumn1,
             this.txt_description});
             this.dtGridView_rooms.Location = new System.Drawing.Point(10, 60);
             this.dtGridView_rooms.Name = "dtGridView_rooms";
@@ -217,35 +221,6 @@
             this.dtGridView_rooms.Size = new System.Drawing.Size(1036, 291);
             this.dtGridView_rooms.TabIndex = 40;
             // 
-            // txt_roomId
-            // 
-            this.txt_roomId.DataPropertyName = "id";
-            this.txt_roomId.HeaderText = "Room Number";
-            this.txt_roomId.Name = "txt_roomId";
-            this.txt_roomId.ReadOnly = true;
-            // 
-            // txt_price
-            // 
-            this.txt_price.DataPropertyName = "price";
-            this.txt_price.HeaderText = "Price";
-            this.txt_price.Name = "txt_price";
-            this.txt_price.ReadOnly = true;
-            // 
-            // txt_roomType
-            // 
-            this.txt_roomType.DataPropertyName = "type_description";
-            this.txt_roomType.HeaderText = "Type";
-            this.txt_roomType.Name = "txt_roomType";
-            this.txt_roomType.ReadOnly = true;
-            // 
-            // txt_description
-            // 
-            this.txt_description.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.txt_description.DataPropertyName = "room_description";
-            this.txt_description.HeaderText = "Description";
-            this.txt_description.Name = "txt_description";
-            this.txt_description.ReadOnly = true;
-            // 
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.LightSlateGray;
@@ -253,6 +228,7 @@
             this.groupBox3.Controls.Add(this.groupBox1);
             this.groupBox3.Controls.Add(this.dtGridView_roomTypes);
             this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox3.Location = new System.Drawing.Point(31, 461);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(1072, 428);
@@ -275,18 +251,18 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(6, 36);
+            this.label5.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(16, 47);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(131, 26);
+            this.label5.Size = new System.Drawing.Size(121, 22);
             this.label5.TabIndex = 37;
             this.label5.Text = "Type number";
             // 
             // btn_deleteType
             // 
-            this.btn_deleteType.BackColor = System.Drawing.Color.Red;
+            this.btn_deleteType.BackColor = System.Drawing.Color.IndianRed;
             this.btn_deleteType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_deleteType.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_deleteType.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_deleteType.Location = new System.Drawing.Point(379, 31);
             this.btn_deleteType.Name = "btn_deleteType";
             this.btn_deleteType.Size = new System.Drawing.Size(117, 38);
@@ -300,7 +276,7 @@
             this.cmb_typeId.FormattingEnabled = true;
             this.cmb_typeId.Location = new System.Drawing.Point(143, 41);
             this.cmb_typeId.Name = "cmb_typeId";
-            this.cmb_typeId.Size = new System.Drawing.Size(218, 23);
+            this.cmb_typeId.Size = new System.Drawing.Size(218, 24);
             this.cmb_typeId.TabIndex = 38;
             // 
             // groupBox1
@@ -329,10 +305,10 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.Location = new System.Drawing.Point(16, 192);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 26);
+            this.label7.Size = new System.Drawing.Size(54, 22);
             this.label7.TabIndex = 36;
             this.label7.Text = "Price";
             // 
@@ -349,7 +325,7 @@
             // 
             this.btn_addNewType.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btn_addNewType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_addNewType.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_addNewType.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_addNewType.Location = new System.Drawing.Point(217, 313);
             this.btn_addNewType.Name = "btn_addNewType";
             this.btn_addNewType.Size = new System.Drawing.Size(96, 36);
@@ -361,10 +337,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.Location = new System.Drawing.Point(16, 47);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(161, 26);
+            this.label6.Size = new System.Drawing.Size(150, 22);
             this.label6.TabIndex = 33;
             this.label6.Text = "Type description";
             // 
@@ -372,6 +348,7 @@
             // 
             this.dtGridView_roomTypes.AllowUserToAddRows = false;
             this.dtGridView_roomTypes.AllowUserToDeleteRows = false;
+            this.dtGridView_roomTypes.AllowUserToOrderColumns = true;
             this.dtGridView_roomTypes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtGridView_roomTypes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.txt_typeId,
@@ -401,10 +378,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(400, 19);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 26);
+            this.label4.Size = new System.Drawing.Size(122, 24);
             this.label4.TabIndex = 29;
             this.label4.Text = "Room types";
             // 
@@ -416,6 +393,43 @@
             this.panel_bottom.Name = "panel_bottom";
             this.panel_bottom.Size = new System.Drawing.Size(1199, 18);
             this.panel_bottom.TabIndex = 24;
+            // 
+            // txt_roomId
+            // 
+            this.txt_roomId.DataPropertyName = "id";
+            this.txt_roomId.HeaderText = "Room Number";
+            this.txt_roomId.Name = "txt_roomId";
+            this.txt_roomId.ReadOnly = true;
+            // 
+            // txt_ROOMTYPE
+            // 
+            this.txt_ROOMTYPE.DataPropertyName = "room_type";
+            this.txt_ROOMTYPE.HeaderText = "room_type";
+            this.txt_ROOMTYPE.Name = "txt_ROOMTYPE";
+            this.txt_ROOMTYPE.ReadOnly = true;
+            this.txt_ROOMTYPE.Visible = false;
+            // 
+            // txt_price
+            // 
+            this.txt_price.DataPropertyName = "price";
+            this.txt_price.HeaderText = "Price";
+            this.txt_price.Name = "txt_price";
+            this.txt_price.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "type_description";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Type";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // txt_description
+            // 
+            this.txt_description.DataPropertyName = "room_description";
+            this.txt_description.HeaderText = "Description";
+            this.txt_description.Name = "txt_description";
+            this.txt_description.ReadOnly = true;
+            this.txt_description.Width = 693;
             // 
             // userCtrl_adminServices
             // 
@@ -474,14 +488,15 @@
         private DataGridView dtGridView_rooms;
         private GroupBox groupBox5;
         private GroupBox groupBox2;
-        private DataGridViewTextBoxColumn txt_roomId;
-        private DataGridViewTextBoxColumn txt_price;
-        private DataGridViewTextBoxColumn txt_roomType;
-        private DataGridViewTextBoxColumn txt_description;
         private GroupBox groupBox3;
         private GroupBox groupBox4;
         private TextBox txtPrice;
         private Label label7;
         private Button btn_reload;
+        private DataGridViewTextBoxColumn txt_roomId;
+        private DataGridViewTextBoxColumn txt_ROOMTYPE;
+        private DataGridViewTextBoxColumn txt_price;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn txt_description;
     }
 }

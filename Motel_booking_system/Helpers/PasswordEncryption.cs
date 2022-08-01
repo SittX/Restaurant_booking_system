@@ -13,14 +13,14 @@ namespace Motel_booking_system.Helpers
 
             // use temporary variable to convert each character in the input to integers
             int temp;
-            foreach(char inputChar in inputArray)
+            foreach (char inputChar in inputArray)
             {
                 temp = (int)inputChar;
                 var encryptedChar = temp += key;
                 encryptedCharacters.Add(encryptedChar);
             }
 
-            foreach(char encryptedChar in encryptedCharacters)
+            foreach (char encryptedChar in encryptedCharacters)
             {
                 encryptedString.Append(encryptedChar);
             }

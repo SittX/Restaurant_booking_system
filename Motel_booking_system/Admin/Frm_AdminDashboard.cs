@@ -47,7 +47,7 @@ namespace Motel_booking_system.Admin
 
         private void btn_reservations_Click(object sender, EventArgs e)
         {
-            SwitchUserControl(new userCtrl_adminReservations(new BookingsService()));
+            SwitchUserControl(new userCtrl_adminReservations(new BookingService()));
         }
 
         private void btn_services_Click(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace Motel_booking_system.Admin
             SwitchUserControl(
                 new userCtrl_adminServices(
                 new RoomTypeService(),
-                new RoomsService()
+                new RoomService()
                    )
                 );
         }
@@ -77,7 +77,7 @@ namespace Motel_booking_system.Admin
 
         private void menuStrip_reservations_Click(object sender, EventArgs e)
         {
-            SwitchUserControl(new userCtrl_adminReservations(new BookingsService()));
+            SwitchUserControl(new userCtrl_adminReservations(new BookingService()));
         }
 
         private void menuStrip_account_Click(object sender, EventArgs e)
@@ -109,7 +109,7 @@ namespace Motel_booking_system.Admin
             SwitchUserControl(
                 new userCtrl_adminServices(
                 new RoomTypeService(),
-                new RoomsService()
+                new RoomService()
                    )
                 );
         }

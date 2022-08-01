@@ -56,18 +56,18 @@
             this.top_panel.Dock = System.Windows.Forms.DockStyle.Top;
             this.top_panel.Location = new System.Drawing.Point(0, 0);
             this.top_panel.Name = "top_panel";
-            this.top_panel.Size = new System.Drawing.Size(693, 65);
+            this.top_panel.Size = new System.Drawing.Size(693, 50);
             this.top_panel.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(95, 24);
+            this.label1.Location = new System.Drawing.Point(158, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(480, 28);
+            this.label1.Size = new System.Drawing.Size(357, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Restaurant Booking Application Login";
             // 
@@ -100,10 +100,10 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(210, 11);
+            this.label4.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(189, 7);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 19);
+            this.label4.Size = new System.Drawing.Size(111, 23);
             this.label4.TabIndex = 0;
             this.label4.Text = "New User ?";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -120,9 +120,9 @@
             this.main_panel.Controls.Add(this.label3);
             this.main_panel.Controls.Add(this.label2);
             this.main_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.main_panel.Location = new System.Drawing.Point(0, 65);
+            this.main_panel.Location = new System.Drawing.Point(0, 50);
             this.main_panel.Name = "main_panel";
-            this.main_panel.Size = new System.Drawing.Size(693, 335);
+            this.main_panel.Size = new System.Drawing.Size(693, 350);
             this.main_panel.TabIndex = 2;
             // 
             // lbl_failureTimer
@@ -155,7 +155,7 @@
             // 
             this.btn_cancel.BackColor = System.Drawing.Color.IndianRed;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_cancel.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_cancel.Location = new System.Drawing.Point(325, 207);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(94, 35);
@@ -168,7 +168,7 @@
             // 
             this.btn_login.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btn_login.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_login.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_login.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_login.Location = new System.Drawing.Point(223, 207);
             this.btn_login.Name = "btn_login";
             this.btn_login.Size = new System.Drawing.Size(94, 35);

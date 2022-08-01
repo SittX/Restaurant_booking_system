@@ -1,8 +1,8 @@
-﻿using static Motel_booking_system.BookingDataSet;
+﻿using static Motel_booking_system.BookingSystemDataSet;
 
 namespace Motel_booking_system.Interfaces
 {
-    public interface IReviewsService
+    public interface IReviewService
     {
         bool Insert(string cusId, string review);
         reviewsDataTable GetAll();

@@ -1,7 +1,7 @@
-﻿using Motel_booking_system.BookingDataSetTableAdapters;
+﻿using Motel_booking_system.BookingSystemDataSetTableAdapters;
 using Motel_booking_system.Helpers;
 using Motel_booking_system.Interfaces;
-using static Motel_booking_system.BookingDataSet;
+using static Motel_booking_system.BookingSystemDataSet;
 
 namespace Motel_booking_system.Services
 {
@@ -25,6 +25,29 @@ namespace Motel_booking_system.Services
             return data;
         }
 
+
+        public int GetRoomTypePrice(int roomNum)
+        {
+            try
+            {
+                var data = _adapter.GetDataByRoomNumber(roomNum);
+                if (data.Count <= 0 && data is null)
+                {
+                    return -1;
+                }
+
+                var price = Convert.ToInt32(data[0]["price"]);
+                return price;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error message : {ex.Message}");
+                OutputMessage.ErrorMessage("Room type cannot be found . Please try again.");
+                return -1;
+            }
+
+        }
 
         public bool Insert(string description, int price)
         {
@@ -55,7 +78,7 @@ namespace Motel_booking_system.Services
                 return false;
             }
 
-        } 
+        }
         #endregion
 
     }

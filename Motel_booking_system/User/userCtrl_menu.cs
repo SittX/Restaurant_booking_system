@@ -4,10 +4,10 @@ namespace Motel_booking_system.User
 {
     public partial class userCtrl_menu : UserControl
     {
-        private IRoomsService _repo;
+        private IRoomService _repo;
 
 
-        public userCtrl_menu(IRoomsService repo)
+        public userCtrl_menu(IRoomService repo)
         {
             InitializeComponent();
             _repo = repo;
@@ -30,7 +30,7 @@ namespace Motel_booking_system.User
             var roomType = new List<string>();
 
             // Filter duplicate room types
-            for (int i = 1; i < menuItems.Length; i++)
+            for (int i = 0; i < menuItems.Length; i++)
             {
                 // If the room_type does not exist in the MenuItems roomType List , it will add to the list.
                 if (!roomType.Contains(rooms[i]["type_description"].ToString()))

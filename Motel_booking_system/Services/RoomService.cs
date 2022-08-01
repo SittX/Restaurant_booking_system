@@ -1,17 +1,17 @@
-﻿using Motel_booking_system.BookingDataSetTableAdapters;
+﻿using Motel_booking_system.BookingSystemDataSetTableAdapters;
 using Motel_booking_system.Helpers;
 using Motel_booking_system.Interfaces;
 using System.Data;
 using System.Data.SqlClient;
-using static Motel_booking_system.BookingDataSet;
+using static Motel_booking_system.BookingSystemDataSet;
 
 namespace Motel_booking_system.Services
 {
-    public class RoomsService : IRoomsService
+    public class RoomService : IRoomService
     {
         private readonly roomsTableAdapter _adapter;
 
-        public RoomsService()
+        public RoomService()
         {
             _adapter = new roomsTableAdapter();
         }
@@ -88,7 +88,7 @@ namespace Motel_booking_system.Services
             dt.Columns.Add("Description", typeof(string));
             dt.Columns.Add("Price", typeof(string));
 
-            using (SqlConnection connection = new SqlConnection("Data Source=localhost;Initial Catalog=motel_booking_db;Integrated Security=True"))
+            using (SqlConnection connection = new SqlConnection("Data Source=.;Initial Catalog=motel_bookings_system_db;Integrated Security=True"))
             {
 
                 // Create the command and set its properties.
@@ -183,7 +183,7 @@ namespace Motel_booking_system.Services
             }
 
             return dt;
-        } 
+        }
         #endregion
     }
 }

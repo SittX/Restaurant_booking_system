@@ -14,6 +14,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>BookingDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Update="BookingSystemDataSet.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BookingSystemDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -37,6 +42,10 @@
     <None Update="BookingDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>BookingDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="BookingSystemDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BookingSystemDataSet.Designer.cs</LastGenOutput>
     </None>
     <None Update="Resources\LoginBG %282%29.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

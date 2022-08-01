@@ -5,8 +5,8 @@ namespace Motel_booking_system.Admin
 {
     public partial class userCtrl_adminReservations : UserControl
     {
-        private IBookingsService _bookingService;
-        public userCtrl_adminReservations(IBookingsService bookingsService)
+        private IBookingService _bookingService;
+        public userCtrl_adminReservations(IBookingService bookingsService)
         {
             InitializeComponent();
             _bookingService = bookingsService;
@@ -15,9 +15,10 @@ namespace Motel_booking_system.Admin
         private void btn_makeReservation_Click(object sender, EventArgs e)
         {
             Form reservationFrm = new Frm_AdminAddReservation(
-                new RoomsService(),
-                new BookingsService(),
-                new CustomerService()
+                new RoomService(),
+                new BookingService(),
+                new CustomerService(),
+                new RoomTypeService()
                 );
 
             reservationFrm.Show();
@@ -36,9 +37,9 @@ namespace Motel_booking_system.Admin
         {
             int bookingId = Convert.ToInt32(cmb_bookingId.SelectedValue);
 
-            if(MessageBox.Show($"Are you sure to delete booking id {bookingId.ToString()} ?","Booking deletion",MessageBoxButtons.OKCancel,MessageBoxIcon.Exclamation) != DialogResult.OK)
+            if (MessageBox.Show($"Are you sure to delete booking id {bookingId.ToString()} ?", "Booking deletion", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) != DialogResult.OK)
             {
-                return;   
+                return;
             }
 
             _bookingService.DeleteBooking(bookingId);
@@ -56,5 +57,6 @@ namespace Motel_booking_system.Admin
             cmb_bookingId.ValueMember = "id";
             cmb_bookingId.DataSource = dt;
         }
+
     }
 }

@@ -57,18 +57,19 @@
             this.panel_topMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_topMenu.Location = new System.Drawing.Point(211, 24);
             this.panel_topMenu.Name = "panel_topMenu";
-            this.panel_topMenu.Size = new System.Drawing.Size(1004, 58);
+            this.panel_topMenu.Size = new System.Drawing.Size(1004, 46);
             this.panel_topMenu.TabIndex = 6;
             // 
             // lbl_title
             // 
             this.lbl_title.AutoSize = true;
-            this.lbl_title.Font = new System.Drawing.Font("Constantia", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_title.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl_title.Location = new System.Drawing.Point(391, 12);
             this.lbl_title.Name = "lbl_title";
-            this.lbl_title.Size = new System.Drawing.Size(239, 36);
+            this.lbl_title.Size = new System.Drawing.Size(202, 27);
             this.lbl_title.TabIndex = 0;
             this.lbl_title.Text = "Admin dashboard";
+            this.lbl_title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel
             // 
@@ -90,7 +91,7 @@
             this.btn_logout.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_logout.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btn_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_logout.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_logout.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_logout.ForeColor = System.Drawing.Color.Black;
             this.btn_logout.Location = new System.Drawing.Point(0, 634);
             this.btn_logout.Name = "btn_logout";
@@ -107,7 +108,7 @@
             this.btn_services.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_services.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_services.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_services.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_services.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_services.ForeColor = System.Drawing.Color.Black;
             this.btn_services.Location = new System.Drawing.Point(0, 269);
             this.btn_services.Name = "btn_services";
@@ -124,7 +125,7 @@
             this.btn_account.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_account.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_account.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_account.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_account.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_account.ForeColor = System.Drawing.Color.Black;
             this.btn_account.Location = new System.Drawing.Point(0, 216);
             this.btn_account.Name = "btn_account";
@@ -141,7 +142,7 @@
             this.btn_reservations.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_reservations.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_reservations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_reservations.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_reservations.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_reservations.ForeColor = System.Drawing.Color.Black;
             this.btn_reservations.Location = new System.Drawing.Point(0, 163);
             this.btn_reservations.Name = "btn_reservations";
@@ -158,14 +159,14 @@
             this.btn_dashboard.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_dashboard.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_dashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_dashboard.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_dashboard.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_dashboard.ForeColor = System.Drawing.Color.Black;
             this.btn_dashboard.Location = new System.Drawing.Point(0, 109);
             this.btn_dashboard.Name = "btn_dashboard";
             this.btn_dashboard.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_dashboard.Size = new System.Drawing.Size(211, 54);
             this.btn_dashboard.TabIndex = 1;
-            this.btn_dashboard.Text = "Dashboard";
+            this.btn_dashboard.Text = "Menu";
             this.btn_dashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_dashboard.UseVisualStyleBackColor = false;
             this.btn_dashboard.Click += new System.EventHandler(this.btn_menu_Click);
@@ -241,9 +242,9 @@
             // 
             this.panel_mainBackground.BackColor = System.Drawing.Color.White;
             this.panel_mainBackground.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_mainBackground.Location = new System.Drawing.Point(211, 82);
+            this.panel_mainBackground.Location = new System.Drawing.Point(211, 70);
             this.panel_mainBackground.Name = "panel_mainBackground";
-            this.panel_mainBackground.Size = new System.Drawing.Size(1004, 635);
+            this.panel_mainBackground.Size = new System.Drawing.Size(1004, 647);
             this.panel_mainBackground.TabIndex = 7;
             // 
             // Frm_AdminDashboard

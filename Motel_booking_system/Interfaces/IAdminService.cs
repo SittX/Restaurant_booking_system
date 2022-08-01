@@ -5,9 +5,9 @@ namespace Motel_booking_system.Interfaces
     public interface IAdminService
     {
         bool Delete(string username, string password);
-        BookingDataSet.adminDataTable GetAll();
+        BookingSystemDataSet.administratorsDataTable GetAll();
         bool Insert(Administrator newAdmin);
-        BookingDataSet.adminDataTable? Search(string username, string password);
+        BookingSystemDataSet.administratorsDataTable? Search(string username, string password);
         bool CheckDuplicateUsername(string username);
     }
 }

@@ -7,9 +7,9 @@ namespace Motel_booking_system.Admin
     public partial class userCtrl_adminServices : UserControl
     {
         private readonly IRoomTypeService _roomTypeService;
-        private readonly IRoomsService _roomService;
+        private readonly IRoomService _roomService;
 
-        public userCtrl_adminServices(IRoomTypeService roomTypeService, IRoomsService roomService)
+        public userCtrl_adminServices(IRoomTypeService roomTypeService, IRoomService roomService)
         {
             InitializeComponent();
             _roomTypeService = roomTypeService;
@@ -25,11 +25,9 @@ namespace Motel_booking_system.Admin
 
         private void btn_addNewType_Click(object sender, EventArgs e)
         {
-            if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_newTypeDescription) &&
-               !InputValidations.InputValidation.ValidateNullOrEmpty(txtPrice))
-            {
-                return;
-            }
+            if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_newTypeDescription)) return;
+            if (!InputValidations.InputValidation.ValidateNullOrEmpty(txtPrice)) return; ;
+
 
 
             _roomTypeService.Insert(txt_newTypeDescription.Text, Convert.ToInt32(txtPrice.Text));
@@ -56,8 +54,8 @@ namespace Motel_booking_system.Admin
 
         private void btn_addRoom_Click(object sender, EventArgs e)
         {
-            Form form = new Frm_AddNewRoom(
-                new RoomsService(),
+            Form form = new Frm_AdminAddNewRoom(
+                new RoomService(),
                 new RoomTypeService());
             form.Show();
         }

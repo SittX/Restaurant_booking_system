@@ -75,13 +75,13 @@ namespace Motel_booking_system
             }
 
             txt_newUsername.Text = String.Empty;
-        } 
+        }
         #endregion
 
         private void ReloadInfo()
         {
             var data = _customerService.SearchById(Session.CurrentSession.LoggedInUser.Id);
-            if ( data is not null && data.Count > 0)
+            if (data is not null && data.Count > 0)
             {
                 // Save newly changed data to Session User Object
                 Session.CurrentSession.LoggedInUser = new Models.Customer()

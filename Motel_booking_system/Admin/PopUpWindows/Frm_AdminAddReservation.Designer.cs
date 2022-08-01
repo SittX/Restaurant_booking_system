@@ -74,10 +74,10 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Constantia", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.Location = new System.Drawing.Point(439, 9);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(340, 29);
+            this.label7.Size = new System.Drawing.Size(321, 27);
             this.label7.TabIndex = 28;
             this.label7.Text = "Room reservation dashboard";
             // 
@@ -96,11 +96,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(502, 3);
+            this.label8.Location = new System.Drawing.Point(12, 5);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(156, 26);
+            this.label8.Size = new System.Drawing.Size(158, 24);
             this.label8.TabIndex = 26;
             this.label8.Text = "Available rooms";
             // 
@@ -163,7 +163,7 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.cmb_roomType);
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox2.Location = new System.Drawing.Point(730, 32);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(474, 611);
@@ -183,11 +183,11 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label10.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label10.ForeColor = System.Drawing.Color.White;
             this.label10.Location = new System.Drawing.Point(20, 473);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(137, 26);
+            this.label10.Size = new System.Drawing.Size(123, 22);
             this.label10.TabIndex = 32;
             this.label10.Text = "room number";
             // 
@@ -202,10 +202,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(58, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 26);
+            this.label1.Size = new System.Drawing.Size(95, 22);
             this.label1.TabIndex = 14;
             this.label1.Text = "Check In :";
             // 
@@ -213,7 +213,7 @@
             // 
             this.btn_searchRooms.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btn_searchRooms.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_searchRooms.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_searchRooms.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_searchRooms.ForeColor = System.Drawing.Color.Black;
             this.btn_searchRooms.Location = new System.Drawing.Point(168, 206);
             this.btn_searchRooms.Name = "btn_searchRooms";
@@ -225,9 +225,9 @@
             // 
             // btn_cancel
             // 
-            this.btn_cancel.BackColor = System.Drawing.Color.Red;
+            this.btn_cancel.BackColor = System.Drawing.Color.IndianRed;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancel.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_cancel.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_cancel.ForeColor = System.Drawing.Color.Black;
             this.btn_cancel.Location = new System.Drawing.Point(263, 528);
             this.btn_cancel.Name = "btn_cancel";
@@ -249,7 +249,7 @@
             // 
             this.btn_confirmReservation.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btn_confirmReservation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_confirmReservation.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_confirmReservation.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btn_confirmReservation.ForeColor = System.Drawing.Color.Black;
             this.btn_confirmReservation.Location = new System.Drawing.Point(163, 528);
             this.btn_confirmReservation.Name = "btn_confirmReservation";
@@ -262,21 +262,21 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(58, 158);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 26);
+            this.label3.Size = new System.Drawing.Size(103, 22);
             this.label3.TabIndex = 16;
             this.label3.Text = "Room type";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(91, 354);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 26);
+            this.label5.Size = new System.Drawing.Size(57, 22);
             this.label5.TabIndex = 19;
             this.label5.Text = "Email";
             // 
@@ -294,11 +294,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(91, 280);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 26);
+            this.label4.Size = new System.Drawing.Size(60, 22);
             this.label4.TabIndex = 18;
             this.label4.Text = "Name";
             // 
@@ -317,10 +317,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(43, 94);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 26);
+            this.label2.Size = new System.Drawing.Size(109, 22);
             this.label2.TabIndex = 29;
             this.label2.Text = "Check Out :";
             // 
@@ -335,11 +335,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(17, 413);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(145, 26);
+            this.label6.Size = new System.Drawing.Size(134, 22);
             this.label6.TabIndex = 20;
             this.label6.Text = "Phone number";
             // 

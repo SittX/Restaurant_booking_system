@@ -1,5 +1,5 @@
-CREATE DATABASE motel_booking_db;
-USE motel_booking_db;
+CREATE DATABASE motel_bookings_system_db;
+USE master;
 
 
 SELECT * FROM customers;
@@ -115,6 +115,7 @@ CREATE TABLE bookings(
 	cus_id VARCHAR(40),
 	check_in DATE,
 	check_out DATE,
+	total_price INT,
 	CONSTRAINT FK_bookings_roomId 
 		FOREIGN KEY(room_id)
 		REFERENCES rooms(id)  

@@ -38,9 +38,9 @@
             // 
             this.flowLayoutPanel.AutoScroll = true;
             this.flowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel.Location = new System.Drawing.Point(0, 69);
+            this.flowLayoutPanel.Location = new System.Drawing.Point(0, 50);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
-            this.flowLayoutPanel.Size = new System.Drawing.Size(1022, 531);
+            this.flowLayoutPanel.Size = new System.Drawing.Size(1022, 550);
             this.flowLayoutPanel.TabIndex = 0;
             // 
             // panel_head
@@ -49,16 +49,16 @@
             this.panel_head.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_head.Location = new System.Drawing.Point(0, 0);
             this.panel_head.Name = "panel_head";
-            this.panel_head.Size = new System.Drawing.Size(1022, 63);
+            this.panel_head.Size = new System.Drawing.Size(1022, 44);
             this.panel_head.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Constantia", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(3, 15);
+            this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(3, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(388, 36);
+            this.label1.Size = new System.Drawing.Size(290, 24);
             this.label1.TabIndex = 1;
             this.label1.Text = "Our motel rooms and services";
             // 

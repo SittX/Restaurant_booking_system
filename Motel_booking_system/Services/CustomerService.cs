@@ -1,18 +1,18 @@
 ﻿using Motel_booking_system.Helpers;
 using Motel_booking_system.Interfaces;
 using Motel_booking_system.Models;
-using static Motel_booking_system.BookingDataSet;
+using static Motel_booking_system.BookingSystemDataSet;
 
 namespace Motel_booking_system.Services
 {
     internal class CustomerService : ICustomerService
     {
-        private readonly Motel_booking_system.BookingDataSetTableAdapters.customersTableAdapter _adapter;
-        private readonly Motel_booking_system.BookingDataSetTableAdapters.adminTableAdapter _adminAdapter;
+        private readonly BookingSystemDataSetTableAdapters.customersTableAdapter _adapter;
+        private readonly BookingSystemDataSetTableAdapters.administratorsTableAdapter _adminAdapter;
         public CustomerService()
         {
-            _adapter = new Motel_booking_system.BookingDataSetTableAdapters.customersTableAdapter();
-            _adminAdapter = new Motel_booking_system.BookingDataSetTableAdapters.adminTableAdapter();
+            _adapter = new BookingSystemDataSetTableAdapters.customersTableAdapter();
+            _adminAdapter = new BookingSystemDataSetTableAdapters.administratorsTableAdapter();
         }
 
         #region Service methods
@@ -161,7 +161,7 @@ namespace Motel_booking_system.Services
                 return false;
             }
 
-        } 
+        }
         #endregion
     }
 }

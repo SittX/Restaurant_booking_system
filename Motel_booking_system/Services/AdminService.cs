@@ -1,17 +1,17 @@
 ﻿using Motel_booking_system.Helpers;
 using Motel_booking_system.Interfaces;
 using Motel_booking_system.Models;
-using static Motel_booking_system.BookingDataSet;
+using static Motel_booking_system.BookingSystemDataSet;
 namespace Motel_booking_system.Services
 {
     public class AdminService : IAdminService
     {
-        private Motel_booking_system.BookingDataSetTableAdapters.adminTableAdapter _adapter;
-        private Motel_booking_system.BookingDataSetTableAdapters.customersTableAdapter _customerAdapter;
+        private BookingSystemDataSetTableAdapters.administratorsTableAdapter _adapter;
+        private BookingSystemDataSetTableAdapters.customersTableAdapter _customerAdapter;
         public AdminService()
         {
-            _adapter = new Motel_booking_system.BookingDataSetTableAdapters.adminTableAdapter();
-            _customerAdapter = new Motel_booking_system.BookingDataSetTableAdapters.customersTableAdapter();
+            _adapter = new BookingSystemDataSetTableAdapters.administratorsTableAdapter();
+            _customerAdapter = new BookingSystemDataSetTableAdapters.customersTableAdapter();
         }
 
 
@@ -23,14 +23,14 @@ namespace Motel_booking_system.Services
             return false;
         }
 
-        public adminDataTable GetAll()
+        public administratorsDataTable GetAll()
         {
             var data = _adapter.GetData();
             if (data is not null)
             {
                 return data;
             }
-            return new adminDataTable();
+            return new administratorsDataTable();
         }
 
         public bool Insert(Administrator newAdmin)
@@ -68,13 +68,13 @@ namespace Motel_booking_system.Services
             }
         }
 
-        public adminDataTable? Search(string username, string password)
+        public administratorsDataTable? Search(string username, string password)
         {
 
             var data = _adapter.GetDataByUsernameAndPassword(username, password);
             if (data.Count() < 1 && data is null)
             {
-                return new adminDataTable();
+                return new administratorsDataTable();
             }
             return data;
         }
@@ -100,7 +100,7 @@ namespace Motel_booking_system.Services
                 OutputMessage.ErrorMessage("Account cannot not be created. Please try again.");
                 return false;
             }
-        } 
+        }
         #endregion
 
     }

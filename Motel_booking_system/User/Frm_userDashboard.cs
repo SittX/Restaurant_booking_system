@@ -1,5 +1,4 @@
-﻿using Motel_booking_system.User;
-using Motel_booking_system.Models;
+﻿using Motel_booking_system.Models;
 using Motel_booking_system.Services;
 using Motel_booking_system.User;
 
@@ -47,12 +46,12 @@ namespace Motel_booking_system
 
         private void btn_reservations_Click(object sender, EventArgs e)
         {
-            SwitchUserControl(new userCtrl_Reservation(new BookingsService(), new RoomsService(),new ReviewsService()));
+            SwitchUserControl(new userCtrl_Reservation(new BookingService(), new RoomService(), new ReviewService(),new RoomTypeService()));
         }
 
         private void btn_history_Click(object sender, EventArgs e)
         {
-            SwitchUserControl(new userCtrl_history(new BookingsService()));
+            SwitchUserControl(new userCtrl_history(new BookingService()));
         }
 
         private void btn_logout_Click(object sender, EventArgs e)
@@ -61,12 +60,12 @@ namespace Motel_booking_system
         }
         private void btn_menu_Click(object sender, EventArgs e)
         {
-            SwitchUserControl(new userCtrl_menu(new RoomsService()));
+            SwitchUserControl(new userCtrl_menu(new RoomService()));
         }
 
         private void btn_review_Click(object sender, EventArgs e)
         {
-            SwitchUserControl(new userCtrl_reviewsList(new ReviewsService()));
+            SwitchUserControl(new userCtrl_reviewsList(new ReviewService()));
         }
         #endregion
 
@@ -74,12 +73,12 @@ namespace Motel_booking_system
         #region MenuStrip items
         private void menuStrip_menu_Click(object sender, EventArgs e)
         {
-            SwitchUserControl(new userCtrl_menu(new RoomsService()));
+            SwitchUserControl(new userCtrl_menu(new RoomService()));
         }
 
         private void menuStrip_booking_Click(object sender, EventArgs e)
         {
-            SwitchUserControl(new userCtrl_Reservation(new BookingsService(), new RoomsService(),new ReviewsService()));
+            SwitchUserControl(new userCtrl_Reservation(new BookingService(), new RoomService(), new ReviewService(), new RoomTypeService()));
         }
 
         private void menuStrip_account_Click(object sender, EventArgs e)
@@ -89,7 +88,7 @@ namespace Motel_booking_system
 
         private void menuStrip_history_Click(object sender, EventArgs e)
         {
-            SwitchUserControl(new userCtrl_history(new BookingsService()));
+            SwitchUserControl(new userCtrl_history(new BookingService()));
         }
 
         private void menuStrip_logout_Click(object sender, EventArgs e)
@@ -108,7 +107,7 @@ namespace Motel_booking_system
 
         private void menuStrip_reviews_Click(object sender, EventArgs e)
         {
-            SwitchUserControl(new userCtrl_history(new BookingsService()));
+            SwitchUserControl(new userCtrl_reviewsList(new ReviewService()));
         }
         #endregion
     }

@@ -57,11 +57,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(258, 9);
+            this.label8.Location = new System.Drawing.Point(249, 17);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(266, 26);
+            this.label8.Size = new System.Drawing.Size(277, 24);
             this.label8.TabIndex = 35;
             this.label8.Text = "Reviews from our customers";
             // 

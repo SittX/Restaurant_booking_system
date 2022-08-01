@@ -1,11 +1,10 @@
-﻿using Motel_booking_system;
-
-namespace Motel_booking_system.Interfaces
+﻿namespace Motel_booking_system.Interfaces
 {
     public interface IRoomTypeService
     {
         bool Delete(int typeId);
-        BookingDataSet.room_typesDataTable GetAll();
+        BookingSystemDataSet.room_typesDataTable GetAll();
         bool Insert(string description, int price);
+        int GetRoomTypePrice(int roomNum);
     }
 }

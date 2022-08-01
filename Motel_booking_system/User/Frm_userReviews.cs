@@ -4,9 +4,9 @@ namespace Motel_booking_system.User
 {
     public partial class Frm_userReviews : Form
     {
-        private readonly IReviewsService _repo;
+        private readonly IReviewService _repo;
 
-        public Frm_userReviews(IReviewsService repo)
+        public Frm_userReviews(IReviewService repo)
         {
             InitializeComponent();
             _repo = repo;

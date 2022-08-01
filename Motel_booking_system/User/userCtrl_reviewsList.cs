@@ -4,9 +4,9 @@ namespace Motel_booking_system.User
 {
     public partial class userCtrl_reviewsList : UserControl
     {
-        private readonly IReviewsService _reviewService;
+        private readonly IReviewService _reviewService;
 
-        public userCtrl_reviewsList(IReviewsService reviewService)
+        public userCtrl_reviewsList(IReviewService reviewService)
         {
             InitializeComponent();
             _reviewService = reviewService;

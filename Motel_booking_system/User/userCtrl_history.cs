@@ -4,9 +4,9 @@ namespace Motel_booking_system
 {
     public partial class userCtrl_history : UserControl
     {
-        private readonly IBookingsService _bookingService;
+        private readonly IBookingService _bookingService;
 
-        public userCtrl_history(IBookingsService bookingService)
+        public userCtrl_history(IBookingService bookingService)
         {
             InitializeComponent();
             _bookingService = bookingService;

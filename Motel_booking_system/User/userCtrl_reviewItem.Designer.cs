@@ -35,20 +35,22 @@
             // lbl_username
             // 
             this.lbl_username.AutoSize = true;
-            this.lbl_username.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_username.Location = new System.Drawing.Point(3, 13);
+            this.lbl_username.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_username.ForeColor = System.Drawing.Color.Black;
+            this.lbl_username.Location = new System.Drawing.Point(16, 11);
             this.lbl_username.Name = "lbl_username";
-            this.lbl_username.Size = new System.Drawing.Size(90, 22);
+            this.lbl_username.Size = new System.Drawing.Size(106, 24);
             this.lbl_username.TabIndex = 0;
             this.lbl_username.Text = "Username";
             // 
             // lbl_review
             // 
             this.lbl_review.AutoSize = true;
-            this.lbl_review.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_review.Location = new System.Drawing.Point(3, 48);
+            this.lbl_review.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_review.ForeColor = System.Drawing.Color.Black;
+            this.lbl_review.Location = new System.Drawing.Point(16, 50);
             this.lbl_review.Name = "lbl_review";
-            this.lbl_review.Size = new System.Drawing.Size(70, 22);
+            this.lbl_review.Size = new System.Drawing.Size(72, 22);
             this.lbl_review.TabIndex = 1;
             this.lbl_review.Text = "Review";
             // 

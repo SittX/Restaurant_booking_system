@@ -6,20 +6,22 @@ namespace Motel_booking_system
 {
     public partial class userCtrl_Reservation : UserControl
     {
-        private readonly IBookingsService _bookingService;
-        private readonly IRoomsService _roomService;
-        private readonly IReviewsService _reviewService;
+        private readonly IBookingService _bookingService;
+        private readonly IRoomService _roomService;
+        private readonly IReviewService _reviewService;
+        private readonly IRoomTypeService _roomTypeService;
 
         private string? checkIn { get; set; }
         private string? checkOut { get; set; }
         private int roomType { get; set; }
 
-        public userCtrl_Reservation(IBookingsService bookingsService, IRoomsService roomService,IReviewsService reviewsService)
+        public userCtrl_Reservation(IBookingService bookingsService, IRoomService roomService, IReviewService reviewsService,IRoomTypeService roomTypeService)
         {
             InitializeComponent();
             _bookingService = bookingsService;
             _roomService = roomService;
             _reviewService = reviewsService;
+            _roomTypeService = roomTypeService;
         }
         #region Event handlers
 
@@ -60,11 +62,7 @@ namespace Motel_booking_system
 
         private void btn_confirmReservation_Click(object sender, EventArgs e)
         {
-            // Booking confirmation
-            if (MessageBox.Show($"Booking Details\n Check-in: {checkIn} Check-out: {checkOut}\n Room number: {txt_roomNumber.Text}", "Booking confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) != DialogResult.OK)
-            {
-                return;
-            }
+
 
 
             // Validate inputs using InputValidation
@@ -81,10 +79,18 @@ namespace Motel_booking_system
 
             int roomNumber = Convert.ToInt32(txt_roomNumber.Text);
 
+            int totalPrice = CalculateTotalPrice(roomNumber);
 
-            _bookingService.InsertNewBooking(roomNumber, Session.CurrentSession.LoggedInUser.Id, checkIn, checkOut);
+            // Booking confirmation
+            if (MessageBox.Show($"Booking Details\n Check-in: {checkIn} Check-out: {checkOut}\n Room number: {txt_roomNumber.Text}\n Total price: {totalPrice}", "Booking confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) != DialogResult.OK)
+            {
+                return;
+            }
+
+            _bookingService.InsertNewBooking(roomNumber, Session.CurrentSession.LoggedInUser.Id, checkIn, checkOut,totalPrice);
             gpBox_review.Visible = true;
         }
+
 
         private void dtPicker_checkIn_ValueChanged(object sender, EventArgs e)
         {
@@ -120,8 +126,21 @@ namespace Motel_booking_system
         private void btn_cancelReview_Click(object sender, EventArgs e)
         {
             gpBox_review.Visible = false;
-        } 
+        }
         #endregion
+
+
+        private int CalculateTotalPrice(int roomNumber)
+        {
+            var totalBookedDays = dtPicker_checkOut.Value.Subtract(dtPicker_checkIn.Value);
+            var dates = totalBookedDays.TotalDays;
+
+            var price = _roomTypeService.GetRoomTypePrice(roomNumber);
+
+
+            var totalPrice = price * dates;
+            return Convert.ToInt32(totalPrice);
+        }
 
     }
 }

@@ -53,20 +53,16 @@ namespace Motel_booking_system
         private void btn_cancelRegisteration_Click(object sender, EventArgs e)
         {
             this.Close();
-        } 
+        }
         #endregion
 
         private bool ValidateInputs()
         {
             // Validate input is not null or empty
-            if (!ValidateNullOrEmpty(txt_username)
-                && !ValidateNullOrEmpty(txt_password)
-                &&
-                !ValidatePhoneNumber(txt_phNumber)
-               && !ValidateEmail(txt_email))
-            {
-                return false;
-            }
+            if (!ValidateNullOrEmpty(txt_username)) return false;
+            if (!ValidateNullOrEmpty(txt_password)) return false;
+            if (!ValidatePhoneNumber(txt_phNumber)) return false;
+            if (!ValidateEmail(txt_email)) return false;
             return true;
         }
 

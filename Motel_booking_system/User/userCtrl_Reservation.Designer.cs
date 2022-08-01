@@ -76,10 +76,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Constantia", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(502, 6);
+            this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(514, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(245, 33);
+            this.label1.Size = new System.Drawing.Size(177, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Room reservation";
             // 
@@ -148,6 +148,7 @@
             this.gpBox_review.Controls.Add(this.btn_cancelReview);
             this.gpBox_review.Controls.Add(this.btn_submitReview);
             this.gpBox_review.Controls.Add(this.txt_review);
+            this.gpBox_review.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.gpBox_review.Location = new System.Drawing.Point(25, 515);
             this.gpBox_review.Name = "gpBox_review";
             this.gpBox_review.Size = new System.Drawing.Size(1182, 384);
@@ -168,20 +169,20 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label7.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(22, 31);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(634, 52);
+            this.label7.Size = new System.Drawing.Size(597, 44);
             this.label7.TabIndex = 42;
             this.label7.Text = "Please leave a review about your experience about us.\r\nThis help us to improve ou" +
     "r services and give better services in future.";
             // 
             // btn_cancelReview
             // 
-            this.btn_cancelReview.BackColor = System.Drawing.Color.Red;
+            this.btn_cancelReview.BackColor = System.Drawing.Color.IndianRed;
             this.btn_cancelReview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancelReview.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_cancelReview.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_cancelReview.ForeColor = System.Drawing.Color.Black;
             this.btn_cancelReview.Location = new System.Drawing.Point(1060, 324);
             this.btn_cancelReview.Name = "btn_cancelReview";
@@ -195,7 +196,7 @@
             // 
             this.btn_submitReview.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btn_submitReview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_submitReview.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_submitReview.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_submitReview.ForeColor = System.Drawing.Color.Black;
             this.btn_submitReview.Location = new System.Drawing.Point(960, 324);
             this.btn_submitReview.Name = "btn_submitReview";
@@ -207,7 +208,7 @@
             // 
             // txt_review
             // 
-            this.txt_review.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_review.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_review.Location = new System.Drawing.Point(22, 103);
             this.txt_review.Multiline = true;
             this.txt_review.Name = "txt_review";
@@ -217,11 +218,11 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(25, 429);
+            this.label5.Location = new System.Drawing.Point(25, 439);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(870, 52);
+            this.label5.Size = new System.Drawing.Size(818, 44);
             this.label5.TabIndex = 40;
             this.label5.Text = "Note : To make a room reservation, first search available rooms within your stayc" +
     "ation day range. \r\nThen, enter the room number that you want to make reservation" +
@@ -230,11 +231,11 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label8.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label8.ForeColor = System.Drawing.Color.Black;
             this.label8.Location = new System.Drawing.Point(601, 16);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(156, 26);
+            this.label8.Size = new System.Drawing.Size(158, 24);
             this.label8.TabIndex = 34;
             this.label8.Text = "Available rooms";
             // 
@@ -253,7 +254,7 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.cmb_roomType);
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox2.Location = new System.Drawing.Point(25, 45);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(570, 381);
@@ -263,9 +264,9 @@
             // 
             // btn_cancel
             // 
-            this.btn_cancel.BackColor = System.Drawing.Color.Red;
+            this.btn_cancel.BackColor = System.Drawing.Color.IndianRed;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancel.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_cancel.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_cancel.ForeColor = System.Drawing.Color.Black;
             this.btn_cancel.Location = new System.Drawing.Point(270, 301);
             this.btn_cancel.Name = "btn_cancel";
@@ -277,22 +278,22 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(10, 81);
+            this.label2.Location = new System.Drawing.Point(18, 83);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 26);
+            this.label2.Size = new System.Drawing.Size(95, 22);
             this.label2.TabIndex = 14;
             this.label2.Text = "Check In :";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(6, 255);
+            this.label6.Location = new System.Drawing.Point(33, 257);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(142, 26);
+            this.label6.Size = new System.Drawing.Size(131, 22);
             this.label6.TabIndex = 18;
             this.label6.Text = "Room number";
             // 
@@ -300,7 +301,7 @@
             // 
             this.btn_searchRooms.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btn_searchRooms.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_searchRooms.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_searchRooms.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_searchRooms.ForeColor = System.Drawing.Color.Black;
             this.btn_searchRooms.Location = new System.Drawing.Point(170, 199);
             this.btn_searchRooms.Name = "btn_searchRooms";
@@ -314,7 +315,7 @@
             // 
             this.btn_confirmReservation.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btn_confirmReservation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_confirmReservation.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_confirmReservation.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_confirmReservation.ForeColor = System.Drawing.Color.Black;
             this.btn_confirmReservation.Location = new System.Drawing.Point(170, 301);
             this.btn_confirmReservation.Name = "btn_confirmReservation";
@@ -326,62 +327,62 @@
             // 
             // txt_roomNumber
             // 
-            this.txt_roomNumber.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_roomNumber.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_roomNumber.Location = new System.Drawing.Point(170, 255);
             this.txt_roomNumber.Name = "txt_roomNumber";
-            this.txt_roomNumber.Size = new System.Drawing.Size(196, 29);
+            this.txt_roomNumber.Size = new System.Drawing.Size(196, 26);
             this.txt_roomNumber.TabIndex = 23;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(9, 165);
+            this.label3.Location = new System.Drawing.Point(61, 171);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(109, 26);
+            this.label3.Size = new System.Drawing.Size(103, 22);
             this.label3.TabIndex = 16;
             this.label3.Text = "Room type";
             // 
             // dtPicker_checkOut
             // 
-            this.dtPicker_checkOut.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtPicker_checkOut.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtPicker_checkOut.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtPicker_checkOut.Location = new System.Drawing.Point(383, 78);
             this.dtPicker_checkOut.MinDate = new System.DateTime(2022, 6, 21, 0, 0, 0, 0);
             this.dtPicker_checkOut.Name = "dtPicker_checkOut";
-            this.dtPicker_checkOut.Size = new System.Drawing.Size(129, 29);
+            this.dtPicker_checkOut.Size = new System.Drawing.Size(129, 26);
             this.dtPicker_checkOut.TabIndex = 30;
             // 
             // dtPicker_checkIn
             // 
-            this.dtPicker_checkIn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtPicker_checkIn.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtPicker_checkIn.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtPicker_checkIn.Location = new System.Drawing.Point(119, 78);
             this.dtPicker_checkIn.MinDate = new System.DateTime(2022, 6, 21, 0, 0, 0, 0);
             this.dtPicker_checkIn.Name = "dtPicker_checkIn";
-            this.dtPicker_checkIn.Size = new System.Drawing.Size(130, 29);
+            this.dtPicker_checkIn.Size = new System.Drawing.Size(130, 26);
             this.dtPicker_checkIn.TabIndex = 17;
             this.dtPicker_checkIn.ValueChanged += new System.EventHandler(this.dtPicker_checkIn_ValueChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(258, 78);
+            this.label4.Location = new System.Drawing.Point(268, 83);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(119, 26);
+            this.label4.Size = new System.Drawing.Size(109, 22);
             this.label4.TabIndex = 29;
             this.label4.Text = "Check Out :";
             // 
             // cmb_roomType
             // 
-            this.cmb_roomType.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cmb_roomType.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmb_roomType.FormattingEnabled = true;
             this.cmb_roomType.Location = new System.Drawing.Point(170, 168);
             this.cmb_roomType.Name = "cmb_roomType";
-            this.cmb_roomType.Size = new System.Drawing.Size(258, 25);
+            this.cmb_roomType.Size = new System.Drawing.Size(258, 26);
             this.cmb_roomType.TabIndex = 22;
             // 
             // panel_bottom

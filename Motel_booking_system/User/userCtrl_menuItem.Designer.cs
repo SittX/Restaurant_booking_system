@@ -52,10 +52,11 @@
             // lbl_price
             // 
             this.lbl_price.AutoSize = true;
-            this.lbl_price.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_price.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_price.ForeColor = System.Drawing.Color.White;
             this.lbl_price.Location = new System.Drawing.Point(17, 98);
             this.lbl_price.Name = "lbl_price";
-            this.lbl_price.Size = new System.Drawing.Size(54, 25);
+            this.lbl_price.Size = new System.Drawing.Size(54, 22);
             this.lbl_price.TabIndex = 2;
             this.lbl_price.Text = "Price";
             // 
@@ -63,10 +64,11 @@
             // 
             this.lbl_type.AutoEllipsis = true;
             this.lbl_type.AutoSize = true;
-            this.lbl_type.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_type.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_type.ForeColor = System.Drawing.Color.White;
             this.lbl_type.Location = new System.Drawing.Point(17, 37);
             this.lbl_type.Name = "lbl_type";
-            this.lbl_type.Size = new System.Drawing.Size(122, 25);
+            this.lbl_type.Size = new System.Drawing.Size(119, 22);
             this.lbl_type.TabIndex = 1;
             this.lbl_type.Text = "Room Type :";
             // 
@@ -86,6 +88,7 @@
             this.picBox_img.Location = new System.Drawing.Point(0, 0);
             this.picBox_img.Name = "picBox_img";
             this.picBox_img.Size = new System.Drawing.Size(378, 151);
+            this.picBox_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBox_img.TabIndex = 0;
             this.picBox_img.TabStop = false;
             // 

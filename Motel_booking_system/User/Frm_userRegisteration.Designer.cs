@@ -44,73 +44,73 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(59, 66);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 23);
+            this.label3.Size = new System.Drawing.Size(97, 22);
             this.label3.TabIndex = 2;
             this.label3.Text = "Username";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(64, 150);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 23);
+            this.label4.Size = new System.Drawing.Size(94, 22);
             this.label4.TabIndex = 3;
             this.label4.Text = "Password";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(96, 241);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 23);
+            this.label5.Size = new System.Drawing.Size(57, 22);
             this.label5.TabIndex = 4;
             this.label5.Text = "Email";
             // 
             // txt_username
             // 
-            this.txt_username.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_username.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_username.Location = new System.Drawing.Point(158, 62);
             this.txt_username.Name = "txt_username";
-            this.txt_username.Size = new System.Drawing.Size(261, 27);
+            this.txt_username.Size = new System.Drawing.Size(261, 26);
             this.txt_username.TabIndex = 7;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Constantia", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label6.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label6.Location = new System.Drawing.Point(17, 318);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(135, 23);
+            this.label6.Size = new System.Drawing.Size(137, 22);
             this.label6.TabIndex = 8;
             this.label6.Text = "Phone Number";
             // 
             // txt_password
             // 
-            this.txt_password.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_password.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_password.Location = new System.Drawing.Point(158, 146);
             this.txt_password.Name = "txt_password";
-            this.txt_password.Size = new System.Drawing.Size(261, 27);
+            this.txt_password.Size = new System.Drawing.Size(261, 26);
             this.txt_password.TabIndex = 9;
             // 
             // txt_email
             // 
-            this.txt_email.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_email.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_email.Location = new System.Drawing.Point(158, 237);
             this.txt_email.Name = "txt_email";
-            this.txt_email.Size = new System.Drawing.Size(261, 27);
+            this.txt_email.Size = new System.Drawing.Size(261, 26);
             this.txt_email.TabIndex = 10;
             // 
             // btn_saveRegisteration
             // 
             this.btn_saveRegisteration.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btn_saveRegisteration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_saveRegisteration.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_saveRegisteration.Location = new System.Drawing.Point(200, 392);
+            this.btn_saveRegisteration.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_saveRegisteration.Location = new System.Drawing.Point(220, 392);
             this.btn_saveRegisteration.Name = "btn_saveRegisteration";
             this.btn_saveRegisteration.Size = new System.Drawing.Size(88, 35);
             this.btn_saveRegisteration.TabIndex = 12;
@@ -120,9 +120,9 @@
             // 
             // btn_cancelRegisteration
             // 
-            this.btn_cancelRegisteration.BackColor = System.Drawing.Color.Red;
+            this.btn_cancelRegisteration.BackColor = System.Drawing.Color.IndianRed;
             this.btn_cancelRegisteration.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancelRegisteration.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_cancelRegisteration.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_cancelRegisteration.Location = new System.Drawing.Point(325, 392);
             this.btn_cancelRegisteration.Name = "btn_cancelRegisteration";
             this.btn_cancelRegisteration.Size = new System.Drawing.Size(94, 35);
@@ -142,11 +142,11 @@
             // 
             // txt_phNumber
             // 
-            this.txt_phNumber.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_phNumber.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_phNumber.Location = new System.Drawing.Point(158, 316);
             this.txt_phNumber.Mask = "(00)-0000000000";
             this.txt_phNumber.Name = "txt_phNumber";
-            this.txt_phNumber.Size = new System.Drawing.Size(261, 29);
+            this.txt_phNumber.Size = new System.Drawing.Size(261, 26);
             this.txt_phNumber.TabIndex = 18;
             // 
             // Frm_userRegisteration

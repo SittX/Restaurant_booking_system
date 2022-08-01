@@ -1,15 +1,15 @@
-﻿using Motel_booking_system.BookingDataSetTableAdapters;
+﻿using Motel_booking_system.BookingSystemDataSetTableAdapters;
 using Motel_booking_system.Helpers;
 using Motel_booking_system.Interfaces;
-using static Motel_booking_system.BookingDataSet;
+using static Motel_booking_system.BookingSystemDataSet;
 
 namespace Motel_booking_system.Services
 {
-    public class ReviewsService : IReviewsService
+    public class ReviewService : IReviewService
     {
         private readonly reviewsTableAdapter _adapter;
 
-        public ReviewsService()
+        public ReviewService()
         {
             _adapter = new reviewsTableAdapter();
         }
@@ -39,7 +39,7 @@ namespace Motel_booking_system.Services
                 return data;
             }
             return new reviewsDataTable();
-        } 
+        }
         #endregion
 
     }

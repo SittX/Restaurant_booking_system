@@ -33,9 +33,9 @@
             this.menuStrip_booking = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip_account = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip_history = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip_reviews = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip_logout = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip_exit = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStrip_reviews = new System.Windows.Forms.ToolStripMenuItem();
             this.panel = new System.Windows.Forms.Panel();
             this.btn_history = new System.Windows.Forms.Button();
             this.btn_logout = new System.Windows.Forms.Button();
@@ -97,6 +97,13 @@
             this.menuStrip_history.Text = "&History";
             this.menuStrip_history.Click += new System.EventHandler(this.menuStrip_history_Click);
             // 
+            // menuStrip_reviews
+            // 
+            this.menuStrip_reviews.Name = "menuStrip_reviews";
+            this.menuStrip_reviews.Size = new System.Drawing.Size(61, 20);
+            this.menuStrip_reviews.Text = "&Reviews";
+            this.menuStrip_reviews.Click += new System.EventHandler(this.menuStrip_reviews_Click);
+            // 
             // menuStrip_logout
             // 
             this.menuStrip_logout.Name = "menuStrip_logout";
@@ -110,13 +117,6 @@
             this.menuStrip_exit.Size = new System.Drawing.Size(38, 20);
             this.menuStrip_exit.Text = "E&xit";
             this.menuStrip_exit.Click += new System.EventHandler(this.menuStrip_exit_Click);
-            // 
-            // menuStrip_reviews
-            // 
-            this.menuStrip_reviews.Name = "menuStrip_reviews";
-            this.menuStrip_reviews.Size = new System.Drawing.Size(61, 20);
-            this.menuStrip_reviews.Text = "&Reviews";
-            this.menuStrip_reviews.Click += new System.EventHandler(this.menuStrip_reviews_Click);
             // 
             // panel
             // 
@@ -139,7 +139,7 @@
             this.btn_history.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_history.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_history.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_history.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_history.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_history.ForeColor = System.Drawing.Color.Black;
             this.btn_history.Location = new System.Drawing.Point(0, 318);
             this.btn_history.Name = "btn_history";
@@ -156,7 +156,7 @@
             this.btn_logout.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_logout.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btn_logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_logout.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_logout.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_logout.ForeColor = System.Drawing.Color.Black;
             this.btn_logout.Location = new System.Drawing.Point(0, 673);
             this.btn_logout.Name = "btn_logout";
@@ -173,7 +173,7 @@
             this.btn_review.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_review.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_review.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_review.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_review.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_review.ForeColor = System.Drawing.Color.Black;
             this.btn_review.Location = new System.Drawing.Point(0, 260);
             this.btn_review.Name = "btn_review";
@@ -190,7 +190,7 @@
             this.btn_account.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_account.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_account.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_account.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_account.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_account.ForeColor = System.Drawing.Color.Black;
             this.btn_account.Location = new System.Drawing.Point(0, 207);
             this.btn_account.Name = "btn_account";
@@ -207,7 +207,7 @@
             this.btn_reservations.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_reservations.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_reservations.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_reservations.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_reservations.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_reservations.ForeColor = System.Drawing.Color.Black;
             this.btn_reservations.Location = new System.Drawing.Point(0, 154);
             this.btn_reservations.Name = "btn_reservations";
@@ -224,7 +224,7 @@
             this.btn_menu.BackColor = System.Drawing.Color.LightSlateGray;
             this.btn_menu.Dock = System.Windows.Forms.DockStyle.Top;
             this.btn_menu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_menu.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_menu.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_menu.ForeColor = System.Drawing.Color.Black;
             this.btn_menu.Location = new System.Drawing.Point(0, 100);
             this.btn_menu.Name = "btn_menu";
@@ -252,16 +252,16 @@
             this.panel_topMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_topMenu.Location = new System.Drawing.Point(211, 24);
             this.panel_topMenu.Name = "panel_topMenu";
-            this.panel_topMenu.Size = new System.Drawing.Size(1173, 60);
+            this.panel_topMenu.Size = new System.Drawing.Size(1173, 42);
             this.panel_topMenu.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Constantia", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(369, 21);
+            this.label1.Font = new System.Drawing.Font("Arial", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(435, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(420, 36);
+            this.label1.Size = new System.Drawing.Size(346, 27);
             this.label1.TabIndex = 0;
             this.label1.Text = "Motel room booking application";
             // 
@@ -270,9 +270,9 @@
             this.panel_main.AutoScroll = true;
             this.panel_main.BackColor = System.Drawing.Color.White;
             this.panel_main.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_main.Location = new System.Drawing.Point(211, 84);
+            this.panel_main.Location = new System.Drawing.Point(211, 66);
             this.panel_main.Name = "panel_main";
-            this.panel_main.Size = new System.Drawing.Size(1173, 677);
+            this.panel_main.Size = new System.Drawing.Size(1173, 695);
             this.panel_main.TabIndex = 3;
             // 
             // Frm_userDashboard

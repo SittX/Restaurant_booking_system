@@ -3,12 +3,12 @@ using Motel_booking_system.Interfaces;
 
 namespace Motel_booking_system.Admin.PopUpWindows
 {
-    public partial class Frm_AddNewRoom : Form
+    public partial class Frm_AdminAddNewRoom : Form
     {
-        private readonly IRoomsService _roomService;
+        private readonly IRoomService _roomService;
         private readonly IRoomTypeService _roomTypeService;
         private string? imgFilePath;
-        public Frm_AddNewRoom(IRoomsService roomService, IRoomTypeService roomTypeService)
+        public Frm_AdminAddNewRoom(IRoomService roomService, IRoomTypeService roomTypeService)
         {
             InitializeComponent();
             _roomService = roomService;
@@ -20,8 +20,13 @@ namespace Motel_booking_system.Admin.PopUpWindows
         private void btn_addRoom_Click(object sender, EventArgs e)
         {
             // Check empty or invalid input values
-            if (string.IsNullOrEmpty(txt_roomNo.Text)
-                && string.IsNullOrEmpty(txt_description.Text))
+            if (string.IsNullOrEmpty(txt_roomNo.Text))
+            {
+                OutputMessage.WarningMessage("Input values can be empty or null. Please check your inputs.");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txt_description.Text))
             {
                 OutputMessage.WarningMessage("Input values can be empty or null. Please check your inputs.");
                 return;
@@ -100,7 +105,7 @@ namespace Motel_booking_system.Admin.PopUpWindows
                 }
 
             }
-        } 
+        }
         #endregion
 
 

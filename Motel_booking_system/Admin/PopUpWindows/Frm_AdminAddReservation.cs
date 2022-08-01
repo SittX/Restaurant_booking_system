@@ -9,9 +9,10 @@ namespace Motel_booking_system.Admin
 {
     public partial class Frm_AdminAddReservation : Form
     {
-        private readonly IRoomsService _roomService;
-        private readonly IBookingsService _bookingService;
+        private readonly IRoomService _roomService;
+        private readonly IBookingService _bookingService;
         private readonly ICustomerService _customerService;
+        private readonly IRoomTypeService _roomTypeService;
 
         private string? checkIn { get; set; }
         private string? checkOut { get; set; }
@@ -19,12 +20,13 @@ namespace Motel_booking_system.Admin
 
         private string? userId { get; set; }
 
-        public Frm_AdminAddReservation(IRoomsService roomService, IBookingsService bookingService, ICustomerService customerService)
+        public Frm_AdminAddReservation(IRoomService roomService, IBookingService bookingService, ICustomerService customerService,IRoomTypeService roomTypeService)
         {
             InitializeComponent();
             _roomService = roomService;
             _bookingService = bookingService;
             _customerService = customerService;
+            _roomTypeService = roomTypeService;
         }
 
         #region Event handlers
@@ -57,6 +59,10 @@ namespace Motel_booking_system.Admin
 
             // Set CheckIn datetime picker minimum value to current date
             dtPicker_checkIn.MinDate = DateTime.Now;
+
+            // Set the default color of the DGV cells
+            dtGridView_availableRooms.DefaultCellStyle.ForeColor = Color.Black;
+            dtGridView_availableRooms.DefaultCellStyle.BackColor = Color.LightSteelBlue;
         }
 
         private void btn_confirmReservation_Click(object sender, EventArgs e)
@@ -73,12 +79,20 @@ namespace Motel_booking_system.Admin
             }
 
             int roomNumber = Convert.ToInt32(txt_bookingRoomNumber.Text);
+            
+            var totalPrice = CalculateTotalPrice(roomNumber);
+
+            // Booking confirmation
+            if (MessageBox.Show($"Booking Details\n Check-in: {checkIn} Check-out: {checkOut}\n Total price: {totalPrice}", "Booking confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) != DialogResult.OK)
+            {
+                return;
+            }
 
             CreateNewUserAccount();
 
 
             // Make bookings with newly created user account
-            _bookingService.InsertNewBooking(roomNumber, userId, checkIn, checkOut);
+            _bookingService.InsertNewBooking(roomNumber, userId, checkIn, checkOut,totalPrice);
 
         }
 
@@ -90,13 +104,14 @@ namespace Motel_booking_system.Admin
 
 
         #region Methods
-        private bool CreateNewUserAccount(string username, string email, string phoneNumber)
+        private bool CreateAccount(string username, string email, string phoneNumber)
         {
             try
             {
                 var users = _customerService.GetAll();
                 userId = Customer.GenerateId(users);
-                Customer newUser = new Customer() { Id = userId, Username = username, Email = email, PhoneNumber = phoneNumber, Password = username };
+                var encryptedPassword = PasswordEncryption.Encrypt(username);
+                Customer newUser = new Customer() { Id = userId, Username = username, Email = email, PhoneNumber = phoneNumber, Password = encryptedPassword };
                 return _customerService.Insert(newUser);
             }
             catch (Exception ex)
@@ -111,13 +126,10 @@ namespace Motel_booking_system.Admin
         {
 
             //Validate inputs
-            if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_cusName)
-                && !InputValidations.InputValidation.ValidateEmail(txt_cusEmail)
-                && !InputValidations.InputValidation.ValidatePhoneNumber(txt_cusPhNumber)
-                )
-            {
-                return;
-            }
+            if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_cusName)) return;
+            if (!InputValidations.InputValidation.ValidateEmail(txt_cusEmail)) return;
+            if (!InputValidations.InputValidation.ValidatePhoneNumber(txt_cusPhNumber)) return;
+
 
             string username = txt_cusName.Text;
             string email = txt_cusEmail.Text;
@@ -130,23 +142,34 @@ namespace Motel_booking_system.Admin
             }
 
 
-            if (!CreateNewUserAccount(username, email, phoneNumber))
+            if (!CreateAccount(username, email, phoneNumber))
             {
-                OutputMessage.ErrorMessage("User account cannot be created.Please try again");
+                OutputMessage.ErrorMessage("User account cannot be created. Please try again");
                 return;
             }
         }
 
         private bool ValidateInputs()
         {
-            if (string.IsNullOrEmpty(txt_bookingRoomNumber.Text)
-                && string.IsNullOrEmpty(checkIn)
-                && string.IsNullOrEmpty(checkOut))
-            {
-                return false;
-            }
+            if (string.IsNullOrEmpty(txt_bookingRoomNumber.Text)) return false;
+            if (string.IsNullOrEmpty(checkIn)) return false;
+            if (string.IsNullOrEmpty(checkOut)) return false;
+
             return true;
-        } 
+        }
         #endregion
+
+
+        private int CalculateTotalPrice(int roomNumber)
+        {
+            var totalBookedDays = dtPicker_checkOut.Value.Subtract(dtPicker_checkIn.Value);
+            var dates = totalBookedDays.TotalDays;
+
+            var price = _roomTypeService.GetRoomTypePrice(roomNumber);
+
+
+            var totalPrice = price * dates;
+            return Convert.ToInt32(totalPrice);
+        }
     }
 }

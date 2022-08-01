@@ -2,16 +2,16 @@
 using Motel_booking_system.Interfaces;
 using System.Data;
 using System.Data.SqlClient;
-using static Motel_booking_system.BookingDataSet;
+using static Motel_booking_system.BookingSystemDataSet;
 
 namespace Motel_booking_system.Services
 {
-    public class BookingsService : IBookingsService
+    public class BookingService : IBookingService
     {
-        private readonly Motel_booking_system.BookingDataSetTableAdapters.bookingsTableAdapter _adapter;
-        public BookingsService()
+        private readonly BookingSystemDataSetTableAdapters.bookingsTableAdapter _adapter;
+        public BookingService()
         {
-            _adapter = new Motel_booking_system.BookingDataSetTableAdapters.bookingsTableAdapter();
+            _adapter = new BookingSystemDataSetTableAdapters.bookingsTableAdapter();
         }
 
         #region Service methods
@@ -67,19 +67,19 @@ namespace Motel_booking_system.Services
             return true;
         }
 
-        public bool InsertNewBooking(int roomId, string cusId, string checkIn, string checkOut)
+        public bool InsertNewBooking(int roomId, string cusId, string checkIn, string checkOut,int totalPrice)
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection("Data Source=localhost;Initial Catalog=motel_booking_db;Integrated Security=True"))
+                using (SqlConnection connection = new SqlConnection("Data Source=.;Initial Catalog=motel_bookings_system_db;Integrated Security=True"))
                 {
 
                     // Create the command and set its properties.
                     SqlCommand command = new SqlCommand();
                     command.Connection = connection;
                     command.CommandText = @"INSERT INTO
-                                bookings(room_id,cus_id,check_in,check_out)
-                                VALUES (@roomId, @cusId, @checkIn, @checkOut);";
+                                bookings(room_id,cus_id,check_in,check_out,total_price)
+                                VALUES (@roomId, @cusId, @checkIn, @checkOut,@total_price);";
 
                     // Add the input parameter and set its properties.
                     SqlParameter parameter1 = new SqlParameter();
@@ -108,12 +108,19 @@ namespace Motel_booking_system.Services
                     parameter4.Direction = ParameterDirection.Input;
                     parameter4.Value = cusId;
 
+                    SqlParameter parameter5 = new SqlParameter();
+                    parameter5.ParameterName = "@total_price";
+                    parameter5.SqlDbType = SqlDbType.VarChar;
+                    parameter5.Direction = ParameterDirection.Input;
+                    parameter5.Value = totalPrice;
+
 
                     // Add the parameter to the Parameters collection.
                     command.Parameters.Add(parameter1);
                     command.Parameters.Add(parameter2);
                     command.Parameters.Add(parameter3);
                     command.Parameters.Add(parameter4);
+                    command.Parameters.Add(parameter5);
 
                     // Open connection to the database
                     connection.Open();
@@ -129,7 +136,7 @@ namespace Motel_booking_system.Services
                 return false;
             }
 
-        } 
+        }
         #endregion
 
 

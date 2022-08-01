@@ -1,6 +1,6 @@
 ﻿namespace Motel_booking_system.Admin.PopUpWindows
 {
-    partial class Frm_AddNewRoom
+    partial class Frm_AdminAddNewRoom
     {
         /// <summary>
         /// Required designer variable.
@@ -59,7 +59,7 @@
             this.groupBox1.Controls.Add(this.btn_addRoom);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.cmb_roomType);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.groupBox1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(578, 702);
@@ -70,10 +70,10 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label5.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(20, 30);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(124, 26);
+            this.label5.Size = new System.Drawing.Size(127, 24);
             this.label5.TabIndex = 29;
             this.label5.Text = "Room image";
             // 
@@ -91,7 +91,7 @@
             // 
             this.btn_browseImg.BackColor = System.Drawing.Color.CadetBlue;
             this.btn_browseImg.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_browseImg.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_browseImg.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_browseImg.Location = new System.Drawing.Point(406, 356);
             this.btn_browseImg.Name = "btn_browseImg";
             this.btn_browseImg.Size = new System.Drawing.Size(151, 34);
@@ -102,12 +102,12 @@
             // 
             // btn_cancel
             // 
-            this.btn_cancel.BackColor = System.Drawing.Color.Red;
+            this.btn_cancel.BackColor = System.Drawing.Color.IndianRed;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cancel.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_cancel.Location = new System.Drawing.Point(475, 640);
+            this.btn_cancel.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_cancel.Location = new System.Drawing.Point(452, 639);
             this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(82, 34);
+            this.btn_cancel.Size = new System.Drawing.Size(102, 34);
             this.btn_cancel.TabIndex = 24;
             this.btn_cancel.Text = "Cancel";
             this.btn_cancel.UseVisualStyleBackColor = false;
@@ -125,20 +125,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(20, 378);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 26);
+            this.label1.Size = new System.Drawing.Size(139, 24);
             this.label1.TabIndex = 10;
             this.label1.Text = "Room number";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(20, 449);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(109, 26);
+            this.label2.Size = new System.Drawing.Size(111, 24);
             this.label2.TabIndex = 11;
             this.label2.Text = "Room type";
             // 
@@ -154,8 +154,8 @@
             // 
             this.btn_addRoom.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btn_addRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_addRoom.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_addRoom.Location = new System.Drawing.Point(382, 640);
+            this.btn_addRoom.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_addRoom.Location = new System.Drawing.Point(367, 639);
             this.btn_addRoom.Name = "btn_addRoom";
             this.btn_addRoom.Size = new System.Drawing.Size(79, 34);
             this.btn_addRoom.TabIndex = 20;
@@ -166,10 +166,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(20, 521);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(172, 26);
+            this.label3.Size = new System.Drawing.Size(173, 24);
             this.label3.TabIndex = 23;
             this.label3.Text = "Room description";
             // 
@@ -178,7 +178,7 @@
             this.cmb_roomType.FormattingEnabled = true;
             this.cmb_roomType.Location = new System.Drawing.Point(20, 478);
             this.cmb_roomType.Name = "cmb_roomType";
-            this.cmb_roomType.Size = new System.Drawing.Size(296, 29);
+            this.cmb_roomType.Size = new System.Drawing.Size(296, 24);
             this.cmb_roomType.TabIndex = 13;
             // 
             // ofd_img

@@ -56,7 +56,7 @@ namespace Motel_booking_system.Admin
             {
                 return;
             }
-            
+
             ClearInputs();
 
             lbl_accountOperationsStatus.Text = "New user account has been successfully created. \nReload the table to see the account.";
@@ -78,6 +78,15 @@ namespace Motel_booking_system.Admin
 
         private void btn_deleteAcc_Click(object sender, EventArgs e)
         {
+            if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_deleteAccUsername))
+            {
+                return;
+            }
+            if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_deleteAccPassword))
+            {
+                return;
+            }
+
             if (MessageBox.Show($"Are you sure to delete the entered account ?", "Account deletion", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) != DialogResult.OK)
             {
                 return;
@@ -90,13 +99,6 @@ namespace Motel_booking_system.Admin
                 return;
             }
 
-            if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_deleteAccUsername)
-                &&
-                !InputValidations.InputValidation.ValidateNullOrEmpty(txt_deleteAccPassword)
-                )
-            {
-                return;
-            }
 
             if (!_adminService.Delete(txt_deleteAccUsername.Text, txt_deleteAccPassword.Text))
             {
@@ -115,9 +117,22 @@ namespace Motel_booking_system.Admin
         private bool ValidateNewAccountInput(string username, string password, string reEnteredPassword)
         {
             // Check for Null or Empty inputs
-            if (string.IsNullOrEmpty(username)
-                && string.IsNullOrEmpty(password)
-                && string.IsNullOrEmpty(reEnteredPassword))
+            if (string.IsNullOrEmpty(username))
+            {
+                OutputMessage.WarningMessage("Input values cannot be empty. Please check your inputs.");
+                txt_newAccName.Focus();
+                return false;
+            }
+
+
+            if (string.IsNullOrEmpty(password))
+            {
+                OutputMessage.WarningMessage("Input values cannot be empty. Please check your inputs.");
+                txt_newAccName.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(reEnteredPassword))
             {
                 OutputMessage.WarningMessage("Input values cannot be empty. Please check your inputs.");
                 txt_newAccName.Focus();
@@ -150,7 +165,7 @@ namespace Motel_booking_system.Admin
             txt_newAccName.Text = String.Empty;
             txt_newAccPassword.Text = String.Empty;
             txt_newAccReEnteredPassword.Text = String.Empty;
-        } 
+        }
         #endregion
     }
 }

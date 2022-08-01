@@ -1,13 +1,13 @@
 ﻿using Motel_booking_system.Interfaces;
 using Motel_booking_system.Models;
-using static Motel_booking_system.BookingDataSet;
+using static Motel_booking_system.BookingSystemDataSet;
 
 namespace Motel_booking_system.Helpers
 {
     public class UserLogin
     {
 
-        private adminDataTable _adminDt = new adminDataTable();
+        private administratorsDataTable _adminDt = new administratorsDataTable();
         private customersDataTable _userDt = new customersDataTable();
 
         private readonly ICustomerService _customerRepo;

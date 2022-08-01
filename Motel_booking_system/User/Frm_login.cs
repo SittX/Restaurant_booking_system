@@ -1,4 +1,3 @@
-using Motel_booking_system.Helpers;
 using Motel_booking_system.Admin;
 using Motel_booking_system.Helpers;
 using Motel_booking_system.Services;
@@ -92,7 +91,7 @@ namespace Motel_booking_system
             {
                 Application.Exit();
             }
-        } 
+        }
         #endregion
 
         private void DisableLoginBtn()
