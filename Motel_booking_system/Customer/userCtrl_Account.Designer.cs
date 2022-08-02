@@ -70,6 +70,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.LightSlateGray;
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.txt_username);
             this.groupBox2.Controls.Add(this.btn_updateUsername);
@@ -135,6 +136,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.LightSlateGray;
             this.groupBox1.Controls.Add(this.btn_updatePassword);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);

@@ -53,6 +53,7 @@ namespace Motel_booking_system.Admin
 
         private void Frm_AdminAddReservation_Load(object sender, EventArgs e)
         {
+            // Populate combox values
             cmb_roomType.ValueMember = "room_type";
             cmb_roomType.DisplayMember = "type_description";
             cmb_roomType.DataSource = _roomService.GetAll();
@@ -69,7 +70,7 @@ namespace Motel_booking_system.Admin
         {
             if (!ValidateInputs())
             {
-                OutputMessage.WarningMessage("Input cannot be empty. Please enter all the details for reservation.");
+                OutputMessage.WarningMessage("Inputs cannot be empty. Please enter all the required details for reservation.");
                 return;
             }
 
@@ -88,7 +89,7 @@ namespace Motel_booking_system.Admin
                 return;
             }
 
-            CreateNewUserAccount();
+            NewUserAccountCreation();
 
 
             // Make bookings with newly created user account
@@ -116,20 +117,20 @@ namespace Motel_booking_system.Admin
             }
             catch (Exception ex)
             {
+                Console.WriteLine($"Error message : {ex.Message}");
                 OutputMessage.ErrorMessage("Cannot create account. Please try again.");
                 return false;
             }
-
         }
 
-        private void CreateNewUserAccount()
+        private void NewUserAccountCreation()
         {
 
-            //Validate inputs
-            if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_cusName)) return;
-            if (!InputValidations.InputValidation.ValidateEmail(txt_cusEmail)) return;
-            if (!InputValidations.InputValidation.ValidatePhoneNumber(txt_cusPhNumber)) return;
-
+            if (!ValidateInputs())
+            {
+                OutputMessage.ErrorMessage("Inputs cannot be empty. Please enter all the required details for reservation.");
+                return;
+            }
 
             string username = txt_cusName.Text;
             string email = txt_cusEmail.Text;
@@ -141,7 +142,6 @@ namespace Motel_booking_system.Admin
                 return;
             }
 
-
             if (!CreateAccount(username, email, phoneNumber))
             {
                 OutputMessage.ErrorMessage("User account cannot be created. Please try again");
@@ -150,15 +150,16 @@ namespace Motel_booking_system.Admin
         }
 
         private bool ValidateInputs()
-        {
+        {   
+            if (!InputValidations.InputValidation.ValidateEmail(txt_cusEmail)) return false;
+            if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_cusName)) return false;
+            if (!InputValidations.InputValidation.ValidatePhoneNumber(txt_cusPhNumber)) return false;
             if (string.IsNullOrEmpty(txt_bookingRoomNumber.Text)) return false;
             if (string.IsNullOrEmpty(checkIn)) return false;
             if (string.IsNullOrEmpty(checkOut)) return false;
 
             return true;
         }
-        #endregion
-
 
         private int CalculateTotalPrice(int roomNumber)
         {
@@ -167,9 +168,12 @@ namespace Motel_booking_system.Admin
 
             var price = _roomTypeService.GetRoomTypePrice(roomNumber);
 
-
             var totalPrice = price * dates;
             return Convert.ToInt32(totalPrice);
         }
+        #endregion
+
+
+
     }
 }

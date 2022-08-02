@@ -13,7 +13,7 @@ namespace Motel_booking_system.User
         private string _img;
 
 
-        [Category("Custrom props")]
+        [Category("Custom props")]
         public string Type
         {
             get => _type;
@@ -24,7 +24,7 @@ namespace Motel_booking_system.User
             }
         }
 
-        [Category("Custrom props")]
+        [Category("Custom props")]
         public string Price
         {
             get => _price;
@@ -35,7 +35,7 @@ namespace Motel_booking_system.User
             }
         }
 
-        [Category("Custrom props")]
+        [Category("Custom props")]
         public string Img
         {
             get => _img;

@@ -43,7 +43,7 @@ namespace Motel_booking_system.Services
             catch (Exception ex)
             {
                 Console.WriteLine($"Error message : {ex.Message}");
-                OutputMessage.ErrorMessage("Room type cannot be found . Please try again.");
+                OutputMessage.ErrorMessage("Room type cannot find. Please try again.");
                 return -1;
             }
 
@@ -59,7 +59,7 @@ namespace Motel_booking_system.Services
             catch (Exception ex)
             {
                 Console.WriteLine($"Error message : {ex.Message}");
-                OutputMessage.ErrorMessage("New room type cannot be inserted. Please try again");
+                OutputMessage.ErrorMessage("New room type cannot be created. Please try again");
                 return false;
             }
         }

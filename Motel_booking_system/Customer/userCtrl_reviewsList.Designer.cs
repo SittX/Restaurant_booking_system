@@ -38,7 +38,7 @@
             // 
             this.flowLayoutPanel_reviews.AutoScroll = true;
             this.flowLayoutPanel_reviews.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel_reviews.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel_reviews.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp;
             this.flowLayoutPanel_reviews.Location = new System.Drawing.Point(0, 47);
             this.flowLayoutPanel_reviews.Name = "flowLayoutPanel_reviews";
             this.flowLayoutPanel_reviews.Size = new System.Drawing.Size(798, 421);

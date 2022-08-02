@@ -17,13 +17,14 @@ namespace Motel_booking_system.Admin
 
         private void LogOutUser()
         {
+            // Empty the current session object
             Session.CurrentSession.IsAdmin = false;
             Session.CurrentSession.LoggedInAdmin = new Administrator();
 
+            // Create a login form and change its owner to the current form
             Form login = new Frm_login();
             login.Owner = this;
             login.Show();
-
 
             this.Hide();
         }
@@ -37,12 +38,10 @@ namespace Motel_booking_system.Admin
             panel_mainBackground.Controls.Clear();
             panel_mainBackground.Controls.Add(userCtrl);
         }
+
         private void btn_account_Click(object sender, EventArgs e)
         {
-            SwitchUserControl(new userCtrl_AdminAccount(
-                new AdminService()
-                    )
-                );
+            SwitchUserControl(new userCtrl_AdminAccount(new AdminService()));
         }
 
         private void btn_reservations_Click(object sender, EventArgs e)
@@ -52,7 +51,6 @@ namespace Motel_booking_system.Admin
 
         private void btn_services_Click(object sender, EventArgs e)
         {
-            //SwitchUserControl(new userCtrl_adminServices(new ServicesRepository(new BookingDataSetTableAdapters.roomsTableAdapter()));
             SwitchUserControl(
                 new userCtrl_adminServices(
                 new RoomTypeService(),

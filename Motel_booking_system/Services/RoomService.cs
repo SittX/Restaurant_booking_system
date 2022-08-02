@@ -20,7 +20,7 @@ namespace Motel_booking_system.Services
         public roomsDataTable GetAll()
         {
             var data = _adapter.GetData();
-            if (data.Count() <= 0 && data is null)
+            if (data.Count <= 0 && data is null)
             {
                 return new roomsDataTable();
             }
@@ -37,7 +37,7 @@ namespace Motel_booking_system.Services
             catch (Exception ex)
             {
                 Console.WriteLine($"Error message: {ex.Message}");
-                OutputMessage.WarningMessage("New room cannot be added. Please try again.");
+                OutputMessage.WarningMessage("New rooms cannot be created. Please check your inputs and try again.");
                 return false;
             }
 
@@ -53,7 +53,7 @@ namespace Motel_booking_system.Services
             catch (Exception ex)
             {
                 Console.WriteLine($"Error message: {ex.Message}");
-                OutputMessage.WarningMessage("Room cannot be deleted. Please try again.");
+                OutputMessage.WarningMessage($"The specified room number {roomNumber} cannot be deleted. Please check your inputs and try again.");
                 return false;
             }
 
@@ -68,7 +68,7 @@ namespace Motel_booking_system.Services
                 var count = dt.Count;
                 if (dt.Count > 0 && dt is not null)
                 {
-                    OutputMessage.WarningMessage("Room number already exists. Please try again.");
+                    OutputMessage.WarningMessage($"A room with the following number {roomNumber} already exists. Please use another room number.");
                     return false;
                 }
                 return true;
@@ -76,7 +76,7 @@ namespace Motel_booking_system.Services
             catch (Exception ex)
             {
                 Console.WriteLine($"Error message: {ex.Message}");
-                OutputMessage.ErrorMessage("Cannot find the room. Please try again.");
+                OutputMessage.ErrorMessage($"Cannot find the room {roomNumber}. Please check your inputs and try again.");
                 throw;
             }
         }
@@ -145,7 +145,7 @@ namespace Motel_booking_system.Services
                 parameter3.Value = roomType;
 
 
-                // Add the parameter to the Parameters collection.
+                // Add the parameters to the command
                 command.Parameters.Add(parameter1);
                 command.Parameters.Add(parameter2);
                 command.Parameters.Add(parameter3);
@@ -161,13 +161,12 @@ namespace Motel_booking_system.Services
                         {
                             while (reader.Read())
                             {
-                                DataRow dr = dt.NewRow(); // have new row on each iteration
+                                // will create new row on each iteration and add values to the row
+                                DataRow dr = dt.NewRow(); 
                                 dr["RoomNumber"] = reader[0];
                                 dr["Description"] = reader[1];
                                 dr["Price"] = reader[2];
                                 dt.Rows.Add(dr);
-
-                                //dt.Rows.Add(reader[0], reader[1], reader[2]);
                             }
                         }
                         reader.Close();
@@ -176,7 +175,7 @@ namespace Motel_booking_system.Services
                 catch (Exception ex)
                 {
                     Console.WriteLine($"Error message: {ex.Message}");
-                    OutputMessage.ErrorMessage("Cannot search available room. Please try again.");
+                    OutputMessage.ErrorMessage("Cannot search for available rooms. Please try again.");
                 }
 
                 connection.Close();

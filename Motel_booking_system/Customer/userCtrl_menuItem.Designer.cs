@@ -33,6 +33,8 @@
             this.lbl_type = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.picBox_img = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_img)).BeginInit();
@@ -41,6 +43,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightSlateGray;
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.lbl_price);
             this.panel1.Controls.Add(this.lbl_type);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
@@ -54,11 +58,11 @@
             this.lbl_price.AutoSize = true;
             this.lbl_price.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl_price.ForeColor = System.Drawing.Color.White;
-            this.lbl_price.Location = new System.Drawing.Point(17, 98);
+            this.lbl_price.Location = new System.Drawing.Point(95, 98);
             this.lbl_price.Name = "lbl_price";
-            this.lbl_price.Size = new System.Drawing.Size(54, 22);
+            this.lbl_price.Size = new System.Drawing.Size(40, 22);
             this.lbl_price.TabIndex = 2;
-            this.lbl_price.Text = "Price";
+            this.lbl_price.Text = "text";
             // 
             // lbl_type
             // 
@@ -66,11 +70,11 @@
             this.lbl_type.AutoSize = true;
             this.lbl_type.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lbl_type.ForeColor = System.Drawing.Color.White;
-            this.lbl_type.Location = new System.Drawing.Point(17, 37);
+            this.lbl_type.Location = new System.Drawing.Point(141, 37);
             this.lbl_type.Name = "lbl_type";
-            this.lbl_type.Size = new System.Drawing.Size(119, 22);
+            this.lbl_type.Size = new System.Drawing.Size(114, 22);
             this.lbl_type.TabIndex = 1;
-            this.lbl_type.Text = "Room Type :";
+            this.lbl_type.Text = "Room Type ";
             // 
             // panel2
             // 
@@ -91,6 +95,29 @@
             this.picBox_img.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBox_img.TabIndex = 0;
             this.picBox_img.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(17, 98);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 22);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Price :";
+            // 
+            // label2
+            // 
+            this.label2.AutoEllipsis = true;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(16, 37);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(119, 22);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Room Type :";
             // 
             // userCtrl_menuItem
             // 
@@ -115,5 +142,7 @@
         private Label lbl_price;
         private Label lbl_type;
         private PictureBox picBox_img;
+        private Label label2;
+        private Label label1;
     }
 }

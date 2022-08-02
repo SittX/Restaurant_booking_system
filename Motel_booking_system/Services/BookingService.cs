@@ -36,20 +36,29 @@ namespace Motel_booking_system.Services
             catch (Exception ex)
             {
                 Console.WriteLine($"Error message: {ex.Message}");
-                OutputMessage.ErrorMessage(ex.Message);
+                OutputMessage.ErrorMessage("Service cannot be deleted. Please try again.");
                 return false;
             }
         }
 
         public bookingsDataTable GetBookingsByUserId(string customerId)
         {
-            var data = _adapter.GetDataByCustomerId(customerId);
-
-            if (data.Count > 0 && data is not null)
+            try
             {
-                return data;
+                var data = _adapter.GetDataByCustomerId(customerId);
+
+                if (data.Count > 0 && data is not null)
+                {
+                    return data;
+                }
+                return new bookingsDataTable();
             }
-            return new bookingsDataTable();
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error message: {ex.Message}");
+                OutputMessage.ErrorMessage($"Bookings for customer Id : {customerId} cannot be found. Please check your inputs.");
+                return new bookingsDataTable();
+            }
         }
 
         public bool ValidateReservationDate(string checkIn, string checkOut)
@@ -61,7 +70,7 @@ namespace Motel_booking_system.Services
 
             if (checkOutDate < checkInDate && checkOutMonth <= checkInMonth)
             {
-                OutputMessage.ErrorMessage("Check Out date cannot be less than check in date.");
+                OutputMessage.ErrorMessage("Check-ut date cannot be less than check-in date.");
                 return false;
             }
             return true;
@@ -115,7 +124,7 @@ namespace Motel_booking_system.Services
                     parameter5.Value = totalPrice;
 
 
-                    // Add the parameter to the Parameters collection.
+                    // Add the parameters to the command.
                     command.Parameters.Add(parameter1);
                     command.Parameters.Add(parameter2);
                     command.Parameters.Add(parameter3);
@@ -132,7 +141,7 @@ namespace Motel_booking_system.Services
             catch (Exception ex)
             {
                 Console.WriteLine($"Error message: {ex.Message}");
-                OutputMessage.ErrorMessage("Cannot insert booking. Please try again.");
+                OutputMessage.ErrorMessage("Booking cannot be inserted. Please try again.");
                 return false;
             }
 

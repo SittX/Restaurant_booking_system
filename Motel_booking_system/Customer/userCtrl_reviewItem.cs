@@ -9,11 +9,11 @@ namespace Motel_booking_system.User
             InitializeComponent();
         }
 
-        private string _username;
-        private string _review;
+        private string _username = string.Empty;
+        private string _review = string.Empty;
 
 
-        [Category("Custrom props")]
+        [Category("Custom props")]
         public string Username
         {
             get => _username;
@@ -24,7 +24,7 @@ namespace Motel_booking_system.User
             }
         }
 
-        [Category("Custrom props")]
+        [Category("Custom props")]
         public string Review
         {
             get => _review;

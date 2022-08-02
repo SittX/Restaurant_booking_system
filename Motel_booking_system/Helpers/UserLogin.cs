@@ -10,13 +10,13 @@ namespace Motel_booking_system.Helpers
         private administratorsDataTable _adminDt = new administratorsDataTable();
         private customersDataTable _userDt = new customersDataTable();
 
-        private readonly ICustomerService _customerRepo;
-        private readonly IAdminService _adminRepo;
+        private readonly ICustomerService _customerService;
+        private readonly IAdminService _adminService;
 
-        public UserLogin(ICustomerService customerRepo, IAdminService adminRepo)
+        public UserLogin(ICustomerService customerService, IAdminService adminService)
         {
-            _customerRepo = customerRepo;
-            _adminRepo = adminRepo;
+            _customerService = customerService;
+            _adminService = adminService;
         }
 
         /// <summary>
@@ -26,8 +26,8 @@ namespace Motel_booking_system.Helpers
         /// <returns> If user exists , return TRUE. Else return FALSE. </returns>
         public bool LoginUser(string username, string password)
         {
-            var users = _customerRepo.Search(username, password);
-            var admins = _adminRepo.Search(username, password);
+            var users = _customerService.Search(username, password);
+            var admins = _adminService.Search(username, password);
 
             if (users is not null && admins is not null)
             {
@@ -42,7 +42,7 @@ namespace Motel_booking_system.Helpers
             }
             else
             {
-                MessageBox.Show("User not found", "Warning");
+                OutputMessage.WarningMessage("User with the given username cannot be found.");
                 return false;
             }
         }
@@ -53,7 +53,7 @@ namespace Motel_booking_system.Helpers
         /// <returns></returns>
         private void SaveSessionOwner()
         {
-            if (_userDt.Count() > 0 && _userDt is not null)
+            if (_userDt.Count > 0 && _userDt is not null)
             {
                 Customer currentUser = new Customer()
                 {
@@ -67,7 +67,7 @@ namespace Motel_booking_system.Helpers
                 Session.CurrentSession.LoggedInUser = currentUser;
                 Session.CurrentSession.IsUser = true;
             }
-            else if (_adminDt.Count() > 0 && _adminDt is not null)
+            else if (_adminDt.Count > 0 && _adminDt is not null)
             {
 
                 Administrator currentUser = new Administrator()

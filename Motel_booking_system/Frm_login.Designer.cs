@@ -39,11 +39,11 @@
             this.lbl_loginFailureMsg = new System.Windows.Forms.Label();
             this.btn_cancel = new System.Windows.Forms.Button();
             this.btn_login = new System.Windows.Forms.Button();
-            this.mskTxtBox_password = new System.Windows.Forms.MaskedTextBox();
-            this.txtBox_loginUsername = new System.Windows.Forms.TextBox();
+            this.txt_username = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.txt_password = new System.Windows.Forms.TextBox();
             this.top_panel.SuspendLayout();
             this.bottom_panel.SuspendLayout();
             this.main_panel.SuspendLayout();
@@ -111,12 +111,12 @@
             // main_panel
             // 
             this.main_panel.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.main_panel.Controls.Add(this.txt_password);
             this.main_panel.Controls.Add(this.lbl_failureTimer);
             this.main_panel.Controls.Add(this.lbl_loginFailureMsg);
             this.main_panel.Controls.Add(this.btn_cancel);
             this.main_panel.Controls.Add(this.btn_login);
-            this.main_panel.Controls.Add(this.mskTxtBox_password);
-            this.main_panel.Controls.Add(this.txtBox_loginUsername);
+            this.main_panel.Controls.Add(this.txt_username);
             this.main_panel.Controls.Add(this.label3);
             this.main_panel.Controls.Add(this.label2);
             this.main_panel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -177,23 +177,14 @@
             this.btn_login.UseVisualStyleBackColor = false;
             this.btn_login.Click += new System.EventHandler(this.btn_login_Click);
             // 
-            // mskTxtBox_password
+            // txt_username
             // 
-            this.mskTxtBox_password.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.mskTxtBox_password.Location = new System.Drawing.Point(223, 147);
-            this.mskTxtBox_password.Name = "mskTxtBox_password";
-            this.mskTxtBox_password.PasswordChar = '*';
-            this.mskTxtBox_password.Size = new System.Drawing.Size(262, 26);
-            this.mskTxtBox_password.TabIndex = 10;
-            // 
-            // txtBox_loginUsername
-            // 
-            this.txtBox_loginUsername.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtBox_loginUsername.Location = new System.Drawing.Point(220, 56);
-            this.txtBox_loginUsername.Name = "txtBox_loginUsername";
-            this.txtBox_loginUsername.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.txtBox_loginUsername.Size = new System.Drawing.Size(265, 26);
-            this.txtBox_loginUsername.TabIndex = 9;
+            this.txt_username.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_username.Location = new System.Drawing.Point(220, 56);
+            this.txt_username.Name = "txt_username";
+            this.txt_username.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.txt_username.Size = new System.Drawing.Size(265, 26);
+            this.txt_username.TabIndex = 9;
             // 
             // label3
             // 
@@ -218,6 +209,16 @@
             this.label2.Size = new System.Drawing.Size(97, 22);
             this.label2.TabIndex = 7;
             this.label2.Text = "Username";
+            // 
+            // txt_password
+            // 
+            this.txt_password.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_password.Location = new System.Drawing.Point(220, 147);
+            this.txt_password.Name = "txt_password";
+            this.txt_password.PasswordChar = '*';
+            this.txt_password.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.txt_password.Size = new System.Drawing.Size(265, 26);
+            this.txt_password.TabIndex = 15;
             // 
             // Frm_login
             // 
@@ -255,12 +256,12 @@
         private Panel main_panel;
         private Button btn_cancel;
         private Button btn_login;
-        private MaskedTextBox mskTxtBox_password;
-        private TextBox txtBox_loginUsername;
+        private TextBox txt_username;
         private Label label3;
         private Label label2;
         private System.Windows.Forms.Timer timer;
         private Label lbl_failureTimer;
         private Label lbl_loginFailureMsg;
+        private TextBox txt_password;
     }
 }

@@ -62,13 +62,10 @@ namespace Motel_booking_system
 
         private void btn_confirmReservation_Click(object sender, EventArgs e)
         {
-
-
-
             // Validate inputs using InputValidation
             if (!ValidateInputs())
             {
-                OutputMessage.WarningMessage("Input cannot be empty. Please enter all the details for reservation.");
+                OutputMessage.WarningMessage("Inputs cannot be empty. Please enter all the required details for reservation.");
                 return;
             }
 
@@ -99,7 +96,17 @@ namespace Motel_booking_system
 
         private bool ValidateInputs()
         {
-            if (string.IsNullOrEmpty(txt_roomNumber.Text))
+            if (InputValidations.InputValidation.ValidateNullOrEmpty(txt_roomNumber))
+            {
+                return false;
+            }
+
+            if (!string.IsNullOrEmpty(checkIn))
+            {
+                return false;
+            }
+
+            if (!string.IsNullOrEmpty(checkOut))
             {
                 return false;
             }
@@ -110,14 +117,13 @@ namespace Motel_booking_system
         {
             if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_review))
             {
-                OutputMessage.WarningMessage("Please enter text to post a review.");
+                OutputMessage.WarningMessage("Review textbox cannot be empty. Please enter review to the review textbox.");
                 return;
             }
 
             string review = txt_review.Text;
             if (_reviewService.Insert(Session.CurrentSession.LoggedInUser.Id, review))
             {
-
                 lbl_reviewStatus.Text = "Thank you for choosing our motel. Hope to see you soon.";
                 lbl_reviewStatus.ForeColor = Color.Green;
             }
@@ -136,7 +142,6 @@ namespace Motel_booking_system
             var dates = totalBookedDays.TotalDays;
 
             var price = _roomTypeService.GetRoomTypePrice(roomNumber);
-
 
             var totalPrice = price * dates;
             return Convert.ToInt32(totalPrice);

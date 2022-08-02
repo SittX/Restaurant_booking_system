@@ -165,6 +165,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "Frm_userRegisteration";
             this.Text = "RegisterationForm";
             this.ResumeLayout(false);

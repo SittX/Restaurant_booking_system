@@ -37,7 +37,7 @@ namespace Motel_booking_system.Admin
         {
             int bookingId = Convert.ToInt32(cmb_bookingId.SelectedValue);
 
-            if (MessageBox.Show($"Are you sure to delete booking id {bookingId.ToString()} ?", "Booking deletion", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) != DialogResult.OK)
+            if (MessageBox.Show($"Are you sure to delete booking : {bookingId.ToString()} ?", "Booking deletion", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) != DialogResult.OK)
             {
                 return;
             }

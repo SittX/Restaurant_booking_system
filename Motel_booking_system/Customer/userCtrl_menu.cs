@@ -4,13 +4,13 @@ namespace Motel_booking_system.User
 {
     public partial class userCtrl_menu : UserControl
     {
-        private IRoomService _repo;
+        private readonly IRoomService _roomService;
 
 
-        public userCtrl_menu(IRoomService repo)
+        public userCtrl_menu(IRoomService roomService)
         {
             InitializeComponent();
-            _repo = repo;
+            _roomService = roomService;
         }
 
         private void userCtrl_menu_Load(object sender, EventArgs e)
@@ -20,7 +20,7 @@ namespace Motel_booking_system.User
 
         private void LoadMenuItems()
         {
-            var rooms = _repo.GetAll();
+            var rooms = _roomService.GetAll();
 
 
             // MenuItems array

@@ -27,7 +27,7 @@ namespace Motel_booking_system.Services
             catch (Exception ex)
             {
                 Console.WriteLine($"Error message : {ex.Message}");
-                OutputMessage.ErrorMessage("Account cannot be deleted. Please try again.");
+                OutputMessage.ErrorMessage($"The specified account of {username} cannot be deleted. Please check your inputs and try again.");
                 return false;
             }
 
@@ -37,11 +37,11 @@ namespace Motel_booking_system.Services
         {
             var data = _adapter.GetData();
 
-            if (data.Count() <= 0 && data is null)
+            if (data.Count <= 0 && data is null)
             {
                 return new customersDataTable();
             }
-            return new customersDataTable();
+            return data;
         }
 
         public bool CheckDuplicateUsername(string username)
@@ -50,11 +50,11 @@ namespace Motel_booking_system.Services
             {
                 var customerDt = _adapter.GetDataByUsername(username);
                 var adminDt = _adminAdapter.GetDataByUsername(username);
-                var count = customerDt.Count;
-                var count2 = adminDt.Count;
+
+
                 if (customerDt.Count > 0 || adminDt.Count > 0)
                 {
-                    OutputMessage.WarningMessage("Username already exists. Please try again.");
+                    OutputMessage.WarningMessage($"A username \"{username}\" already exists. Please try again.");
                     return false;
                 }
                 return true;
@@ -74,7 +74,6 @@ namespace Motel_booking_system.Services
             {
                 var id = Customer.GenerateId(_adapter.GetData());
                 var password = newCus.Password;
-
                 string encryptedPassword = PasswordEncryption.Encrypt(password);
 
 
@@ -89,7 +88,7 @@ namespace Motel_booking_system.Services
             catch (Exception ex)
             {
                 Console.WriteLine($"Error message : {ex.Message}");
-                OutputMessage.ErrorMessage("New account cannot be created. Please try again.");
+                OutputMessage.ErrorMessage("A new account cannot be created. Please check your inputs and try again.");
                 return false;
             }
 
@@ -97,13 +96,23 @@ namespace Motel_booking_system.Services
 
         public customersDataTable? Search(string username, string password)
         {
-            var data = _adapter.GetDataByUsernameAndPassword(username, password);
-
-            if (data.Count() <= 0 && data is null)
+            try
             {
+                var data = _adapter.GetDataByUsernameAndPassword(username, password);
+
+                if (data.Count <= 0 && data is null)
+                {
+                    return new customersDataTable();
+                }
+                return data;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error message : {ex.Message}");
+                OutputMessage.ErrorMessage("An account with the specified username and password cannot be found. Please check your inputs and try again.");
                 return new customersDataTable();
             }
-            return data;
+
         }
 
         public customersDataTable? SearchById(string id)
@@ -121,7 +130,7 @@ namespace Motel_booking_system.Services
             catch (Exception ex)
             {
                 Console.WriteLine($"Error message : {ex.Message}");
-                OutputMessage.ErrorMessage("Account cannot find. Please try again.");
+                OutputMessage.ErrorMessage("An account with the specified id cannot be found. Please check your inputs and try again.");
                 return new customersDataTable();
             }
 
@@ -132,9 +141,9 @@ namespace Motel_booking_system.Services
             try
             {
                 string encryptedNewPassword = PasswordEncryption.Encrypt(newPassword);
+                string encryptedOldPassword = PasswordEncryption.Encrypt(oldPassword);
 
-
-                if (_adapter.UpdatePassword(encryptedNewPassword, userId, oldPassword) == 1) return true;
+                if (_adapter.UpdatePassword(encryptedNewPassword, userId, encryptedOldPassword) == 1) return true;
                 return false;
             }
             catch (Exception ex)

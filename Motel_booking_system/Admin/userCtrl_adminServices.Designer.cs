@@ -40,6 +40,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cmb_roomNumber = new System.Windows.Forms.ComboBox();
             this.dtGridView_rooms = new System.Windows.Forms.DataGridView();
+            this.txt_roomId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_ROOMTYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -57,11 +62,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel_bottom = new System.Windows.Forms.Panel();
-            this.txt_roomId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txt_ROOMTYPE = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txt_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txt_description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel_top.SuspendLayout();
             this.panel_main.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -196,10 +196,11 @@
             // 
             // cmb_roomNumber
             // 
+            this.cmb_roomNumber.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmb_roomNumber.FormattingEnabled = true;
-            this.cmb_roomNumber.Location = new System.Drawing.Point(177, 32);
+            this.cmb_roomNumber.Location = new System.Drawing.Point(166, 27);
             this.cmb_roomNumber.Name = "cmb_roomNumber";
-            this.cmb_roomNumber.Size = new System.Drawing.Size(60, 24);
+            this.cmb_roomNumber.Size = new System.Drawing.Size(60, 26);
             this.cmb_roomNumber.TabIndex = 27;
             // 
             // dtGridView_rooms
@@ -220,6 +221,43 @@
             this.dtGridView_rooms.RowTemplate.Height = 25;
             this.dtGridView_rooms.Size = new System.Drawing.Size(1036, 291);
             this.dtGridView_rooms.TabIndex = 40;
+            // 
+            // txt_roomId
+            // 
+            this.txt_roomId.DataPropertyName = "id";
+            this.txt_roomId.HeaderText = "Room Number";
+            this.txt_roomId.Name = "txt_roomId";
+            this.txt_roomId.ReadOnly = true;
+            // 
+            // txt_ROOMTYPE
+            // 
+            this.txt_ROOMTYPE.DataPropertyName = "room_type";
+            this.txt_ROOMTYPE.HeaderText = "room_type";
+            this.txt_ROOMTYPE.Name = "txt_ROOMTYPE";
+            this.txt_ROOMTYPE.ReadOnly = true;
+            this.txt_ROOMTYPE.Visible = false;
+            // 
+            // txt_price
+            // 
+            this.txt_price.DataPropertyName = "price";
+            this.txt_price.HeaderText = "Price";
+            this.txt_price.Name = "txt_price";
+            this.txt_price.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "type_description";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Type";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // txt_description
+            // 
+            this.txt_description.DataPropertyName = "room_description";
+            this.txt_description.HeaderText = "Description";
+            this.txt_description.Name = "txt_description";
+            this.txt_description.ReadOnly = true;
+            this.txt_description.Width = 693;
             // 
             // groupBox3
             // 
@@ -252,7 +290,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(16, 47);
+            this.label5.Location = new System.Drawing.Point(16, 41);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(121, 22);
             this.label5.TabIndex = 37;
@@ -273,10 +311,11 @@
             // 
             // cmb_typeId
             // 
+            this.cmb_typeId.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmb_typeId.FormattingEnabled = true;
             this.cmb_typeId.Location = new System.Drawing.Point(143, 41);
             this.cmb_typeId.Name = "cmb_typeId";
-            this.cmb_typeId.Size = new System.Drawing.Size(218, 24);
+            this.cmb_typeId.Size = new System.Drawing.Size(218, 26);
             this.cmb_typeId.TabIndex = 38;
             // 
             // groupBox1
@@ -296,10 +335,10 @@
             // 
             // txtPrice
             // 
-            this.txtPrice.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtPrice.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txtPrice.Location = new System.Drawing.Point(16, 221);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(207, 27);
+            this.txtPrice.Size = new System.Drawing.Size(207, 26);
             this.txtPrice.TabIndex = 35;
             // 
             // label7
@@ -314,7 +353,7 @@
             // 
             // txt_newTypeDescription
             // 
-            this.txt_newTypeDescription.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_newTypeDescription.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_newTypeDescription.Location = new System.Drawing.Point(16, 76);
             this.txt_newTypeDescription.Multiline = true;
             this.txt_newTypeDescription.Name = "txt_newTypeDescription";
@@ -393,43 +432,6 @@
             this.panel_bottom.Name = "panel_bottom";
             this.panel_bottom.Size = new System.Drawing.Size(1199, 18);
             this.panel_bottom.TabIndex = 24;
-            // 
-            // txt_roomId
-            // 
-            this.txt_roomId.DataPropertyName = "id";
-            this.txt_roomId.HeaderText = "Room Number";
-            this.txt_roomId.Name = "txt_roomId";
-            this.txt_roomId.ReadOnly = true;
-            // 
-            // txt_ROOMTYPE
-            // 
-            this.txt_ROOMTYPE.DataPropertyName = "room_type";
-            this.txt_ROOMTYPE.HeaderText = "room_type";
-            this.txt_ROOMTYPE.Name = "txt_ROOMTYPE";
-            this.txt_ROOMTYPE.ReadOnly = true;
-            this.txt_ROOMTYPE.Visible = false;
-            // 
-            // txt_price
-            // 
-            this.txt_price.DataPropertyName = "price";
-            this.txt_price.HeaderText = "Price";
-            this.txt_price.Name = "txt_price";
-            this.txt_price.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "type_description";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Type";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // txt_description
-            // 
-            this.txt_description.DataPropertyName = "room_description";
-            this.txt_description.HeaderText = "Description";
-            this.txt_description.Name = "txt_description";
-            this.txt_description.ReadOnly = true;
-            this.txt_description.Width = 693;
             // 
             // userCtrl_adminServices
             // 

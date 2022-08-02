@@ -18,15 +18,25 @@ namespace Motel_booking_system.Services
         #region Service methods
         public bool Delete(string username, string password)
         {
-            string encryptedPassword = PasswordEncryption.Encrypt(password);
-            if (_adapter.DeleteAccount(username, encryptedPassword) == 1) return true;
-            return false;
+            try
+            {
+                string encryptedPassword = PasswordEncryption.Encrypt(password);
+                if (_adapter.DeleteAccount(username, encryptedPassword) == 1) return true;
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error message: {ex.Message}");
+                OutputMessage.ErrorMessage("Admin account cannot be created. Please try again");
+                return false;
+            }
+
         }
 
         public administratorsDataTable GetAll()
         {
             var data = _adapter.GetData();
-            if (data is not null)
+            if (data is not null && data.Count > 0)
             {
                 return data;
             }
@@ -39,8 +49,8 @@ namespace Motel_booking_system.Services
             {
                 var id = Administrator.GenerateId(_adapter.GetData());
                 var password = newAdmin.Password;
-
                 string encryptedPassword = PasswordEncryption.Encrypt(password);
+
 
                 if (_adapter.InsertNewAccount(
                     id,
@@ -57,22 +67,22 @@ namespace Motel_booking_system.Services
             catch (InvalidDataException ie)
             {
                 Console.WriteLine($"Error message: {ie.Message}");
-                OutputMessage.ErrorMessage("Invalid data. Please try again");
+                OutputMessage.ErrorMessage("nput data is not valid. Please check your inputs and try again.");
                 return false;
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error message: {ex.Message}");
-                OutputMessage.ErrorMessage("Account cannot be created. Please try again.");
+                OutputMessage.ErrorMessage("A new account cannot be created. Please try again.");
                 return false;
             }
         }
 
         public administratorsDataTable? Search(string username, string password)
         {
-
-            var data = _adapter.GetDataByUsernameAndPassword(username, password);
-            if (data.Count() < 1 && data is null)
+            var encryptedPassword = PasswordEncryption.Encrypt(password);
+            var data = _adapter.GetDataByUsernameAndPassword(username, encryptedPassword);
+            if (data.Count < 1 && data is null)
             {
                 return new administratorsDataTable();
             }
@@ -85,11 +95,10 @@ namespace Motel_booking_system.Services
             {
                 var adminDt = _adapter.GetDataByUsername(username);
                 var customerDt = _customerAdapter.GetDataByUsername(username);
-                var count = adminDt.Count;
-                var count2 = customerDt.Count;
+
                 if (adminDt.Count > 0 || customerDt.Count > 0)
                 {
-                    OutputMessage.WarningMessage("Username already exists. Please try again.");
+                    OutputMessage.WarningMessage($"Username {username} already exists. Please use another username and try again.");
                     return false;
                 }
                 return true;
@@ -97,7 +106,7 @@ namespace Motel_booking_system.Services
             catch (Exception ex)
             {
                 Console.WriteLine($"Error message: {ex.Message}");
-                OutputMessage.ErrorMessage("Account cannot not be created. Please try again.");
+                OutputMessage.ErrorMessage("Internal server error. Please try again.");
                 return false;
             }
         }

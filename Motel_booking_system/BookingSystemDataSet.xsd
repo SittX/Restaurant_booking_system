@@ -749,7 +749,7 @@ VALUES        (@cus_id,@review); </CommandText>
               </xs:element>
               <xs:element name="check_in" msprop:Generator_ColumnPropNameInTable="check_inColumn" msprop:Generator_ColumnPropNameInRow="check_in" msprop:Generator_UserColumnName="check_in" msprop:Generator_ColumnVarNameInTable="columncheck_in" type="xs:dateTime" minOccurs="0" />
               <xs:element name="check_out" msprop:Generator_ColumnPropNameInTable="check_outColumn" msprop:Generator_ColumnPropNameInRow="check_out" msprop:Generator_UserColumnName="check_out" msprop:Generator_ColumnVarNameInTable="columncheck_out" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="total_price" msprop:Generator_ColumnPropNameInRow="total_price" msprop:Generator_ColumnPropNameInTable="total_priceColumn" msprop:Generator_ColumnVarNameInTable="columntotal_price" msprop:Generator_UserColumnName="total_price" type="xs:int" minOccurs="0" />
+              <xs:element name="total_price" msprop:Generator_UserColumnName="total_price" msprop:Generator_ColumnPropNameInTable="total_priceColumn" msprop:Generator_ColumnPropNameInRow="total_price" msprop:Generator_ColumnVarNameInTable="columntotal_price" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -771,7 +771,7 @@ VALUES        (@cus_id,@review); </CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="username" msprop:Generator_UserColumnName="username" msprop:Generator_ColumnPropNameInTable="usernameColumn" msprop:Generator_ColumnPropNameInRow="username" msprop:Generator_ColumnVarNameInTable="columnusername" minOccurs="0">
+              <xs:element name="username" msprop:Generator_ColumnPropNameInTable="usernameColumn" msprop:Generator_ColumnPropNameInRow="username" msprop:Generator_UserColumnName="username" msprop:Generator_ColumnVarNameInTable="columnusername" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="30" />
@@ -810,10 +810,10 @@ VALUES        (@cus_id,@review); </CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_rooms_roomType" msdata:parent="room_types" msdata:child="rooms" msdata:parentkey="id" msdata:childkey="room_type" msprop:Generator_UserParentTable="room_types" msprop:Generator_UserChildTable="rooms" msprop:Generator_RelationVarName="relationFK_rooms_roomType" msprop:Generator_ChildPropName="GetroomsRows" msprop:Generator_UserRelationName="FK_rooms_roomType" msprop:Generator_ParentPropName="room_typesRow" />
-      <msdata:Relationship name="FK_bookings_cusId" msdata:parent="customers" msdata:child="bookings" msdata:parentkey="id" msdata:childkey="cus_id" msprop:Generator_UserParentTable="customers" msprop:Generator_UserChildTable="bookings" msprop:Generator_RelationVarName="relationFK_bookings_cusId" msprop:Generator_ChildPropName="GetbookingsRows" msprop:Generator_UserRelationName="FK_bookings_cusId" msprop:Generator_ParentPropName="customersRow" />
-      <msdata:Relationship name="FK_bookings_roomId" msdata:parent="rooms" msdata:child="bookings" msdata:parentkey="id" msdata:childkey="room_id" msprop:Generator_UserParentTable="rooms" msprop:Generator_UserChildTable="bookings" msprop:Generator_RelationVarName="relationFK_bookings_roomId" msprop:Generator_ChildPropName="GetbookingsRows" msprop:Generator_UserRelationName="FK_bookings_roomId" msprop:Generator_ParentPropName="roomsRow" />
-      <msdata:Relationship name="FK_reviews_cusId" msdata:parent="customers" msdata:child="reviews" msdata:parentkey="id" msdata:childkey="cus_id" msprop:Generator_UserParentTable="customers" msprop:Generator_UserChildTable="reviews" msprop:Generator_RelationVarName="relationFK_reviews_cusId" msprop:Generator_ChildPropName="GetreviewsRows" msprop:Generator_UserRelationName="FK_reviews_cusId" msprop:Generator_ParentPropName="customersRow" />
+      <msdata:Relationship name="FK_rooms_roomType" msdata:parent="room_types" msdata:child="rooms" msdata:parentkey="id" msdata:childkey="room_type" msprop:Generator_UserParentTable="room_types" msprop:Generator_UserChildTable="rooms" msprop:Generator_RelationVarName="relationFK_rooms_roomType" msprop:Generator_ChildPropName="GetroomsRows" msprop:Generator_ParentPropName="room_typesRow" msprop:Generator_UserRelationName="FK_rooms_roomType" />
+      <msdata:Relationship name="FK_bookings_cusId" msdata:parent="customers" msdata:child="bookings" msdata:parentkey="id" msdata:childkey="cus_id" msprop:Generator_UserParentTable="customers" msprop:Generator_UserChildTable="bookings" msprop:Generator_RelationVarName="relationFK_bookings_cusId" msprop:Generator_ChildPropName="GetbookingsRows" msprop:Generator_ParentPropName="customersRow" msprop:Generator_UserRelationName="FK_bookings_cusId" />
+      <msdata:Relationship name="FK_bookings_roomId" msdata:parent="rooms" msdata:child="bookings" msdata:parentkey="id" msdata:childkey="room_id" msprop:Generator_UserParentTable="rooms" msprop:Generator_UserChildTable="bookings" msprop:Generator_RelationVarName="relationFK_bookings_roomId" msprop:Generator_ChildPropName="GetbookingsRows" msprop:Generator_ParentPropName="roomsRow" msprop:Generator_UserRelationName="FK_bookings_roomId" />
+      <msdata:Relationship name="FK_reviews_cusId" msdata:parent="customers" msdata:child="reviews" msdata:parentkey="id" msdata:childkey="cus_id" msprop:Generator_UserParentTable="customers" msprop:Generator_UserChildTable="reviews" msprop:Generator_RelationVarName="relationFK_reviews_cusId" msprop:Generator_ChildPropName="GetreviewsRows" msprop:Generator_ParentPropName="customersRow" msprop:Generator_UserRelationName="FK_reviews_cusId" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

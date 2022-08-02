@@ -23,17 +23,14 @@ namespace Motel_booking_system
         private void btn_updatePassword_Click(object sender, EventArgs e)
         {
             // Check if the inputs are empty or have null value
-            if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_newPassword) && !InputValidations.InputValidation.ValidateNullOrEmpty(txt_oldPassword))
-            {
-                return;
-            }
+            if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_newPassword)) return;
+            if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_oldPassword)) return;
 
             var oldPassword = txt_oldPassword.Text;
-            var encryptedOldPassword = PasswordEncryption.Encrypt(oldPassword);
             var newPassword = txt_newPassword.Text;
 
             // Check if the operations is success or not
-            if (_customerService.UpdatePassword(newPassword, encryptedOldPassword, Session.CurrentSession.LoggedInUser.Id))
+            if (_customerService.UpdatePassword(newPassword, oldPassword, Session.CurrentSession.LoggedInUser.Id))
             {
                 lbl_operationsStatus.Text = "Updated password";
                 lbl_operationsStatus.ForeColor = Color.Green;
@@ -53,10 +50,7 @@ namespace Motel_booking_system
         private void btn_updateUsername_Click(object sender, EventArgs e)
         {
             // Check if the inputs are empty or have null value
-            if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_newUsername))
-            {
-                return;
-            }
+            if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_newUsername)) return;
 
             var newUsername = txt_newUsername.Text;
             var oldUsername = txt_username.Text;

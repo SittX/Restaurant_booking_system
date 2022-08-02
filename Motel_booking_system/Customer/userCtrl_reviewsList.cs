@@ -19,9 +19,10 @@ namespace Motel_booking_system.User
 
         private void LoadReviews()
         {
-            var dt = _reviewService.GetAll();
+            var reviewDataTable = _reviewService.GetAll();
 
-            foreach (var review in dt)
+            // Add items from reviewDataTable to the ReviewItem userCtrl
+            foreach (var review in reviewDataTable)
             {
                 var reviewItem = new userCtrl_reviewItem();
                 reviewItem.Username = review["username"].ToString();

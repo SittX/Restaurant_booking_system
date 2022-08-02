@@ -16,7 +16,6 @@ namespace Motel_booking_system
         #region Event handlers
         private void btn_saveRegisteration_Click(object sender, EventArgs e)
         {
-
             if (!ValidateInputs())
             {
                 lbl_registerationStatus.Text = "Invalid inputs";

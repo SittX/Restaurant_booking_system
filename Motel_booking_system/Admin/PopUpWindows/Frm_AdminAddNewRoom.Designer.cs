@@ -105,7 +105,7 @@
             this.btn_cancel.BackColor = System.Drawing.Color.IndianRed;
             this.btn_cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_cancel.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_cancel.Location = new System.Drawing.Point(452, 639);
+            this.btn_cancel.Location = new System.Drawing.Point(455, 662);
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(102, 34);
             this.btn_cancel.TabIndex = 24;
@@ -115,11 +115,11 @@
             // 
             // txt_description
             // 
-            this.txt_description.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_description.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_description.Location = new System.Drawing.Point(20, 550);
             this.txt_description.Multiline = true;
             this.txt_description.Name = "txt_description";
-            this.txt_description.Size = new System.Drawing.Size(537, 69);
+            this.txt_description.Size = new System.Drawing.Size(537, 106);
             this.txt_description.TabIndex = 22;
             // 
             // label1
@@ -144,10 +144,10 @@
             // 
             // txt_roomNo
             // 
-            this.txt_roomNo.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_roomNo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.txt_roomNo.Location = new System.Drawing.Point(20, 407);
             this.txt_roomNo.Name = "txt_roomNo";
-            this.txt_roomNo.Size = new System.Drawing.Size(142, 27);
+            this.txt_roomNo.Size = new System.Drawing.Size(142, 26);
             this.txt_roomNo.TabIndex = 9;
             // 
             // btn_addRoom
@@ -155,7 +155,7 @@
             this.btn_addRoom.BackColor = System.Drawing.Color.MediumSeaGreen;
             this.btn_addRoom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_addRoom.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_addRoom.Location = new System.Drawing.Point(367, 639);
+            this.btn_addRoom.Location = new System.Drawing.Point(367, 662);
             this.btn_addRoom.Name = "btn_addRoom";
             this.btn_addRoom.Size = new System.Drawing.Size(79, 34);
             this.btn_addRoom.TabIndex = 20;
@@ -175,10 +175,11 @@
             // 
             // cmb_roomType
             // 
+            this.cmb_roomType.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmb_roomType.FormattingEnabled = true;
             this.cmb_roomType.Location = new System.Drawing.Point(20, 478);
             this.cmb_roomType.Name = "cmb_roomType";
-            this.cmb_roomType.Size = new System.Drawing.Size(296, 24);
+            this.cmb_roomType.Size = new System.Drawing.Size(296, 26);
             this.cmb_roomType.TabIndex = 13;
             // 
             // ofd_img
@@ -187,14 +188,14 @@
             this.ofd_img.InitialDirectory = "C:\\";
             this.ofd_img.Title = "Image for rooms";
             // 
-            // Frm_AddNewRoom
+            // Frm_AdminAddNewRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.ClientSize = new System.Drawing.Size(606, 726);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Frm_AddNewRoom";
+            this.Name = "Frm_AdminAddNewRoom";
             this.Text = "Add new room details";
             this.Load += new System.EventHandler(this.Frm_AddNewRoom_Load);
             this.groupBox1.ResumeLayout(false);

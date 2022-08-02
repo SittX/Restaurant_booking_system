@@ -9,6 +9,8 @@ namespace Motel_booking_system
         public Frm_userDashboard()
         {
             InitializeComponent();
+
+            SwitchUserControl(new userCtrl_menu(new RoomService()));
         }
 
         private void Frm_userDashboard_FormClosing(object sender, FormClosingEventArgs e)

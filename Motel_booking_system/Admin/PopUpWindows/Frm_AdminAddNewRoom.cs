@@ -22,13 +22,13 @@ namespace Motel_booking_system.Admin.PopUpWindows
             // Check empty or invalid input values
             if (string.IsNullOrEmpty(txt_roomNo.Text))
             {
-                OutputMessage.WarningMessage("Input values can be empty or null. Please check your inputs.");
+                OutputMessage.WarningMessage("\"Room number\" cannot be empty or null. Please enter room number.");
                 return;
             }
 
             if (string.IsNullOrEmpty(txt_description.Text))
             {
-                OutputMessage.WarningMessage("Input values can be empty or null. Please check your inputs.");
+                OutputMessage.WarningMessage("\"Description\" cannot be empty or null. Please check your inputs.");
                 return;
             }
 
@@ -53,6 +53,7 @@ namespace Motel_booking_system.Admin.PopUpWindows
             // If imgFilePath is not empty , insert imgFilePath into new room
             _roomService.Insert(roomNumber, roomType, description, imgFilePath);
             this.Close();
+            return;
         }
 
         private void Frm_AddNewRoom_Load(object sender, EventArgs e)

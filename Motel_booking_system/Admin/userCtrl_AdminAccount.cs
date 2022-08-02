@@ -18,6 +18,8 @@ namespace Motel_booking_system.Admin
         private void userCtrl_AdminAccount_Load(object sender, EventArgs e)
         {
             dataGridView_adminAccounts.DataSource = _adminService.GetAll();
+            
+            // Insert  Admin's permission Enum values to the combo box
             cmb_permissions.DataSource = Enum.GetValues(typeof(Administrator.Permissions));
         }
 
@@ -29,13 +31,13 @@ namespace Motel_booking_system.Admin
             var reEnteredPassword = txt_newAccReEnteredPassword.Text;
             var permission = cmb_permissions.SelectedValue.ToString();
 
-            // valid new account 
+            // validate the new account 
             if (!ValidateNewAccountInput(username, password, reEnteredPassword))
             {
                 return;
             }
 
-            // Check if duplicate username
+            // Check if username already exists or not
             if (!_adminService.CheckDuplicateUsername(username))
             {
                 return;
@@ -78,6 +80,12 @@ namespace Motel_booking_system.Admin
 
         private void btn_deleteAcc_Click(object sender, EventArgs e)
         {
+
+            if (!IsAcccountRemoveable(txt_deleteAccUsername.Text,txt_deleteAccPassword.Text))
+            {
+                return;
+            }
+
             if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_deleteAccUsername))
             {
                 return;
@@ -114,32 +122,44 @@ namespace Motel_booking_system.Admin
         #endregion
 
         #region Methods
+
+        private bool IsAcccountRemoveable(string username,string password)
+        {
+            // Search the user account that is going to be deleted and check its permission
+            var account = _adminService.Search(username, password);
+
+            // if the account not find, exit the function
+            if (account.Count <= 0)
+            {
+                return false;
+            }
+
+            // Check the account has "CanReadnWrite" permission, return FALSE if it does not have "CanReadnWrite" permission
+            var permission = account[0]["Permission"].ToString();
+            if (permission != Administrator.Permissions.CanReadnWrite.ToString())
+            {
+                return true;
+            }
+
+            // If the account has "CanReadnWrite" permission, check whether that account is the last account that has "CanReadnWrite" permission.
+            var admins = _adminService.GetAll();
+
+            // Filter account with "CanReadnWrite" permission
+            var filteredDataTable = admins.Where(a => a.permission == Administrator.Permissions.CanReadnWrite.ToString()).ToList();
+
+            // If the account the last one that has "CanReadnWrite" permission, denied the user request to delete the account.
+            if (filteredDataTable.Count == 1)
+            {
+                OutputMessage.WarningMessage("There must be atleast one admin account that has \"CanReadnWrite\" permission.");
+                return false;
+            }
+
+            return true;
+        }
+
         private bool ValidateNewAccountInput(string username, string password, string reEnteredPassword)
         {
-            // Check for Null or Empty inputs
-            if (string.IsNullOrEmpty(username))
-            {
-                OutputMessage.WarningMessage("Input values cannot be empty. Please check your inputs.");
-                txt_newAccName.Focus();
-                return false;
-            }
-
-
-            if (string.IsNullOrEmpty(password))
-            {
-                OutputMessage.WarningMessage("Input values cannot be empty. Please check your inputs.");
-                txt_newAccName.Focus();
-                return false;
-            }
-
-            if (string.IsNullOrEmpty(reEnteredPassword))
-            {
-                OutputMessage.WarningMessage("Input values cannot be empty. Please check your inputs.");
-                txt_newAccName.Focus();
-                return false;
-            }
-
-            // Check current logged in user permission
+            // Check rhecurrent logged in user permission
             if (Session.CurrentSession.LoggedInAdmin.Permission != Administrator.Permissions.CanReadnWrite.ToString())
             {
                 lbl_accountOperationsStatus.Text = "You don't have permission to do this action !";
@@ -147,7 +167,29 @@ namespace Motel_booking_system.Admin
                 return false;
             }
 
-            // Break causes if two passwords are not identical
+            // Check for Null or Empty inputs
+            if (string.IsNullOrEmpty(username))
+            {
+                OutputMessage.WarningMessage("\"Username\" input cannot be empty. Please enter values into the input.");
+                txt_newAccName.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(password))
+            {
+                OutputMessage.WarningMessage("\"Password\" input cannot be empty. Please enter values into the input.");
+                txt_newAccName.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(reEnteredPassword))
+            {
+                OutputMessage.WarningMessage("\"Re-Entered\" input cannot be empty. Please enter values into the input.");
+                txt_newAccName.Focus();
+                return false;
+            }
+
+            // Exit the funtion if two passwords are not identical
             if (password != reEnteredPassword)
             {
                 lbl_accountOperationsStatus.Text = "Passwords are not identical.";
@@ -160,11 +202,11 @@ namespace Motel_booking_system.Admin
 
         private void ClearInputs()
         {
-            txt_deleteAccPassword.Text = String.Empty;
-            txt_deleteAccUsername.Text = String.Empty;
-            txt_newAccName.Text = String.Empty;
-            txt_newAccPassword.Text = String.Empty;
-            txt_newAccReEnteredPassword.Text = String.Empty;
+            txt_deleteAccPassword.Text = string.Empty;
+            txt_deleteAccUsername.Text = string.Empty;
+            txt_newAccName.Text = string.Empty;
+            txt_newAccPassword.Text = string.Empty;
+            txt_newAccReEnteredPassword.Text = string.Empty;
         }
         #endregion
     }

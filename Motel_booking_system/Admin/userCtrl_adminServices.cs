@@ -25,9 +25,9 @@ namespace Motel_booking_system.Admin
 
         private void btn_addNewType_Click(object sender, EventArgs e)
         {
+            // Check inputs validation and exits the function if the value is invalid
             if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_newTypeDescription)) return;
-            if (!InputValidations.InputValidation.ValidateNullOrEmpty(txtPrice)) return; ;
-
+            if (!InputValidations.InputValidation.ValidateNullOrEmpty(txtPrice)) return;
 
 
             _roomTypeService.Insert(txt_newTypeDescription.Text, Convert.ToInt32(txtPrice.Text));
@@ -43,7 +43,7 @@ namespace Motel_booking_system.Admin
 
         private void btn_deleteType_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show($"Are you sure to delete the entered room type?", "Room Type deletion", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) != DialogResult.OK)
+            if (MessageBox.Show($"Are you sure to delete the selected room type?", "Room type deletion", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation) != DialogResult.OK)
             {
                 return;
             }
@@ -54,9 +54,7 @@ namespace Motel_booking_system.Admin
 
         private void btn_addRoom_Click(object sender, EventArgs e)
         {
-            Form form = new Frm_AdminAddNewRoom(
-                new RoomService(),
-                new RoomTypeService());
+            Form form = new Frm_AdminAddNewRoom( new RoomService(), new RoomTypeService() );
             form.Show();
         }
 
@@ -68,7 +66,6 @@ namespace Motel_booking_system.Admin
             }
 
             _roomService.Delete(Convert.ToInt32(cmb_roomNumber.SelectedValue));
-
             PopulateRoom();
         }
 
@@ -94,7 +91,6 @@ namespace Motel_booking_system.Admin
         private void PopulateRoomType()
         {
             dtGridView_roomTypes.DataSource = _roomTypeService.GetAll();
-
             var room_Types = _roomTypeService.GetAll();
 
             cmb_typeId.DisplayMember = "type_description";

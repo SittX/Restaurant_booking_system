@@ -25,7 +25,7 @@ namespace Motel_booking_system.Services
             catch (Exception ex)
             {
                 Console.WriteLine($"Error message: {ex.Message}");
-                OutputMessage.ErrorMessage("New room cannot be created. Please try again.");
+                OutputMessage.ErrorMessage("A new review cannot be created. Please try again.");
                 return false;
             }
         }
@@ -34,7 +34,7 @@ namespace Motel_booking_system.Services
         {
             var data = _adapter.GetData();
 
-            if (data.Count() > 0 && data is not null)
+            if (data.Count > 0 && data is not null)
             {
                 return data;
             }

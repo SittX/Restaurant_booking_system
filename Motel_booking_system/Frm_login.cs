@@ -34,9 +34,12 @@ namespace Motel_booking_system
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            var username = txtBox_loginUsername.Text;
-            var password = mskTxtBox_password.Text;
-            var encryptedPassword = PasswordEncryption.Encrypt(password);
+            if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_username)) return;
+            if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_password)) return;
+
+
+            var username = txt_username.Text;
+            var password = txt_password.Text;
 
             UserLogin login = new UserLogin(
                 new CustomerService(),
@@ -45,9 +48,8 @@ namespace Motel_booking_system
 
 
             // Authenticate the current user and open the form that they have access to open
-            if (login.LoginUser(username, encryptedPassword))
+            if (login.LoginUser(username, password))
             {
-
                 if (Session.CurrentSession.IsAdmin)
                 {
                     Form adminDashboard = new Frm_AdminDashboard();
@@ -69,8 +71,6 @@ namespace Motel_booking_system
                 DisableLoginBtn();
             }
         }
-
-
 
         private void EnableLoginBtn(object? sender, EventArgs e)
         {
