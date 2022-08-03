@@ -60,8 +60,8 @@ namespace Motel_booking_system
             // Validate input is not null or empty
             if (!ValidateNullOrEmpty(txt_username)) return false;
             if (!ValidateNullOrEmpty(txt_password)) return false;
-            if (!ValidatePhoneNumber(txt_phNumber)) return false;
             if (!ValidateEmail(txt_email)) return false;
+            if (!ValidatePhoneNumber(txt_phNumber)) return false;
             return true;
         }
 

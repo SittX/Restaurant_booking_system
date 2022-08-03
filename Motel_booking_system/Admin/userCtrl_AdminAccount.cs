@@ -81,16 +81,16 @@ namespace Motel_booking_system.Admin
         private void btn_deleteAcc_Click(object sender, EventArgs e)
         {
 
-            if (!IsAcccountRemoveable(txt_deleteAccUsername.Text,txt_deleteAccPassword.Text))
-            {
-                return;
-            }
-
             if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_deleteAccUsername))
             {
                 return;
             }
             if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_deleteAccPassword))
+            {
+                return;
+            }
+
+            if (!IsAcccountRemoveable(txt_deleteAccUsername.Text,txt_deleteAccPassword.Text))
             {
                 return;
             }
