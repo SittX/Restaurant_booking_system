@@ -1,24 +1,8 @@
 CREATE DATABASE motel_bookings_system_db;
-USE master;
+USE motel_bookings_system_db;
 
 
-SELECT * FROM customers;
-SELECT * FROM administrators;
-SELECT * FROM room_types;
-SELECT * FROM rooms;
-SELECT * FROM bookings;
-
-
-
-
-DROP table customers;
-DROP table administrators;
-DROP table room_types;
-DROP table rooms;
-DROP table bookings;
-DROP TABLE reviews;
-
-select * FROm customers;
+-- Database table schemas
 CREATE TABLE customers(
 	id VARCHAR(40) PRIMARY KEY,
 	username VARCHAR(30) UNIQUE NOT NULL,
@@ -27,20 +11,6 @@ CREATE TABLE customers(
 	ph_number VARCHAR(40) UNIQUE
 );
 
-INSERT INTO customers(id,username,acc_password,email,NRC,ph_number) 
-VALUES('U_001','kevn','sdkfwer','kdf@gmail.com','asdf','093323241');
-
-INSERT INTO customers(id,username,acc_password,email,NRC,ph_number) 
-VALUES('U_002','David','adfawer','sdtbwaetrf@gmail.com','adfawecasdf','325423534');
-
-INSERT INTO customers(id,username,acc_password,email,NRC,ph_number) 
-VALUES('U_003','Nicole','sdkfdsdafwer','adfwer@gmail.com','asasdf3aerdf','082132143');
-
-
-select * FROM administrators;
-
-INSERT INTO administrators(id,username,acc_password,permission) VALUES('A_0001','admin','admin123','CanReadnWrite');
-DROP TABLE administrators;
 CREATE TABLE administrators(
 	id VARCHAR(40) NOT NULL PRIMARY KEY,
 	username VARCHAR(30) UNIQUE NOT NULL,
@@ -49,26 +19,12 @@ CREATE TABLE administrators(
 );
 
 
-
 CREATE TABLE room_types(
 	id int PRIMARY KEY IDENTITY,
 	type_description VARCHAR(40) UNIQUE NOT NULL,
 	price INT
 );
-INSERT INTO room_types(type_description) VALUES('Single badroom');
-INSERT INTO room_types(type_description) VALUES('Double badroom');
-INSERT INTO room_types(type_description) VALUES('Deluxe room');
-INSERT INTO room_types(type_description) VALUES('Family room');
 
-SELECT * FROM room_types;
-SELECT * FROM rooms;
-
-
-INSERT INTO rooms(id,room_type,room_description,price) VALUES(102,1,'hello world',100000);
-INSERT INTO rooms(id,room_type,room_description,price) VALUES(103,3,'Stupid dateTime object',30000);
-INSERT INTO rooms(id,room_type,room_description,price) VALUES(104,2,'Deez Nuts',5000);
-
-DROP table rooms;
 CREATE TABLE rooms(
 	id int PRIMARY KEY,
 	room_type INT,
@@ -79,35 +35,6 @@ CREATE TABLE rooms(
 		REFERENCES room_types(id) 
 		ON DELETE CASCADE
 );
-SELECT * FROM rooms;
-
-ALTER TABLE rooms
-ADD CONSTRAINT df_rooms_img
-DEFAULT null FOR img;
-
-
-SELECT * FROM bookings;
-
-
-INSERT INTO bookings(room_id,cus_id,check_in,check_out) 
-VALUES(102,'U_001','07/14/2022','07/18/2022');
-
-
-INSERT INTO bookings(room_id,cus_id,check_in,check_out) 
-VALUES(103,'U_002','07/10/2022','07/19/2022');
-
-INSERT INTO bookings(room_id,cus_id,check_in,check_out) 
-VALUES(104,'U_003','07/06/2022','07/15/2022');
-
-INSERT INTO bookings(room_id,cus_id,check_in,check_out) 
-VALUES(104,'U_003','07/16/2022','07/17/2022');
-
-
-INSERT INTO bookings(room_id,cus_id,check_in,check_out) 
-VALUES(102,'U_003','07/05/2022','07/10/2022');
-
-INSERT INTO bookings(room_id,cus_id,check_in,check_out) 
-VALUES(103,'U_003','20220715','20220717');
 
 CREATE TABLE bookings(
 	id int PRIMARY KEY IDENTITY,
@@ -126,7 +53,6 @@ CREATE TABLE bookings(
 		ON DELETE CASCADE
 );
 
-
 CREATE TABLE reviews(
 	id int NOT NULL PRIMARY KEY IDENTITY,
 	cus_id VARCHAR(40),
@@ -137,54 +63,14 @@ CREATE TABLE reviews(
 		ON DELETE CASCADE
 );
 
-SELECT * FROM bookings;
 
---DECLARE @checkIn DATE = '2022/07/25';
---DECLARE @checkOut DATE = '2022/07/30';
-	SELECT DISTINCT room_id 
-	FROM bookings
-	WHERE (
-			
-				( 
-					(check_in BETWEEN @checkIn AND @checkOut) 
-						OR 
-					(check_out BETWEEN @checkIn AND @checkOut)
-				)
-				OR
-				(
-					(check_in < @checkIn)
-					AND 
-					(check_out > @checkOut) 
-				)
+-- Database queries
 
-	)
+DECLARE @checkIn VARCHAR(20) = '20220711';
+DECLARE @checkOut VARCHAR(20) = '20220712';
+DECLARE @roomType INT = 4;
 
-
-
-
-SELECT * 
-FROM rooms 
-WHERE id  NOT IN (
-	SELECT DISTINCT bookings.room_id 
-	FROM bookings
-	WHERE (
-			
-				(check_in BETWEEN @checkIn AND @checkOut) 
-				OR 
-				(check_out BETWEEN @checkIn AND @checkOut)
-				OR
-				(
-					(check_in < @checkIn)
-					AND 
-					(check_out > @checkOut) 
-				)
-	)
-)
-
-
-
-
-
+-- Available room query
 	SELECT DISTINCT room_type
 	FROM rooms AS  r
 	WHERE NOT EXISTS 
@@ -197,19 +83,6 @@ WHERE id  NOT IN (
 		) AND room_type = @roomType
 	GROUP BY room_type
 
-SELECT * FROM rooms;
-SELECT * FROM room_types;
-SELECT * FROM bookings;
-SELECT * FROM reviews;
-
-INSERT INTO reviews(cus_id,review) VALUES('U_0005','Very nice motel. The service is execellent.');
-
-INSERT INTO bookings(room_id,cus_id,check_in,check_out) 
-VALUES(200,'U_0005','20220718','20220717');
--- Simplified version
-DECLARE @checkIn VARCHAR(20) = '20220711';
-DECLARE @checkOut VARCHAR(20) = '20220712';
-DECLARE @roomType INT = 4;
 
 SELECT rooms.room_description,room_types.price
 FROM room_types
@@ -256,31 +129,7 @@ ON room_types.id = (
 	);
 
 
-SELECT * 
-FROM rooms 
-WHERE id  NOT IN (
-	SELECT DISTINCT bookings.room_id 
-	FROM bookings
-	WHERE (
-			
-				(check_in BETWEEN CAST(@checkIn as DATE) AND CAST(@checkOut as DATE)) 
-				OR 
-				(check_out BETWEEN CAST(@checkIn as DATE) AND  CAST(@checkOut as DATE))
-				OR
-				(
-					(check_in < CAST(@checkIn as DATE))
-					AND 
-					(check_out >  CAST(@checkOut as DATE)) 
-				)
-	)
-)
 
-
-   
-
-SELECT * FROM rooms;
-
-SELECT * FROM bookings;
 
 
 

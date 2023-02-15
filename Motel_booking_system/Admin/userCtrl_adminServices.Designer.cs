@@ -142,9 +142,9 @@
             this.label2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(6, 31);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(142, 24);
+            this.label2.Size = new System.Drawing.Size(125, 24);
             this.label2.TabIndex = 24;
-            this.label2.Text = "Room Number";
+            this.label2.Text = "Motel rooms";
             // 
             // btn_addRoom
             // 

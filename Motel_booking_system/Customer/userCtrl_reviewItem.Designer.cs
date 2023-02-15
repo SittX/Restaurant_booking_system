@@ -63,6 +63,7 @@
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.Controls.Add(this.lbl_review);
             this.Controls.Add(this.lbl_username);
+            this.Margin = new System.Windows.Forms.Padding(1);
             this.Name = "userCtrl_reviewItem";
             this.Size = new System.Drawing.Size(504, 121);
             this.ResumeLayout(false);

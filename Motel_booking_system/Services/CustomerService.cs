@@ -98,7 +98,9 @@ namespace Motel_booking_system.Services
         {
             try
             {
-                var data = _adapter.GetDataByUsernameAndPassword(username, password);
+
+                var encryptedPassword = PasswordEncryption.Encrypt(password);
+                var data = _adapter.GetDataByUsernameAndPassword(username, encryptedPassword);
 
                 if (data.Count <= 0 && data is null)
                 {

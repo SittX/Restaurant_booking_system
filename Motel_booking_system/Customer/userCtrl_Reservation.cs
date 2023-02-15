@@ -69,6 +69,12 @@ namespace Motel_booking_system
                 return;
             }
 
+
+            checkIn = dtPicker_checkIn.Value.ToString("yyyy-MM-dd");
+            checkOut = dtPicker_checkOut.Value.ToString("yyyy-MM-dd");
+            roomType = Convert.ToInt32(cmb_roomType.SelectedValue);
+
+
             if (!_bookingService.ValidateReservationDate(checkIn, checkOut))
             {
                 return;
@@ -96,17 +102,17 @@ namespace Motel_booking_system
 
         private bool ValidateInputs()
         {
-            if (InputValidations.InputValidation.ValidateNullOrEmpty(txt_roomNumber))
+            if (!InputValidations.InputValidation.ValidateNullOrEmpty(txt_roomNumber))
             {
                 return false;
             }
 
-            if (!string.IsNullOrEmpty(checkIn))
+            if (string.IsNullOrEmpty(checkIn))
             {
                 return false;
             }
 
-            if (!string.IsNullOrEmpty(checkOut))
+            if (string.IsNullOrEmpty(checkOut))
             {
                 return false;
             }
